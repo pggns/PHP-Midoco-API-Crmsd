@@ -11,6 +11,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * This class stands for DeassignDebitorToOrgunitResponse StructType
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class DeassignDebitorToOrgunitResponse extends AbstractStructBase
 {
     /**

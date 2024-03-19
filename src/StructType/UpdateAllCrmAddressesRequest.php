@@ -11,6 +11,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * This class stands for UpdateAllCrmAddressesRequest StructType
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class UpdateAllCrmAddressesRequest extends AbstractStructBase
 {
     /**

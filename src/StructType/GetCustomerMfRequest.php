@@ -11,6 +11,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * This class stands for GetCustomerMfRequest StructType
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class GetCustomerMfRequest extends AbstractStructBase
 {
     /**
@@ -27,7 +28,7 @@ class GetCustomerMfRequest extends AbstractStructBase
      * - minOccurs: 0
      * @var \Pggns\MidocoApi\Crmsd\StructType\CustomerMfRuleAttributeType[]
      */
-    protected array $CustomerMfRuleAttribute = [];
+    protected ?array $CustomerMfRuleAttribute = null;
     /**
      * The bean
      * @var string|null
@@ -91,7 +92,7 @@ class GetCustomerMfRequest extends AbstractStructBase
      * @param bool $presetContent
      * @param string $validDate
      */
-    public function __construct(?\Pggns\MidocoApi\Crmsd\StructType\CustomerIdDTO $midocoCustomerId = null, array $customerMfRuleAttribute = [], ?string $bean = null, ?string $className = null, ?string $attrName = null, ?string $unitName = null, ?bool $onlyNumeric = null, ?bool $printEnforced = null, ?bool $presetContent = null, ?string $validDate = null)
+    public function __construct(?\Pggns\MidocoApi\Crmsd\StructType\CustomerIdDTO $midocoCustomerId = null, ?array $customerMfRuleAttribute = null, ?string $bean = null, ?string $className = null, ?string $attrName = null, ?string $unitName = null, ?bool $onlyNumeric = null, ?bool $printEnforced = null, ?bool $presetContent = null, ?string $validDate = null)
     {
         $this
             ->setMidocoCustomerId($midocoCustomerId)
@@ -128,18 +129,22 @@ class GetCustomerMfRequest extends AbstractStructBase
      * Get CustomerMfRuleAttribute value
      * @return \Pggns\MidocoApi\Crmsd\StructType\CustomerMfRuleAttributeType[]
      */
-    public function getCustomerMfRuleAttribute(): array
+    public function getCustomerMfRuleAttribute(): ?array
     {
         return $this->CustomerMfRuleAttribute;
     }
     /**
-     * This method is responsible for validating the values passed to the setCustomerMfRuleAttribute method
+     * This method is responsible for validating the value(s) passed to the setCustomerMfRuleAttribute method
      * This method is willingly generated in order to preserve the one-line inline validation within the setCustomerMfRuleAttribute method
+     * This has to validate that each item contained by the array match the itemType constraint
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateCustomerMfRuleAttributeForArrayConstraintsFromSetCustomerMfRuleAttribute(array $values = []): string
+    public static function validateCustomerMfRuleAttributeForArrayConstraintFromSetCustomerMfRuleAttribute(?array $values = []): string
     {
+        if (!is_array($values)) {
+            return '';
+        }
         $message = '';
         $invalidValues = [];
         foreach ($values as $getCustomerMfRequestCustomerMfRuleAttributeItem) {
@@ -161,10 +166,10 @@ class GetCustomerMfRequest extends AbstractStructBase
      * @param \Pggns\MidocoApi\Crmsd\StructType\CustomerMfRuleAttributeType[] $customerMfRuleAttribute
      * @return \Pggns\MidocoApi\Crmsd\StructType\GetCustomerMfRequest
      */
-    public function setCustomerMfRuleAttribute(array $customerMfRuleAttribute = []): self
+    public function setCustomerMfRuleAttribute(?array $customerMfRuleAttribute = null): self
     {
         // validation for constraint: array
-        if ('' !== ($customerMfRuleAttributeArrayErrorMessage = self::validateCustomerMfRuleAttributeForArrayConstraintsFromSetCustomerMfRuleAttribute($customerMfRuleAttribute))) {
+        if ('' !== ($customerMfRuleAttributeArrayErrorMessage = self::validateCustomerMfRuleAttributeForArrayConstraintFromSetCustomerMfRuleAttribute($customerMfRuleAttribute))) {
             throw new InvalidArgumentException($customerMfRuleAttributeArrayErrorMessage, __LINE__);
         }
         $this->CustomerMfRuleAttribute = $customerMfRuleAttribute;

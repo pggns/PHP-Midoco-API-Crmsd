@@ -11,6 +11,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * This class stands for GetFrequentFlyerNumbersResponse StructType
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class GetFrequentFlyerNumbersResponse extends AbstractStructBase
 {
     /**
@@ -21,13 +22,13 @@ class GetFrequentFlyerNumbersResponse extends AbstractStructBase
      * - ref: MidocoFrequentFlyerNumber
      * @var \Pggns\MidocoApi\Crmsd\StructType\FrequentFlyerNumberDTO[]
      */
-    protected array $MidocoFrequentFlyerNumber = [];
+    protected ?array $MidocoFrequentFlyerNumber = null;
     /**
      * Constructor method for GetFrequentFlyerNumbersResponse
      * @uses GetFrequentFlyerNumbersResponse::setMidocoFrequentFlyerNumber()
      * @param \Pggns\MidocoApi\Crmsd\StructType\FrequentFlyerNumberDTO[] $midocoFrequentFlyerNumber
      */
-    public function __construct(array $midocoFrequentFlyerNumber = [])
+    public function __construct(?array $midocoFrequentFlyerNumber = null)
     {
         $this
             ->setMidocoFrequentFlyerNumber($midocoFrequentFlyerNumber);
@@ -36,18 +37,22 @@ class GetFrequentFlyerNumbersResponse extends AbstractStructBase
      * Get MidocoFrequentFlyerNumber value
      * @return \Pggns\MidocoApi\Crmsd\StructType\FrequentFlyerNumberDTO[]
      */
-    public function getMidocoFrequentFlyerNumber(): array
+    public function getMidocoFrequentFlyerNumber(): ?array
     {
         return $this->MidocoFrequentFlyerNumber;
     }
     /**
-     * This method is responsible for validating the values passed to the setMidocoFrequentFlyerNumber method
+     * This method is responsible for validating the value(s) passed to the setMidocoFrequentFlyerNumber method
      * This method is willingly generated in order to preserve the one-line inline validation within the setMidocoFrequentFlyerNumber method
+     * This has to validate that each item contained by the array match the itemType constraint
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateMidocoFrequentFlyerNumberForArrayConstraintsFromSetMidocoFrequentFlyerNumber(array $values = []): string
+    public static function validateMidocoFrequentFlyerNumberForArrayConstraintFromSetMidocoFrequentFlyerNumber(?array $values = []): string
     {
+        if (!is_array($values)) {
+            return '';
+        }
         $message = '';
         $invalidValues = [];
         foreach ($values as $getFrequentFlyerNumbersResponseMidocoFrequentFlyerNumberItem) {
@@ -69,10 +74,10 @@ class GetFrequentFlyerNumbersResponse extends AbstractStructBase
      * @param \Pggns\MidocoApi\Crmsd\StructType\FrequentFlyerNumberDTO[] $midocoFrequentFlyerNumber
      * @return \Pggns\MidocoApi\Crmsd\StructType\GetFrequentFlyerNumbersResponse
      */
-    public function setMidocoFrequentFlyerNumber(array $midocoFrequentFlyerNumber = []): self
+    public function setMidocoFrequentFlyerNumber(?array $midocoFrequentFlyerNumber = null): self
     {
         // validation for constraint: array
-        if ('' !== ($midocoFrequentFlyerNumberArrayErrorMessage = self::validateMidocoFrequentFlyerNumberForArrayConstraintsFromSetMidocoFrequentFlyerNumber($midocoFrequentFlyerNumber))) {
+        if ('' !== ($midocoFrequentFlyerNumberArrayErrorMessage = self::validateMidocoFrequentFlyerNumberForArrayConstraintFromSetMidocoFrequentFlyerNumber($midocoFrequentFlyerNumber))) {
             throw new InvalidArgumentException($midocoFrequentFlyerNumberArrayErrorMessage, __LINE__);
         }
         $this->MidocoFrequentFlyerNumber = $midocoFrequentFlyerNumber;

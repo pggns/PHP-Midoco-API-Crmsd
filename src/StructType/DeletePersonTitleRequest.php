@@ -13,6 +13,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * - documentation: get the active mandate that is assigned to a billing document
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class DeletePersonTitleRequest extends AbstractStructBase
 {
     /**

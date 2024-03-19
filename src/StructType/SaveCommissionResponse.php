@@ -13,6 +13,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * - documentation: saveCommission --- save a commission transmitted as parameter
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class SaveCommissionResponse extends AbstractStructBase
 {
 }

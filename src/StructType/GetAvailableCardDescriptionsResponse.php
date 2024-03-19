@@ -13,6 +13,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * - documentation: returns the available card type descriptions
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class GetAvailableCardDescriptionsResponse extends AbstractStructBase
 {
     /**
@@ -23,13 +24,13 @@ class GetAvailableCardDescriptionsResponse extends AbstractStructBase
      * - ref: MidocoCardDescription
      * @var \Pggns\MidocoApi\Crmsd\StructType\CardDescriptionDTO[]
      */
-    protected array $MidocoCardDescription = [];
+    protected ?array $MidocoCardDescription = null;
     /**
      * Constructor method for GetAvailableCardDescriptionsResponse
      * @uses GetAvailableCardDescriptionsResponse::setMidocoCardDescription()
      * @param \Pggns\MidocoApi\Crmsd\StructType\CardDescriptionDTO[] $midocoCardDescription
      */
-    public function __construct(array $midocoCardDescription = [])
+    public function __construct(?array $midocoCardDescription = null)
     {
         $this
             ->setMidocoCardDescription($midocoCardDescription);
@@ -38,18 +39,22 @@ class GetAvailableCardDescriptionsResponse extends AbstractStructBase
      * Get MidocoCardDescription value
      * @return \Pggns\MidocoApi\Crmsd\StructType\CardDescriptionDTO[]
      */
-    public function getMidocoCardDescription(): array
+    public function getMidocoCardDescription(): ?array
     {
         return $this->MidocoCardDescription;
     }
     /**
-     * This method is responsible for validating the values passed to the setMidocoCardDescription method
+     * This method is responsible for validating the value(s) passed to the setMidocoCardDescription method
      * This method is willingly generated in order to preserve the one-line inline validation within the setMidocoCardDescription method
+     * This has to validate that each item contained by the array match the itemType constraint
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateMidocoCardDescriptionForArrayConstraintsFromSetMidocoCardDescription(array $values = []): string
+    public static function validateMidocoCardDescriptionForArrayConstraintFromSetMidocoCardDescription(?array $values = []): string
     {
+        if (!is_array($values)) {
+            return '';
+        }
         $message = '';
         $invalidValues = [];
         foreach ($values as $getAvailableCardDescriptionsResponseMidocoCardDescriptionItem) {
@@ -71,10 +76,10 @@ class GetAvailableCardDescriptionsResponse extends AbstractStructBase
      * @param \Pggns\MidocoApi\Crmsd\StructType\CardDescriptionDTO[] $midocoCardDescription
      * @return \Pggns\MidocoApi\Crmsd\StructType\GetAvailableCardDescriptionsResponse
      */
-    public function setMidocoCardDescription(array $midocoCardDescription = []): self
+    public function setMidocoCardDescription(?array $midocoCardDescription = null): self
     {
         // validation for constraint: array
-        if ('' !== ($midocoCardDescriptionArrayErrorMessage = self::validateMidocoCardDescriptionForArrayConstraintsFromSetMidocoCardDescription($midocoCardDescription))) {
+        if ('' !== ($midocoCardDescriptionArrayErrorMessage = self::validateMidocoCardDescriptionForArrayConstraintFromSetMidocoCardDescription($midocoCardDescription))) {
             throw new InvalidArgumentException($midocoCardDescriptionArrayErrorMessage, __LINE__);
         }
         $this->MidocoCardDescription = $midocoCardDescription;

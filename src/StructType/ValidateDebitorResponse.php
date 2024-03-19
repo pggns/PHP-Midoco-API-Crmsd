@@ -13,6 +13,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * - documentation: validateDebitor --- validate the debitor against the Debitor table
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class ValidateDebitorResponse extends AbstractStructBase
 {
     /**

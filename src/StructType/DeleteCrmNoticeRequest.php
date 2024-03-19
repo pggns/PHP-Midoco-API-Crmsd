@@ -11,6 +11,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * This class stands for DeleteCrmNoticeRequest StructType
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class DeleteCrmNoticeRequest extends AbstractStructBase
 {
     /**

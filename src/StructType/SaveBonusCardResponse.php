@@ -13,6 +13,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * - documentation: saveBonusCard --- saves a bonus card
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class SaveBonusCardResponse extends AbstractStructBase
 {
     /**

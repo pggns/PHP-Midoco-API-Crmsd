@@ -13,6 +13,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * - documentation: get all available Medaitors for orgUnit
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class GetAvailableMediatorsRequest extends AbstractStructBase
 {
     /**

@@ -13,6 +13,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * - documentation: GetAssignedMidocoSettlUnit --- returns the assigned settlement org units defined for the given customer and org unit
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class GetAssignedMidocoSettlUnitResponse extends AbstractStructBase
 {
     /**

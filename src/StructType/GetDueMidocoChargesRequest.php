@@ -11,6 +11,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * This class stands for GetDueMidocoChargesRequest StructType
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class GetDueMidocoChargesRequest extends AbstractStructBase
 {
     /**

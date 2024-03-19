@@ -13,6 +13,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * - documentation: getLockReasons--- returns a list of lock reason for the given lock reason with parent-entries
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class GetAvailableLockReasonsResponse extends AbstractStructBase
 {
     /**
@@ -23,13 +24,13 @@ class GetAvailableLockReasonsResponse extends AbstractStructBase
      * - ref: MidocoCrmLockReason
      * @var \Pggns\MidocoApi\Crmsd\StructType\CrmLockReasonDTO[]
      */
-    protected array $MidocoCrmLockReason = [];
+    protected ?array $MidocoCrmLockReason = null;
     /**
      * Constructor method for GetAvailableLockReasonsResponse
      * @uses GetAvailableLockReasonsResponse::setMidocoCrmLockReason()
      * @param \Pggns\MidocoApi\Crmsd\StructType\CrmLockReasonDTO[] $midocoCrmLockReason
      */
-    public function __construct(array $midocoCrmLockReason = [])
+    public function __construct(?array $midocoCrmLockReason = null)
     {
         $this
             ->setMidocoCrmLockReason($midocoCrmLockReason);
@@ -38,18 +39,22 @@ class GetAvailableLockReasonsResponse extends AbstractStructBase
      * Get MidocoCrmLockReason value
      * @return \Pggns\MidocoApi\Crmsd\StructType\CrmLockReasonDTO[]
      */
-    public function getMidocoCrmLockReason(): array
+    public function getMidocoCrmLockReason(): ?array
     {
         return $this->MidocoCrmLockReason;
     }
     /**
-     * This method is responsible for validating the values passed to the setMidocoCrmLockReason method
+     * This method is responsible for validating the value(s) passed to the setMidocoCrmLockReason method
      * This method is willingly generated in order to preserve the one-line inline validation within the setMidocoCrmLockReason method
+     * This has to validate that each item contained by the array match the itemType constraint
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateMidocoCrmLockReasonForArrayConstraintsFromSetMidocoCrmLockReason(array $values = []): string
+    public static function validateMidocoCrmLockReasonForArrayConstraintFromSetMidocoCrmLockReason(?array $values = []): string
     {
+        if (!is_array($values)) {
+            return '';
+        }
         $message = '';
         $invalidValues = [];
         foreach ($values as $getAvailableLockReasonsResponseMidocoCrmLockReasonItem) {
@@ -71,10 +76,10 @@ class GetAvailableLockReasonsResponse extends AbstractStructBase
      * @param \Pggns\MidocoApi\Crmsd\StructType\CrmLockReasonDTO[] $midocoCrmLockReason
      * @return \Pggns\MidocoApi\Crmsd\StructType\GetAvailableLockReasonsResponse
      */
-    public function setMidocoCrmLockReason(array $midocoCrmLockReason = []): self
+    public function setMidocoCrmLockReason(?array $midocoCrmLockReason = null): self
     {
         // validation for constraint: array
-        if ('' !== ($midocoCrmLockReasonArrayErrorMessage = self::validateMidocoCrmLockReasonForArrayConstraintsFromSetMidocoCrmLockReason($midocoCrmLockReason))) {
+        if ('' !== ($midocoCrmLockReasonArrayErrorMessage = self::validateMidocoCrmLockReasonForArrayConstraintFromSetMidocoCrmLockReason($midocoCrmLockReason))) {
             throw new InvalidArgumentException($midocoCrmLockReasonArrayErrorMessage, __LINE__);
         }
         $this->MidocoCrmLockReason = $midocoCrmLockReason;

@@ -11,6 +11,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * This class stands for GetCustomerInfoRequest StructType
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class GetCustomerInfoRequest extends AbstractStructBase
 {
     /**
@@ -21,7 +22,7 @@ class GetCustomerInfoRequest extends AbstractStructBase
      * - ref: CustomerInfo
      * @var \Pggns\MidocoApi\Crmsd\StructType\CustomerInfo[]
      */
-    protected array $CustomerInfo = [];
+    protected array $CustomerInfo;
     /**
      * Constructor method for GetCustomerInfoRequest
      * @uses GetCustomerInfoRequest::setCustomerInfo()
@@ -41,13 +42,17 @@ class GetCustomerInfoRequest extends AbstractStructBase
         return $this->CustomerInfo;
     }
     /**
-     * This method is responsible for validating the values passed to the setCustomerInfo method
+     * This method is responsible for validating the value(s) passed to the setCustomerInfo method
      * This method is willingly generated in order to preserve the one-line inline validation within the setCustomerInfo method
+     * This has to validate that each item contained by the array match the itemType constraint
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateCustomerInfoForArrayConstraintsFromSetCustomerInfo(array $values = []): string
+    public static function validateCustomerInfoForArrayConstraintFromSetCustomerInfo(?array $values = []): string
     {
+        if (!is_array($values)) {
+            return '';
+        }
         $message = '';
         $invalidValues = [];
         foreach ($values as $getCustomerInfoRequestCustomerInfoItem) {
@@ -72,7 +77,7 @@ class GetCustomerInfoRequest extends AbstractStructBase
     public function setCustomerInfo(array $customerInfo): self
     {
         // validation for constraint: array
-        if ('' !== ($customerInfoArrayErrorMessage = self::validateCustomerInfoForArrayConstraintsFromSetCustomerInfo($customerInfo))) {
+        if ('' !== ($customerInfoArrayErrorMessage = self::validateCustomerInfoForArrayConstraintFromSetCustomerInfo($customerInfo))) {
             throw new InvalidArgumentException($customerInfoArrayErrorMessage, __LINE__);
         }
         // validation for constraint: maxOccurs(500)

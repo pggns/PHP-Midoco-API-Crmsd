@@ -11,6 +11,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * This class stands for DeleteMediatorTextTemplateResponse StructType
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class DeleteMediatorTextTemplateResponse extends AbstractStructBase
 {
     /**

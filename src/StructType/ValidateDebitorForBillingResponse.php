@@ -13,6 +13,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * - documentation: validateDebitorForBilling --- validates if the debitor no supplied for a billing document is a valid one
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class ValidateDebitorForBillingResponse extends AbstractStructBase
 {
     /**

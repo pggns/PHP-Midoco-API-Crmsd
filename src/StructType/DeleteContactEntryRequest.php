@@ -13,6 +13,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * - documentation: deleteContactEntry --- all entries should be from the same customer!
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class DeleteContactEntryRequest extends AbstractStructBase
 {
     /**
@@ -23,7 +24,7 @@ class DeleteContactEntryRequest extends AbstractStructBase
      * - ref: MidocoContactEntry
      * @var \Pggns\MidocoApi\Crmsd\StructType\MidocoContactEntryType[]
      */
-    protected array $MidocoContactEntry = [];
+    protected ?array $MidocoContactEntry = null;
     /**
      * The internalVersion
      * @var int|null
@@ -36,7 +37,7 @@ class DeleteContactEntryRequest extends AbstractStructBase
      * @param \Pggns\MidocoApi\Crmsd\StructType\MidocoContactEntryType[] $midocoContactEntry
      * @param int $internalVersion
      */
-    public function __construct(array $midocoContactEntry = [], ?int $internalVersion = null)
+    public function __construct(?array $midocoContactEntry = null, ?int $internalVersion = null)
     {
         $this
             ->setMidocoContactEntry($midocoContactEntry)
@@ -46,18 +47,22 @@ class DeleteContactEntryRequest extends AbstractStructBase
      * Get MidocoContactEntry value
      * @return \Pggns\MidocoApi\Crmsd\StructType\MidocoContactEntryType[]
      */
-    public function getMidocoContactEntry(): array
+    public function getMidocoContactEntry(): ?array
     {
         return $this->MidocoContactEntry;
     }
     /**
-     * This method is responsible for validating the values passed to the setMidocoContactEntry method
+     * This method is responsible for validating the value(s) passed to the setMidocoContactEntry method
      * This method is willingly generated in order to preserve the one-line inline validation within the setMidocoContactEntry method
+     * This has to validate that each item contained by the array match the itemType constraint
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateMidocoContactEntryForArrayConstraintsFromSetMidocoContactEntry(array $values = []): string
+    public static function validateMidocoContactEntryForArrayConstraintFromSetMidocoContactEntry(?array $values = []): string
     {
+        if (!is_array($values)) {
+            return '';
+        }
         $message = '';
         $invalidValues = [];
         foreach ($values as $deleteContactEntryRequestMidocoContactEntryItem) {
@@ -79,10 +84,10 @@ class DeleteContactEntryRequest extends AbstractStructBase
      * @param \Pggns\MidocoApi\Crmsd\StructType\MidocoContactEntryType[] $midocoContactEntry
      * @return \Pggns\MidocoApi\Crmsd\StructType\DeleteContactEntryRequest
      */
-    public function setMidocoContactEntry(array $midocoContactEntry = []): self
+    public function setMidocoContactEntry(?array $midocoContactEntry = null): self
     {
         // validation for constraint: array
-        if ('' !== ($midocoContactEntryArrayErrorMessage = self::validateMidocoContactEntryForArrayConstraintsFromSetMidocoContactEntry($midocoContactEntry))) {
+        if ('' !== ($midocoContactEntryArrayErrorMessage = self::validateMidocoContactEntryForArrayConstraintFromSetMidocoContactEntry($midocoContactEntry))) {
             throw new InvalidArgumentException($midocoContactEntryArrayErrorMessage, __LINE__);
         }
         $this->MidocoContactEntry = $midocoContactEntry;

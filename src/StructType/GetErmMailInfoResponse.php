@@ -11,6 +11,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * This class stands for GetErmMailInfoResponse StructType
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class GetErmMailInfoResponse extends AbstractStructBase
 {
     /**
@@ -21,13 +22,13 @@ class GetErmMailInfoResponse extends AbstractStructBase
      * - ref: MidocoCustomerMailErm
      * @var \Pggns\MidocoApi\Crmsd\StructType\CustomerMailErmDTO[]
      */
-    protected array $MidocoCustomerMailErm = [];
+    protected ?array $MidocoCustomerMailErm = null;
     /**
      * Constructor method for GetErmMailInfoResponse
      * @uses GetErmMailInfoResponse::setMidocoCustomerMailErm()
      * @param \Pggns\MidocoApi\Crmsd\StructType\CustomerMailErmDTO[] $midocoCustomerMailErm
      */
-    public function __construct(array $midocoCustomerMailErm = [])
+    public function __construct(?array $midocoCustomerMailErm = null)
     {
         $this
             ->setMidocoCustomerMailErm($midocoCustomerMailErm);
@@ -36,18 +37,22 @@ class GetErmMailInfoResponse extends AbstractStructBase
      * Get MidocoCustomerMailErm value
      * @return \Pggns\MidocoApi\Crmsd\StructType\CustomerMailErmDTO[]
      */
-    public function getMidocoCustomerMailErm(): array
+    public function getMidocoCustomerMailErm(): ?array
     {
         return $this->MidocoCustomerMailErm;
     }
     /**
-     * This method is responsible for validating the values passed to the setMidocoCustomerMailErm method
+     * This method is responsible for validating the value(s) passed to the setMidocoCustomerMailErm method
      * This method is willingly generated in order to preserve the one-line inline validation within the setMidocoCustomerMailErm method
+     * This has to validate that each item contained by the array match the itemType constraint
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateMidocoCustomerMailErmForArrayConstraintsFromSetMidocoCustomerMailErm(array $values = []): string
+    public static function validateMidocoCustomerMailErmForArrayConstraintFromSetMidocoCustomerMailErm(?array $values = []): string
     {
+        if (!is_array($values)) {
+            return '';
+        }
         $message = '';
         $invalidValues = [];
         foreach ($values as $getErmMailInfoResponseMidocoCustomerMailErmItem) {
@@ -69,10 +74,10 @@ class GetErmMailInfoResponse extends AbstractStructBase
      * @param \Pggns\MidocoApi\Crmsd\StructType\CustomerMailErmDTO[] $midocoCustomerMailErm
      * @return \Pggns\MidocoApi\Crmsd\StructType\GetErmMailInfoResponse
      */
-    public function setMidocoCustomerMailErm(array $midocoCustomerMailErm = []): self
+    public function setMidocoCustomerMailErm(?array $midocoCustomerMailErm = null): self
     {
         // validation for constraint: array
-        if ('' !== ($midocoCustomerMailErmArrayErrorMessage = self::validateMidocoCustomerMailErmForArrayConstraintsFromSetMidocoCustomerMailErm($midocoCustomerMailErm))) {
+        if ('' !== ($midocoCustomerMailErmArrayErrorMessage = self::validateMidocoCustomerMailErmForArrayConstraintFromSetMidocoCustomerMailErm($midocoCustomerMailErm))) {
             throw new InvalidArgumentException($midocoCustomerMailErmArrayErrorMessage, __LINE__);
         }
         $this->MidocoCustomerMailErm = $midocoCustomerMailErm;

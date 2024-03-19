@@ -11,6 +11,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * This class stands for SaveJobFunctionRequest StructType
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class SaveJobFunctionRequest extends AbstractStructBase
 {
     /**

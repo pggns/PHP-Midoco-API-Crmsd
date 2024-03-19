@@ -11,6 +11,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * This class stands for SaveLetterTemplateRequest StructType
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class SaveLetterTemplateRequest extends AbstractStructBase
 {
     /**

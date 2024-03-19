@@ -11,6 +11,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * This class stands for SetLastExecutedMediatorChargeRequest StructType
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class SetLastExecutedMediatorChargeRequest extends AbstractStructBase
 {
     /**

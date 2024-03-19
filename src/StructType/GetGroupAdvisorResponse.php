@@ -11,6 +11,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * This class stands for GetGroupAdvisorResponse StructType
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class GetGroupAdvisorResponse extends AbstractStructBase
 {
     /**
@@ -21,13 +22,13 @@ class GetGroupAdvisorResponse extends AbstractStructBase
      * - ref: MidocoGroupAdviser
      * @var \Pggns\MidocoApi\Crmsd\StructType\MidocoGroupAdviser[]
      */
-    protected array $MidocoGroupAdviser = [];
+    protected ?array $MidocoGroupAdviser = null;
     /**
      * Constructor method for GetGroupAdvisorResponse
      * @uses GetGroupAdvisorResponse::setMidocoGroupAdviser()
      * @param \Pggns\MidocoApi\Crmsd\StructType\MidocoGroupAdviser[] $midocoGroupAdviser
      */
-    public function __construct(array $midocoGroupAdviser = [])
+    public function __construct(?array $midocoGroupAdviser = null)
     {
         $this
             ->setMidocoGroupAdviser($midocoGroupAdviser);
@@ -36,18 +37,22 @@ class GetGroupAdvisorResponse extends AbstractStructBase
      * Get MidocoGroupAdviser value
      * @return \Pggns\MidocoApi\Crmsd\StructType\MidocoGroupAdviser[]
      */
-    public function getMidocoGroupAdviser(): array
+    public function getMidocoGroupAdviser(): ?array
     {
         return $this->MidocoGroupAdviser;
     }
     /**
-     * This method is responsible for validating the values passed to the setMidocoGroupAdviser method
+     * This method is responsible for validating the value(s) passed to the setMidocoGroupAdviser method
      * This method is willingly generated in order to preserve the one-line inline validation within the setMidocoGroupAdviser method
+     * This has to validate that each item contained by the array match the itemType constraint
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateMidocoGroupAdviserForArrayConstraintsFromSetMidocoGroupAdviser(array $values = []): string
+    public static function validateMidocoGroupAdviserForArrayConstraintFromSetMidocoGroupAdviser(?array $values = []): string
     {
+        if (!is_array($values)) {
+            return '';
+        }
         $message = '';
         $invalidValues = [];
         foreach ($values as $getGroupAdvisorResponseMidocoGroupAdviserItem) {
@@ -69,10 +74,10 @@ class GetGroupAdvisorResponse extends AbstractStructBase
      * @param \Pggns\MidocoApi\Crmsd\StructType\MidocoGroupAdviser[] $midocoGroupAdviser
      * @return \Pggns\MidocoApi\Crmsd\StructType\GetGroupAdvisorResponse
      */
-    public function setMidocoGroupAdviser(array $midocoGroupAdviser = []): self
+    public function setMidocoGroupAdviser(?array $midocoGroupAdviser = null): self
     {
         // validation for constraint: array
-        if ('' !== ($midocoGroupAdviserArrayErrorMessage = self::validateMidocoGroupAdviserForArrayConstraintsFromSetMidocoGroupAdviser($midocoGroupAdviser))) {
+        if ('' !== ($midocoGroupAdviserArrayErrorMessage = self::validateMidocoGroupAdviserForArrayConstraintFromSetMidocoGroupAdviser($midocoGroupAdviser))) {
             throw new InvalidArgumentException($midocoGroupAdviserArrayErrorMessage, __LINE__);
         }
         $this->MidocoGroupAdviser = $midocoGroupAdviser;

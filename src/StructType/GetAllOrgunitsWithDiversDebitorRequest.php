@@ -11,6 +11,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * This class stands for GetAllOrgunitsWithDiversDebitorRequest StructType
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class GetAllOrgunitsWithDiversDebitorRequest extends AbstractStructBase
 {
     /**

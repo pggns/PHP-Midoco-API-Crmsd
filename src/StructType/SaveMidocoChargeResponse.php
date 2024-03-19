@@ -13,6 +13,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * - documentation: saveMidocoCharge --- saves a Midoco charge
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class SaveMidocoChargeResponse extends AbstractStructBase
 {
     /**

@@ -11,6 +11,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * This class stands for SaveCommissionRequest StructType
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class SaveCommissionRequest extends AbstractStructBase
 {
     /**

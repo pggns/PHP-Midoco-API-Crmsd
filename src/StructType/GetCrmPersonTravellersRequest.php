@@ -11,6 +11,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * This class stands for GetCrmPersonTravellersRequest StructType
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class GetCrmPersonTravellersRequest extends AbstractStructBase
 {
     /**

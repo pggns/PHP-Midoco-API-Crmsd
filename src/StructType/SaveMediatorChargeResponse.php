@@ -13,6 +13,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * - documentation: saveMediatorCharge --- saves a mediator charge
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class SaveMediatorChargeResponse extends AbstractStructBase
 {
     /**

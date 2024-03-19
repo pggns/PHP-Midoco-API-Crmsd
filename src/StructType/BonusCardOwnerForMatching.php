@@ -11,6 +11,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * This class stands for BonusCardOwnerForMatching StructType
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class BonusCardOwnerForMatching extends AbstractStructBase
 {
     /**

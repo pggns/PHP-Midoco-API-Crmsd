@@ -13,6 +13,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * - documentation: getCustomerCollectiveInvoices --- returns the unprinted invoices assigned to the customer
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class GetUnprintedCustomerInvoicesResponse extends AbstractStructBase
 {
     /**
@@ -23,13 +24,13 @@ class GetUnprintedCustomerInvoicesResponse extends AbstractStructBase
      * - ref: MidocoCustomerInvoice
      * @var \Pggns\MidocoApi\Crmsd\StructType\MidocoCustomerInvoice[]
      */
-    protected array $MidocoCustomerInvoice = [];
+    protected ?array $MidocoCustomerInvoice = null;
     /**
      * Constructor method for GetUnprintedCustomerInvoicesResponse
      * @uses GetUnprintedCustomerInvoicesResponse::setMidocoCustomerInvoice()
      * @param \Pggns\MidocoApi\Crmsd\StructType\MidocoCustomerInvoice[] $midocoCustomerInvoice
      */
-    public function __construct(array $midocoCustomerInvoice = [])
+    public function __construct(?array $midocoCustomerInvoice = null)
     {
         $this
             ->setMidocoCustomerInvoice($midocoCustomerInvoice);
@@ -38,18 +39,22 @@ class GetUnprintedCustomerInvoicesResponse extends AbstractStructBase
      * Get MidocoCustomerInvoice value
      * @return \Pggns\MidocoApi\Crmsd\StructType\MidocoCustomerInvoice[]
      */
-    public function getMidocoCustomerInvoice(): array
+    public function getMidocoCustomerInvoice(): ?array
     {
         return $this->MidocoCustomerInvoice;
     }
     /**
-     * This method is responsible for validating the values passed to the setMidocoCustomerInvoice method
+     * This method is responsible for validating the value(s) passed to the setMidocoCustomerInvoice method
      * This method is willingly generated in order to preserve the one-line inline validation within the setMidocoCustomerInvoice method
+     * This has to validate that each item contained by the array match the itemType constraint
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateMidocoCustomerInvoiceForArrayConstraintsFromSetMidocoCustomerInvoice(array $values = []): string
+    public static function validateMidocoCustomerInvoiceForArrayConstraintFromSetMidocoCustomerInvoice(?array $values = []): string
     {
+        if (!is_array($values)) {
+            return '';
+        }
         $message = '';
         $invalidValues = [];
         foreach ($values as $getUnprintedCustomerInvoicesResponseMidocoCustomerInvoiceItem) {
@@ -71,10 +76,10 @@ class GetUnprintedCustomerInvoicesResponse extends AbstractStructBase
      * @param \Pggns\MidocoApi\Crmsd\StructType\MidocoCustomerInvoice[] $midocoCustomerInvoice
      * @return \Pggns\MidocoApi\Crmsd\StructType\GetUnprintedCustomerInvoicesResponse
      */
-    public function setMidocoCustomerInvoice(array $midocoCustomerInvoice = []): self
+    public function setMidocoCustomerInvoice(?array $midocoCustomerInvoice = null): self
     {
         // validation for constraint: array
-        if ('' !== ($midocoCustomerInvoiceArrayErrorMessage = self::validateMidocoCustomerInvoiceForArrayConstraintsFromSetMidocoCustomerInvoice($midocoCustomerInvoice))) {
+        if ('' !== ($midocoCustomerInvoiceArrayErrorMessage = self::validateMidocoCustomerInvoiceForArrayConstraintFromSetMidocoCustomerInvoice($midocoCustomerInvoice))) {
             throw new InvalidArgumentException($midocoCustomerInvoiceArrayErrorMessage, __LINE__);
         }
         $this->MidocoCustomerInvoice = $midocoCustomerInvoice;

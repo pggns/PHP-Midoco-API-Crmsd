@@ -13,6 +13,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * - documentation: return the available bonus card descriptions
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class GetAvailableComplaintTypeDescriptionsResponse extends AbstractStructBase
 {
     /**
@@ -23,13 +24,13 @@ class GetAvailableComplaintTypeDescriptionsResponse extends AbstractStructBase
      * - ref: MidocoComplaintTypeDescription
      * @var \Pggns\MidocoApi\Crmsd\StructType\ComplaintTypeDescrDTO[]
      */
-    protected array $MidocoComplaintTypeDescription = [];
+    protected ?array $MidocoComplaintTypeDescription = null;
     /**
      * Constructor method for GetAvailableComplaintTypeDescriptionsResponse
      * @uses GetAvailableComplaintTypeDescriptionsResponse::setMidocoComplaintTypeDescription()
      * @param \Pggns\MidocoApi\Crmsd\StructType\ComplaintTypeDescrDTO[] $midocoComplaintTypeDescription
      */
-    public function __construct(array $midocoComplaintTypeDescription = [])
+    public function __construct(?array $midocoComplaintTypeDescription = null)
     {
         $this
             ->setMidocoComplaintTypeDescription($midocoComplaintTypeDescription);
@@ -38,18 +39,22 @@ class GetAvailableComplaintTypeDescriptionsResponse extends AbstractStructBase
      * Get MidocoComplaintTypeDescription value
      * @return \Pggns\MidocoApi\Crmsd\StructType\ComplaintTypeDescrDTO[]
      */
-    public function getMidocoComplaintTypeDescription(): array
+    public function getMidocoComplaintTypeDescription(): ?array
     {
         return $this->MidocoComplaintTypeDescription;
     }
     /**
-     * This method is responsible for validating the values passed to the setMidocoComplaintTypeDescription method
+     * This method is responsible for validating the value(s) passed to the setMidocoComplaintTypeDescription method
      * This method is willingly generated in order to preserve the one-line inline validation within the setMidocoComplaintTypeDescription method
+     * This has to validate that each item contained by the array match the itemType constraint
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateMidocoComplaintTypeDescriptionForArrayConstraintsFromSetMidocoComplaintTypeDescription(array $values = []): string
+    public static function validateMidocoComplaintTypeDescriptionForArrayConstraintFromSetMidocoComplaintTypeDescription(?array $values = []): string
     {
+        if (!is_array($values)) {
+            return '';
+        }
         $message = '';
         $invalidValues = [];
         foreach ($values as $getAvailableComplaintTypeDescriptionsResponseMidocoComplaintTypeDescriptionItem) {
@@ -71,10 +76,10 @@ class GetAvailableComplaintTypeDescriptionsResponse extends AbstractStructBase
      * @param \Pggns\MidocoApi\Crmsd\StructType\ComplaintTypeDescrDTO[] $midocoComplaintTypeDescription
      * @return \Pggns\MidocoApi\Crmsd\StructType\GetAvailableComplaintTypeDescriptionsResponse
      */
-    public function setMidocoComplaintTypeDescription(array $midocoComplaintTypeDescription = []): self
+    public function setMidocoComplaintTypeDescription(?array $midocoComplaintTypeDescription = null): self
     {
         // validation for constraint: array
-        if ('' !== ($midocoComplaintTypeDescriptionArrayErrorMessage = self::validateMidocoComplaintTypeDescriptionForArrayConstraintsFromSetMidocoComplaintTypeDescription($midocoComplaintTypeDescription))) {
+        if ('' !== ($midocoComplaintTypeDescriptionArrayErrorMessage = self::validateMidocoComplaintTypeDescriptionForArrayConstraintFromSetMidocoComplaintTypeDescription($midocoComplaintTypeDescription))) {
             throw new InvalidArgumentException($midocoComplaintTypeDescriptionArrayErrorMessage, __LINE__);
         }
         $this->MidocoComplaintTypeDescription = $midocoComplaintTypeDescription;

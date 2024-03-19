@@ -13,6 +13,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * - documentation: saveContactEntry --- depending if a contact_id is already set, insert or update a ContactEntry for the customer
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class SaveContactEntryResponse extends AbstractStructBase
 {
     /**
@@ -22,7 +23,7 @@ class SaveContactEntryResponse extends AbstractStructBase
      * - minOccurs: 0
      * @var string[]
      */
-    protected array $errors = [];
+    protected ?array $errors = null;
     /**
      * The internalVersion
      * @var int|null
@@ -42,7 +43,7 @@ class SaveContactEntryResponse extends AbstractStructBase
      * @param int $internalVersion
      * @param int $contactId
      */
-    public function __construct(array $errors = [], ?int $internalVersion = null, ?int $contactId = null)
+    public function __construct(?array $errors = null, ?int $internalVersion = null, ?int $contactId = null)
     {
         $this
             ->setErrors($errors)
@@ -53,18 +54,22 @@ class SaveContactEntryResponse extends AbstractStructBase
      * Get errors value
      * @return string[]
      */
-    public function getErrors(): array
+    public function getErrors(): ?array
     {
         return $this->errors;
     }
     /**
-     * This method is responsible for validating the values passed to the setErrors method
+     * This method is responsible for validating the value(s) passed to the setErrors method
      * This method is willingly generated in order to preserve the one-line inline validation within the setErrors method
+     * This has to validate that each item contained by the array match the itemType constraint
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateErrorsForArrayConstraintsFromSetErrors(array $values = []): string
+    public static function validateErrorsForArrayConstraintFromSetErrors(?array $values = []): string
     {
+        if (!is_array($values)) {
+            return '';
+        }
         $message = '';
         $invalidValues = [];
         foreach ($values as $saveContactEntryResponseErrorsItem) {
@@ -86,10 +91,10 @@ class SaveContactEntryResponse extends AbstractStructBase
      * @param string[] $errors
      * @return \Pggns\MidocoApi\Crmsd\StructType\SaveContactEntryResponse
      */
-    public function setErrors(array $errors = []): self
+    public function setErrors(?array $errors = null): self
     {
         // validation for constraint: array
-        if ('' !== ($errorsArrayErrorMessage = self::validateErrorsForArrayConstraintsFromSetErrors($errors))) {
+        if ('' !== ($errorsArrayErrorMessage = self::validateErrorsForArrayConstraintFromSetErrors($errors))) {
             throw new InvalidArgumentException($errorsArrayErrorMessage, __LINE__);
         }
         $this->errors = $errors;

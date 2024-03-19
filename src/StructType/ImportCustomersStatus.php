@@ -11,6 +11,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * This class stands for ImportCustomersStatus StructType
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class ImportCustomersStatus extends AbstractStructBase
 {
     /**

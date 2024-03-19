@@ -13,6 +13,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * - documentation: returns a list of AutoBillingMatrixDTO
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class GetAutoBillingMatrixResponse extends AbstractStructBase
 {
     /**
@@ -23,13 +24,13 @@ class GetAutoBillingMatrixResponse extends AbstractStructBase
      * - ref: MidocoAutoBillingMatrix
      * @var \Pggns\MidocoApi\Crmsd\StructType\AutoBillingMatrixDTO[]
      */
-    protected array $MidocoAutoBillingMatrix = [];
+    protected ?array $MidocoAutoBillingMatrix = null;
     /**
      * Constructor method for GetAutoBillingMatrixResponse
      * @uses GetAutoBillingMatrixResponse::setMidocoAutoBillingMatrix()
      * @param \Pggns\MidocoApi\Crmsd\StructType\AutoBillingMatrixDTO[] $midocoAutoBillingMatrix
      */
-    public function __construct(array $midocoAutoBillingMatrix = [])
+    public function __construct(?array $midocoAutoBillingMatrix = null)
     {
         $this
             ->setMidocoAutoBillingMatrix($midocoAutoBillingMatrix);
@@ -38,18 +39,22 @@ class GetAutoBillingMatrixResponse extends AbstractStructBase
      * Get MidocoAutoBillingMatrix value
      * @return \Pggns\MidocoApi\Crmsd\StructType\AutoBillingMatrixDTO[]
      */
-    public function getMidocoAutoBillingMatrix(): array
+    public function getMidocoAutoBillingMatrix(): ?array
     {
         return $this->MidocoAutoBillingMatrix;
     }
     /**
-     * This method is responsible for validating the values passed to the setMidocoAutoBillingMatrix method
+     * This method is responsible for validating the value(s) passed to the setMidocoAutoBillingMatrix method
      * This method is willingly generated in order to preserve the one-line inline validation within the setMidocoAutoBillingMatrix method
+     * This has to validate that each item contained by the array match the itemType constraint
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateMidocoAutoBillingMatrixForArrayConstraintsFromSetMidocoAutoBillingMatrix(array $values = []): string
+    public static function validateMidocoAutoBillingMatrixForArrayConstraintFromSetMidocoAutoBillingMatrix(?array $values = []): string
     {
+        if (!is_array($values)) {
+            return '';
+        }
         $message = '';
         $invalidValues = [];
         foreach ($values as $getAutoBillingMatrixResponseMidocoAutoBillingMatrixItem) {
@@ -71,10 +76,10 @@ class GetAutoBillingMatrixResponse extends AbstractStructBase
      * @param \Pggns\MidocoApi\Crmsd\StructType\AutoBillingMatrixDTO[] $midocoAutoBillingMatrix
      * @return \Pggns\MidocoApi\Crmsd\StructType\GetAutoBillingMatrixResponse
      */
-    public function setMidocoAutoBillingMatrix(array $midocoAutoBillingMatrix = []): self
+    public function setMidocoAutoBillingMatrix(?array $midocoAutoBillingMatrix = null): self
     {
         // validation for constraint: array
-        if ('' !== ($midocoAutoBillingMatrixArrayErrorMessage = self::validateMidocoAutoBillingMatrixForArrayConstraintsFromSetMidocoAutoBillingMatrix($midocoAutoBillingMatrix))) {
+        if ('' !== ($midocoAutoBillingMatrixArrayErrorMessage = self::validateMidocoAutoBillingMatrixForArrayConstraintFromSetMidocoAutoBillingMatrix($midocoAutoBillingMatrix))) {
             throw new InvalidArgumentException($midocoAutoBillingMatrixArrayErrorMessage, __LINE__);
         }
         $this->MidocoAutoBillingMatrix = $midocoAutoBillingMatrix;

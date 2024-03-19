@@ -11,6 +11,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * This class stands for GetOrderTasksRequest StructType
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class GetOrderTasksRequest extends AbstractStructBase
 {
     /**

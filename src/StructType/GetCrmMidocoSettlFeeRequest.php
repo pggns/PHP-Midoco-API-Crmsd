@@ -11,6 +11,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * This class stands for GetCrmMidocoSettlFeeRequest StructType
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class GetCrmMidocoSettlFeeRequest extends AbstractStructBase
 {
     /**

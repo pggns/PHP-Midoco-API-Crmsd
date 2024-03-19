@@ -13,6 +13,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * - documentation: saveComplaint --- saves a complaint
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class SaveComplaintResponse extends AbstractStructBase
 {
     /**

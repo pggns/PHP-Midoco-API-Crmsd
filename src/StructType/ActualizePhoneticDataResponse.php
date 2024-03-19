@@ -11,6 +11,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * This class stands for ActualizePhoneticDataResponse StructType
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class ActualizePhoneticDataResponse extends AbstractStructBase
 {
 }

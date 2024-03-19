@@ -13,6 +13,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * - documentation: Validates the request parameters used to link a Miles and More account to a Customer
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class ValidateMilesAndMoreConnectLinkRequest extends AbstractStructBase
 {
     /**

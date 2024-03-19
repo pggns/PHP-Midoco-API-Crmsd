@@ -13,6 +13,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * - documentation: getDocument --- returns a document corresponding to a given document id
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class GetDocumentResponse extends AbstractStructBase
 {
     /**

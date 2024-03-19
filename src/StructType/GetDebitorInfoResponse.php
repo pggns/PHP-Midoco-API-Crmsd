@@ -11,6 +11,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * This class stands for GetDebitorInfoResponse StructType
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class GetDebitorInfoResponse extends AbstractStructBase
 {
     /**

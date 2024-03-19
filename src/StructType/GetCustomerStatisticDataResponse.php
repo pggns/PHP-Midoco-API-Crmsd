@@ -13,6 +13,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * - documentation: getCustomerStatisticData
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class GetCustomerStatisticDataResponse extends AbstractStructBase
 {
     /**

@@ -11,6 +11,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * This class stands for GetMailForDocumentIdRequest StructType
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class GetMailForDocumentIdRequest extends AbstractStructBase
 {
     /**
@@ -21,7 +22,7 @@ class GetMailForDocumentIdRequest extends AbstractStructBase
      * - ref: MidocoDocumentBinary
      * @var \Pggns\MidocoApi\Crmsd\StructType\MidocoDocumentBinary[]
      */
-    protected array $MidocoDocumentBinary = [];
+    protected array $MidocoDocumentBinary;
     /**
      * The MidocoCrmCustomer
      * Meta information extracted from the WSDL
@@ -51,13 +52,17 @@ class GetMailForDocumentIdRequest extends AbstractStructBase
         return $this->MidocoDocumentBinary;
     }
     /**
-     * This method is responsible for validating the values passed to the setMidocoDocumentBinary method
+     * This method is responsible for validating the value(s) passed to the setMidocoDocumentBinary method
      * This method is willingly generated in order to preserve the one-line inline validation within the setMidocoDocumentBinary method
+     * This has to validate that each item contained by the array match the itemType constraint
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateMidocoDocumentBinaryForArrayConstraintsFromSetMidocoDocumentBinary(array $values = []): string
+    public static function validateMidocoDocumentBinaryForArrayConstraintFromSetMidocoDocumentBinary(?array $values = []): string
     {
+        if (!is_array($values)) {
+            return '';
+        }
         $message = '';
         $invalidValues = [];
         foreach ($values as $getMailForDocumentIdRequestMidocoDocumentBinaryItem) {
@@ -82,7 +87,7 @@ class GetMailForDocumentIdRequest extends AbstractStructBase
     public function setMidocoDocumentBinary(array $midocoDocumentBinary): self
     {
         // validation for constraint: array
-        if ('' !== ($midocoDocumentBinaryArrayErrorMessage = self::validateMidocoDocumentBinaryForArrayConstraintsFromSetMidocoDocumentBinary($midocoDocumentBinary))) {
+        if ('' !== ($midocoDocumentBinaryArrayErrorMessage = self::validateMidocoDocumentBinaryForArrayConstraintFromSetMidocoDocumentBinary($midocoDocumentBinary))) {
             throw new InvalidArgumentException($midocoDocumentBinaryArrayErrorMessage, __LINE__);
         }
         $this->MidocoDocumentBinary = $midocoDocumentBinary;

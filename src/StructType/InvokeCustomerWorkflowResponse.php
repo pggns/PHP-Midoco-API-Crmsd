@@ -11,6 +11,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * This class stands for InvokeCustomerWorkflowResponse StructType
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class InvokeCustomerWorkflowResponse extends AbstractStructBase
 {
 }

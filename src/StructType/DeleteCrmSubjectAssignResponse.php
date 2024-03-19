@@ -11,6 +11,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * This class stands for DeleteCrmSubjectAssignResponse StructType
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class DeleteCrmSubjectAssignResponse extends AbstractStructBase
 {
 }

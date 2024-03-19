@@ -11,6 +11,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * This class stands for GetCountriesRequest StructType
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class GetCountriesRequest extends AbstractStructBase
 {
     /**
@@ -20,13 +21,13 @@ class GetCountriesRequest extends AbstractStructBase
      * - minOccurs: 0
      * @var string[]
      */
-    protected array $CountryIds = [];
+    protected ?array $CountryIds = null;
     /**
      * Constructor method for GetCountriesRequest
      * @uses GetCountriesRequest::setCountryIds()
      * @param string[] $countryIds
      */
-    public function __construct(array $countryIds = [])
+    public function __construct(?array $countryIds = null)
     {
         $this
             ->setCountryIds($countryIds);
@@ -35,18 +36,22 @@ class GetCountriesRequest extends AbstractStructBase
      * Get CountryIds value
      * @return string[]
      */
-    public function getCountryIds(): array
+    public function getCountryIds(): ?array
     {
         return $this->CountryIds;
     }
     /**
-     * This method is responsible for validating the values passed to the setCountryIds method
+     * This method is responsible for validating the value(s) passed to the setCountryIds method
      * This method is willingly generated in order to preserve the one-line inline validation within the setCountryIds method
+     * This has to validate that each item contained by the array match the itemType constraint
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateCountryIdsForArrayConstraintsFromSetCountryIds(array $values = []): string
+    public static function validateCountryIdsForArrayConstraintFromSetCountryIds(?array $values = []): string
     {
+        if (!is_array($values)) {
+            return '';
+        }
         $message = '';
         $invalidValues = [];
         foreach ($values as $getCountriesRequestCountryIdsItem) {
@@ -68,10 +73,10 @@ class GetCountriesRequest extends AbstractStructBase
      * @param string[] $countryIds
      * @return \Pggns\MidocoApi\Crmsd\StructType\GetCountriesRequest
      */
-    public function setCountryIds(array $countryIds = []): self
+    public function setCountryIds(?array $countryIds = null): self
     {
         // validation for constraint: array
-        if ('' !== ($countryIdsArrayErrorMessage = self::validateCountryIdsForArrayConstraintsFromSetCountryIds($countryIds))) {
+        if ('' !== ($countryIdsArrayErrorMessage = self::validateCountryIdsForArrayConstraintFromSetCountryIds($countryIds))) {
             throw new InvalidArgumentException($countryIdsArrayErrorMessage, __LINE__);
         }
         $this->CountryIds = $countryIds;

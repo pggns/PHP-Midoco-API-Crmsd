@@ -11,6 +11,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * This class stands for DeleteComplaintStateResponse StructType
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class DeleteComplaintStateResponse extends AbstractStructBase
 {
 }

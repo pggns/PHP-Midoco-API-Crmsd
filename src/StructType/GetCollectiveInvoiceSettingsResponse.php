@@ -13,6 +13,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * - documentation: getCollectiveInvoiceSettings --- returns the collective invoice settings for a customer
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class GetCollectiveInvoiceSettingsResponse extends AbstractStructBase
 {
     /**
@@ -23,13 +24,13 @@ class GetCollectiveInvoiceSettingsResponse extends AbstractStructBase
      * - ref: MidocoCollectiveInvoiceSetting
      * @var \Pggns\MidocoApi\Crmsd\StructType\CollectInvSettingDTO[]
      */
-    protected array $MidocoCollectiveInvoiceSetting = [];
+    protected ?array $MidocoCollectiveInvoiceSetting = null;
     /**
      * Constructor method for GetCollectiveInvoiceSettingsResponse
      * @uses GetCollectiveInvoiceSettingsResponse::setMidocoCollectiveInvoiceSetting()
      * @param \Pggns\MidocoApi\Crmsd\StructType\CollectInvSettingDTO[] $midocoCollectiveInvoiceSetting
      */
-    public function __construct(array $midocoCollectiveInvoiceSetting = [])
+    public function __construct(?array $midocoCollectiveInvoiceSetting = null)
     {
         $this
             ->setMidocoCollectiveInvoiceSetting($midocoCollectiveInvoiceSetting);
@@ -38,18 +39,22 @@ class GetCollectiveInvoiceSettingsResponse extends AbstractStructBase
      * Get MidocoCollectiveInvoiceSetting value
      * @return \Pggns\MidocoApi\Crmsd\StructType\CollectInvSettingDTO[]
      */
-    public function getMidocoCollectiveInvoiceSetting(): array
+    public function getMidocoCollectiveInvoiceSetting(): ?array
     {
         return $this->MidocoCollectiveInvoiceSetting;
     }
     /**
-     * This method is responsible for validating the values passed to the setMidocoCollectiveInvoiceSetting method
+     * This method is responsible for validating the value(s) passed to the setMidocoCollectiveInvoiceSetting method
      * This method is willingly generated in order to preserve the one-line inline validation within the setMidocoCollectiveInvoiceSetting method
+     * This has to validate that each item contained by the array match the itemType constraint
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateMidocoCollectiveInvoiceSettingForArrayConstraintsFromSetMidocoCollectiveInvoiceSetting(array $values = []): string
+    public static function validateMidocoCollectiveInvoiceSettingForArrayConstraintFromSetMidocoCollectiveInvoiceSetting(?array $values = []): string
     {
+        if (!is_array($values)) {
+            return '';
+        }
         $message = '';
         $invalidValues = [];
         foreach ($values as $getCollectiveInvoiceSettingsResponseMidocoCollectiveInvoiceSettingItem) {
@@ -71,10 +76,10 @@ class GetCollectiveInvoiceSettingsResponse extends AbstractStructBase
      * @param \Pggns\MidocoApi\Crmsd\StructType\CollectInvSettingDTO[] $midocoCollectiveInvoiceSetting
      * @return \Pggns\MidocoApi\Crmsd\StructType\GetCollectiveInvoiceSettingsResponse
      */
-    public function setMidocoCollectiveInvoiceSetting(array $midocoCollectiveInvoiceSetting = []): self
+    public function setMidocoCollectiveInvoiceSetting(?array $midocoCollectiveInvoiceSetting = null): self
     {
         // validation for constraint: array
-        if ('' !== ($midocoCollectiveInvoiceSettingArrayErrorMessage = self::validateMidocoCollectiveInvoiceSettingForArrayConstraintsFromSetMidocoCollectiveInvoiceSetting($midocoCollectiveInvoiceSetting))) {
+        if ('' !== ($midocoCollectiveInvoiceSettingArrayErrorMessage = self::validateMidocoCollectiveInvoiceSettingForArrayConstraintFromSetMidocoCollectiveInvoiceSetting($midocoCollectiveInvoiceSetting))) {
             throw new InvalidArgumentException($midocoCollectiveInvoiceSettingArrayErrorMessage, __LINE__);
         }
         $this->MidocoCollectiveInvoiceSetting = $midocoCollectiveInvoiceSetting;

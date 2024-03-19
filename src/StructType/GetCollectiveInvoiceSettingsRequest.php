@@ -11,6 +11,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * This class stands for GetCollectiveInvoiceSettingsRequest StructType
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class GetCollectiveInvoiceSettingsRequest extends AbstractStructBase
 {
     /**

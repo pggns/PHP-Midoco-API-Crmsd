@@ -13,6 +13,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * - documentation: getCrmMidocoSettlements --- returns the Midoco settlement defined for the given customer
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class GetCrmMidocoSettlementsResponse extends AbstractStructBase
 {
     /**
@@ -23,13 +24,13 @@ class GetCrmMidocoSettlementsResponse extends AbstractStructBase
      * - ref: MidocoCrmMidocoSettlement
      * @var \Pggns\MidocoApi\Crmsd\StructType\MidocoCrmMidocoSettlement[]
      */
-    protected array $MidocoCrmMidocoSettlement = [];
+    protected ?array $MidocoCrmMidocoSettlement = null;
     /**
      * Constructor method for GetCrmMidocoSettlementsResponse
      * @uses GetCrmMidocoSettlementsResponse::setMidocoCrmMidocoSettlement()
      * @param \Pggns\MidocoApi\Crmsd\StructType\MidocoCrmMidocoSettlement[] $midocoCrmMidocoSettlement
      */
-    public function __construct(array $midocoCrmMidocoSettlement = [])
+    public function __construct(?array $midocoCrmMidocoSettlement = null)
     {
         $this
             ->setMidocoCrmMidocoSettlement($midocoCrmMidocoSettlement);
@@ -38,18 +39,22 @@ class GetCrmMidocoSettlementsResponse extends AbstractStructBase
      * Get MidocoCrmMidocoSettlement value
      * @return \Pggns\MidocoApi\Crmsd\StructType\MidocoCrmMidocoSettlement[]
      */
-    public function getMidocoCrmMidocoSettlement(): array
+    public function getMidocoCrmMidocoSettlement(): ?array
     {
         return $this->MidocoCrmMidocoSettlement;
     }
     /**
-     * This method is responsible for validating the values passed to the setMidocoCrmMidocoSettlement method
+     * This method is responsible for validating the value(s) passed to the setMidocoCrmMidocoSettlement method
      * This method is willingly generated in order to preserve the one-line inline validation within the setMidocoCrmMidocoSettlement method
+     * This has to validate that each item contained by the array match the itemType constraint
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateMidocoCrmMidocoSettlementForArrayConstraintsFromSetMidocoCrmMidocoSettlement(array $values = []): string
+    public static function validateMidocoCrmMidocoSettlementForArrayConstraintFromSetMidocoCrmMidocoSettlement(?array $values = []): string
     {
+        if (!is_array($values)) {
+            return '';
+        }
         $message = '';
         $invalidValues = [];
         foreach ($values as $getCrmMidocoSettlementsResponseMidocoCrmMidocoSettlementItem) {
@@ -71,10 +76,10 @@ class GetCrmMidocoSettlementsResponse extends AbstractStructBase
      * @param \Pggns\MidocoApi\Crmsd\StructType\MidocoCrmMidocoSettlement[] $midocoCrmMidocoSettlement
      * @return \Pggns\MidocoApi\Crmsd\StructType\GetCrmMidocoSettlementsResponse
      */
-    public function setMidocoCrmMidocoSettlement(array $midocoCrmMidocoSettlement = []): self
+    public function setMidocoCrmMidocoSettlement(?array $midocoCrmMidocoSettlement = null): self
     {
         // validation for constraint: array
-        if ('' !== ($midocoCrmMidocoSettlementArrayErrorMessage = self::validateMidocoCrmMidocoSettlementForArrayConstraintsFromSetMidocoCrmMidocoSettlement($midocoCrmMidocoSettlement))) {
+        if ('' !== ($midocoCrmMidocoSettlementArrayErrorMessage = self::validateMidocoCrmMidocoSettlementForArrayConstraintFromSetMidocoCrmMidocoSettlement($midocoCrmMidocoSettlement))) {
             throw new InvalidArgumentException($midocoCrmMidocoSettlementArrayErrorMessage, __LINE__);
         }
         $this->MidocoCrmMidocoSettlement = $midocoCrmMidocoSettlement;

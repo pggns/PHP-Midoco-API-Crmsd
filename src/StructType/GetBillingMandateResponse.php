@@ -11,6 +11,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * This class stands for GetBillingMandateResponse StructType
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class GetBillingMandateResponse extends AbstractStructBase
 {
     /**

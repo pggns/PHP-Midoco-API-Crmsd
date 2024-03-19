@@ -13,6 +13,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * - documentation: deleteBookingSource --- deletes a BookingSource. returns void
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class DeleteBookingSourceResponse extends AbstractStructBase
 {
 }

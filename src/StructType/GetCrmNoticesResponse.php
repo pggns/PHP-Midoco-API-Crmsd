@@ -13,6 +13,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * - documentation: getCrmNotices --- returns the list of order Notices for a customer
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class GetCrmNoticesResponse extends AbstractStructBase
 {
     /**
@@ -23,7 +24,7 @@ class GetCrmNoticesResponse extends AbstractStructBase
      * - ref: MidocoCrmNotice
      * @var \Pggns\MidocoApi\Crmsd\StructType\MidocoCrmNotice[]
      */
-    protected array $MidocoCrmNotice = [];
+    protected ?array $MidocoCrmNotice = null;
     /**
      * The sortOrder
      * @var string|null
@@ -106,7 +107,7 @@ class GetCrmNoticesResponse extends AbstractStructBase
      * @param string $taskType
      * @param int $finishUser
      */
-    public function __construct(array $midocoCrmNotice = [], ?string $sortOrder = null, ?string $orgunitName = null, ?string $selection = null, ?string $fromFinishTimestamp = null, ?string $untilFinishTimestamp = null, ?string $fromCreationTimestamp = null, ?string $untilCreationTimestamp = null, ?string $delegationRole = null, ?string $notice = null, ?string $taskType = null, ?int $finishUser = null)
+    public function __construct(?array $midocoCrmNotice = null, ?string $sortOrder = null, ?string $orgunitName = null, ?string $selection = null, ?string $fromFinishTimestamp = null, ?string $untilFinishTimestamp = null, ?string $fromCreationTimestamp = null, ?string $untilCreationTimestamp = null, ?string $delegationRole = null, ?string $notice = null, ?string $taskType = null, ?int $finishUser = null)
     {
         $this
             ->setMidocoCrmNotice($midocoCrmNotice)
@@ -126,18 +127,22 @@ class GetCrmNoticesResponse extends AbstractStructBase
      * Get MidocoCrmNotice value
      * @return \Pggns\MidocoApi\Crmsd\StructType\MidocoCrmNotice[]
      */
-    public function getMidocoCrmNotice(): array
+    public function getMidocoCrmNotice(): ?array
     {
         return $this->MidocoCrmNotice;
     }
     /**
-     * This method is responsible for validating the values passed to the setMidocoCrmNotice method
+     * This method is responsible for validating the value(s) passed to the setMidocoCrmNotice method
      * This method is willingly generated in order to preserve the one-line inline validation within the setMidocoCrmNotice method
+     * This has to validate that each item contained by the array match the itemType constraint
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateMidocoCrmNoticeForArrayConstraintsFromSetMidocoCrmNotice(array $values = []): string
+    public static function validateMidocoCrmNoticeForArrayConstraintFromSetMidocoCrmNotice(?array $values = []): string
     {
+        if (!is_array($values)) {
+            return '';
+        }
         $message = '';
         $invalidValues = [];
         foreach ($values as $getCrmNoticesResponseMidocoCrmNoticeItem) {
@@ -159,10 +164,10 @@ class GetCrmNoticesResponse extends AbstractStructBase
      * @param \Pggns\MidocoApi\Crmsd\StructType\MidocoCrmNotice[] $midocoCrmNotice
      * @return \Pggns\MidocoApi\Crmsd\StructType\GetCrmNoticesResponse
      */
-    public function setMidocoCrmNotice(array $midocoCrmNotice = []): self
+    public function setMidocoCrmNotice(?array $midocoCrmNotice = null): self
     {
         // validation for constraint: array
-        if ('' !== ($midocoCrmNoticeArrayErrorMessage = self::validateMidocoCrmNoticeForArrayConstraintsFromSetMidocoCrmNotice($midocoCrmNotice))) {
+        if ('' !== ($midocoCrmNoticeArrayErrorMessage = self::validateMidocoCrmNoticeForArrayConstraintFromSetMidocoCrmNotice($midocoCrmNotice))) {
             throw new InvalidArgumentException($midocoCrmNoticeArrayErrorMessage, __LINE__);
         }
         $this->MidocoCrmNotice = $midocoCrmNotice;

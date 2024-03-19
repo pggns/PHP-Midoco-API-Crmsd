@@ -13,6 +13,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * - documentation: deleteLetterTemplate --- deletes a letter template given as parameter. returns void
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class DeleteLetterTemplateResponse extends AbstractStructBase
 {
 }

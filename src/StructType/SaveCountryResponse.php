@@ -11,6 +11,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * This class stands for SaveCountryResponse StructType
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class SaveCountryResponse extends AbstractStructBase
 {
     /**

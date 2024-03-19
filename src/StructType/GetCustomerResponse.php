@@ -13,6 +13,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * - documentation: getCustomer --- a complete DTO is returned, an error is thrown, if customer is not found, assigned entries should be queried in a way that assigned customers are found and entries where this customer is assigned to
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class GetCustomerResponse extends AbstractStructBase
 {
     /**

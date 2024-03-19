@@ -11,6 +11,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * This class stands for DeleteCustomerUserAddressingResponse StructType
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class DeleteCustomerUserAddressingResponse extends AbstractStructBase
 {
 }

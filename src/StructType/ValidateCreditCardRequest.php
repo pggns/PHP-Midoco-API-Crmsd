@@ -11,6 +11,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * This class stands for ValidateCreditCardRequest StructType
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class ValidateCreditCardRequest extends AbstractStructBase
 {
     /**

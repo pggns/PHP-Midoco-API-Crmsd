@@ -11,6 +11,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * This class stands for DeleteDebitorRequest StructType
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class DeleteDebitorRequest extends AbstractStructBase
 {
     /**

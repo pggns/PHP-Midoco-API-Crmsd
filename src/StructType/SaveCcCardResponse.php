@@ -13,6 +13,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * - documentation: saveCcCard --- saves a cc card
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class SaveCcCardResponse extends AbstractStructBase
 {
     /**

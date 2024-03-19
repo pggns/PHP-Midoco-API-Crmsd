@@ -11,6 +11,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * This class stands for GetExtendedCustomerTravelsResponse StructType
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class GetExtendedCustomerTravelsResponse extends AbstractStructBase
 {
     /**
@@ -21,7 +22,7 @@ class GetExtendedCustomerTravelsResponse extends AbstractStructBase
      * - ref: MidocoExtendedCustomerTravel
      * @var \Pggns\MidocoApi\Crmsd\StructType\MidocoExtendedCustomerTravel[]
      */
-    protected array $MidocoExtendedCustomerTravel = [];
+    protected ?array $MidocoExtendedCustomerTravel = null;
     /**
      * The totalNoOfRecords
      * @var int|null
@@ -34,7 +35,7 @@ class GetExtendedCustomerTravelsResponse extends AbstractStructBase
      * @param \Pggns\MidocoApi\Crmsd\StructType\MidocoExtendedCustomerTravel[] $midocoExtendedCustomerTravel
      * @param int $totalNoOfRecords
      */
-    public function __construct(array $midocoExtendedCustomerTravel = [], ?int $totalNoOfRecords = null)
+    public function __construct(?array $midocoExtendedCustomerTravel = null, ?int $totalNoOfRecords = null)
     {
         $this
             ->setMidocoExtendedCustomerTravel($midocoExtendedCustomerTravel)
@@ -44,18 +45,22 @@ class GetExtendedCustomerTravelsResponse extends AbstractStructBase
      * Get MidocoExtendedCustomerTravel value
      * @return \Pggns\MidocoApi\Crmsd\StructType\MidocoExtendedCustomerTravel[]
      */
-    public function getMidocoExtendedCustomerTravel(): array
+    public function getMidocoExtendedCustomerTravel(): ?array
     {
         return $this->MidocoExtendedCustomerTravel;
     }
     /**
-     * This method is responsible for validating the values passed to the setMidocoExtendedCustomerTravel method
+     * This method is responsible for validating the value(s) passed to the setMidocoExtendedCustomerTravel method
      * This method is willingly generated in order to preserve the one-line inline validation within the setMidocoExtendedCustomerTravel method
+     * This has to validate that each item contained by the array match the itemType constraint
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateMidocoExtendedCustomerTravelForArrayConstraintsFromSetMidocoExtendedCustomerTravel(array $values = []): string
+    public static function validateMidocoExtendedCustomerTravelForArrayConstraintFromSetMidocoExtendedCustomerTravel(?array $values = []): string
     {
+        if (!is_array($values)) {
+            return '';
+        }
         $message = '';
         $invalidValues = [];
         foreach ($values as $getExtendedCustomerTravelsResponseMidocoExtendedCustomerTravelItem) {
@@ -77,10 +82,10 @@ class GetExtendedCustomerTravelsResponse extends AbstractStructBase
      * @param \Pggns\MidocoApi\Crmsd\StructType\MidocoExtendedCustomerTravel[] $midocoExtendedCustomerTravel
      * @return \Pggns\MidocoApi\Crmsd\StructType\GetExtendedCustomerTravelsResponse
      */
-    public function setMidocoExtendedCustomerTravel(array $midocoExtendedCustomerTravel = []): self
+    public function setMidocoExtendedCustomerTravel(?array $midocoExtendedCustomerTravel = null): self
     {
         // validation for constraint: array
-        if ('' !== ($midocoExtendedCustomerTravelArrayErrorMessage = self::validateMidocoExtendedCustomerTravelForArrayConstraintsFromSetMidocoExtendedCustomerTravel($midocoExtendedCustomerTravel))) {
+        if ('' !== ($midocoExtendedCustomerTravelArrayErrorMessage = self::validateMidocoExtendedCustomerTravelForArrayConstraintFromSetMidocoExtendedCustomerTravel($midocoExtendedCustomerTravel))) {
             throw new InvalidArgumentException($midocoExtendedCustomerTravelArrayErrorMessage, __LINE__);
         }
         $this->MidocoExtendedCustomerTravel = $midocoExtendedCustomerTravel;

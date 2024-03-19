@@ -11,6 +11,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * This class stands for SavePaxconnectQueueRespone StructType
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class SavePaxconnectQueueRespone extends AbstractStructBase
 {
     /**

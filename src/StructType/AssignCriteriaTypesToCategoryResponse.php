@@ -11,6 +11,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * This class stands for AssignCriteriaTypesToCategoryResponse StructType
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class AssignCriteriaTypesToCategoryResponse extends AbstractStructBase
 {
 }

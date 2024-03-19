@@ -11,6 +11,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * This class stands for UpdateCustomerMailingProhibitedResponse StructType
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class UpdateCustomerMailingProhibitedResponse extends AbstractStructBase
 {
     /**

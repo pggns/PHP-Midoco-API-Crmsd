@@ -11,6 +11,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * This class stands for ValidateDebitorRequest StructType
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class ValidateDebitorRequest extends AbstractStructBase
 {
     /**

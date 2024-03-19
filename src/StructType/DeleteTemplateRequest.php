@@ -13,6 +13,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * - documentation: deleteTemplate --- delete a template for all its associated languages
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class DeleteTemplateRequest extends AbstractStructBase
 {
     /**

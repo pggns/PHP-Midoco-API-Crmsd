@@ -11,6 +11,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * This class stands for VerifyDictionaryNamesRequest StructType
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class VerifyDictionaryNamesRequest extends AbstractStructBase
 {
     /**
@@ -21,13 +22,13 @@ class VerifyDictionaryNamesRequest extends AbstractStructBase
      * - ref: MidocoDictionaryPerson
      * @var \Pggns\MidocoApi\Crmsd\StructType\MidocoDictionaryPerson[]
      */
-    protected array $MidocoDictionaryPerson = [];
+    protected ?array $MidocoDictionaryPerson = null;
     /**
      * Constructor method for VerifyDictionaryNamesRequest
      * @uses VerifyDictionaryNamesRequest::setMidocoDictionaryPerson()
      * @param \Pggns\MidocoApi\Crmsd\StructType\MidocoDictionaryPerson[] $midocoDictionaryPerson
      */
-    public function __construct(array $midocoDictionaryPerson = [])
+    public function __construct(?array $midocoDictionaryPerson = null)
     {
         $this
             ->setMidocoDictionaryPerson($midocoDictionaryPerson);
@@ -36,18 +37,22 @@ class VerifyDictionaryNamesRequest extends AbstractStructBase
      * Get MidocoDictionaryPerson value
      * @return \Pggns\MidocoApi\Crmsd\StructType\MidocoDictionaryPerson[]
      */
-    public function getMidocoDictionaryPerson(): array
+    public function getMidocoDictionaryPerson(): ?array
     {
         return $this->MidocoDictionaryPerson;
     }
     /**
-     * This method is responsible for validating the values passed to the setMidocoDictionaryPerson method
+     * This method is responsible for validating the value(s) passed to the setMidocoDictionaryPerson method
      * This method is willingly generated in order to preserve the one-line inline validation within the setMidocoDictionaryPerson method
+     * This has to validate that each item contained by the array match the itemType constraint
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateMidocoDictionaryPersonForArrayConstraintsFromSetMidocoDictionaryPerson(array $values = []): string
+    public static function validateMidocoDictionaryPersonForArrayConstraintFromSetMidocoDictionaryPerson(?array $values = []): string
     {
+        if (!is_array($values)) {
+            return '';
+        }
         $message = '';
         $invalidValues = [];
         foreach ($values as $verifyDictionaryNamesRequestMidocoDictionaryPersonItem) {
@@ -69,10 +74,10 @@ class VerifyDictionaryNamesRequest extends AbstractStructBase
      * @param \Pggns\MidocoApi\Crmsd\StructType\MidocoDictionaryPerson[] $midocoDictionaryPerson
      * @return \Pggns\MidocoApi\Crmsd\StructType\VerifyDictionaryNamesRequest
      */
-    public function setMidocoDictionaryPerson(array $midocoDictionaryPerson = []): self
+    public function setMidocoDictionaryPerson(?array $midocoDictionaryPerson = null): self
     {
         // validation for constraint: array
-        if ('' !== ($midocoDictionaryPersonArrayErrorMessage = self::validateMidocoDictionaryPersonForArrayConstraintsFromSetMidocoDictionaryPerson($midocoDictionaryPerson))) {
+        if ('' !== ($midocoDictionaryPersonArrayErrorMessage = self::validateMidocoDictionaryPersonForArrayConstraintFromSetMidocoDictionaryPerson($midocoDictionaryPerson))) {
             throw new InvalidArgumentException($midocoDictionaryPersonArrayErrorMessage, __LINE__);
         }
         $this->MidocoDictionaryPerson = $midocoDictionaryPerson;

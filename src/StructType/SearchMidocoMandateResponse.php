@@ -11,6 +11,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * This class stands for SearchMidocoMandateResponse StructType
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class SearchMidocoMandateResponse extends AbstractStructBase
 {
     /**
@@ -21,7 +22,7 @@ class SearchMidocoMandateResponse extends AbstractStructBase
      * - ref: MidocoMandate
      * @var \Pggns\MidocoApi\Crmsd\StructType\MidocoMandate[]
      */
-    protected array $MidocoMandate = [];
+    protected array $MidocoMandate;
     /**
      * Constructor method for SearchMidocoMandateResponse
      * @uses SearchMidocoMandateResponse::setMidocoMandate()
@@ -41,13 +42,17 @@ class SearchMidocoMandateResponse extends AbstractStructBase
         return $this->MidocoMandate;
     }
     /**
-     * This method is responsible for validating the values passed to the setMidocoMandate method
+     * This method is responsible for validating the value(s) passed to the setMidocoMandate method
      * This method is willingly generated in order to preserve the one-line inline validation within the setMidocoMandate method
+     * This has to validate that each item contained by the array match the itemType constraint
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateMidocoMandateForArrayConstraintsFromSetMidocoMandate(array $values = []): string
+    public static function validateMidocoMandateForArrayConstraintFromSetMidocoMandate(?array $values = []): string
     {
+        if (!is_array($values)) {
+            return '';
+        }
         $message = '';
         $invalidValues = [];
         foreach ($values as $searchMidocoMandateResponseMidocoMandateItem) {
@@ -72,7 +77,7 @@ class SearchMidocoMandateResponse extends AbstractStructBase
     public function setMidocoMandate(array $midocoMandate): self
     {
         // validation for constraint: array
-        if ('' !== ($midocoMandateArrayErrorMessage = self::validateMidocoMandateForArrayConstraintsFromSetMidocoMandate($midocoMandate))) {
+        if ('' !== ($midocoMandateArrayErrorMessage = self::validateMidocoMandateForArrayConstraintFromSetMidocoMandate($midocoMandate))) {
             throw new InvalidArgumentException($midocoMandateArrayErrorMessage, __LINE__);
         }
         $this->MidocoMandate = $midocoMandate;

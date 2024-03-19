@@ -11,6 +11,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * This class stands for SaveCustomerUserAddressingRequest StructType
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class SaveCustomerUserAddressingRequest extends AbstractStructBase
 {
     /**
@@ -21,13 +22,13 @@ class SaveCustomerUserAddressingRequest extends AbstractStructBase
      * - ref: MidocoCrmUserAddressing
      * @var \Pggns\MidocoApi\Crmsd\StructType\CrmUserAddressingDTO[]
      */
-    protected array $MidocoCrmUserAddressing = [];
+    protected ?array $MidocoCrmUserAddressing = null;
     /**
      * Constructor method for SaveCustomerUserAddressingRequest
      * @uses SaveCustomerUserAddressingRequest::setMidocoCrmUserAddressing()
      * @param \Pggns\MidocoApi\Crmsd\StructType\CrmUserAddressingDTO[] $midocoCrmUserAddressing
      */
-    public function __construct(array $midocoCrmUserAddressing = [])
+    public function __construct(?array $midocoCrmUserAddressing = null)
     {
         $this
             ->setMidocoCrmUserAddressing($midocoCrmUserAddressing);
@@ -36,18 +37,22 @@ class SaveCustomerUserAddressingRequest extends AbstractStructBase
      * Get MidocoCrmUserAddressing value
      * @return \Pggns\MidocoApi\Crmsd\StructType\CrmUserAddressingDTO[]
      */
-    public function getMidocoCrmUserAddressing(): array
+    public function getMidocoCrmUserAddressing(): ?array
     {
         return $this->MidocoCrmUserAddressing;
     }
     /**
-     * This method is responsible for validating the values passed to the setMidocoCrmUserAddressing method
+     * This method is responsible for validating the value(s) passed to the setMidocoCrmUserAddressing method
      * This method is willingly generated in order to preserve the one-line inline validation within the setMidocoCrmUserAddressing method
+     * This has to validate that each item contained by the array match the itemType constraint
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateMidocoCrmUserAddressingForArrayConstraintsFromSetMidocoCrmUserAddressing(array $values = []): string
+    public static function validateMidocoCrmUserAddressingForArrayConstraintFromSetMidocoCrmUserAddressing(?array $values = []): string
     {
+        if (!is_array($values)) {
+            return '';
+        }
         $message = '';
         $invalidValues = [];
         foreach ($values as $saveCustomerUserAddressingRequestMidocoCrmUserAddressingItem) {
@@ -69,10 +74,10 @@ class SaveCustomerUserAddressingRequest extends AbstractStructBase
      * @param \Pggns\MidocoApi\Crmsd\StructType\CrmUserAddressingDTO[] $midocoCrmUserAddressing
      * @return \Pggns\MidocoApi\Crmsd\StructType\SaveCustomerUserAddressingRequest
      */
-    public function setMidocoCrmUserAddressing(array $midocoCrmUserAddressing = []): self
+    public function setMidocoCrmUserAddressing(?array $midocoCrmUserAddressing = null): self
     {
         // validation for constraint: array
-        if ('' !== ($midocoCrmUserAddressingArrayErrorMessage = self::validateMidocoCrmUserAddressingForArrayConstraintsFromSetMidocoCrmUserAddressing($midocoCrmUserAddressing))) {
+        if ('' !== ($midocoCrmUserAddressingArrayErrorMessage = self::validateMidocoCrmUserAddressingForArrayConstraintFromSetMidocoCrmUserAddressing($midocoCrmUserAddressing))) {
             throw new InvalidArgumentException($midocoCrmUserAddressingArrayErrorMessage, __LINE__);
         }
         $this->MidocoCrmUserAddressing = $midocoCrmUserAddressing;

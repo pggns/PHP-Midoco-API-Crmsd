@@ -11,6 +11,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * This class stands for MarkExportChangedCustomersRequest StructType
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class MarkExportChangedCustomersRequest extends AbstractStructBase
 {
     /**
@@ -21,7 +22,7 @@ class MarkExportChangedCustomersRequest extends AbstractStructBase
      * - ref: MidocoExportChangedCustomersLog
      * @var \Pggns\MidocoApi\Crmsd\StructType\ExportChangedCustomersLogDTO[]
      */
-    protected array $MidocoExportChangedCustomersLog = [];
+    protected array $MidocoExportChangedCustomersLog;
     /**
      * Constructor method for MarkExportChangedCustomersRequest
      * @uses MarkExportChangedCustomersRequest::setMidocoExportChangedCustomersLog()
@@ -41,13 +42,17 @@ class MarkExportChangedCustomersRequest extends AbstractStructBase
         return $this->MidocoExportChangedCustomersLog;
     }
     /**
-     * This method is responsible for validating the values passed to the setMidocoExportChangedCustomersLog method
+     * This method is responsible for validating the value(s) passed to the setMidocoExportChangedCustomersLog method
      * This method is willingly generated in order to preserve the one-line inline validation within the setMidocoExportChangedCustomersLog method
+     * This has to validate that each item contained by the array match the itemType constraint
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateMidocoExportChangedCustomersLogForArrayConstraintsFromSetMidocoExportChangedCustomersLog(array $values = []): string
+    public static function validateMidocoExportChangedCustomersLogForArrayConstraintFromSetMidocoExportChangedCustomersLog(?array $values = []): string
     {
+        if (!is_array($values)) {
+            return '';
+        }
         $message = '';
         $invalidValues = [];
         foreach ($values as $markExportChangedCustomersRequestMidocoExportChangedCustomersLogItem) {
@@ -72,7 +77,7 @@ class MarkExportChangedCustomersRequest extends AbstractStructBase
     public function setMidocoExportChangedCustomersLog(array $midocoExportChangedCustomersLog): self
     {
         // validation for constraint: array
-        if ('' !== ($midocoExportChangedCustomersLogArrayErrorMessage = self::validateMidocoExportChangedCustomersLogForArrayConstraintsFromSetMidocoExportChangedCustomersLog($midocoExportChangedCustomersLog))) {
+        if ('' !== ($midocoExportChangedCustomersLogArrayErrorMessage = self::validateMidocoExportChangedCustomersLogForArrayConstraintFromSetMidocoExportChangedCustomersLog($midocoExportChangedCustomersLog))) {
             throw new InvalidArgumentException($midocoExportChangedCustomersLogArrayErrorMessage, __LINE__);
         }
         $this->MidocoExportChangedCustomersLog = $midocoExportChangedCustomersLog;

@@ -11,6 +11,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * This class stands for GetDueMediatorChargesRequest StructType
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class GetDueMediatorChargesRequest extends AbstractStructBase
 {
     /**

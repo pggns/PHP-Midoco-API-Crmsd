@@ -11,6 +11,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * This class stands for DeleteCollectiveInvoiceSettingRequest StructType
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class DeleteCollectiveInvoiceSettingRequest extends AbstractStructBase
 {
     /**

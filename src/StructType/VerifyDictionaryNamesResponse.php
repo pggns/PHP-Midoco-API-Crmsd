@@ -11,6 +11,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * This class stands for VerifyDictionaryNamesResponse StructType
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class VerifyDictionaryNamesResponse extends AbstractStructBase
 {
     /**
@@ -20,13 +21,13 @@ class VerifyDictionaryNamesResponse extends AbstractStructBase
      * - minOccurs: 0
      * @var string[]
      */
-    protected array $possibleInvalidNames = [];
+    protected ?array $possibleInvalidNames = null;
     /**
      * Constructor method for VerifyDictionaryNamesResponse
      * @uses VerifyDictionaryNamesResponse::setPossibleInvalidNames()
      * @param string[] $possibleInvalidNames
      */
-    public function __construct(array $possibleInvalidNames = [])
+    public function __construct(?array $possibleInvalidNames = null)
     {
         $this
             ->setPossibleInvalidNames($possibleInvalidNames);
@@ -35,18 +36,22 @@ class VerifyDictionaryNamesResponse extends AbstractStructBase
      * Get possibleInvalidNames value
      * @return string[]
      */
-    public function getPossibleInvalidNames(): array
+    public function getPossibleInvalidNames(): ?array
     {
         return $this->possibleInvalidNames;
     }
     /**
-     * This method is responsible for validating the values passed to the setPossibleInvalidNames method
+     * This method is responsible for validating the value(s) passed to the setPossibleInvalidNames method
      * This method is willingly generated in order to preserve the one-line inline validation within the setPossibleInvalidNames method
+     * This has to validate that each item contained by the array match the itemType constraint
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validatePossibleInvalidNamesForArrayConstraintsFromSetPossibleInvalidNames(array $values = []): string
+    public static function validatePossibleInvalidNamesForArrayConstraintFromSetPossibleInvalidNames(?array $values = []): string
     {
+        if (!is_array($values)) {
+            return '';
+        }
         $message = '';
         $invalidValues = [];
         foreach ($values as $verifyDictionaryNamesResponsePossibleInvalidNamesItem) {
@@ -68,10 +73,10 @@ class VerifyDictionaryNamesResponse extends AbstractStructBase
      * @param string[] $possibleInvalidNames
      * @return \Pggns\MidocoApi\Crmsd\StructType\VerifyDictionaryNamesResponse
      */
-    public function setPossibleInvalidNames(array $possibleInvalidNames = []): self
+    public function setPossibleInvalidNames(?array $possibleInvalidNames = null): self
     {
         // validation for constraint: array
-        if ('' !== ($possibleInvalidNamesArrayErrorMessage = self::validatePossibleInvalidNamesForArrayConstraintsFromSetPossibleInvalidNames($possibleInvalidNames))) {
+        if ('' !== ($possibleInvalidNamesArrayErrorMessage = self::validatePossibleInvalidNamesForArrayConstraintFromSetPossibleInvalidNames($possibleInvalidNames))) {
             throw new InvalidArgumentException($possibleInvalidNamesArrayErrorMessage, __LINE__);
         }
         $this->possibleInvalidNames = $possibleInvalidNames;

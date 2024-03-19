@@ -11,6 +11,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * This class stands for GetCrmSubjectAssignRequest StructType
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class GetCrmSubjectAssignRequest extends AbstractStructBase
 {
     /**

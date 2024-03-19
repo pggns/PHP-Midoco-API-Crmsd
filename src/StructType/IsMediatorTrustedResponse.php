@@ -11,6 +11,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * This class stands for IsMediatorTrustedResponse StructType
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class IsMediatorTrustedResponse extends AbstractStructBase
 {
     /**

@@ -11,6 +11,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * This class stands for ValidateMilesAndMoreConnectLinkResponse StructType
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class ValidateMilesAndMoreConnectLinkResponse extends AbstractStructBase
 {
     /**

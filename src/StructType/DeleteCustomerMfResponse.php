@@ -13,6 +13,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * - documentation: deleteCustomerMf --- deletes a mf from a customer
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class DeleteCustomerMfResponse extends AbstractStructBase
 {
 }

@@ -11,6 +11,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * This class stands for GetCustomerOrdersResponse StructType
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class GetCustomerOrdersResponse extends AbstractStructBase
 {
     /**
@@ -21,13 +22,13 @@ class GetCustomerOrdersResponse extends AbstractStructBase
      * - ref: MidocoCustomerOrder
      * @var \Pggns\MidocoApi\Crmsd\StructType\MidocoCustomerOrder[]
      */
-    protected array $MidocoCustomerOrder = [];
+    protected ?array $MidocoCustomerOrder = null;
     /**
      * Constructor method for GetCustomerOrdersResponse
      * @uses GetCustomerOrdersResponse::setMidocoCustomerOrder()
      * @param \Pggns\MidocoApi\Crmsd\StructType\MidocoCustomerOrder[] $midocoCustomerOrder
      */
-    public function __construct(array $midocoCustomerOrder = [])
+    public function __construct(?array $midocoCustomerOrder = null)
     {
         $this
             ->setMidocoCustomerOrder($midocoCustomerOrder);
@@ -36,18 +37,22 @@ class GetCustomerOrdersResponse extends AbstractStructBase
      * Get MidocoCustomerOrder value
      * @return \Pggns\MidocoApi\Crmsd\StructType\MidocoCustomerOrder[]
      */
-    public function getMidocoCustomerOrder(): array
+    public function getMidocoCustomerOrder(): ?array
     {
         return $this->MidocoCustomerOrder;
     }
     /**
-     * This method is responsible for validating the values passed to the setMidocoCustomerOrder method
+     * This method is responsible for validating the value(s) passed to the setMidocoCustomerOrder method
      * This method is willingly generated in order to preserve the one-line inline validation within the setMidocoCustomerOrder method
+     * This has to validate that each item contained by the array match the itemType constraint
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateMidocoCustomerOrderForArrayConstraintsFromSetMidocoCustomerOrder(array $values = []): string
+    public static function validateMidocoCustomerOrderForArrayConstraintFromSetMidocoCustomerOrder(?array $values = []): string
     {
+        if (!is_array($values)) {
+            return '';
+        }
         $message = '';
         $invalidValues = [];
         foreach ($values as $getCustomerOrdersResponseMidocoCustomerOrderItem) {
@@ -69,10 +74,10 @@ class GetCustomerOrdersResponse extends AbstractStructBase
      * @param \Pggns\MidocoApi\Crmsd\StructType\MidocoCustomerOrder[] $midocoCustomerOrder
      * @return \Pggns\MidocoApi\Crmsd\StructType\GetCustomerOrdersResponse
      */
-    public function setMidocoCustomerOrder(array $midocoCustomerOrder = []): self
+    public function setMidocoCustomerOrder(?array $midocoCustomerOrder = null): self
     {
         // validation for constraint: array
-        if ('' !== ($midocoCustomerOrderArrayErrorMessage = self::validateMidocoCustomerOrderForArrayConstraintsFromSetMidocoCustomerOrder($midocoCustomerOrder))) {
+        if ('' !== ($midocoCustomerOrderArrayErrorMessage = self::validateMidocoCustomerOrderForArrayConstraintFromSetMidocoCustomerOrder($midocoCustomerOrder))) {
             throw new InvalidArgumentException($midocoCustomerOrderArrayErrorMessage, __LINE__);
         }
         $this->MidocoCustomerOrder = $midocoCustomerOrder;

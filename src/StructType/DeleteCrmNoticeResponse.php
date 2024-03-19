@@ -13,6 +13,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * - documentation: deleteCrmNotice --- deletes a notice from a customer
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class DeleteCrmNoticeResponse extends AbstractStructBase
 {
     /**

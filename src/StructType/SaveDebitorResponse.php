@@ -13,6 +13,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * - documentation: saveDebitor --- save the debitor transmitted as parameter
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class SaveDebitorResponse extends AbstractStructBase
 {
 }

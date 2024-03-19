@@ -11,6 +11,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * This class stands for GetCrmSubjectAssignResponse StructType
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class GetCrmSubjectAssignResponse extends AbstractStructBase
 {
     /**
@@ -21,13 +22,13 @@ class GetCrmSubjectAssignResponse extends AbstractStructBase
      * - ref: MidocoCrmSubjectAssign
      * @var \Pggns\MidocoApi\Crmsd\StructType\MidocoCrmSubjectAssign[]
      */
-    protected array $MidocoCrmSubjectAssign = [];
+    protected ?array $MidocoCrmSubjectAssign = null;
     /**
      * Constructor method for GetCrmSubjectAssignResponse
      * @uses GetCrmSubjectAssignResponse::setMidocoCrmSubjectAssign()
      * @param \Pggns\MidocoApi\Crmsd\StructType\MidocoCrmSubjectAssign[] $midocoCrmSubjectAssign
      */
-    public function __construct(array $midocoCrmSubjectAssign = [])
+    public function __construct(?array $midocoCrmSubjectAssign = null)
     {
         $this
             ->setMidocoCrmSubjectAssign($midocoCrmSubjectAssign);
@@ -36,18 +37,22 @@ class GetCrmSubjectAssignResponse extends AbstractStructBase
      * Get MidocoCrmSubjectAssign value
      * @return \Pggns\MidocoApi\Crmsd\StructType\MidocoCrmSubjectAssign[]
      */
-    public function getMidocoCrmSubjectAssign(): array
+    public function getMidocoCrmSubjectAssign(): ?array
     {
         return $this->MidocoCrmSubjectAssign;
     }
     /**
-     * This method is responsible for validating the values passed to the setMidocoCrmSubjectAssign method
+     * This method is responsible for validating the value(s) passed to the setMidocoCrmSubjectAssign method
      * This method is willingly generated in order to preserve the one-line inline validation within the setMidocoCrmSubjectAssign method
+     * This has to validate that each item contained by the array match the itemType constraint
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateMidocoCrmSubjectAssignForArrayConstraintsFromSetMidocoCrmSubjectAssign(array $values = []): string
+    public static function validateMidocoCrmSubjectAssignForArrayConstraintFromSetMidocoCrmSubjectAssign(?array $values = []): string
     {
+        if (!is_array($values)) {
+            return '';
+        }
         $message = '';
         $invalidValues = [];
         foreach ($values as $getCrmSubjectAssignResponseMidocoCrmSubjectAssignItem) {
@@ -69,10 +74,10 @@ class GetCrmSubjectAssignResponse extends AbstractStructBase
      * @param \Pggns\MidocoApi\Crmsd\StructType\MidocoCrmSubjectAssign[] $midocoCrmSubjectAssign
      * @return \Pggns\MidocoApi\Crmsd\StructType\GetCrmSubjectAssignResponse
      */
-    public function setMidocoCrmSubjectAssign(array $midocoCrmSubjectAssign = []): self
+    public function setMidocoCrmSubjectAssign(?array $midocoCrmSubjectAssign = null): self
     {
         // validation for constraint: array
-        if ('' !== ($midocoCrmSubjectAssignArrayErrorMessage = self::validateMidocoCrmSubjectAssignForArrayConstraintsFromSetMidocoCrmSubjectAssign($midocoCrmSubjectAssign))) {
+        if ('' !== ($midocoCrmSubjectAssignArrayErrorMessage = self::validateMidocoCrmSubjectAssignForArrayConstraintFromSetMidocoCrmSubjectAssign($midocoCrmSubjectAssign))) {
             throw new InvalidArgumentException($midocoCrmSubjectAssignArrayErrorMessage, __LINE__);
         }
         $this->MidocoCrmSubjectAssign = $midocoCrmSubjectAssign;

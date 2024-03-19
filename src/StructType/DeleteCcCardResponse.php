@@ -13,6 +13,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * - documentation: deleteCcCard --- deletes a cc card
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class DeleteCcCardResponse extends AbstractStructBase
 {
     /**

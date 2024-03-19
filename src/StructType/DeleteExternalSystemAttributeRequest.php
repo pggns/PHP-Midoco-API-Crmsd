@@ -11,6 +11,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * This class stands for DeleteExternalSystemAttributeRequest StructType
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class DeleteExternalSystemAttributeRequest extends AbstractStructBase
 {
     /**

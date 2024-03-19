@@ -13,6 +13,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * - documentation: getMediatorCharge --- returns the mediator charge for the given mediator id (customer id) and charge id
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class GetMediatorChargeResponse extends AbstractStructBase
 {
     /**

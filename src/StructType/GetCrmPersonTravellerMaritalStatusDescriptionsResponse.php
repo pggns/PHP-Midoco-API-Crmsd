@@ -12,6 +12,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * StructType
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class GetCrmPersonTravellerMaritalStatusDescriptionsResponse extends AbstractStructBase
 {
     /**
@@ -22,13 +23,13 @@ class GetCrmPersonTravellerMaritalStatusDescriptionsResponse extends AbstractStr
      * - ref: MidocoCrmPersonTravellerMaritalStatusDescription
      * @var \Pggns\MidocoApi\Crmsd\StructType\CrmTravellerMaStatusDescrDTO[]
      */
-    protected array $MidocoCrmPersonTravellerMaritalStatusDescription = [];
+    protected ?array $MidocoCrmPersonTravellerMaritalStatusDescription = null;
     /**
      * Constructor method for GetCrmPersonTravellerMaritalStatusDescriptionsResponse
      * @uses GetCrmPersonTravellerMaritalStatusDescriptionsResponse::setMidocoCrmPersonTravellerMaritalStatusDescription()
      * @param \Pggns\MidocoApi\Crmsd\StructType\CrmTravellerMaStatusDescrDTO[] $midocoCrmPersonTravellerMaritalStatusDescription
      */
-    public function __construct(array $midocoCrmPersonTravellerMaritalStatusDescription = [])
+    public function __construct(?array $midocoCrmPersonTravellerMaritalStatusDescription = null)
     {
         $this
             ->setMidocoCrmPersonTravellerMaritalStatusDescription($midocoCrmPersonTravellerMaritalStatusDescription);
@@ -37,18 +38,22 @@ class GetCrmPersonTravellerMaritalStatusDescriptionsResponse extends AbstractStr
      * Get MidocoCrmPersonTravellerMaritalStatusDescription value
      * @return \Pggns\MidocoApi\Crmsd\StructType\CrmTravellerMaStatusDescrDTO[]
      */
-    public function getMidocoCrmPersonTravellerMaritalStatusDescription(): array
+    public function getMidocoCrmPersonTravellerMaritalStatusDescription(): ?array
     {
         return $this->MidocoCrmPersonTravellerMaritalStatusDescription;
     }
     /**
-     * This method is responsible for validating the values passed to the setMidocoCrmPersonTravellerMaritalStatusDescription method
+     * This method is responsible for validating the value(s) passed to the setMidocoCrmPersonTravellerMaritalStatusDescription method
      * This method is willingly generated in order to preserve the one-line inline validation within the setMidocoCrmPersonTravellerMaritalStatusDescription method
+     * This has to validate that each item contained by the array match the itemType constraint
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateMidocoCrmPersonTravellerMaritalStatusDescriptionForArrayConstraintsFromSetMidocoCrmPersonTravellerMaritalStatusDescription(array $values = []): string
+    public static function validateMidocoCrmPersonTravellerMaritalStatusDescriptionForArrayConstraintFromSetMidocoCrmPersonTravellerMaritalStatusDescription(?array $values = []): string
     {
+        if (!is_array($values)) {
+            return '';
+        }
         $message = '';
         $invalidValues = [];
         foreach ($values as $getCrmPersonTravellerMaritalStatusDescriptionsResponseMidocoCrmPersonTravellerMaritalStatusDescriptionItem) {
@@ -70,10 +75,10 @@ class GetCrmPersonTravellerMaritalStatusDescriptionsResponse extends AbstractStr
      * @param \Pggns\MidocoApi\Crmsd\StructType\CrmTravellerMaStatusDescrDTO[] $midocoCrmPersonTravellerMaritalStatusDescription
      * @return \Pggns\MidocoApi\Crmsd\StructType\GetCrmPersonTravellerMaritalStatusDescriptionsResponse
      */
-    public function setMidocoCrmPersonTravellerMaritalStatusDescription(array $midocoCrmPersonTravellerMaritalStatusDescription = []): self
+    public function setMidocoCrmPersonTravellerMaritalStatusDescription(?array $midocoCrmPersonTravellerMaritalStatusDescription = null): self
     {
         // validation for constraint: array
-        if ('' !== ($midocoCrmPersonTravellerMaritalStatusDescriptionArrayErrorMessage = self::validateMidocoCrmPersonTravellerMaritalStatusDescriptionForArrayConstraintsFromSetMidocoCrmPersonTravellerMaritalStatusDescription($midocoCrmPersonTravellerMaritalStatusDescription))) {
+        if ('' !== ($midocoCrmPersonTravellerMaritalStatusDescriptionArrayErrorMessage = self::validateMidocoCrmPersonTravellerMaritalStatusDescriptionForArrayConstraintFromSetMidocoCrmPersonTravellerMaritalStatusDescription($midocoCrmPersonTravellerMaritalStatusDescription))) {
             throw new InvalidArgumentException($midocoCrmPersonTravellerMaritalStatusDescriptionArrayErrorMessage, __LINE__);
         }
         $this->MidocoCrmPersonTravellerMaritalStatusDescription = $midocoCrmPersonTravellerMaritalStatusDescription;

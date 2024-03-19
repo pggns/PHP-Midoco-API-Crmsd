@@ -11,6 +11,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * This class stands for DeleteCriteriaTypeCategoryRequest StructType
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class DeleteCriteriaTypeCategoryRequest extends AbstractStructBase
 {
     /**

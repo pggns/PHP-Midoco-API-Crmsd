@@ -11,6 +11,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * This class stands for TravisImportResponse StructType
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class TravisImportResponse extends AbstractStructBase
 {
     /**

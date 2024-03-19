@@ -13,6 +13,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * - documentation: saveDebitCard --- saves a debit card given as parameter
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class SaveDebitCardResponse extends AbstractStructBase
 {
     /**

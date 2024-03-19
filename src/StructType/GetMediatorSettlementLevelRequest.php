@@ -11,6 +11,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * This class stands for GetMediatorSettlementLevelRequest StructType
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class GetMediatorSettlementLevelRequest extends AbstractStructBase
 {
     /**
@@ -51,16 +52,16 @@ class GetMediatorSettlementLevelRequest extends AbstractStructBase
      */
     public function getMidocoCustomerId(): ?\Pggns\MidocoApi\Crmsd\StructType\CustomerIdDTO
     {
-        return isset($this->MidocoCustomerId) ? $this->MidocoCustomerId : null;
+        return $this->MidocoCustomerId ?? null;
     }
     /**
-     * This method is responsible for validating the value passed to the setMidocoCustomerId method
+     * This method is responsible for validating the value(s) passed to the setMidocoCustomerId method
      * This method is willingly generated in order to preserve the one-line inline validation within the setMidocoCustomerId method
      * This has to validate that the property which is being set is the only one among the given choices
      * @param mixed $value
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public function validateMidocoCustomerIdForChoiceConstraintsFromSetMidocoCustomerId($value): string
+    public function validateMidocoCustomerIdForChoiceConstraintFromSetMidocoCustomerId($value): string
     {
         $message = '';
         if (is_null($value)) {
@@ -93,7 +94,7 @@ class GetMediatorSettlementLevelRequest extends AbstractStructBase
     public function setMidocoCustomerId(?\Pggns\MidocoApi\Crmsd\StructType\CustomerIdDTO $midocoCustomerId = null): self
     {
         // validation for constraint: choice(MidocoCustomerId, MediatorId)
-        if ('' !== ($midocoCustomerIdChoiceErrorMessage = self::validateMidocoCustomerIdForChoiceConstraintsFromSetMidocoCustomerId($midocoCustomerId))) {
+        if ('' !== ($midocoCustomerIdChoiceErrorMessage = self::validateMidocoCustomerIdForChoiceConstraintFromSetMidocoCustomerId($midocoCustomerId))) {
             throw new InvalidArgumentException($midocoCustomerIdChoiceErrorMessage, __LINE__);
         }
         if (is_null($midocoCustomerId) || (is_array($midocoCustomerId) && empty($midocoCustomerId))) {
@@ -110,16 +111,16 @@ class GetMediatorSettlementLevelRequest extends AbstractStructBase
      */
     public function getMediatorId(): ?string
     {
-        return isset($this->MediatorId) ? $this->MediatorId : null;
+        return $this->MediatorId ?? null;
     }
     /**
-     * This method is responsible for validating the value passed to the setMediatorId method
+     * This method is responsible for validating the value(s) passed to the setMediatorId method
      * This method is willingly generated in order to preserve the one-line inline validation within the setMediatorId method
      * This has to validate that the property which is being set is the only one among the given choices
      * @param mixed $value
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public function validateMediatorIdForChoiceConstraintsFromSetMediatorId($value): string
+    public function validateMediatorIdForChoiceConstraintFromSetMediatorId($value): string
     {
         $message = '';
         if (is_null($value)) {
@@ -156,7 +157,7 @@ class GetMediatorSettlementLevelRequest extends AbstractStructBase
             throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($mediatorId, true), gettype($mediatorId)), __LINE__);
         }
         // validation for constraint: choice(MidocoCustomerId, MediatorId)
-        if ('' !== ($mediatorIdChoiceErrorMessage = self::validateMediatorIdForChoiceConstraintsFromSetMediatorId($mediatorId))) {
+        if ('' !== ($mediatorIdChoiceErrorMessage = self::validateMediatorIdForChoiceConstraintFromSetMediatorId($mediatorId))) {
             throw new InvalidArgumentException($mediatorIdChoiceErrorMessage, __LINE__);
         }
         if (is_null($mediatorId) || (is_array($mediatorId) && empty($mediatorId))) {

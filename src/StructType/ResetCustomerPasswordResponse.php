@@ -13,6 +13,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * - documentation: Contains an error code if the customer was not found or if the e-mail address was found for more than one customer.
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class ResetCustomerPasswordResponse extends AbstractStructBase
 {
     /**

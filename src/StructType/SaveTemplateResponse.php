@@ -13,6 +13,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * - documentation: saveTemplate --- save a given template
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class SaveTemplateResponse extends AbstractStructBase
 {
     /**

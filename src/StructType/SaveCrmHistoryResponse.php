@@ -11,6 +11,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * This class stands for SaveCrmHistoryResponse StructType
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class SaveCrmHistoryResponse extends AbstractStructBase
 {
 }

@@ -11,6 +11,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * This class stands for ImportRawCustomerRequest StructType
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class ImportRawCustomerRequest extends AbstractStructBase
 {
     /**
@@ -30,7 +31,7 @@ class ImportRawCustomerRequest extends AbstractStructBase
      * - ref: MidocoCrmAddress
      * @var \Pggns\MidocoApi\Crmsd\StructType\MidocoCrmAddress[]
      */
-    protected array $MidocoCrmAddress = [];
+    protected ?array $MidocoCrmAddress = null;
     /**
      * The MidocoContactEntry
      * Meta information extracted from the WSDL
@@ -39,7 +40,7 @@ class ImportRawCustomerRequest extends AbstractStructBase
      * - ref: MidocoContactEntry
      * @var \Pggns\MidocoApi\Crmsd\StructType\MidocoContactEntryType[]
      */
-    protected array $MidocoContactEntry = [];
+    protected ?array $MidocoContactEntry = null;
     /**
      * The MidocoCrmCcCard
      * Meta information extracted from the WSDL
@@ -48,7 +49,7 @@ class ImportRawCustomerRequest extends AbstractStructBase
      * - ref: MidocoCrmCcCard
      * @var \Pggns\MidocoApi\Crmsd\StructType\MidocoCrmCcCard[]
      */
-    protected array $MidocoCrmCcCard = [];
+    protected ?array $MidocoCrmCcCard = null;
     /**
      * The MidocoCrmDebitCard
      * Meta information extracted from the WSDL
@@ -57,7 +58,7 @@ class ImportRawCustomerRequest extends AbstractStructBase
      * - ref: MidocoCrmDebitCard
      * @var \Pggns\MidocoApi\Crmsd\StructType\MidocoCrmDebitCard[]
      */
-    protected array $MidocoCrmDebitCard = [];
+    protected ?array $MidocoCrmDebitCard = null;
     /**
      * The MidocoCrmBonusCard
      * Meta information extracted from the WSDL
@@ -66,7 +67,7 @@ class ImportRawCustomerRequest extends AbstractStructBase
      * - ref: MidocoCrmBonusCard
      * @var \Pggns\MidocoApi\Crmsd\StructType\MidocoCrmBonusCard[]
      */
-    protected array $MidocoCrmBonusCard = [];
+    protected ?array $MidocoCrmBonusCard = null;
     /**
      * The MidocoCrmCriteria
      * Meta information extracted from the WSDL
@@ -75,7 +76,7 @@ class ImportRawCustomerRequest extends AbstractStructBase
      * - ref: MidocoCrmCriteria
      * @var \Pggns\MidocoApi\Crmsd\StructType\MidocoCrmCriteria[]
      */
-    protected array $MidocoCrmCriteria = [];
+    protected ?array $MidocoCrmCriteria = null;
     /**
      * The MidocoCrmNotice
      * Meta information extracted from the WSDL
@@ -84,7 +85,7 @@ class ImportRawCustomerRequest extends AbstractStructBase
      * - ref: MidocoCrmNotice
      * @var \Pggns\MidocoApi\Crmsd\StructType\MidocoCrmNotice[]
      */
-    protected array $MidocoCrmNotice = [];
+    protected ?array $MidocoCrmNotice = null;
     /**
      * The MidocoContactHistory
      * Meta information extracted from the WSDL
@@ -93,7 +94,7 @@ class ImportRawCustomerRequest extends AbstractStructBase
      * - ref: MidocoContactHistory
      * @var \Pggns\MidocoApi\Crmsd\StructType\MidocoContactHistory[]
      */
-    protected array $MidocoContactHistory = [];
+    protected ?array $MidocoContactHistory = null;
     /**
      * The MidocoAssignCustomer
      * Meta information extracted from the WSDL
@@ -102,7 +103,7 @@ class ImportRawCustomerRequest extends AbstractStructBase
      * - ref: MidocoAssignCustomer
      * @var \Pggns\MidocoApi\Crmsd\StructType\CustomerAssignDTO[]
      */
-    protected array $MidocoAssignCustomer = [];
+    protected ?array $MidocoAssignCustomer = null;
     /**
      * The MidocoCrmCustomerPayment
      * Meta information extracted from the WSDL
@@ -120,7 +121,7 @@ class ImportRawCustomerRequest extends AbstractStructBase
      * - ref: MidocoCustomerTravel
      * @var \Pggns\MidocoApi\Crmsd\StructType\MidocoCustomerTravelType[]
      */
-    protected array $MidocoCustomerTravel = [];
+    protected ?array $MidocoCustomerTravel = null;
     /**
      * The MidocoCrmPersonTraveller
      * Meta information extracted from the WSDL
@@ -129,7 +130,7 @@ class ImportRawCustomerRequest extends AbstractStructBase
      * - ref: MidocoCrmPersonTraveller
      * @var \Pggns\MidocoApi\Crmsd\StructType\CrmPersonTravellerDTO[]
      */
-    protected array $MidocoCrmPersonTraveller = [];
+    protected ?array $MidocoCrmPersonTraveller = null;
     /**
      * The MidocoDebitor
      * Meta information extracted from the WSDL
@@ -147,7 +148,7 @@ class ImportRawCustomerRequest extends AbstractStructBase
      * - ref: MidocoFrequentFlyerNumber
      * @var \Pggns\MidocoApi\Crmsd\StructType\FrequentFlyerNumberDTO[]
      */
-    protected array $MidocoFrequentFlyerNumber = [];
+    protected ?array $MidocoFrequentFlyerNumber = null;
     /**
      * The MidocoMandate
      * Meta information extracted from the WSDL
@@ -156,16 +157,16 @@ class ImportRawCustomerRequest extends AbstractStructBase
      * - ref: MidocoMandate
      * @var \Pggns\MidocoApi\Crmsd\StructType\MidocoMandate[]
      */
-    protected array $MidocoMandate = [];
+    protected ?array $MidocoMandate = null;
     /**
      * The MidocoCustomerMf
      * Meta information extracted from the WSDL
      * - maxOccurs: unbounded
      * - minOccurs: 0
      * - ref: MidocoCustomerMf
-     * @var \Pggns\MidocoApi\Crmsd\StructType\CustomerMfDTO[]
+     * @var \Pggns\MidocoApi\Crmsd\StructType\MidocoCustomerMf[]
      */
-    protected array $MidocoCustomerMf = [];
+    protected ?array $MidocoCustomerMf = null;
     /**
      * The AgencyProperties
      * Meta information extracted from the WSDL
@@ -200,7 +201,7 @@ class ImportRawCustomerRequest extends AbstractStructBase
      * - ref: MidocoAgencyCommission
      * @var \Pggns\MidocoApi\Crmsd\StructType\AgencyCommissionDTO[]
      */
-    protected array $MidocoAgencyCommission = [];
+    protected ?array $MidocoAgencyCommission = null;
     /**
      * The MidocoAgencyCooperationHistory
      * Meta information extracted from the WSDL
@@ -209,7 +210,7 @@ class ImportRawCustomerRequest extends AbstractStructBase
      * - ref: MidocoAgencyCooperationHistory
      * @var \Pggns\MidocoApi\Crmsd\StructType\MidocoAgencyCooperationHistory[]
      */
-    protected array $MidocoAgencyCooperationHistory = [];
+    protected ?array $MidocoAgencyCooperationHistory = null;
     /**
      * The customerCommissionId
      * Meta information extracted from the WSDL
@@ -217,7 +218,7 @@ class ImportRawCustomerRequest extends AbstractStructBase
      * - minOccurs: 0
      * @var int[]
      */
-    protected array $customerCommissionId = [];
+    protected ?array $customerCommissionId = null;
     /**
      * The useDebitorNoInSearch
      * @var bool|null
@@ -309,7 +310,7 @@ class ImportRawCustomerRequest extends AbstractStructBase
      * @param \Pggns\MidocoApi\Crmsd\StructType\DebitorDTO $midocoDebitor
      * @param \Pggns\MidocoApi\Crmsd\StructType\FrequentFlyerNumberDTO[] $midocoFrequentFlyerNumber
      * @param \Pggns\MidocoApi\Crmsd\StructType\MidocoMandate[] $midocoMandate
-     * @param \Pggns\MidocoApi\Crmsd\StructType\CustomerMfDTO[] $midocoCustomerMf
+     * @param \Pggns\MidocoApi\Crmsd\StructType\MidocoCustomerMf[] $midocoCustomerMf
      * @param \Pggns\MidocoApi\Crmsd\StructType\AgencyProperties $agencyProperties
      * @param \Pggns\MidocoApi\Crmsd\StructType\AgencyDetailDTO $saveMidocoAgencyDetails
      * @param bool $collectiveInvoice
@@ -324,7 +325,7 @@ class ImportRawCustomerRequest extends AbstractStructBase
      * @param bool $matchOnlyCustomerId
      * @param bool $useExtRefIdInSearch
      */
-    public function __construct(\Pggns\MidocoApi\Crmsd\StructType\CrmCustomerDTO $midocoCrmCustomer, array $midocoCrmAddress = [], array $midocoContactEntry = [], array $midocoCrmCcCard = [], array $midocoCrmDebitCard = [], array $midocoCrmBonusCard = [], array $midocoCrmCriteria = [], array $midocoCrmNotice = [], array $midocoContactHistory = [], array $midocoAssignCustomer = [], ?\Pggns\MidocoApi\Crmsd\StructType\MidocoCrmCustomerPayment $midocoCrmCustomerPayment = null, array $midocoCustomerTravel = [], array $midocoCrmPersonTraveller = [], ?\Pggns\MidocoApi\Crmsd\StructType\DebitorDTO $midocoDebitor = null, array $midocoFrequentFlyerNumber = [], array $midocoMandate = [], array $midocoCustomerMf = [], ?\Pggns\MidocoApi\Crmsd\StructType\AgencyProperties $agencyProperties = null, ?\Pggns\MidocoApi\Crmsd\StructType\AgencyDetailDTO $saveMidocoAgencyDetails = null, ?bool $collectiveInvoice = null, array $midocoAgencyCommission = [], array $midocoAgencyCooperationHistory = [], array $customerCommissionId = [], ?bool $useDebitorNoInSearch = null, ?bool $useEmailInSearch = null, ?bool $setDefaultContact = null, ?bool $onlyNew = false, ?bool $updateCustInfo = false, ?bool $matchOnlyCustomerId = false, ?bool $useExtRefIdInSearch = false)
+    public function __construct(\Pggns\MidocoApi\Crmsd\StructType\CrmCustomerDTO $midocoCrmCustomer, ?array $midocoCrmAddress = null, ?array $midocoContactEntry = null, ?array $midocoCrmCcCard = null, ?array $midocoCrmDebitCard = null, ?array $midocoCrmBonusCard = null, ?array $midocoCrmCriteria = null, ?array $midocoCrmNotice = null, ?array $midocoContactHistory = null, ?array $midocoAssignCustomer = null, ?\Pggns\MidocoApi\Crmsd\StructType\MidocoCrmCustomerPayment $midocoCrmCustomerPayment = null, ?array $midocoCustomerTravel = null, ?array $midocoCrmPersonTraveller = null, ?\Pggns\MidocoApi\Crmsd\StructType\DebitorDTO $midocoDebitor = null, ?array $midocoFrequentFlyerNumber = null, ?array $midocoMandate = null, ?array $midocoCustomerMf = null, ?\Pggns\MidocoApi\Crmsd\StructType\AgencyProperties $agencyProperties = null, ?\Pggns\MidocoApi\Crmsd\StructType\AgencyDetailDTO $saveMidocoAgencyDetails = null, ?bool $collectiveInvoice = null, ?array $midocoAgencyCommission = null, ?array $midocoAgencyCooperationHistory = null, ?array $customerCommissionId = null, ?bool $useDebitorNoInSearch = null, ?bool $useEmailInSearch = null, ?bool $setDefaultContact = null, ?bool $onlyNew = false, ?bool $updateCustInfo = false, ?bool $matchOnlyCustomerId = false, ?bool $useExtRefIdInSearch = false)
     {
         $this
             ->setMidocoCrmCustomer($midocoCrmCustomer)
@@ -381,18 +382,22 @@ class ImportRawCustomerRequest extends AbstractStructBase
      * Get MidocoCrmAddress value
      * @return \Pggns\MidocoApi\Crmsd\StructType\MidocoCrmAddress[]
      */
-    public function getMidocoCrmAddress(): array
+    public function getMidocoCrmAddress(): ?array
     {
         return $this->MidocoCrmAddress;
     }
     /**
-     * This method is responsible for validating the values passed to the setMidocoCrmAddress method
+     * This method is responsible for validating the value(s) passed to the setMidocoCrmAddress method
      * This method is willingly generated in order to preserve the one-line inline validation within the setMidocoCrmAddress method
+     * This has to validate that each item contained by the array match the itemType constraint
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateMidocoCrmAddressForArrayConstraintsFromSetMidocoCrmAddress(array $values = []): string
+    public static function validateMidocoCrmAddressForArrayConstraintFromSetMidocoCrmAddress(?array $values = []): string
     {
+        if (!is_array($values)) {
+            return '';
+        }
         $message = '';
         $invalidValues = [];
         foreach ($values as $importRawCustomerRequestMidocoCrmAddressItem) {
@@ -414,10 +419,10 @@ class ImportRawCustomerRequest extends AbstractStructBase
      * @param \Pggns\MidocoApi\Crmsd\StructType\MidocoCrmAddress[] $midocoCrmAddress
      * @return \Pggns\MidocoApi\Crmsd\StructType\ImportRawCustomerRequest
      */
-    public function setMidocoCrmAddress(array $midocoCrmAddress = []): self
+    public function setMidocoCrmAddress(?array $midocoCrmAddress = null): self
     {
         // validation for constraint: array
-        if ('' !== ($midocoCrmAddressArrayErrorMessage = self::validateMidocoCrmAddressForArrayConstraintsFromSetMidocoCrmAddress($midocoCrmAddress))) {
+        if ('' !== ($midocoCrmAddressArrayErrorMessage = self::validateMidocoCrmAddressForArrayConstraintFromSetMidocoCrmAddress($midocoCrmAddress))) {
             throw new InvalidArgumentException($midocoCrmAddressArrayErrorMessage, __LINE__);
         }
         $this->MidocoCrmAddress = $midocoCrmAddress;
@@ -444,18 +449,22 @@ class ImportRawCustomerRequest extends AbstractStructBase
      * Get MidocoContactEntry value
      * @return \Pggns\MidocoApi\Crmsd\StructType\MidocoContactEntryType[]
      */
-    public function getMidocoContactEntry(): array
+    public function getMidocoContactEntry(): ?array
     {
         return $this->MidocoContactEntry;
     }
     /**
-     * This method is responsible for validating the values passed to the setMidocoContactEntry method
+     * This method is responsible for validating the value(s) passed to the setMidocoContactEntry method
      * This method is willingly generated in order to preserve the one-line inline validation within the setMidocoContactEntry method
+     * This has to validate that each item contained by the array match the itemType constraint
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateMidocoContactEntryForArrayConstraintsFromSetMidocoContactEntry(array $values = []): string
+    public static function validateMidocoContactEntryForArrayConstraintFromSetMidocoContactEntry(?array $values = []): string
     {
+        if (!is_array($values)) {
+            return '';
+        }
         $message = '';
         $invalidValues = [];
         foreach ($values as $importRawCustomerRequestMidocoContactEntryItem) {
@@ -477,10 +486,10 @@ class ImportRawCustomerRequest extends AbstractStructBase
      * @param \Pggns\MidocoApi\Crmsd\StructType\MidocoContactEntryType[] $midocoContactEntry
      * @return \Pggns\MidocoApi\Crmsd\StructType\ImportRawCustomerRequest
      */
-    public function setMidocoContactEntry(array $midocoContactEntry = []): self
+    public function setMidocoContactEntry(?array $midocoContactEntry = null): self
     {
         // validation for constraint: array
-        if ('' !== ($midocoContactEntryArrayErrorMessage = self::validateMidocoContactEntryForArrayConstraintsFromSetMidocoContactEntry($midocoContactEntry))) {
+        if ('' !== ($midocoContactEntryArrayErrorMessage = self::validateMidocoContactEntryForArrayConstraintFromSetMidocoContactEntry($midocoContactEntry))) {
             throw new InvalidArgumentException($midocoContactEntryArrayErrorMessage, __LINE__);
         }
         $this->MidocoContactEntry = $midocoContactEntry;
@@ -507,18 +516,22 @@ class ImportRawCustomerRequest extends AbstractStructBase
      * Get MidocoCrmCcCard value
      * @return \Pggns\MidocoApi\Crmsd\StructType\MidocoCrmCcCard[]
      */
-    public function getMidocoCrmCcCard(): array
+    public function getMidocoCrmCcCard(): ?array
     {
         return $this->MidocoCrmCcCard;
     }
     /**
-     * This method is responsible for validating the values passed to the setMidocoCrmCcCard method
+     * This method is responsible for validating the value(s) passed to the setMidocoCrmCcCard method
      * This method is willingly generated in order to preserve the one-line inline validation within the setMidocoCrmCcCard method
+     * This has to validate that each item contained by the array match the itemType constraint
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateMidocoCrmCcCardForArrayConstraintsFromSetMidocoCrmCcCard(array $values = []): string
+    public static function validateMidocoCrmCcCardForArrayConstraintFromSetMidocoCrmCcCard(?array $values = []): string
     {
+        if (!is_array($values)) {
+            return '';
+        }
         $message = '';
         $invalidValues = [];
         foreach ($values as $importRawCustomerRequestMidocoCrmCcCardItem) {
@@ -540,10 +553,10 @@ class ImportRawCustomerRequest extends AbstractStructBase
      * @param \Pggns\MidocoApi\Crmsd\StructType\MidocoCrmCcCard[] $midocoCrmCcCard
      * @return \Pggns\MidocoApi\Crmsd\StructType\ImportRawCustomerRequest
      */
-    public function setMidocoCrmCcCard(array $midocoCrmCcCard = []): self
+    public function setMidocoCrmCcCard(?array $midocoCrmCcCard = null): self
     {
         // validation for constraint: array
-        if ('' !== ($midocoCrmCcCardArrayErrorMessage = self::validateMidocoCrmCcCardForArrayConstraintsFromSetMidocoCrmCcCard($midocoCrmCcCard))) {
+        if ('' !== ($midocoCrmCcCardArrayErrorMessage = self::validateMidocoCrmCcCardForArrayConstraintFromSetMidocoCrmCcCard($midocoCrmCcCard))) {
             throw new InvalidArgumentException($midocoCrmCcCardArrayErrorMessage, __LINE__);
         }
         $this->MidocoCrmCcCard = $midocoCrmCcCard;
@@ -570,18 +583,22 @@ class ImportRawCustomerRequest extends AbstractStructBase
      * Get MidocoCrmDebitCard value
      * @return \Pggns\MidocoApi\Crmsd\StructType\MidocoCrmDebitCard[]
      */
-    public function getMidocoCrmDebitCard(): array
+    public function getMidocoCrmDebitCard(): ?array
     {
         return $this->MidocoCrmDebitCard;
     }
     /**
-     * This method is responsible for validating the values passed to the setMidocoCrmDebitCard method
+     * This method is responsible for validating the value(s) passed to the setMidocoCrmDebitCard method
      * This method is willingly generated in order to preserve the one-line inline validation within the setMidocoCrmDebitCard method
+     * This has to validate that each item contained by the array match the itemType constraint
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateMidocoCrmDebitCardForArrayConstraintsFromSetMidocoCrmDebitCard(array $values = []): string
+    public static function validateMidocoCrmDebitCardForArrayConstraintFromSetMidocoCrmDebitCard(?array $values = []): string
     {
+        if (!is_array($values)) {
+            return '';
+        }
         $message = '';
         $invalidValues = [];
         foreach ($values as $importRawCustomerRequestMidocoCrmDebitCardItem) {
@@ -603,10 +620,10 @@ class ImportRawCustomerRequest extends AbstractStructBase
      * @param \Pggns\MidocoApi\Crmsd\StructType\MidocoCrmDebitCard[] $midocoCrmDebitCard
      * @return \Pggns\MidocoApi\Crmsd\StructType\ImportRawCustomerRequest
      */
-    public function setMidocoCrmDebitCard(array $midocoCrmDebitCard = []): self
+    public function setMidocoCrmDebitCard(?array $midocoCrmDebitCard = null): self
     {
         // validation for constraint: array
-        if ('' !== ($midocoCrmDebitCardArrayErrorMessage = self::validateMidocoCrmDebitCardForArrayConstraintsFromSetMidocoCrmDebitCard($midocoCrmDebitCard))) {
+        if ('' !== ($midocoCrmDebitCardArrayErrorMessage = self::validateMidocoCrmDebitCardForArrayConstraintFromSetMidocoCrmDebitCard($midocoCrmDebitCard))) {
             throw new InvalidArgumentException($midocoCrmDebitCardArrayErrorMessage, __LINE__);
         }
         $this->MidocoCrmDebitCard = $midocoCrmDebitCard;
@@ -633,18 +650,22 @@ class ImportRawCustomerRequest extends AbstractStructBase
      * Get MidocoCrmBonusCard value
      * @return \Pggns\MidocoApi\Crmsd\StructType\MidocoCrmBonusCard[]
      */
-    public function getMidocoCrmBonusCard(): array
+    public function getMidocoCrmBonusCard(): ?array
     {
         return $this->MidocoCrmBonusCard;
     }
     /**
-     * This method is responsible for validating the values passed to the setMidocoCrmBonusCard method
+     * This method is responsible for validating the value(s) passed to the setMidocoCrmBonusCard method
      * This method is willingly generated in order to preserve the one-line inline validation within the setMidocoCrmBonusCard method
+     * This has to validate that each item contained by the array match the itemType constraint
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateMidocoCrmBonusCardForArrayConstraintsFromSetMidocoCrmBonusCard(array $values = []): string
+    public static function validateMidocoCrmBonusCardForArrayConstraintFromSetMidocoCrmBonusCard(?array $values = []): string
     {
+        if (!is_array($values)) {
+            return '';
+        }
         $message = '';
         $invalidValues = [];
         foreach ($values as $importRawCustomerRequestMidocoCrmBonusCardItem) {
@@ -666,10 +687,10 @@ class ImportRawCustomerRequest extends AbstractStructBase
      * @param \Pggns\MidocoApi\Crmsd\StructType\MidocoCrmBonusCard[] $midocoCrmBonusCard
      * @return \Pggns\MidocoApi\Crmsd\StructType\ImportRawCustomerRequest
      */
-    public function setMidocoCrmBonusCard(array $midocoCrmBonusCard = []): self
+    public function setMidocoCrmBonusCard(?array $midocoCrmBonusCard = null): self
     {
         // validation for constraint: array
-        if ('' !== ($midocoCrmBonusCardArrayErrorMessage = self::validateMidocoCrmBonusCardForArrayConstraintsFromSetMidocoCrmBonusCard($midocoCrmBonusCard))) {
+        if ('' !== ($midocoCrmBonusCardArrayErrorMessage = self::validateMidocoCrmBonusCardForArrayConstraintFromSetMidocoCrmBonusCard($midocoCrmBonusCard))) {
             throw new InvalidArgumentException($midocoCrmBonusCardArrayErrorMessage, __LINE__);
         }
         $this->MidocoCrmBonusCard = $midocoCrmBonusCard;
@@ -696,18 +717,22 @@ class ImportRawCustomerRequest extends AbstractStructBase
      * Get MidocoCrmCriteria value
      * @return \Pggns\MidocoApi\Crmsd\StructType\MidocoCrmCriteria[]
      */
-    public function getMidocoCrmCriteria(): array
+    public function getMidocoCrmCriteria(): ?array
     {
         return $this->MidocoCrmCriteria;
     }
     /**
-     * This method is responsible for validating the values passed to the setMidocoCrmCriteria method
+     * This method is responsible for validating the value(s) passed to the setMidocoCrmCriteria method
      * This method is willingly generated in order to preserve the one-line inline validation within the setMidocoCrmCriteria method
+     * This has to validate that each item contained by the array match the itemType constraint
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateMidocoCrmCriteriaForArrayConstraintsFromSetMidocoCrmCriteria(array $values = []): string
+    public static function validateMidocoCrmCriteriaForArrayConstraintFromSetMidocoCrmCriteria(?array $values = []): string
     {
+        if (!is_array($values)) {
+            return '';
+        }
         $message = '';
         $invalidValues = [];
         foreach ($values as $importRawCustomerRequestMidocoCrmCriteriaItem) {
@@ -729,10 +754,10 @@ class ImportRawCustomerRequest extends AbstractStructBase
      * @param \Pggns\MidocoApi\Crmsd\StructType\MidocoCrmCriteria[] $midocoCrmCriteria
      * @return \Pggns\MidocoApi\Crmsd\StructType\ImportRawCustomerRequest
      */
-    public function setMidocoCrmCriteria(array $midocoCrmCriteria = []): self
+    public function setMidocoCrmCriteria(?array $midocoCrmCriteria = null): self
     {
         // validation for constraint: array
-        if ('' !== ($midocoCrmCriteriaArrayErrorMessage = self::validateMidocoCrmCriteriaForArrayConstraintsFromSetMidocoCrmCriteria($midocoCrmCriteria))) {
+        if ('' !== ($midocoCrmCriteriaArrayErrorMessage = self::validateMidocoCrmCriteriaForArrayConstraintFromSetMidocoCrmCriteria($midocoCrmCriteria))) {
             throw new InvalidArgumentException($midocoCrmCriteriaArrayErrorMessage, __LINE__);
         }
         $this->MidocoCrmCriteria = $midocoCrmCriteria;
@@ -759,18 +784,22 @@ class ImportRawCustomerRequest extends AbstractStructBase
      * Get MidocoCrmNotice value
      * @return \Pggns\MidocoApi\Crmsd\StructType\MidocoCrmNotice[]
      */
-    public function getMidocoCrmNotice(): array
+    public function getMidocoCrmNotice(): ?array
     {
         return $this->MidocoCrmNotice;
     }
     /**
-     * This method is responsible for validating the values passed to the setMidocoCrmNotice method
+     * This method is responsible for validating the value(s) passed to the setMidocoCrmNotice method
      * This method is willingly generated in order to preserve the one-line inline validation within the setMidocoCrmNotice method
+     * This has to validate that each item contained by the array match the itemType constraint
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateMidocoCrmNoticeForArrayConstraintsFromSetMidocoCrmNotice(array $values = []): string
+    public static function validateMidocoCrmNoticeForArrayConstraintFromSetMidocoCrmNotice(?array $values = []): string
     {
+        if (!is_array($values)) {
+            return '';
+        }
         $message = '';
         $invalidValues = [];
         foreach ($values as $importRawCustomerRequestMidocoCrmNoticeItem) {
@@ -792,10 +821,10 @@ class ImportRawCustomerRequest extends AbstractStructBase
      * @param \Pggns\MidocoApi\Crmsd\StructType\MidocoCrmNotice[] $midocoCrmNotice
      * @return \Pggns\MidocoApi\Crmsd\StructType\ImportRawCustomerRequest
      */
-    public function setMidocoCrmNotice(array $midocoCrmNotice = []): self
+    public function setMidocoCrmNotice(?array $midocoCrmNotice = null): self
     {
         // validation for constraint: array
-        if ('' !== ($midocoCrmNoticeArrayErrorMessage = self::validateMidocoCrmNoticeForArrayConstraintsFromSetMidocoCrmNotice($midocoCrmNotice))) {
+        if ('' !== ($midocoCrmNoticeArrayErrorMessage = self::validateMidocoCrmNoticeForArrayConstraintFromSetMidocoCrmNotice($midocoCrmNotice))) {
             throw new InvalidArgumentException($midocoCrmNoticeArrayErrorMessage, __LINE__);
         }
         $this->MidocoCrmNotice = $midocoCrmNotice;
@@ -822,18 +851,22 @@ class ImportRawCustomerRequest extends AbstractStructBase
      * Get MidocoContactHistory value
      * @return \Pggns\MidocoApi\Crmsd\StructType\MidocoContactHistory[]
      */
-    public function getMidocoContactHistory(): array
+    public function getMidocoContactHistory(): ?array
     {
         return $this->MidocoContactHistory;
     }
     /**
-     * This method is responsible for validating the values passed to the setMidocoContactHistory method
+     * This method is responsible for validating the value(s) passed to the setMidocoContactHistory method
      * This method is willingly generated in order to preserve the one-line inline validation within the setMidocoContactHistory method
+     * This has to validate that each item contained by the array match the itemType constraint
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateMidocoContactHistoryForArrayConstraintsFromSetMidocoContactHistory(array $values = []): string
+    public static function validateMidocoContactHistoryForArrayConstraintFromSetMidocoContactHistory(?array $values = []): string
     {
+        if (!is_array($values)) {
+            return '';
+        }
         $message = '';
         $invalidValues = [];
         foreach ($values as $importRawCustomerRequestMidocoContactHistoryItem) {
@@ -855,10 +888,10 @@ class ImportRawCustomerRequest extends AbstractStructBase
      * @param \Pggns\MidocoApi\Crmsd\StructType\MidocoContactHistory[] $midocoContactHistory
      * @return \Pggns\MidocoApi\Crmsd\StructType\ImportRawCustomerRequest
      */
-    public function setMidocoContactHistory(array $midocoContactHistory = []): self
+    public function setMidocoContactHistory(?array $midocoContactHistory = null): self
     {
         // validation for constraint: array
-        if ('' !== ($midocoContactHistoryArrayErrorMessage = self::validateMidocoContactHistoryForArrayConstraintsFromSetMidocoContactHistory($midocoContactHistory))) {
+        if ('' !== ($midocoContactHistoryArrayErrorMessage = self::validateMidocoContactHistoryForArrayConstraintFromSetMidocoContactHistory($midocoContactHistory))) {
             throw new InvalidArgumentException($midocoContactHistoryArrayErrorMessage, __LINE__);
         }
         $this->MidocoContactHistory = $midocoContactHistory;
@@ -885,18 +918,22 @@ class ImportRawCustomerRequest extends AbstractStructBase
      * Get MidocoAssignCustomer value
      * @return \Pggns\MidocoApi\Crmsd\StructType\CustomerAssignDTO[]
      */
-    public function getMidocoAssignCustomer(): array
+    public function getMidocoAssignCustomer(): ?array
     {
         return $this->MidocoAssignCustomer;
     }
     /**
-     * This method is responsible for validating the values passed to the setMidocoAssignCustomer method
+     * This method is responsible for validating the value(s) passed to the setMidocoAssignCustomer method
      * This method is willingly generated in order to preserve the one-line inline validation within the setMidocoAssignCustomer method
+     * This has to validate that each item contained by the array match the itemType constraint
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateMidocoAssignCustomerForArrayConstraintsFromSetMidocoAssignCustomer(array $values = []): string
+    public static function validateMidocoAssignCustomerForArrayConstraintFromSetMidocoAssignCustomer(?array $values = []): string
     {
+        if (!is_array($values)) {
+            return '';
+        }
         $message = '';
         $invalidValues = [];
         foreach ($values as $importRawCustomerRequestMidocoAssignCustomerItem) {
@@ -918,10 +955,10 @@ class ImportRawCustomerRequest extends AbstractStructBase
      * @param \Pggns\MidocoApi\Crmsd\StructType\CustomerAssignDTO[] $midocoAssignCustomer
      * @return \Pggns\MidocoApi\Crmsd\StructType\ImportRawCustomerRequest
      */
-    public function setMidocoAssignCustomer(array $midocoAssignCustomer = []): self
+    public function setMidocoAssignCustomer(?array $midocoAssignCustomer = null): self
     {
         // validation for constraint: array
-        if ('' !== ($midocoAssignCustomerArrayErrorMessage = self::validateMidocoAssignCustomerForArrayConstraintsFromSetMidocoAssignCustomer($midocoAssignCustomer))) {
+        if ('' !== ($midocoAssignCustomerArrayErrorMessage = self::validateMidocoAssignCustomerForArrayConstraintFromSetMidocoAssignCustomer($midocoAssignCustomer))) {
             throw new InvalidArgumentException($midocoAssignCustomerArrayErrorMessage, __LINE__);
         }
         $this->MidocoAssignCustomer = $midocoAssignCustomer;
@@ -967,18 +1004,22 @@ class ImportRawCustomerRequest extends AbstractStructBase
      * Get MidocoCustomerTravel value
      * @return \Pggns\MidocoApi\Crmsd\StructType\MidocoCustomerTravelType[]
      */
-    public function getMidocoCustomerTravel(): array
+    public function getMidocoCustomerTravel(): ?array
     {
         return $this->MidocoCustomerTravel;
     }
     /**
-     * This method is responsible for validating the values passed to the setMidocoCustomerTravel method
+     * This method is responsible for validating the value(s) passed to the setMidocoCustomerTravel method
      * This method is willingly generated in order to preserve the one-line inline validation within the setMidocoCustomerTravel method
+     * This has to validate that each item contained by the array match the itemType constraint
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateMidocoCustomerTravelForArrayConstraintsFromSetMidocoCustomerTravel(array $values = []): string
+    public static function validateMidocoCustomerTravelForArrayConstraintFromSetMidocoCustomerTravel(?array $values = []): string
     {
+        if (!is_array($values)) {
+            return '';
+        }
         $message = '';
         $invalidValues = [];
         foreach ($values as $importRawCustomerRequestMidocoCustomerTravelItem) {
@@ -1000,10 +1041,10 @@ class ImportRawCustomerRequest extends AbstractStructBase
      * @param \Pggns\MidocoApi\Crmsd\StructType\MidocoCustomerTravelType[] $midocoCustomerTravel
      * @return \Pggns\MidocoApi\Crmsd\StructType\ImportRawCustomerRequest
      */
-    public function setMidocoCustomerTravel(array $midocoCustomerTravel = []): self
+    public function setMidocoCustomerTravel(?array $midocoCustomerTravel = null): self
     {
         // validation for constraint: array
-        if ('' !== ($midocoCustomerTravelArrayErrorMessage = self::validateMidocoCustomerTravelForArrayConstraintsFromSetMidocoCustomerTravel($midocoCustomerTravel))) {
+        if ('' !== ($midocoCustomerTravelArrayErrorMessage = self::validateMidocoCustomerTravelForArrayConstraintFromSetMidocoCustomerTravel($midocoCustomerTravel))) {
             throw new InvalidArgumentException($midocoCustomerTravelArrayErrorMessage, __LINE__);
         }
         $this->MidocoCustomerTravel = $midocoCustomerTravel;
@@ -1030,18 +1071,22 @@ class ImportRawCustomerRequest extends AbstractStructBase
      * Get MidocoCrmPersonTraveller value
      * @return \Pggns\MidocoApi\Crmsd\StructType\CrmPersonTravellerDTO[]
      */
-    public function getMidocoCrmPersonTraveller(): array
+    public function getMidocoCrmPersonTraveller(): ?array
     {
         return $this->MidocoCrmPersonTraveller;
     }
     /**
-     * This method is responsible for validating the values passed to the setMidocoCrmPersonTraveller method
+     * This method is responsible for validating the value(s) passed to the setMidocoCrmPersonTraveller method
      * This method is willingly generated in order to preserve the one-line inline validation within the setMidocoCrmPersonTraveller method
+     * This has to validate that each item contained by the array match the itemType constraint
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateMidocoCrmPersonTravellerForArrayConstraintsFromSetMidocoCrmPersonTraveller(array $values = []): string
+    public static function validateMidocoCrmPersonTravellerForArrayConstraintFromSetMidocoCrmPersonTraveller(?array $values = []): string
     {
+        if (!is_array($values)) {
+            return '';
+        }
         $message = '';
         $invalidValues = [];
         foreach ($values as $importRawCustomerRequestMidocoCrmPersonTravellerItem) {
@@ -1063,10 +1108,10 @@ class ImportRawCustomerRequest extends AbstractStructBase
      * @param \Pggns\MidocoApi\Crmsd\StructType\CrmPersonTravellerDTO[] $midocoCrmPersonTraveller
      * @return \Pggns\MidocoApi\Crmsd\StructType\ImportRawCustomerRequest
      */
-    public function setMidocoCrmPersonTraveller(array $midocoCrmPersonTraveller = []): self
+    public function setMidocoCrmPersonTraveller(?array $midocoCrmPersonTraveller = null): self
     {
         // validation for constraint: array
-        if ('' !== ($midocoCrmPersonTravellerArrayErrorMessage = self::validateMidocoCrmPersonTravellerForArrayConstraintsFromSetMidocoCrmPersonTraveller($midocoCrmPersonTraveller))) {
+        if ('' !== ($midocoCrmPersonTravellerArrayErrorMessage = self::validateMidocoCrmPersonTravellerForArrayConstraintFromSetMidocoCrmPersonTraveller($midocoCrmPersonTraveller))) {
             throw new InvalidArgumentException($midocoCrmPersonTravellerArrayErrorMessage, __LINE__);
         }
         $this->MidocoCrmPersonTraveller = $midocoCrmPersonTraveller;
@@ -1112,18 +1157,22 @@ class ImportRawCustomerRequest extends AbstractStructBase
      * Get MidocoFrequentFlyerNumber value
      * @return \Pggns\MidocoApi\Crmsd\StructType\FrequentFlyerNumberDTO[]
      */
-    public function getMidocoFrequentFlyerNumber(): array
+    public function getMidocoFrequentFlyerNumber(): ?array
     {
         return $this->MidocoFrequentFlyerNumber;
     }
     /**
-     * This method is responsible for validating the values passed to the setMidocoFrequentFlyerNumber method
+     * This method is responsible for validating the value(s) passed to the setMidocoFrequentFlyerNumber method
      * This method is willingly generated in order to preserve the one-line inline validation within the setMidocoFrequentFlyerNumber method
+     * This has to validate that each item contained by the array match the itemType constraint
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateMidocoFrequentFlyerNumberForArrayConstraintsFromSetMidocoFrequentFlyerNumber(array $values = []): string
+    public static function validateMidocoFrequentFlyerNumberForArrayConstraintFromSetMidocoFrequentFlyerNumber(?array $values = []): string
     {
+        if (!is_array($values)) {
+            return '';
+        }
         $message = '';
         $invalidValues = [];
         foreach ($values as $importRawCustomerRequestMidocoFrequentFlyerNumberItem) {
@@ -1145,10 +1194,10 @@ class ImportRawCustomerRequest extends AbstractStructBase
      * @param \Pggns\MidocoApi\Crmsd\StructType\FrequentFlyerNumberDTO[] $midocoFrequentFlyerNumber
      * @return \Pggns\MidocoApi\Crmsd\StructType\ImportRawCustomerRequest
      */
-    public function setMidocoFrequentFlyerNumber(array $midocoFrequentFlyerNumber = []): self
+    public function setMidocoFrequentFlyerNumber(?array $midocoFrequentFlyerNumber = null): self
     {
         // validation for constraint: array
-        if ('' !== ($midocoFrequentFlyerNumberArrayErrorMessage = self::validateMidocoFrequentFlyerNumberForArrayConstraintsFromSetMidocoFrequentFlyerNumber($midocoFrequentFlyerNumber))) {
+        if ('' !== ($midocoFrequentFlyerNumberArrayErrorMessage = self::validateMidocoFrequentFlyerNumberForArrayConstraintFromSetMidocoFrequentFlyerNumber($midocoFrequentFlyerNumber))) {
             throw new InvalidArgumentException($midocoFrequentFlyerNumberArrayErrorMessage, __LINE__);
         }
         $this->MidocoFrequentFlyerNumber = $midocoFrequentFlyerNumber;
@@ -1175,18 +1224,22 @@ class ImportRawCustomerRequest extends AbstractStructBase
      * Get MidocoMandate value
      * @return \Pggns\MidocoApi\Crmsd\StructType\MidocoMandate[]
      */
-    public function getMidocoMandate(): array
+    public function getMidocoMandate(): ?array
     {
         return $this->MidocoMandate;
     }
     /**
-     * This method is responsible for validating the values passed to the setMidocoMandate method
+     * This method is responsible for validating the value(s) passed to the setMidocoMandate method
      * This method is willingly generated in order to preserve the one-line inline validation within the setMidocoMandate method
+     * This has to validate that each item contained by the array match the itemType constraint
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateMidocoMandateForArrayConstraintsFromSetMidocoMandate(array $values = []): string
+    public static function validateMidocoMandateForArrayConstraintFromSetMidocoMandate(?array $values = []): string
     {
+        if (!is_array($values)) {
+            return '';
+        }
         $message = '';
         $invalidValues = [];
         foreach ($values as $importRawCustomerRequestMidocoMandateItem) {
@@ -1208,10 +1261,10 @@ class ImportRawCustomerRequest extends AbstractStructBase
      * @param \Pggns\MidocoApi\Crmsd\StructType\MidocoMandate[] $midocoMandate
      * @return \Pggns\MidocoApi\Crmsd\StructType\ImportRawCustomerRequest
      */
-    public function setMidocoMandate(array $midocoMandate = []): self
+    public function setMidocoMandate(?array $midocoMandate = null): self
     {
         // validation for constraint: array
-        if ('' !== ($midocoMandateArrayErrorMessage = self::validateMidocoMandateForArrayConstraintsFromSetMidocoMandate($midocoMandate))) {
+        if ('' !== ($midocoMandateArrayErrorMessage = self::validateMidocoMandateForArrayConstraintFromSetMidocoMandate($midocoMandate))) {
             throw new InvalidArgumentException($midocoMandateArrayErrorMessage, __LINE__);
         }
         $this->MidocoMandate = $midocoMandate;
@@ -1236,30 +1289,34 @@ class ImportRawCustomerRequest extends AbstractStructBase
     }
     /**
      * Get MidocoCustomerMf value
-     * @return \Pggns\MidocoApi\Crmsd\StructType\CustomerMfDTO[]
+     * @return \Pggns\MidocoApi\Crmsd\StructType\MidocoCustomerMf[]
      */
-    public function getMidocoCustomerMf(): array
+    public function getMidocoCustomerMf(): ?array
     {
         return $this->MidocoCustomerMf;
     }
     /**
-     * This method is responsible for validating the values passed to the setMidocoCustomerMf method
+     * This method is responsible for validating the value(s) passed to the setMidocoCustomerMf method
      * This method is willingly generated in order to preserve the one-line inline validation within the setMidocoCustomerMf method
+     * This has to validate that each item contained by the array match the itemType constraint
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateMidocoCustomerMfForArrayConstraintsFromSetMidocoCustomerMf(array $values = []): string
+    public static function validateMidocoCustomerMfForArrayConstraintFromSetMidocoCustomerMf(?array $values = []): string
     {
+        if (!is_array($values)) {
+            return '';
+        }
         $message = '';
         $invalidValues = [];
         foreach ($values as $importRawCustomerRequestMidocoCustomerMfItem) {
             // validation for constraint: itemType
-            if (!$importRawCustomerRequestMidocoCustomerMfItem instanceof \Pggns\MidocoApi\Crmsd\StructType\CustomerMfDTO) {
+            if (!$importRawCustomerRequestMidocoCustomerMfItem instanceof \Pggns\MidocoApi\Crmsd\StructType\MidocoCustomerMf) {
                 $invalidValues[] = is_object($importRawCustomerRequestMidocoCustomerMfItem) ? get_class($importRawCustomerRequestMidocoCustomerMfItem) : sprintf('%s(%s)', gettype($importRawCustomerRequestMidocoCustomerMfItem), var_export($importRawCustomerRequestMidocoCustomerMfItem, true));
             }
         }
         if (!empty($invalidValues)) {
-            $message = sprintf('The MidocoCustomerMf property can only contain items of type \Pggns\MidocoApi\Crmsd\StructType\CustomerMfDTO, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
+            $message = sprintf('The MidocoCustomerMf property can only contain items of type \Pggns\MidocoApi\Crmsd\StructType\MidocoCustomerMf, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
         }
         unset($invalidValues);
         
@@ -1268,13 +1325,13 @@ class ImportRawCustomerRequest extends AbstractStructBase
     /**
      * Set MidocoCustomerMf value
      * @throws InvalidArgumentException
-     * @param \Pggns\MidocoApi\Crmsd\StructType\CustomerMfDTO[] $midocoCustomerMf
+     * @param \Pggns\MidocoApi\Crmsd\StructType\MidocoCustomerMf[] $midocoCustomerMf
      * @return \Pggns\MidocoApi\Crmsd\StructType\ImportRawCustomerRequest
      */
-    public function setMidocoCustomerMf(array $midocoCustomerMf = []): self
+    public function setMidocoCustomerMf(?array $midocoCustomerMf = null): self
     {
         // validation for constraint: array
-        if ('' !== ($midocoCustomerMfArrayErrorMessage = self::validateMidocoCustomerMfForArrayConstraintsFromSetMidocoCustomerMf($midocoCustomerMf))) {
+        if ('' !== ($midocoCustomerMfArrayErrorMessage = self::validateMidocoCustomerMfForArrayConstraintFromSetMidocoCustomerMf($midocoCustomerMf))) {
             throw new InvalidArgumentException($midocoCustomerMfArrayErrorMessage, __LINE__);
         }
         $this->MidocoCustomerMf = $midocoCustomerMf;
@@ -1284,14 +1341,14 @@ class ImportRawCustomerRequest extends AbstractStructBase
     /**
      * Add item to MidocoCustomerMf value
      * @throws InvalidArgumentException
-     * @param \Pggns\MidocoApi\Crmsd\StructType\CustomerMfDTO $item
+     * @param \Pggns\MidocoApi\Crmsd\StructType\MidocoCustomerMf $item
      * @return \Pggns\MidocoApi\Crmsd\StructType\ImportRawCustomerRequest
      */
-    public function addToMidocoCustomerMf(\Pggns\MidocoApi\Crmsd\StructType\CustomerMfDTO $item): self
+    public function addToMidocoCustomerMf(\Pggns\MidocoApi\Crmsd\StructType\MidocoCustomerMf $item): self
     {
         // validation for constraint: itemType
-        if (!$item instanceof \Pggns\MidocoApi\Crmsd\StructType\CustomerMfDTO) {
-            throw new InvalidArgumentException(sprintf('The MidocoCustomerMf property can only contain items of type \Pggns\MidocoApi\Crmsd\StructType\CustomerMfDTO, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
+        if (!$item instanceof \Pggns\MidocoApi\Crmsd\StructType\MidocoCustomerMf) {
+            throw new InvalidArgumentException(sprintf('The MidocoCustomerMf property can only contain items of type \Pggns\MidocoApi\Crmsd\StructType\MidocoCustomerMf, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
         }
         $this->MidocoCustomerMf[] = $item;
         
@@ -1362,18 +1419,22 @@ class ImportRawCustomerRequest extends AbstractStructBase
      * Get MidocoAgencyCommission value
      * @return \Pggns\MidocoApi\Crmsd\StructType\AgencyCommissionDTO[]
      */
-    public function getMidocoAgencyCommission(): array
+    public function getMidocoAgencyCommission(): ?array
     {
         return $this->MidocoAgencyCommission;
     }
     /**
-     * This method is responsible for validating the values passed to the setMidocoAgencyCommission method
+     * This method is responsible for validating the value(s) passed to the setMidocoAgencyCommission method
      * This method is willingly generated in order to preserve the one-line inline validation within the setMidocoAgencyCommission method
+     * This has to validate that each item contained by the array match the itemType constraint
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateMidocoAgencyCommissionForArrayConstraintsFromSetMidocoAgencyCommission(array $values = []): string
+    public static function validateMidocoAgencyCommissionForArrayConstraintFromSetMidocoAgencyCommission(?array $values = []): string
     {
+        if (!is_array($values)) {
+            return '';
+        }
         $message = '';
         $invalidValues = [];
         foreach ($values as $importRawCustomerRequestMidocoAgencyCommissionItem) {
@@ -1395,10 +1456,10 @@ class ImportRawCustomerRequest extends AbstractStructBase
      * @param \Pggns\MidocoApi\Crmsd\StructType\AgencyCommissionDTO[] $midocoAgencyCommission
      * @return \Pggns\MidocoApi\Crmsd\StructType\ImportRawCustomerRequest
      */
-    public function setMidocoAgencyCommission(array $midocoAgencyCommission = []): self
+    public function setMidocoAgencyCommission(?array $midocoAgencyCommission = null): self
     {
         // validation for constraint: array
-        if ('' !== ($midocoAgencyCommissionArrayErrorMessage = self::validateMidocoAgencyCommissionForArrayConstraintsFromSetMidocoAgencyCommission($midocoAgencyCommission))) {
+        if ('' !== ($midocoAgencyCommissionArrayErrorMessage = self::validateMidocoAgencyCommissionForArrayConstraintFromSetMidocoAgencyCommission($midocoAgencyCommission))) {
             throw new InvalidArgumentException($midocoAgencyCommissionArrayErrorMessage, __LINE__);
         }
         $this->MidocoAgencyCommission = $midocoAgencyCommission;
@@ -1425,18 +1486,22 @@ class ImportRawCustomerRequest extends AbstractStructBase
      * Get MidocoAgencyCooperationHistory value
      * @return \Pggns\MidocoApi\Crmsd\StructType\MidocoAgencyCooperationHistory[]
      */
-    public function getMidocoAgencyCooperationHistory(): array
+    public function getMidocoAgencyCooperationHistory(): ?array
     {
         return $this->MidocoAgencyCooperationHistory;
     }
     /**
-     * This method is responsible for validating the values passed to the setMidocoAgencyCooperationHistory method
+     * This method is responsible for validating the value(s) passed to the setMidocoAgencyCooperationHistory method
      * This method is willingly generated in order to preserve the one-line inline validation within the setMidocoAgencyCooperationHistory method
+     * This has to validate that each item contained by the array match the itemType constraint
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateMidocoAgencyCooperationHistoryForArrayConstraintsFromSetMidocoAgencyCooperationHistory(array $values = []): string
+    public static function validateMidocoAgencyCooperationHistoryForArrayConstraintFromSetMidocoAgencyCooperationHistory(?array $values = []): string
     {
+        if (!is_array($values)) {
+            return '';
+        }
         $message = '';
         $invalidValues = [];
         foreach ($values as $importRawCustomerRequestMidocoAgencyCooperationHistoryItem) {
@@ -1458,10 +1523,10 @@ class ImportRawCustomerRequest extends AbstractStructBase
      * @param \Pggns\MidocoApi\Crmsd\StructType\MidocoAgencyCooperationHistory[] $midocoAgencyCooperationHistory
      * @return \Pggns\MidocoApi\Crmsd\StructType\ImportRawCustomerRequest
      */
-    public function setMidocoAgencyCooperationHistory(array $midocoAgencyCooperationHistory = []): self
+    public function setMidocoAgencyCooperationHistory(?array $midocoAgencyCooperationHistory = null): self
     {
         // validation for constraint: array
-        if ('' !== ($midocoAgencyCooperationHistoryArrayErrorMessage = self::validateMidocoAgencyCooperationHistoryForArrayConstraintsFromSetMidocoAgencyCooperationHistory($midocoAgencyCooperationHistory))) {
+        if ('' !== ($midocoAgencyCooperationHistoryArrayErrorMessage = self::validateMidocoAgencyCooperationHistoryForArrayConstraintFromSetMidocoAgencyCooperationHistory($midocoAgencyCooperationHistory))) {
             throw new InvalidArgumentException($midocoAgencyCooperationHistoryArrayErrorMessage, __LINE__);
         }
         $this->MidocoAgencyCooperationHistory = $midocoAgencyCooperationHistory;
@@ -1488,18 +1553,22 @@ class ImportRawCustomerRequest extends AbstractStructBase
      * Get customerCommissionId value
      * @return int[]
      */
-    public function getCustomerCommissionId(): array
+    public function getCustomerCommissionId(): ?array
     {
         return $this->customerCommissionId;
     }
     /**
-     * This method is responsible for validating the values passed to the setCustomerCommissionId method
+     * This method is responsible for validating the value(s) passed to the setCustomerCommissionId method
      * This method is willingly generated in order to preserve the one-line inline validation within the setCustomerCommissionId method
+     * This has to validate that each item contained by the array match the itemType constraint
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateCustomerCommissionIdForArrayConstraintsFromSetCustomerCommissionId(array $values = []): string
+    public static function validateCustomerCommissionIdForArrayConstraintFromSetCustomerCommissionId(?array $values = []): string
     {
+        if (!is_array($values)) {
+            return '';
+        }
         $message = '';
         $invalidValues = [];
         foreach ($values as $importRawCustomerRequestCustomerCommissionIdItem) {
@@ -1521,10 +1590,10 @@ class ImportRawCustomerRequest extends AbstractStructBase
      * @param int[] $customerCommissionId
      * @return \Pggns\MidocoApi\Crmsd\StructType\ImportRawCustomerRequest
      */
-    public function setCustomerCommissionId(array $customerCommissionId = []): self
+    public function setCustomerCommissionId(?array $customerCommissionId = null): self
     {
         // validation for constraint: array
-        if ('' !== ($customerCommissionIdArrayErrorMessage = self::validateCustomerCommissionIdForArrayConstraintsFromSetCustomerCommissionId($customerCommissionId))) {
+        if ('' !== ($customerCommissionIdArrayErrorMessage = self::validateCustomerCommissionIdForArrayConstraintFromSetCustomerCommissionId($customerCommissionId))) {
             throw new InvalidArgumentException($customerCommissionIdArrayErrorMessage, __LINE__);
         }
         $this->customerCommissionId = $customerCommissionId;

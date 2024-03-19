@@ -11,6 +11,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * This class stands for GetTemplateRequest StructType
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class GetTemplateRequest extends AbstractStructBase
 {
     /**

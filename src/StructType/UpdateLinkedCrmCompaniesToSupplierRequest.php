@@ -11,6 +11,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * This class stands for UpdateLinkedCrmCompaniesToSupplierRequest StructType
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class UpdateLinkedCrmCompaniesToSupplierRequest extends AbstractStructBase
 {
     /**
@@ -49,6 +50,11 @@ class UpdateLinkedCrmCompaniesToSupplierRequest extends AbstractStructBase
      */
     protected ?string $supplierPostalCode = null;
     /**
+     * The interimAccount
+     * @var string|null
+     */
+    protected ?string $interimAccount = null;
+    /**
      * Constructor method for UpdateLinkedCrmCompaniesToSupplierRequest
      * @uses UpdateLinkedCrmCompaniesToSupplierRequest::setSupplierId()
      * @uses UpdateLinkedCrmCompaniesToSupplierRequest::setSupplierName()
@@ -57,6 +63,7 @@ class UpdateLinkedCrmCompaniesToSupplierRequest extends AbstractStructBase
      * @uses UpdateLinkedCrmCompaniesToSupplierRequest::setSupplierStreet()
      * @uses UpdateLinkedCrmCompaniesToSupplierRequest::setSupplierStreetNo()
      * @uses UpdateLinkedCrmCompaniesToSupplierRequest::setSupplierPostalCode()
+     * @uses UpdateLinkedCrmCompaniesToSupplierRequest::setInterimAccount()
      * @param string $supplierId
      * @param string $supplierName
      * @param string $supplierCity
@@ -64,8 +71,9 @@ class UpdateLinkedCrmCompaniesToSupplierRequest extends AbstractStructBase
      * @param string $supplierStreet
      * @param string $supplierStreetNo
      * @param string $supplierPostalCode
+     * @param string $interimAccount
      */
-    public function __construct(?string $supplierId = null, ?string $supplierName = null, ?string $supplierCity = null, ?string $supplierCountry = null, ?string $supplierStreet = null, ?string $supplierStreetNo = null, ?string $supplierPostalCode = null)
+    public function __construct(?string $supplierId = null, ?string $supplierName = null, ?string $supplierCity = null, ?string $supplierCountry = null, ?string $supplierStreet = null, ?string $supplierStreetNo = null, ?string $supplierPostalCode = null, ?string $interimAccount = null)
     {
         $this
             ->setSupplierId($supplierId)
@@ -74,7 +82,8 @@ class UpdateLinkedCrmCompaniesToSupplierRequest extends AbstractStructBase
             ->setSupplierCountry($supplierCountry)
             ->setSupplierStreet($supplierStreet)
             ->setSupplierStreetNo($supplierStreetNo)
-            ->setSupplierPostalCode($supplierPostalCode);
+            ->setSupplierPostalCode($supplierPostalCode)
+            ->setInterimAccount($interimAccount);
     }
     /**
      * Get supplierId value
@@ -234,6 +243,29 @@ class UpdateLinkedCrmCompaniesToSupplierRequest extends AbstractStructBase
             throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($supplierPostalCode, true), gettype($supplierPostalCode)), __LINE__);
         }
         $this->supplierPostalCode = $supplierPostalCode;
+        
+        return $this;
+    }
+    /**
+     * Get interimAccount value
+     * @return string|null
+     */
+    public function getInterimAccount(): ?string
+    {
+        return $this->interimAccount;
+    }
+    /**
+     * Set interimAccount value
+     * @param string $interimAccount
+     * @return \Pggns\MidocoApi\Crmsd\StructType\UpdateLinkedCrmCompaniesToSupplierRequest
+     */
+    public function setInterimAccount(?string $interimAccount = null): self
+    {
+        // validation for constraint: string
+        if (!is_null($interimAccount) && !is_string($interimAccount)) {
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($interimAccount, true), gettype($interimAccount)), __LINE__);
+        }
+        $this->interimAccount = $interimAccount;
         
         return $this;
     }

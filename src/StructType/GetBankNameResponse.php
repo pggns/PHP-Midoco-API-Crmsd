@@ -11,6 +11,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * This class stands for GetBankNameResponse StructType
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class GetBankNameResponse extends AbstractStructBase
 {
     /**
@@ -20,13 +21,13 @@ class GetBankNameResponse extends AbstractStructBase
      * - minOccurs: 0
      * @var \Pggns\MidocoApi\Crmsd\StructType\Bank[]
      */
-    protected array $Bank = [];
+    protected ?array $Bank = null;
     /**
      * Constructor method for GetBankNameResponse
      * @uses GetBankNameResponse::setBank()
      * @param \Pggns\MidocoApi\Crmsd\StructType\Bank[] $bank
      */
-    public function __construct(array $bank = [])
+    public function __construct(?array $bank = null)
     {
         $this
             ->setBank($bank);
@@ -35,18 +36,22 @@ class GetBankNameResponse extends AbstractStructBase
      * Get Bank value
      * @return \Pggns\MidocoApi\Crmsd\StructType\Bank[]
      */
-    public function getBank(): array
+    public function getBank(): ?array
     {
         return $this->Bank;
     }
     /**
-     * This method is responsible for validating the values passed to the setBank method
+     * This method is responsible for validating the value(s) passed to the setBank method
      * This method is willingly generated in order to preserve the one-line inline validation within the setBank method
+     * This has to validate that each item contained by the array match the itemType constraint
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateBankForArrayConstraintsFromSetBank(array $values = []): string
+    public static function validateBankForArrayConstraintFromSetBank(?array $values = []): string
     {
+        if (!is_array($values)) {
+            return '';
+        }
         $message = '';
         $invalidValues = [];
         foreach ($values as $getBankNameResponseBankItem) {
@@ -68,10 +73,10 @@ class GetBankNameResponse extends AbstractStructBase
      * @param \Pggns\MidocoApi\Crmsd\StructType\Bank[] $bank
      * @return \Pggns\MidocoApi\Crmsd\StructType\GetBankNameResponse
      */
-    public function setBank(array $bank = []): self
+    public function setBank(?array $bank = null): self
     {
         // validation for constraint: array
-        if ('' !== ($bankArrayErrorMessage = self::validateBankForArrayConstraintsFromSetBank($bank))) {
+        if ('' !== ($bankArrayErrorMessage = self::validateBankForArrayConstraintFromSetBank($bank))) {
             throw new InvalidArgumentException($bankArrayErrorMessage, __LINE__);
         }
         $this->Bank = $bank;

@@ -13,6 +13,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * - documentation: duplicateCrmMidocoSettlement --- duplicates the Midoco settlement with the given customer. Creates a new settl with a new valid from date
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class DuplicateCrmMidocoSettlementResponse extends AbstractStructBase
 {
     /**

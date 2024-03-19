@@ -11,6 +11,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * This class stands for SaveCcTokenResponse StructType
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class SaveCcTokenResponse extends AbstractStructBase
 {
     /**

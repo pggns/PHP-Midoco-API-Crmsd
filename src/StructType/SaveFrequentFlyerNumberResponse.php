@@ -11,6 +11,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * This class stands for SaveFrequentFlyerNumberResponse StructType
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class SaveFrequentFlyerNumberResponse extends AbstractStructBase
 {
     /**

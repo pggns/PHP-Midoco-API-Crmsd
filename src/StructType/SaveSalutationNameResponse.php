@@ -13,6 +13,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * - documentation: saveSalutationName --- saves a salutation name. returns void
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class SaveSalutationNameResponse extends AbstractStructBase
 {
 }

@@ -13,6 +13,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * - documentation: returns the list of campaigns in which the customer participated
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class GetCrmCampaignesResponse extends AbstractStructBase
 {
     /**
@@ -23,7 +24,7 @@ class GetCrmCampaignesResponse extends AbstractStructBase
      * - ref: MidocoCrmCampaign
      * @var \Pggns\MidocoApi\Crmsd\StructType\MidocoCrmCampaign[]
      */
-    protected array $MidocoCrmCampaign = [];
+    protected ?array $MidocoCrmCampaign = null;
     /**
      * The totalNoOfRecords
      * @var int|null
@@ -36,7 +37,7 @@ class GetCrmCampaignesResponse extends AbstractStructBase
      * @param \Pggns\MidocoApi\Crmsd\StructType\MidocoCrmCampaign[] $midocoCrmCampaign
      * @param int $totalNoOfRecords
      */
-    public function __construct(array $midocoCrmCampaign = [], ?int $totalNoOfRecords = null)
+    public function __construct(?array $midocoCrmCampaign = null, ?int $totalNoOfRecords = null)
     {
         $this
             ->setMidocoCrmCampaign($midocoCrmCampaign)
@@ -46,18 +47,22 @@ class GetCrmCampaignesResponse extends AbstractStructBase
      * Get MidocoCrmCampaign value
      * @return \Pggns\MidocoApi\Crmsd\StructType\MidocoCrmCampaign[]
      */
-    public function getMidocoCrmCampaign(): array
+    public function getMidocoCrmCampaign(): ?array
     {
         return $this->MidocoCrmCampaign;
     }
     /**
-     * This method is responsible for validating the values passed to the setMidocoCrmCampaign method
+     * This method is responsible for validating the value(s) passed to the setMidocoCrmCampaign method
      * This method is willingly generated in order to preserve the one-line inline validation within the setMidocoCrmCampaign method
+     * This has to validate that each item contained by the array match the itemType constraint
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateMidocoCrmCampaignForArrayConstraintsFromSetMidocoCrmCampaign(array $values = []): string
+    public static function validateMidocoCrmCampaignForArrayConstraintFromSetMidocoCrmCampaign(?array $values = []): string
     {
+        if (!is_array($values)) {
+            return '';
+        }
         $message = '';
         $invalidValues = [];
         foreach ($values as $getCrmCampaignesResponseMidocoCrmCampaignItem) {
@@ -79,10 +84,10 @@ class GetCrmCampaignesResponse extends AbstractStructBase
      * @param \Pggns\MidocoApi\Crmsd\StructType\MidocoCrmCampaign[] $midocoCrmCampaign
      * @return \Pggns\MidocoApi\Crmsd\StructType\GetCrmCampaignesResponse
      */
-    public function setMidocoCrmCampaign(array $midocoCrmCampaign = []): self
+    public function setMidocoCrmCampaign(?array $midocoCrmCampaign = null): self
     {
         // validation for constraint: array
-        if ('' !== ($midocoCrmCampaignArrayErrorMessage = self::validateMidocoCrmCampaignForArrayConstraintsFromSetMidocoCrmCampaign($midocoCrmCampaign))) {
+        if ('' !== ($midocoCrmCampaignArrayErrorMessage = self::validateMidocoCrmCampaignForArrayConstraintFromSetMidocoCrmCampaign($midocoCrmCampaign))) {
             throw new InvalidArgumentException($midocoCrmCampaignArrayErrorMessage, __LINE__);
         }
         $this->MidocoCrmCampaign = $midocoCrmCampaign;

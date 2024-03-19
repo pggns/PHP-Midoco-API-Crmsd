@@ -11,6 +11,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * This class stands for AddAgencyCommissionResponse StructType
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class AddAgencyCommissionResponse extends AbstractStructBase
 {
     /**

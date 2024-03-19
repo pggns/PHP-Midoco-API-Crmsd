@@ -13,6 +13,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * - documentation: update ContactEntries for customers - get the ContactEntries and save them
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class UpdateContactEntriesRequest extends AbstractStructBase
 {
     /**
@@ -23,13 +24,13 @@ class UpdateContactEntriesRequest extends AbstractStructBase
      * - ref: MidocoCustomerId
      * @var \Pggns\MidocoApi\Crmsd\StructType\CustomerIdDTO[]
      */
-    protected array $MidocoCustomerId = [];
+    protected ?array $MidocoCustomerId = null;
     /**
      * Constructor method for UpdateContactEntriesRequest
      * @uses UpdateContactEntriesRequest::setMidocoCustomerId()
      * @param \Pggns\MidocoApi\Crmsd\StructType\CustomerIdDTO[] $midocoCustomerId
      */
-    public function __construct(array $midocoCustomerId = [])
+    public function __construct(?array $midocoCustomerId = null)
     {
         $this
             ->setMidocoCustomerId($midocoCustomerId);
@@ -38,18 +39,22 @@ class UpdateContactEntriesRequest extends AbstractStructBase
      * Get MidocoCustomerId value
      * @return \Pggns\MidocoApi\Crmsd\StructType\CustomerIdDTO[]
      */
-    public function getMidocoCustomerId(): array
+    public function getMidocoCustomerId(): ?array
     {
         return $this->MidocoCustomerId;
     }
     /**
-     * This method is responsible for validating the values passed to the setMidocoCustomerId method
+     * This method is responsible for validating the value(s) passed to the setMidocoCustomerId method
      * This method is willingly generated in order to preserve the one-line inline validation within the setMidocoCustomerId method
+     * This has to validate that each item contained by the array match the itemType constraint
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateMidocoCustomerIdForArrayConstraintsFromSetMidocoCustomerId(array $values = []): string
+    public static function validateMidocoCustomerIdForArrayConstraintFromSetMidocoCustomerId(?array $values = []): string
     {
+        if (!is_array($values)) {
+            return '';
+        }
         $message = '';
         $invalidValues = [];
         foreach ($values as $updateContactEntriesRequestMidocoCustomerIdItem) {
@@ -71,10 +76,10 @@ class UpdateContactEntriesRequest extends AbstractStructBase
      * @param \Pggns\MidocoApi\Crmsd\StructType\CustomerIdDTO[] $midocoCustomerId
      * @return \Pggns\MidocoApi\Crmsd\StructType\UpdateContactEntriesRequest
      */
-    public function setMidocoCustomerId(array $midocoCustomerId = []): self
+    public function setMidocoCustomerId(?array $midocoCustomerId = null): self
     {
         // validation for constraint: array
-        if ('' !== ($midocoCustomerIdArrayErrorMessage = self::validateMidocoCustomerIdForArrayConstraintsFromSetMidocoCustomerId($midocoCustomerId))) {
+        if ('' !== ($midocoCustomerIdArrayErrorMessage = self::validateMidocoCustomerIdForArrayConstraintFromSetMidocoCustomerId($midocoCustomerId))) {
             throw new InvalidArgumentException($midocoCustomerIdArrayErrorMessage, __LINE__);
         }
         $this->MidocoCustomerId = $midocoCustomerId;

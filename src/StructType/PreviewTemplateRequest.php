@@ -11,6 +11,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * This class stands for PreviewTemplateRequest StructType
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class PreviewTemplateRequest extends AbstractStructBase
 {
     /**

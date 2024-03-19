@@ -13,6 +13,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * - documentation: contains the titles of persons
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class GetTitlesResponse extends AbstractStructBase
 {
     /**
@@ -23,13 +24,13 @@ class GetTitlesResponse extends AbstractStructBase
      * - ref: MidocoTitle
      * @var \Pggns\MidocoApi\Crmsd\StructType\MidocoTitle[]
      */
-    protected array $MidocoTitle = [];
+    protected ?array $MidocoTitle = null;
     /**
      * Constructor method for GetTitlesResponse
      * @uses GetTitlesResponse::setMidocoTitle()
      * @param \Pggns\MidocoApi\Crmsd\StructType\MidocoTitle[] $midocoTitle
      */
-    public function __construct(array $midocoTitle = [])
+    public function __construct(?array $midocoTitle = null)
     {
         $this
             ->setMidocoTitle($midocoTitle);
@@ -38,18 +39,22 @@ class GetTitlesResponse extends AbstractStructBase
      * Get MidocoTitle value
      * @return \Pggns\MidocoApi\Crmsd\StructType\MidocoTitle[]
      */
-    public function getMidocoTitle(): array
+    public function getMidocoTitle(): ?array
     {
         return $this->MidocoTitle;
     }
     /**
-     * This method is responsible for validating the values passed to the setMidocoTitle method
+     * This method is responsible for validating the value(s) passed to the setMidocoTitle method
      * This method is willingly generated in order to preserve the one-line inline validation within the setMidocoTitle method
+     * This has to validate that each item contained by the array match the itemType constraint
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateMidocoTitleForArrayConstraintsFromSetMidocoTitle(array $values = []): string
+    public static function validateMidocoTitleForArrayConstraintFromSetMidocoTitle(?array $values = []): string
     {
+        if (!is_array($values)) {
+            return '';
+        }
         $message = '';
         $invalidValues = [];
         foreach ($values as $getTitlesResponseMidocoTitleItem) {
@@ -71,10 +76,10 @@ class GetTitlesResponse extends AbstractStructBase
      * @param \Pggns\MidocoApi\Crmsd\StructType\MidocoTitle[] $midocoTitle
      * @return \Pggns\MidocoApi\Crmsd\StructType\GetTitlesResponse
      */
-    public function setMidocoTitle(array $midocoTitle = []): self
+    public function setMidocoTitle(?array $midocoTitle = null): self
     {
         // validation for constraint: array
-        if ('' !== ($midocoTitleArrayErrorMessage = self::validateMidocoTitleForArrayConstraintsFromSetMidocoTitle($midocoTitle))) {
+        if ('' !== ($midocoTitleArrayErrorMessage = self::validateMidocoTitleForArrayConstraintFromSetMidocoTitle($midocoTitle))) {
             throw new InvalidArgumentException($midocoTitleArrayErrorMessage, __LINE__);
         }
         $this->MidocoTitle = $midocoTitle;

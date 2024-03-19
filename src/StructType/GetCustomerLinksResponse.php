@@ -13,6 +13,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * - documentation: getCustomerLinks --- returns a list containing the links of the customer
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class GetCustomerLinksResponse extends AbstractStructBase
 {
     /**
@@ -23,13 +24,13 @@ class GetCustomerLinksResponse extends AbstractStructBase
      * - ref: MidocoCrmCustomerLink
      * @var \Pggns\MidocoApi\Crmsd\StructType\CrmCustomerLinkDTO[]
      */
-    protected array $MidocoCrmCustomerLink = [];
+    protected ?array $MidocoCrmCustomerLink = null;
     /**
      * Constructor method for GetCustomerLinksResponse
      * @uses GetCustomerLinksResponse::setMidocoCrmCustomerLink()
      * @param \Pggns\MidocoApi\Crmsd\StructType\CrmCustomerLinkDTO[] $midocoCrmCustomerLink
      */
-    public function __construct(array $midocoCrmCustomerLink = [])
+    public function __construct(?array $midocoCrmCustomerLink = null)
     {
         $this
             ->setMidocoCrmCustomerLink($midocoCrmCustomerLink);
@@ -38,18 +39,22 @@ class GetCustomerLinksResponse extends AbstractStructBase
      * Get MidocoCrmCustomerLink value
      * @return \Pggns\MidocoApi\Crmsd\StructType\CrmCustomerLinkDTO[]
      */
-    public function getMidocoCrmCustomerLink(): array
+    public function getMidocoCrmCustomerLink(): ?array
     {
         return $this->MidocoCrmCustomerLink;
     }
     /**
-     * This method is responsible for validating the values passed to the setMidocoCrmCustomerLink method
+     * This method is responsible for validating the value(s) passed to the setMidocoCrmCustomerLink method
      * This method is willingly generated in order to preserve the one-line inline validation within the setMidocoCrmCustomerLink method
+     * This has to validate that each item contained by the array match the itemType constraint
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateMidocoCrmCustomerLinkForArrayConstraintsFromSetMidocoCrmCustomerLink(array $values = []): string
+    public static function validateMidocoCrmCustomerLinkForArrayConstraintFromSetMidocoCrmCustomerLink(?array $values = []): string
     {
+        if (!is_array($values)) {
+            return '';
+        }
         $message = '';
         $invalidValues = [];
         foreach ($values as $getCustomerLinksResponseMidocoCrmCustomerLinkItem) {
@@ -71,10 +76,10 @@ class GetCustomerLinksResponse extends AbstractStructBase
      * @param \Pggns\MidocoApi\Crmsd\StructType\CrmCustomerLinkDTO[] $midocoCrmCustomerLink
      * @return \Pggns\MidocoApi\Crmsd\StructType\GetCustomerLinksResponse
      */
-    public function setMidocoCrmCustomerLink(array $midocoCrmCustomerLink = []): self
+    public function setMidocoCrmCustomerLink(?array $midocoCrmCustomerLink = null): self
     {
         // validation for constraint: array
-        if ('' !== ($midocoCrmCustomerLinkArrayErrorMessage = self::validateMidocoCrmCustomerLinkForArrayConstraintsFromSetMidocoCrmCustomerLink($midocoCrmCustomerLink))) {
+        if ('' !== ($midocoCrmCustomerLinkArrayErrorMessage = self::validateMidocoCrmCustomerLinkForArrayConstraintFromSetMidocoCrmCustomerLink($midocoCrmCustomerLink))) {
             throw new InvalidArgumentException($midocoCrmCustomerLinkArrayErrorMessage, __LINE__);
         }
         $this->MidocoCrmCustomerLink = $midocoCrmCustomerLink;

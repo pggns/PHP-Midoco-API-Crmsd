@@ -11,6 +11,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * This class stands for SaveCrmExternalOfferResponse StructType
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class SaveCrmExternalOfferResponse extends AbstractStructBase
 {
     /**

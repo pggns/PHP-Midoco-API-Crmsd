@@ -13,6 +13,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * - documentation: getTemplates --- get a list of templates languages
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class GetTemplateLanguagesResponse extends AbstractStructBase
 {
     /**
@@ -23,13 +24,13 @@ class GetTemplateLanguagesResponse extends AbstractStructBase
      * - ref: MidocoCrmTemplateLanguage
      * @var \Pggns\MidocoApi\Crmsd\StructType\CrmTemplateLanguageDTO[]
      */
-    protected array $MidocoCrmTemplateLanguage = [];
+    protected ?array $MidocoCrmTemplateLanguage = null;
     /**
      * Constructor method for GetTemplateLanguagesResponse
      * @uses GetTemplateLanguagesResponse::setMidocoCrmTemplateLanguage()
      * @param \Pggns\MidocoApi\Crmsd\StructType\CrmTemplateLanguageDTO[] $midocoCrmTemplateLanguage
      */
-    public function __construct(array $midocoCrmTemplateLanguage = [])
+    public function __construct(?array $midocoCrmTemplateLanguage = null)
     {
         $this
             ->setMidocoCrmTemplateLanguage($midocoCrmTemplateLanguage);
@@ -38,18 +39,22 @@ class GetTemplateLanguagesResponse extends AbstractStructBase
      * Get MidocoCrmTemplateLanguage value
      * @return \Pggns\MidocoApi\Crmsd\StructType\CrmTemplateLanguageDTO[]
      */
-    public function getMidocoCrmTemplateLanguage(): array
+    public function getMidocoCrmTemplateLanguage(): ?array
     {
         return $this->MidocoCrmTemplateLanguage;
     }
     /**
-     * This method is responsible for validating the values passed to the setMidocoCrmTemplateLanguage method
+     * This method is responsible for validating the value(s) passed to the setMidocoCrmTemplateLanguage method
      * This method is willingly generated in order to preserve the one-line inline validation within the setMidocoCrmTemplateLanguage method
+     * This has to validate that each item contained by the array match the itemType constraint
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateMidocoCrmTemplateLanguageForArrayConstraintsFromSetMidocoCrmTemplateLanguage(array $values = []): string
+    public static function validateMidocoCrmTemplateLanguageForArrayConstraintFromSetMidocoCrmTemplateLanguage(?array $values = []): string
     {
+        if (!is_array($values)) {
+            return '';
+        }
         $message = '';
         $invalidValues = [];
         foreach ($values as $getTemplateLanguagesResponseMidocoCrmTemplateLanguageItem) {
@@ -71,10 +76,10 @@ class GetTemplateLanguagesResponse extends AbstractStructBase
      * @param \Pggns\MidocoApi\Crmsd\StructType\CrmTemplateLanguageDTO[] $midocoCrmTemplateLanguage
      * @return \Pggns\MidocoApi\Crmsd\StructType\GetTemplateLanguagesResponse
      */
-    public function setMidocoCrmTemplateLanguage(array $midocoCrmTemplateLanguage = []): self
+    public function setMidocoCrmTemplateLanguage(?array $midocoCrmTemplateLanguage = null): self
     {
         // validation for constraint: array
-        if ('' !== ($midocoCrmTemplateLanguageArrayErrorMessage = self::validateMidocoCrmTemplateLanguageForArrayConstraintsFromSetMidocoCrmTemplateLanguage($midocoCrmTemplateLanguage))) {
+        if ('' !== ($midocoCrmTemplateLanguageArrayErrorMessage = self::validateMidocoCrmTemplateLanguageForArrayConstraintFromSetMidocoCrmTemplateLanguage($midocoCrmTemplateLanguage))) {
             throw new InvalidArgumentException($midocoCrmTemplateLanguageArrayErrorMessage, __LINE__);
         }
         $this->MidocoCrmTemplateLanguage = $midocoCrmTemplateLanguage;

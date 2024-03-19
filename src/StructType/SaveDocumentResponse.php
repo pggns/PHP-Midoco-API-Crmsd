@@ -13,6 +13,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * - documentation: saveDocument --- saves a document given as parameter
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class SaveDocumentResponse extends AbstractStructBase
 {
     /**

@@ -13,6 +13,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * - documentation: getCustomerByMediatorId - return the customer that has the mediatorId
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class GetCustomerByMediatorIdRequest extends AbstractStructBase
 {
     /**

@@ -13,6 +13,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * - documentation: getBonusCards --- returns the list of bonus cards corresponding to a customer id
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class GetBonusCardsResponse extends AbstractStructBase
 {
     /**
@@ -23,13 +24,13 @@ class GetBonusCardsResponse extends AbstractStructBase
      * - ref: MidocoCrmBonusCard
      * @var \Pggns\MidocoApi\Crmsd\StructType\MidocoCrmBonusCard[]
      */
-    protected array $MidocoCrmBonusCard = [];
+    protected ?array $MidocoCrmBonusCard = null;
     /**
      * Constructor method for GetBonusCardsResponse
      * @uses GetBonusCardsResponse::setMidocoCrmBonusCard()
      * @param \Pggns\MidocoApi\Crmsd\StructType\MidocoCrmBonusCard[] $midocoCrmBonusCard
      */
-    public function __construct(array $midocoCrmBonusCard = [])
+    public function __construct(?array $midocoCrmBonusCard = null)
     {
         $this
             ->setMidocoCrmBonusCard($midocoCrmBonusCard);
@@ -38,18 +39,22 @@ class GetBonusCardsResponse extends AbstractStructBase
      * Get MidocoCrmBonusCard value
      * @return \Pggns\MidocoApi\Crmsd\StructType\MidocoCrmBonusCard[]
      */
-    public function getMidocoCrmBonusCard(): array
+    public function getMidocoCrmBonusCard(): ?array
     {
         return $this->MidocoCrmBonusCard;
     }
     /**
-     * This method is responsible for validating the values passed to the setMidocoCrmBonusCard method
+     * This method is responsible for validating the value(s) passed to the setMidocoCrmBonusCard method
      * This method is willingly generated in order to preserve the one-line inline validation within the setMidocoCrmBonusCard method
+     * This has to validate that each item contained by the array match the itemType constraint
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateMidocoCrmBonusCardForArrayConstraintsFromSetMidocoCrmBonusCard(array $values = []): string
+    public static function validateMidocoCrmBonusCardForArrayConstraintFromSetMidocoCrmBonusCard(?array $values = []): string
     {
+        if (!is_array($values)) {
+            return '';
+        }
         $message = '';
         $invalidValues = [];
         foreach ($values as $getBonusCardsResponseMidocoCrmBonusCardItem) {
@@ -71,10 +76,10 @@ class GetBonusCardsResponse extends AbstractStructBase
      * @param \Pggns\MidocoApi\Crmsd\StructType\MidocoCrmBonusCard[] $midocoCrmBonusCard
      * @return \Pggns\MidocoApi\Crmsd\StructType\GetBonusCardsResponse
      */
-    public function setMidocoCrmBonusCard(array $midocoCrmBonusCard = []): self
+    public function setMidocoCrmBonusCard(?array $midocoCrmBonusCard = null): self
     {
         // validation for constraint: array
-        if ('' !== ($midocoCrmBonusCardArrayErrorMessage = self::validateMidocoCrmBonusCardForArrayConstraintsFromSetMidocoCrmBonusCard($midocoCrmBonusCard))) {
+        if ('' !== ($midocoCrmBonusCardArrayErrorMessage = self::validateMidocoCrmBonusCardForArrayConstraintFromSetMidocoCrmBonusCard($midocoCrmBonusCard))) {
             throw new InvalidArgumentException($midocoCrmBonusCardArrayErrorMessage, __LINE__);
         }
         $this->MidocoCrmBonusCard = $midocoCrmBonusCard;

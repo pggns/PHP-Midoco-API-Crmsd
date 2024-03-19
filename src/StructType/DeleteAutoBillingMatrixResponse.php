@@ -11,6 +11,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * This class stands for DeleteAutoBillingMatrixResponse StructType
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class DeleteAutoBillingMatrixResponse extends AbstractStructBase
 {
 }

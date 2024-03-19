@@ -13,6 +13,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * - documentation: list the allowed document types
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class GetAvailableDocumentTypesRequest extends AbstractStructBase
 {
 }

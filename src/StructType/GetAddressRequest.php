@@ -13,6 +13,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * - documentation: retrieves an address by its ID
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class GetAddressRequest extends AbstractStructBase
 {
     /**

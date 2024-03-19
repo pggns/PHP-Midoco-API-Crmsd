@@ -11,6 +11,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * This class stands for SearchCustomerByCriteriaRequest StructType
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class SearchCustomerByCriteriaRequest extends AbstractStructBase
 {
     /**
@@ -20,7 +21,7 @@ class SearchCustomerByCriteriaRequest extends AbstractStructBase
      * - minOccurs: 0
      * @var string[]
      */
-    protected array $feeGroup = [];
+    protected ?array $feeGroup = null;
     /**
      * The addressTypeId
      * @var int|null
@@ -124,7 +125,7 @@ class SearchCustomerByCriteriaRequest extends AbstractStructBase
      * @param string $accountType
      * @param bool $notDeleted
      */
-    public function __construct(array $feeGroup = [], ?int $addressTypeId = null, ?string $mediaId = null, ?string $lockReasonId = null, ?int $deletedReasonId = null, ?string $costCentre = null, ?int $printOptionId = null, ?string $criteriaTypeId = null, ?string $paymentConditionId = null, ?string $travellerType = null, ?int $connectionTypeId = null, ?string $salutationId = null, ?string $accountNo = null, ?string $accountType = null, ?bool $notDeleted = null)
+    public function __construct(?array $feeGroup = null, ?int $addressTypeId = null, ?string $mediaId = null, ?string $lockReasonId = null, ?int $deletedReasonId = null, ?string $costCentre = null, ?int $printOptionId = null, ?string $criteriaTypeId = null, ?string $paymentConditionId = null, ?string $travellerType = null, ?int $connectionTypeId = null, ?string $salutationId = null, ?string $accountNo = null, ?string $accountType = null, ?bool $notDeleted = null)
     {
         $this
             ->setFeeGroup($feeGroup)
@@ -147,18 +148,22 @@ class SearchCustomerByCriteriaRequest extends AbstractStructBase
      * Get feeGroup value
      * @return string[]
      */
-    public function getFeeGroup(): array
+    public function getFeeGroup(): ?array
     {
         return $this->feeGroup;
     }
     /**
-     * This method is responsible for validating the values passed to the setFeeGroup method
+     * This method is responsible for validating the value(s) passed to the setFeeGroup method
      * This method is willingly generated in order to preserve the one-line inline validation within the setFeeGroup method
+     * This has to validate that each item contained by the array match the itemType constraint
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateFeeGroupForArrayConstraintsFromSetFeeGroup(array $values = []): string
+    public static function validateFeeGroupForArrayConstraintFromSetFeeGroup(?array $values = []): string
     {
+        if (!is_array($values)) {
+            return '';
+        }
         $message = '';
         $invalidValues = [];
         foreach ($values as $searchCustomerByCriteriaRequestFeeGroupItem) {
@@ -180,10 +185,10 @@ class SearchCustomerByCriteriaRequest extends AbstractStructBase
      * @param string[] $feeGroup
      * @return \Pggns\MidocoApi\Crmsd\StructType\SearchCustomerByCriteriaRequest
      */
-    public function setFeeGroup(array $feeGroup = []): self
+    public function setFeeGroup(?array $feeGroup = null): self
     {
         // validation for constraint: array
-        if ('' !== ($feeGroupArrayErrorMessage = self::validateFeeGroupForArrayConstraintsFromSetFeeGroup($feeGroup))) {
+        if ('' !== ($feeGroupArrayErrorMessage = self::validateFeeGroupForArrayConstraintFromSetFeeGroup($feeGroup))) {
             throw new InvalidArgumentException($feeGroupArrayErrorMessage, __LINE__);
         }
         $this->feeGroup = $feeGroup;

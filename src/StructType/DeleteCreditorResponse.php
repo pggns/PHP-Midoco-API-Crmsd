@@ -11,6 +11,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * This class stands for DeleteCreditorResponse StructType
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class DeleteCreditorResponse extends AbstractStructBase
 {
 }

@@ -11,6 +11,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * This class stands for GetInvoiceFileFormatRequest StructType
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class GetInvoiceFileFormatRequest extends AbstractStructBase
 {
     /**

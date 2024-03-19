@@ -14,6 +14,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * after saving
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class SaveAddressResponse extends AbstractStructBase
 {
     /**

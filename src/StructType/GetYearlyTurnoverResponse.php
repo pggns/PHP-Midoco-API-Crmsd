@@ -11,6 +11,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * This class stands for GetYearlyTurnoverResponse StructType
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class GetYearlyTurnoverResponse extends AbstractStructBase
 {
     /**
@@ -26,7 +27,7 @@ class GetYearlyTurnoverResponse extends AbstractStructBase
      * - ref: MidocoYearlyTurnover
      * @var \Pggns\MidocoApi\Crmsd\StructType\MidocoYearlyTurnover[]
      */
-    protected array $MidocoYearlyTurnover = [];
+    protected ?array $MidocoYearlyTurnover = null;
     /**
      * The lastTravelDate
      * @var string|null
@@ -48,7 +49,7 @@ class GetYearlyTurnoverResponse extends AbstractStructBase
      * @param string $lastTravelDate
      * @param float $lastSalesAmount
      */
-    public function __construct(?int $customerId = null, array $midocoYearlyTurnover = [], ?string $lastTravelDate = null, ?float $lastSalesAmount = null)
+    public function __construct(?int $customerId = null, ?array $midocoYearlyTurnover = null, ?string $lastTravelDate = null, ?float $lastSalesAmount = null)
     {
         $this
             ->setCustomerId($customerId)
@@ -83,18 +84,22 @@ class GetYearlyTurnoverResponse extends AbstractStructBase
      * Get MidocoYearlyTurnover value
      * @return \Pggns\MidocoApi\Crmsd\StructType\MidocoYearlyTurnover[]
      */
-    public function getMidocoYearlyTurnover(): array
+    public function getMidocoYearlyTurnover(): ?array
     {
         return $this->MidocoYearlyTurnover;
     }
     /**
-     * This method is responsible for validating the values passed to the setMidocoYearlyTurnover method
+     * This method is responsible for validating the value(s) passed to the setMidocoYearlyTurnover method
      * This method is willingly generated in order to preserve the one-line inline validation within the setMidocoYearlyTurnover method
+     * This has to validate that each item contained by the array match the itemType constraint
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateMidocoYearlyTurnoverForArrayConstraintsFromSetMidocoYearlyTurnover(array $values = []): string
+    public static function validateMidocoYearlyTurnoverForArrayConstraintFromSetMidocoYearlyTurnover(?array $values = []): string
     {
+        if (!is_array($values)) {
+            return '';
+        }
         $message = '';
         $invalidValues = [];
         foreach ($values as $getYearlyTurnoverResponseMidocoYearlyTurnoverItem) {
@@ -116,10 +121,10 @@ class GetYearlyTurnoverResponse extends AbstractStructBase
      * @param \Pggns\MidocoApi\Crmsd\StructType\MidocoYearlyTurnover[] $midocoYearlyTurnover
      * @return \Pggns\MidocoApi\Crmsd\StructType\GetYearlyTurnoverResponse
      */
-    public function setMidocoYearlyTurnover(array $midocoYearlyTurnover = []): self
+    public function setMidocoYearlyTurnover(?array $midocoYearlyTurnover = null): self
     {
         // validation for constraint: array
-        if ('' !== ($midocoYearlyTurnoverArrayErrorMessage = self::validateMidocoYearlyTurnoverForArrayConstraintsFromSetMidocoYearlyTurnover($midocoYearlyTurnover))) {
+        if ('' !== ($midocoYearlyTurnoverArrayErrorMessage = self::validateMidocoYearlyTurnoverForArrayConstraintFromSetMidocoYearlyTurnover($midocoYearlyTurnover))) {
             throw new InvalidArgumentException($midocoYearlyTurnoverArrayErrorMessage, __LINE__);
         }
         $this->MidocoYearlyTurnover = $midocoYearlyTurnover;

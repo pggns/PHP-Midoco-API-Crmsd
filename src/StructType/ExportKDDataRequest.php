@@ -11,6 +11,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * This class stands for ExportKDDataRequest StructType
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class ExportKDDataRequest extends AbstractStructBase
 {
 }

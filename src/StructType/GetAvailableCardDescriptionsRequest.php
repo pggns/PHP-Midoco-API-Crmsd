@@ -13,6 +13,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * - documentation: request the available card type descriptions
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class GetAvailableCardDescriptionsRequest extends AbstractStructBase
 {
 }

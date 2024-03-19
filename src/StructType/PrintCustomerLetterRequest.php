@@ -11,6 +11,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * This class stands for PrintCustomerLetterRequest StructType
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class PrintCustomerLetterRequest extends AbstractStructBase
 {
     /**

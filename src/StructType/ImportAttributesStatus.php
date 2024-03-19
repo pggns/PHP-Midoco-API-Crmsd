@@ -11,6 +11,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * This class stands for ImportAttributesStatus StructType
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class ImportAttributesStatus extends AbstractStructBase
 {
     /**

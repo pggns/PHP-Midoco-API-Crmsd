@@ -13,6 +13,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * - documentation: addCommissionLevel --- adds a commission level
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class AddCommissionLevelResponse extends AbstractStructBase
 {
 }

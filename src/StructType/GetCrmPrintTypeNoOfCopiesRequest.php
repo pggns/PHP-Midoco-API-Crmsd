@@ -11,6 +11,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * This class stands for GetCrmPrintTypeNoOfCopiesRequest StructType
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class GetCrmPrintTypeNoOfCopiesRequest extends AbstractStructBase
 {
     /**

@@ -13,6 +13,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * - documentation: getTemplates --- get a list of templates
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class GetTemplatesResponse extends AbstractStructBase
 {
     /**
@@ -23,13 +24,13 @@ class GetTemplatesResponse extends AbstractStructBase
      * - ref: MidocoCrmTemplate
      * @var \Pggns\MidocoApi\Crmsd\StructType\CrmTemplateDTO[]
      */
-    protected array $MidocoCrmTemplate = [];
+    protected ?array $MidocoCrmTemplate = null;
     /**
      * Constructor method for GetTemplatesResponse
      * @uses GetTemplatesResponse::setMidocoCrmTemplate()
      * @param \Pggns\MidocoApi\Crmsd\StructType\CrmTemplateDTO[] $midocoCrmTemplate
      */
-    public function __construct(array $midocoCrmTemplate = [])
+    public function __construct(?array $midocoCrmTemplate = null)
     {
         $this
             ->setMidocoCrmTemplate($midocoCrmTemplate);
@@ -38,18 +39,22 @@ class GetTemplatesResponse extends AbstractStructBase
      * Get MidocoCrmTemplate value
      * @return \Pggns\MidocoApi\Crmsd\StructType\CrmTemplateDTO[]
      */
-    public function getMidocoCrmTemplate(): array
+    public function getMidocoCrmTemplate(): ?array
     {
         return $this->MidocoCrmTemplate;
     }
     /**
-     * This method is responsible for validating the values passed to the setMidocoCrmTemplate method
+     * This method is responsible for validating the value(s) passed to the setMidocoCrmTemplate method
      * This method is willingly generated in order to preserve the one-line inline validation within the setMidocoCrmTemplate method
+     * This has to validate that each item contained by the array match the itemType constraint
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateMidocoCrmTemplateForArrayConstraintsFromSetMidocoCrmTemplate(array $values = []): string
+    public static function validateMidocoCrmTemplateForArrayConstraintFromSetMidocoCrmTemplate(?array $values = []): string
     {
+        if (!is_array($values)) {
+            return '';
+        }
         $message = '';
         $invalidValues = [];
         foreach ($values as $getTemplatesResponseMidocoCrmTemplateItem) {
@@ -71,10 +76,10 @@ class GetTemplatesResponse extends AbstractStructBase
      * @param \Pggns\MidocoApi\Crmsd\StructType\CrmTemplateDTO[] $midocoCrmTemplate
      * @return \Pggns\MidocoApi\Crmsd\StructType\GetTemplatesResponse
      */
-    public function setMidocoCrmTemplate(array $midocoCrmTemplate = []): self
+    public function setMidocoCrmTemplate(?array $midocoCrmTemplate = null): self
     {
         // validation for constraint: array
-        if ('' !== ($midocoCrmTemplateArrayErrorMessage = self::validateMidocoCrmTemplateForArrayConstraintsFromSetMidocoCrmTemplate($midocoCrmTemplate))) {
+        if ('' !== ($midocoCrmTemplateArrayErrorMessage = self::validateMidocoCrmTemplateForArrayConstraintFromSetMidocoCrmTemplate($midocoCrmTemplate))) {
             throw new InvalidArgumentException($midocoCrmTemplateArrayErrorMessage, __LINE__);
         }
         $this->MidocoCrmTemplate = $midocoCrmTemplate;

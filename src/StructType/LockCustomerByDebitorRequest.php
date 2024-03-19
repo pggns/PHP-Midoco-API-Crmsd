@@ -11,6 +11,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * This class stands for LockCustomerByDebitorRequest StructType
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class LockCustomerByDebitorRequest extends AbstractStructBase
 {
     /**

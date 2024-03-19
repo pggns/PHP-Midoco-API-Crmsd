@@ -11,6 +11,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * This class stands for SaveComplaintRequest StructType
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class SaveComplaintRequest extends AbstractStructBase
 {
     /**

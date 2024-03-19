@@ -11,6 +11,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * This class stands for GetCrmPersonTravellersResponse StructType
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class GetCrmPersonTravellersResponse extends AbstractStructBase
 {
     /**
@@ -21,13 +22,13 @@ class GetCrmPersonTravellersResponse extends AbstractStructBase
      * - ref: MidocoCrmPersonTraveller
      * @var \Pggns\MidocoApi\Crmsd\StructType\CrmPersonTravellerDTO[]
      */
-    protected array $MidocoCrmPersonTraveller = [];
+    protected ?array $MidocoCrmPersonTraveller = null;
     /**
      * Constructor method for GetCrmPersonTravellersResponse
      * @uses GetCrmPersonTravellersResponse::setMidocoCrmPersonTraveller()
      * @param \Pggns\MidocoApi\Crmsd\StructType\CrmPersonTravellerDTO[] $midocoCrmPersonTraveller
      */
-    public function __construct(array $midocoCrmPersonTraveller = [])
+    public function __construct(?array $midocoCrmPersonTraveller = null)
     {
         $this
             ->setMidocoCrmPersonTraveller($midocoCrmPersonTraveller);
@@ -36,18 +37,22 @@ class GetCrmPersonTravellersResponse extends AbstractStructBase
      * Get MidocoCrmPersonTraveller value
      * @return \Pggns\MidocoApi\Crmsd\StructType\CrmPersonTravellerDTO[]
      */
-    public function getMidocoCrmPersonTraveller(): array
+    public function getMidocoCrmPersonTraveller(): ?array
     {
         return $this->MidocoCrmPersonTraveller;
     }
     /**
-     * This method is responsible for validating the values passed to the setMidocoCrmPersonTraveller method
+     * This method is responsible for validating the value(s) passed to the setMidocoCrmPersonTraveller method
      * This method is willingly generated in order to preserve the one-line inline validation within the setMidocoCrmPersonTraveller method
+     * This has to validate that each item contained by the array match the itemType constraint
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateMidocoCrmPersonTravellerForArrayConstraintsFromSetMidocoCrmPersonTraveller(array $values = []): string
+    public static function validateMidocoCrmPersonTravellerForArrayConstraintFromSetMidocoCrmPersonTraveller(?array $values = []): string
     {
+        if (!is_array($values)) {
+            return '';
+        }
         $message = '';
         $invalidValues = [];
         foreach ($values as $getCrmPersonTravellersResponseMidocoCrmPersonTravellerItem) {
@@ -69,10 +74,10 @@ class GetCrmPersonTravellersResponse extends AbstractStructBase
      * @param \Pggns\MidocoApi\Crmsd\StructType\CrmPersonTravellerDTO[] $midocoCrmPersonTraveller
      * @return \Pggns\MidocoApi\Crmsd\StructType\GetCrmPersonTravellersResponse
      */
-    public function setMidocoCrmPersonTraveller(array $midocoCrmPersonTraveller = []): self
+    public function setMidocoCrmPersonTraveller(?array $midocoCrmPersonTraveller = null): self
     {
         // validation for constraint: array
-        if ('' !== ($midocoCrmPersonTravellerArrayErrorMessage = self::validateMidocoCrmPersonTravellerForArrayConstraintsFromSetMidocoCrmPersonTraveller($midocoCrmPersonTraveller))) {
+        if ('' !== ($midocoCrmPersonTravellerArrayErrorMessage = self::validateMidocoCrmPersonTravellerForArrayConstraintFromSetMidocoCrmPersonTraveller($midocoCrmPersonTraveller))) {
             throw new InvalidArgumentException($midocoCrmPersonTravellerArrayErrorMessage, __LINE__);
         }
         $this->MidocoCrmPersonTraveller = $midocoCrmPersonTraveller;

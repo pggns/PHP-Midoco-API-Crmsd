@@ -13,6 +13,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * - documentation: mergeCustomers --- merge 2 customers that are considered to be the same
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class MergeCustomersResponse extends AbstractStructBase
 {
     /**

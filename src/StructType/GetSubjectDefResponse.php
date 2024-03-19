@@ -11,6 +11,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * This class stands for GetSubjectDefResponse StructType
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class GetSubjectDefResponse extends AbstractStructBase
 {
     /**
@@ -21,13 +22,13 @@ class GetSubjectDefResponse extends AbstractStructBase
      * - ref: MidocoSubjectDef
      * @var \Pggns\MidocoApi\Crmsd\StructType\MidocoSubjectDef[]
      */
-    protected array $MidocoSubjectDef = [];
+    protected ?array $MidocoSubjectDef = null;
     /**
      * Constructor method for GetSubjectDefResponse
      * @uses GetSubjectDefResponse::setMidocoSubjectDef()
      * @param \Pggns\MidocoApi\Crmsd\StructType\MidocoSubjectDef[] $midocoSubjectDef
      */
-    public function __construct(array $midocoSubjectDef = [])
+    public function __construct(?array $midocoSubjectDef = null)
     {
         $this
             ->setMidocoSubjectDef($midocoSubjectDef);
@@ -36,18 +37,22 @@ class GetSubjectDefResponse extends AbstractStructBase
      * Get MidocoSubjectDef value
      * @return \Pggns\MidocoApi\Crmsd\StructType\MidocoSubjectDef[]
      */
-    public function getMidocoSubjectDef(): array
+    public function getMidocoSubjectDef(): ?array
     {
         return $this->MidocoSubjectDef;
     }
     /**
-     * This method is responsible for validating the values passed to the setMidocoSubjectDef method
+     * This method is responsible for validating the value(s) passed to the setMidocoSubjectDef method
      * This method is willingly generated in order to preserve the one-line inline validation within the setMidocoSubjectDef method
+     * This has to validate that each item contained by the array match the itemType constraint
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateMidocoSubjectDefForArrayConstraintsFromSetMidocoSubjectDef(array $values = []): string
+    public static function validateMidocoSubjectDefForArrayConstraintFromSetMidocoSubjectDef(?array $values = []): string
     {
+        if (!is_array($values)) {
+            return '';
+        }
         $message = '';
         $invalidValues = [];
         foreach ($values as $getSubjectDefResponseMidocoSubjectDefItem) {
@@ -69,10 +74,10 @@ class GetSubjectDefResponse extends AbstractStructBase
      * @param \Pggns\MidocoApi\Crmsd\StructType\MidocoSubjectDef[] $midocoSubjectDef
      * @return \Pggns\MidocoApi\Crmsd\StructType\GetSubjectDefResponse
      */
-    public function setMidocoSubjectDef(array $midocoSubjectDef = []): self
+    public function setMidocoSubjectDef(?array $midocoSubjectDef = null): self
     {
         // validation for constraint: array
-        if ('' !== ($midocoSubjectDefArrayErrorMessage = self::validateMidocoSubjectDefForArrayConstraintsFromSetMidocoSubjectDef($midocoSubjectDef))) {
+        if ('' !== ($midocoSubjectDefArrayErrorMessage = self::validateMidocoSubjectDefForArrayConstraintFromSetMidocoSubjectDef($midocoSubjectDef))) {
             throw new InvalidArgumentException($midocoSubjectDefArrayErrorMessage, __LINE__);
         }
         $this->MidocoSubjectDef = $midocoSubjectDef;

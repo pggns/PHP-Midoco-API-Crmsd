@@ -11,6 +11,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * This class stands for SaveAgencyCooperationHistoryRequest StructType
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class SaveAgencyCooperationHistoryRequest extends AbstractStructBase
 {
     /**

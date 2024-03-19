@@ -13,6 +13,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * - documentation: addHistoryEntry --- adds a history entry for a customer id
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class AddHistoryEntryResponse extends AbstractStructBase
 {
     /**

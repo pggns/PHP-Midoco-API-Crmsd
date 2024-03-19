@@ -11,6 +11,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * This class stands for GetTemplateLanguagesRequest StructType
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class GetTemplateLanguagesRequest extends AbstractStructBase
 {
     /**
@@ -21,13 +22,13 @@ class GetTemplateLanguagesRequest extends AbstractStructBase
      * - ref: MidocoCrmTemplate
      * @var \Pggns\MidocoApi\Crmsd\StructType\CrmTemplateDTO[]
      */
-    protected array $MidocoCrmTemplate = [];
+    protected ?array $MidocoCrmTemplate = null;
     /**
      * Constructor method for GetTemplateLanguagesRequest
      * @uses GetTemplateLanguagesRequest::setMidocoCrmTemplate()
      * @param \Pggns\MidocoApi\Crmsd\StructType\CrmTemplateDTO[] $midocoCrmTemplate
      */
-    public function __construct(array $midocoCrmTemplate = [])
+    public function __construct(?array $midocoCrmTemplate = null)
     {
         $this
             ->setMidocoCrmTemplate($midocoCrmTemplate);
@@ -36,18 +37,22 @@ class GetTemplateLanguagesRequest extends AbstractStructBase
      * Get MidocoCrmTemplate value
      * @return \Pggns\MidocoApi\Crmsd\StructType\CrmTemplateDTO[]
      */
-    public function getMidocoCrmTemplate(): array
+    public function getMidocoCrmTemplate(): ?array
     {
         return $this->MidocoCrmTemplate;
     }
     /**
-     * This method is responsible for validating the values passed to the setMidocoCrmTemplate method
+     * This method is responsible for validating the value(s) passed to the setMidocoCrmTemplate method
      * This method is willingly generated in order to preserve the one-line inline validation within the setMidocoCrmTemplate method
+     * This has to validate that each item contained by the array match the itemType constraint
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateMidocoCrmTemplateForArrayConstraintsFromSetMidocoCrmTemplate(array $values = []): string
+    public static function validateMidocoCrmTemplateForArrayConstraintFromSetMidocoCrmTemplate(?array $values = []): string
     {
+        if (!is_array($values)) {
+            return '';
+        }
         $message = '';
         $invalidValues = [];
         foreach ($values as $getTemplateLanguagesRequestMidocoCrmTemplateItem) {
@@ -69,10 +74,10 @@ class GetTemplateLanguagesRequest extends AbstractStructBase
      * @param \Pggns\MidocoApi\Crmsd\StructType\CrmTemplateDTO[] $midocoCrmTemplate
      * @return \Pggns\MidocoApi\Crmsd\StructType\GetTemplateLanguagesRequest
      */
-    public function setMidocoCrmTemplate(array $midocoCrmTemplate = []): self
+    public function setMidocoCrmTemplate(?array $midocoCrmTemplate = null): self
     {
         // validation for constraint: array
-        if ('' !== ($midocoCrmTemplateArrayErrorMessage = self::validateMidocoCrmTemplateForArrayConstraintsFromSetMidocoCrmTemplate($midocoCrmTemplate))) {
+        if ('' !== ($midocoCrmTemplateArrayErrorMessage = self::validateMidocoCrmTemplateForArrayConstraintFromSetMidocoCrmTemplate($midocoCrmTemplate))) {
             throw new InvalidArgumentException($midocoCrmTemplateArrayErrorMessage, __LINE__);
         }
         $this->MidocoCrmTemplate = $midocoCrmTemplate;

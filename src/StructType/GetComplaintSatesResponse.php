@@ -11,6 +11,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * This class stands for GetComplaintSatesResponse StructType
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class GetComplaintSatesResponse extends AbstractStructBase
 {
     /**
@@ -21,13 +22,13 @@ class GetComplaintSatesResponse extends AbstractStructBase
      * - ref: MidocoComplaintState
      * @var \Pggns\MidocoApi\Crmsd\StructType\MidocoComplaintStateDTO[]
      */
-    protected array $MidocoComplaintState = [];
+    protected ?array $MidocoComplaintState = null;
     /**
      * Constructor method for GetComplaintSatesResponse
      * @uses GetComplaintSatesResponse::setMidocoComplaintState()
      * @param \Pggns\MidocoApi\Crmsd\StructType\MidocoComplaintStateDTO[] $midocoComplaintState
      */
-    public function __construct(array $midocoComplaintState = [])
+    public function __construct(?array $midocoComplaintState = null)
     {
         $this
             ->setMidocoComplaintState($midocoComplaintState);
@@ -36,18 +37,22 @@ class GetComplaintSatesResponse extends AbstractStructBase
      * Get MidocoComplaintState value
      * @return \Pggns\MidocoApi\Crmsd\StructType\MidocoComplaintStateDTO[]
      */
-    public function getMidocoComplaintState(): array
+    public function getMidocoComplaintState(): ?array
     {
         return $this->MidocoComplaintState;
     }
     /**
-     * This method is responsible for validating the values passed to the setMidocoComplaintState method
+     * This method is responsible for validating the value(s) passed to the setMidocoComplaintState method
      * This method is willingly generated in order to preserve the one-line inline validation within the setMidocoComplaintState method
+     * This has to validate that each item contained by the array match the itemType constraint
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateMidocoComplaintStateForArrayConstraintsFromSetMidocoComplaintState(array $values = []): string
+    public static function validateMidocoComplaintStateForArrayConstraintFromSetMidocoComplaintState(?array $values = []): string
     {
+        if (!is_array($values)) {
+            return '';
+        }
         $message = '';
         $invalidValues = [];
         foreach ($values as $getComplaintSatesResponseMidocoComplaintStateItem) {
@@ -69,10 +74,10 @@ class GetComplaintSatesResponse extends AbstractStructBase
      * @param \Pggns\MidocoApi\Crmsd\StructType\MidocoComplaintStateDTO[] $midocoComplaintState
      * @return \Pggns\MidocoApi\Crmsd\StructType\GetComplaintSatesResponse
      */
-    public function setMidocoComplaintState(array $midocoComplaintState = []): self
+    public function setMidocoComplaintState(?array $midocoComplaintState = null): self
     {
         // validation for constraint: array
-        if ('' !== ($midocoComplaintStateArrayErrorMessage = self::validateMidocoComplaintStateForArrayConstraintsFromSetMidocoComplaintState($midocoComplaintState))) {
+        if ('' !== ($midocoComplaintStateArrayErrorMessage = self::validateMidocoComplaintStateForArrayConstraintFromSetMidocoComplaintState($midocoComplaintState))) {
             throw new InvalidArgumentException($midocoComplaintStateArrayErrorMessage, __LINE__);
         }
         $this->MidocoComplaintState = $midocoComplaintState;

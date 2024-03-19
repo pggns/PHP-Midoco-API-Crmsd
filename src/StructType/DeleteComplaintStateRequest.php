@@ -13,6 +13,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * - documentation: deleteComplaintState - removes a complaint state
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class DeleteComplaintStateRequest extends AbstractStructBase
 {
     /**

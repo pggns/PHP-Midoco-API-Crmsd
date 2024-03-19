@@ -13,6 +13,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * - documentation: requests the campaign to which a customer participated
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class GetCrmCampaignesRequest extends AbstractStructBase
 {
     /**

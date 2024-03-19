@@ -11,6 +11,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * This class stands for GetAllCompanyCustomersResponse StructType
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class GetAllCompanyCustomersResponse extends AbstractStructBase
 {
     /**
@@ -21,7 +22,7 @@ class GetAllCompanyCustomersResponse extends AbstractStructBase
      * - ref: MidocoGetCompanyCustomer
      * @var \Pggns\MidocoApi\Crmsd\StructType\MidocoGetCompanyCustomerType[]
      */
-    protected array $MidocoGetCompanyCustomer = [];
+    protected ?array $MidocoGetCompanyCustomer = null;
     /**
      * The noOfResults
      * @var int|null
@@ -34,7 +35,7 @@ class GetAllCompanyCustomersResponse extends AbstractStructBase
      * @param \Pggns\MidocoApi\Crmsd\StructType\MidocoGetCompanyCustomerType[] $midocoGetCompanyCustomer
      * @param int $noOfResults
      */
-    public function __construct(array $midocoGetCompanyCustomer = [], ?int $noOfResults = null)
+    public function __construct(?array $midocoGetCompanyCustomer = null, ?int $noOfResults = null)
     {
         $this
             ->setMidocoGetCompanyCustomer($midocoGetCompanyCustomer)
@@ -44,18 +45,22 @@ class GetAllCompanyCustomersResponse extends AbstractStructBase
      * Get MidocoGetCompanyCustomer value
      * @return \Pggns\MidocoApi\Crmsd\StructType\MidocoGetCompanyCustomerType[]
      */
-    public function getMidocoGetCompanyCustomer(): array
+    public function getMidocoGetCompanyCustomer(): ?array
     {
         return $this->MidocoGetCompanyCustomer;
     }
     /**
-     * This method is responsible for validating the values passed to the setMidocoGetCompanyCustomer method
+     * This method is responsible for validating the value(s) passed to the setMidocoGetCompanyCustomer method
      * This method is willingly generated in order to preserve the one-line inline validation within the setMidocoGetCompanyCustomer method
+     * This has to validate that each item contained by the array match the itemType constraint
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateMidocoGetCompanyCustomerForArrayConstraintsFromSetMidocoGetCompanyCustomer(array $values = []): string
+    public static function validateMidocoGetCompanyCustomerForArrayConstraintFromSetMidocoGetCompanyCustomer(?array $values = []): string
     {
+        if (!is_array($values)) {
+            return '';
+        }
         $message = '';
         $invalidValues = [];
         foreach ($values as $getAllCompanyCustomersResponseMidocoGetCompanyCustomerItem) {
@@ -77,10 +82,10 @@ class GetAllCompanyCustomersResponse extends AbstractStructBase
      * @param \Pggns\MidocoApi\Crmsd\StructType\MidocoGetCompanyCustomerType[] $midocoGetCompanyCustomer
      * @return \Pggns\MidocoApi\Crmsd\StructType\GetAllCompanyCustomersResponse
      */
-    public function setMidocoGetCompanyCustomer(array $midocoGetCompanyCustomer = []): self
+    public function setMidocoGetCompanyCustomer(?array $midocoGetCompanyCustomer = null): self
     {
         // validation for constraint: array
-        if ('' !== ($midocoGetCompanyCustomerArrayErrorMessage = self::validateMidocoGetCompanyCustomerForArrayConstraintsFromSetMidocoGetCompanyCustomer($midocoGetCompanyCustomer))) {
+        if ('' !== ($midocoGetCompanyCustomerArrayErrorMessage = self::validateMidocoGetCompanyCustomerForArrayConstraintFromSetMidocoGetCompanyCustomer($midocoGetCompanyCustomer))) {
             throw new InvalidArgumentException($midocoGetCompanyCustomerArrayErrorMessage, __LINE__);
         }
         $this->MidocoGetCompanyCustomer = $midocoGetCompanyCustomer;

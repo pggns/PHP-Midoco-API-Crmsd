@@ -11,6 +11,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * This class stands for SaveSalutationRequest StructType
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class SaveSalutationRequest extends AbstractStructBase
 {
     /**

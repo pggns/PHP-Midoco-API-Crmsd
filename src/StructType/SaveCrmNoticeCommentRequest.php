@@ -11,6 +11,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * This class stands for SaveCrmNoticeCommentRequest StructType
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class SaveCrmNoticeCommentRequest extends AbstractStructBase
 {
     /**

@@ -11,6 +11,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * This class stands for GetJsonUrlForTrafficsCosmonautStringRequest StructType
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class GetJsonUrlForTrafficsCosmonautStringRequest extends AbstractStructBase
 {
     /**
@@ -38,7 +39,7 @@ class GetJsonUrlForTrafficsCosmonautStringRequest extends AbstractStructBase
      * - ref: MidocoSelectedCrmPersonTraveller
      * @var \Pggns\MidocoApi\Crmsd\StructType\MidocoSelectedCrmPersonTraveller[]
      */
-    protected array $MidocoSelectedCrmPersonTraveller = [];
+    protected ?array $MidocoSelectedCrmPersonTraveller = null;
     /**
      * The MidocoCustomerTravel
      * Meta information extracted from the WSDL
@@ -47,7 +48,7 @@ class GetJsonUrlForTrafficsCosmonautStringRequest extends AbstractStructBase
      * - ref: MidocoCustomerTravel
      * @var \Pggns\MidocoApi\Crmsd\StructType\MidocoCustomerTravelType[]
      */
-    protected array $MidocoCustomerTravel = [];
+    protected ?array $MidocoCustomerTravel = null;
     /**
      * Constructor method for GetJsonUrlForTrafficsCosmonautStringRequest
      * @uses GetJsonUrlForTrafficsCosmonautStringRequest::setMidocoCustomerId()
@@ -59,7 +60,7 @@ class GetJsonUrlForTrafficsCosmonautStringRequest extends AbstractStructBase
      * @param \Pggns\MidocoApi\Crmsd\StructType\MidocoSelectedCrmPersonTraveller[] $midocoSelectedCrmPersonTraveller
      * @param \Pggns\MidocoApi\Crmsd\StructType\MidocoCustomerTravelType[] $midocoCustomerTravel
      */
-    public function __construct(\Pggns\MidocoApi\Crmsd\StructType\CustomerIdDTO $midocoCustomerId, ?\Pggns\MidocoApi\Crmsd\StructType\CrmCustomerDTO $midocoCrmCustomer = null, array $midocoSelectedCrmPersonTraveller = [], array $midocoCustomerTravel = [])
+    public function __construct(\Pggns\MidocoApi\Crmsd\StructType\CustomerIdDTO $midocoCustomerId, ?\Pggns\MidocoApi\Crmsd\StructType\CrmCustomerDTO $midocoCrmCustomer = null, ?array $midocoSelectedCrmPersonTraveller = null, ?array $midocoCustomerTravel = null)
     {
         $this
             ->setMidocoCustomerId($midocoCustomerId)
@@ -109,18 +110,22 @@ class GetJsonUrlForTrafficsCosmonautStringRequest extends AbstractStructBase
      * Get MidocoSelectedCrmPersonTraveller value
      * @return \Pggns\MidocoApi\Crmsd\StructType\MidocoSelectedCrmPersonTraveller[]
      */
-    public function getMidocoSelectedCrmPersonTraveller(): array
+    public function getMidocoSelectedCrmPersonTraveller(): ?array
     {
         return $this->MidocoSelectedCrmPersonTraveller;
     }
     /**
-     * This method is responsible for validating the values passed to the setMidocoSelectedCrmPersonTraveller method
+     * This method is responsible for validating the value(s) passed to the setMidocoSelectedCrmPersonTraveller method
      * This method is willingly generated in order to preserve the one-line inline validation within the setMidocoSelectedCrmPersonTraveller method
+     * This has to validate that each item contained by the array match the itemType constraint
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateMidocoSelectedCrmPersonTravellerForArrayConstraintsFromSetMidocoSelectedCrmPersonTraveller(array $values = []): string
+    public static function validateMidocoSelectedCrmPersonTravellerForArrayConstraintFromSetMidocoSelectedCrmPersonTraveller(?array $values = []): string
     {
+        if (!is_array($values)) {
+            return '';
+        }
         $message = '';
         $invalidValues = [];
         foreach ($values as $getJsonUrlForTrafficsCosmonautStringRequestMidocoSelectedCrmPersonTravellerItem) {
@@ -142,10 +147,10 @@ class GetJsonUrlForTrafficsCosmonautStringRequest extends AbstractStructBase
      * @param \Pggns\MidocoApi\Crmsd\StructType\MidocoSelectedCrmPersonTraveller[] $midocoSelectedCrmPersonTraveller
      * @return \Pggns\MidocoApi\Crmsd\StructType\GetJsonUrlForTrafficsCosmonautStringRequest
      */
-    public function setMidocoSelectedCrmPersonTraveller(array $midocoSelectedCrmPersonTraveller = []): self
+    public function setMidocoSelectedCrmPersonTraveller(?array $midocoSelectedCrmPersonTraveller = null): self
     {
         // validation for constraint: array
-        if ('' !== ($midocoSelectedCrmPersonTravellerArrayErrorMessage = self::validateMidocoSelectedCrmPersonTravellerForArrayConstraintsFromSetMidocoSelectedCrmPersonTraveller($midocoSelectedCrmPersonTraveller))) {
+        if ('' !== ($midocoSelectedCrmPersonTravellerArrayErrorMessage = self::validateMidocoSelectedCrmPersonTravellerForArrayConstraintFromSetMidocoSelectedCrmPersonTraveller($midocoSelectedCrmPersonTraveller))) {
             throw new InvalidArgumentException($midocoSelectedCrmPersonTravellerArrayErrorMessage, __LINE__);
         }
         $this->MidocoSelectedCrmPersonTraveller = $midocoSelectedCrmPersonTraveller;
@@ -172,18 +177,22 @@ class GetJsonUrlForTrafficsCosmonautStringRequest extends AbstractStructBase
      * Get MidocoCustomerTravel value
      * @return \Pggns\MidocoApi\Crmsd\StructType\MidocoCustomerTravelType[]
      */
-    public function getMidocoCustomerTravel(): array
+    public function getMidocoCustomerTravel(): ?array
     {
         return $this->MidocoCustomerTravel;
     }
     /**
-     * This method is responsible for validating the values passed to the setMidocoCustomerTravel method
+     * This method is responsible for validating the value(s) passed to the setMidocoCustomerTravel method
      * This method is willingly generated in order to preserve the one-line inline validation within the setMidocoCustomerTravel method
+     * This has to validate that each item contained by the array match the itemType constraint
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateMidocoCustomerTravelForArrayConstraintsFromSetMidocoCustomerTravel(array $values = []): string
+    public static function validateMidocoCustomerTravelForArrayConstraintFromSetMidocoCustomerTravel(?array $values = []): string
     {
+        if (!is_array($values)) {
+            return '';
+        }
         $message = '';
         $invalidValues = [];
         foreach ($values as $getJsonUrlForTrafficsCosmonautStringRequestMidocoCustomerTravelItem) {
@@ -205,10 +214,10 @@ class GetJsonUrlForTrafficsCosmonautStringRequest extends AbstractStructBase
      * @param \Pggns\MidocoApi\Crmsd\StructType\MidocoCustomerTravelType[] $midocoCustomerTravel
      * @return \Pggns\MidocoApi\Crmsd\StructType\GetJsonUrlForTrafficsCosmonautStringRequest
      */
-    public function setMidocoCustomerTravel(array $midocoCustomerTravel = []): self
+    public function setMidocoCustomerTravel(?array $midocoCustomerTravel = null): self
     {
         // validation for constraint: array
-        if ('' !== ($midocoCustomerTravelArrayErrorMessage = self::validateMidocoCustomerTravelForArrayConstraintsFromSetMidocoCustomerTravel($midocoCustomerTravel))) {
+        if ('' !== ($midocoCustomerTravelArrayErrorMessage = self::validateMidocoCustomerTravelForArrayConstraintFromSetMidocoCustomerTravel($midocoCustomerTravel))) {
             throw new InvalidArgumentException($midocoCustomerTravelArrayErrorMessage, __LINE__);
         }
         $this->MidocoCustomerTravel = $midocoCustomerTravel;

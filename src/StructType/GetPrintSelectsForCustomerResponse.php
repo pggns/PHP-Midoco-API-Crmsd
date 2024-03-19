@@ -11,6 +11,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * This class stands for GetPrintSelectsForCustomerResponse StructType
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class GetPrintSelectsForCustomerResponse extends AbstractStructBase
 {
     /**
@@ -21,7 +22,7 @@ class GetPrintSelectsForCustomerResponse extends AbstractStructBase
      * - ref: system:MidocoPrintSelect
      * @var \Pggns\MidocoApi\Crmsd\StructType\MidocoPrintSelect[]
      */
-    protected array $MidocoPrintSelect = [];
+    protected ?array $MidocoPrintSelect = null;
     /**
      * The MidocoPrintSelectionGroupForCustomer
      * Meta information extracted from the WSDL
@@ -30,7 +31,7 @@ class GetPrintSelectsForCustomerResponse extends AbstractStructBase
      * - ref: MidocoPrintSelectionGroupForCustomer
      * @var \Pggns\MidocoApi\Crmsd\StructType\MidocoPrintSelectionGroupForCustomer[]
      */
-    protected array $MidocoPrintSelectionGroupForCustomer = [];
+    protected ?array $MidocoPrintSelectionGroupForCustomer = null;
     /**
      * Constructor method for GetPrintSelectsForCustomerResponse
      * @uses GetPrintSelectsForCustomerResponse::setMidocoPrintSelect()
@@ -38,7 +39,7 @@ class GetPrintSelectsForCustomerResponse extends AbstractStructBase
      * @param \Pggns\MidocoApi\Crmsd\StructType\MidocoPrintSelect[] $midocoPrintSelect
      * @param \Pggns\MidocoApi\Crmsd\StructType\MidocoPrintSelectionGroupForCustomer[] $midocoPrintSelectionGroupForCustomer
      */
-    public function __construct(array $midocoPrintSelect = [], array $midocoPrintSelectionGroupForCustomer = [])
+    public function __construct(?array $midocoPrintSelect = null, ?array $midocoPrintSelectionGroupForCustomer = null)
     {
         $this
             ->setMidocoPrintSelect($midocoPrintSelect)
@@ -48,18 +49,22 @@ class GetPrintSelectsForCustomerResponse extends AbstractStructBase
      * Get MidocoPrintSelect value
      * @return \Pggns\MidocoApi\Crmsd\StructType\MidocoPrintSelect[]
      */
-    public function getMidocoPrintSelect(): array
+    public function getMidocoPrintSelect(): ?array
     {
         return $this->MidocoPrintSelect;
     }
     /**
-     * This method is responsible for validating the values passed to the setMidocoPrintSelect method
+     * This method is responsible for validating the value(s) passed to the setMidocoPrintSelect method
      * This method is willingly generated in order to preserve the one-line inline validation within the setMidocoPrintSelect method
+     * This has to validate that each item contained by the array match the itemType constraint
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateMidocoPrintSelectForArrayConstraintsFromSetMidocoPrintSelect(array $values = []): string
+    public static function validateMidocoPrintSelectForArrayConstraintFromSetMidocoPrintSelect(?array $values = []): string
     {
+        if (!is_array($values)) {
+            return '';
+        }
         $message = '';
         $invalidValues = [];
         foreach ($values as $getPrintSelectsForCustomerResponseMidocoPrintSelectItem) {
@@ -81,10 +86,10 @@ class GetPrintSelectsForCustomerResponse extends AbstractStructBase
      * @param \Pggns\MidocoApi\Crmsd\StructType\MidocoPrintSelect[] $midocoPrintSelect
      * @return \Pggns\MidocoApi\Crmsd\StructType\GetPrintSelectsForCustomerResponse
      */
-    public function setMidocoPrintSelect(array $midocoPrintSelect = []): self
+    public function setMidocoPrintSelect(?array $midocoPrintSelect = null): self
     {
         // validation for constraint: array
-        if ('' !== ($midocoPrintSelectArrayErrorMessage = self::validateMidocoPrintSelectForArrayConstraintsFromSetMidocoPrintSelect($midocoPrintSelect))) {
+        if ('' !== ($midocoPrintSelectArrayErrorMessage = self::validateMidocoPrintSelectForArrayConstraintFromSetMidocoPrintSelect($midocoPrintSelect))) {
             throw new InvalidArgumentException($midocoPrintSelectArrayErrorMessage, __LINE__);
         }
         $this->MidocoPrintSelect = $midocoPrintSelect;
@@ -111,18 +116,22 @@ class GetPrintSelectsForCustomerResponse extends AbstractStructBase
      * Get MidocoPrintSelectionGroupForCustomer value
      * @return \Pggns\MidocoApi\Crmsd\StructType\MidocoPrintSelectionGroupForCustomer[]
      */
-    public function getMidocoPrintSelectionGroupForCustomer(): array
+    public function getMidocoPrintSelectionGroupForCustomer(): ?array
     {
         return $this->MidocoPrintSelectionGroupForCustomer;
     }
     /**
-     * This method is responsible for validating the values passed to the setMidocoPrintSelectionGroupForCustomer method
+     * This method is responsible for validating the value(s) passed to the setMidocoPrintSelectionGroupForCustomer method
      * This method is willingly generated in order to preserve the one-line inline validation within the setMidocoPrintSelectionGroupForCustomer method
+     * This has to validate that each item contained by the array match the itemType constraint
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateMidocoPrintSelectionGroupForCustomerForArrayConstraintsFromSetMidocoPrintSelectionGroupForCustomer(array $values = []): string
+    public static function validateMidocoPrintSelectionGroupForCustomerForArrayConstraintFromSetMidocoPrintSelectionGroupForCustomer(?array $values = []): string
     {
+        if (!is_array($values)) {
+            return '';
+        }
         $message = '';
         $invalidValues = [];
         foreach ($values as $getPrintSelectsForCustomerResponseMidocoPrintSelectionGroupForCustomerItem) {
@@ -144,10 +153,10 @@ class GetPrintSelectsForCustomerResponse extends AbstractStructBase
      * @param \Pggns\MidocoApi\Crmsd\StructType\MidocoPrintSelectionGroupForCustomer[] $midocoPrintSelectionGroupForCustomer
      * @return \Pggns\MidocoApi\Crmsd\StructType\GetPrintSelectsForCustomerResponse
      */
-    public function setMidocoPrintSelectionGroupForCustomer(array $midocoPrintSelectionGroupForCustomer = []): self
+    public function setMidocoPrintSelectionGroupForCustomer(?array $midocoPrintSelectionGroupForCustomer = null): self
     {
         // validation for constraint: array
-        if ('' !== ($midocoPrintSelectionGroupForCustomerArrayErrorMessage = self::validateMidocoPrintSelectionGroupForCustomerForArrayConstraintsFromSetMidocoPrintSelectionGroupForCustomer($midocoPrintSelectionGroupForCustomer))) {
+        if ('' !== ($midocoPrintSelectionGroupForCustomerArrayErrorMessage = self::validateMidocoPrintSelectionGroupForCustomerForArrayConstraintFromSetMidocoPrintSelectionGroupForCustomer($midocoPrintSelectionGroupForCustomer))) {
             throw new InvalidArgumentException($midocoPrintSelectionGroupForCustomerArrayErrorMessage, __LINE__);
         }
         $this->MidocoPrintSelectionGroupForCustomer = $midocoPrintSelectionGroupForCustomer;

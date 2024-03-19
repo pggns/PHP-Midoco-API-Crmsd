@@ -13,6 +13,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * - documentation: saveBookingSource --- saves a BookingSource. returns void
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class SaveBookingSourceResponse extends AbstractStructBase
 {
 }

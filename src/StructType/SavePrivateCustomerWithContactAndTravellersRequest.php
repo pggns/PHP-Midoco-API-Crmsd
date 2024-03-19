@@ -12,6 +12,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * StructType
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class SavePrivateCustomerWithContactAndTravellersRequest extends AbstractStructBase
 {
     /**
@@ -29,7 +30,7 @@ class SavePrivateCustomerWithContactAndTravellersRequest extends AbstractStructB
      * - ref: MidocoContactEntryWithSource
      * @var \Pggns\MidocoApi\Crmsd\StructType\MidocoContactEntryWithSource[]
      */
-    protected array $MidocoContactEntryWithSource = [];
+    protected ?array $MidocoContactEntryWithSource = null;
     /**
      * The MidocoCrmPersonTraveller
      * Meta information extracted from the WSDL
@@ -38,7 +39,7 @@ class SavePrivateCustomerWithContactAndTravellersRequest extends AbstractStructB
      * - ref: MidocoCrmPersonTraveller
      * @var \Pggns\MidocoApi\Crmsd\StructType\CrmPersonTravellerDTO[]
      */
-    protected array $MidocoCrmPersonTraveller = [];
+    protected ?array $MidocoCrmPersonTraveller = null;
     /**
      * Constructor method for SavePrivateCustomerWithContactAndTravellersRequest
      * @uses SavePrivateCustomerWithContactAndTravellersRequest::setMidocoCrmCustomer()
@@ -48,7 +49,7 @@ class SavePrivateCustomerWithContactAndTravellersRequest extends AbstractStructB
      * @param \Pggns\MidocoApi\Crmsd\StructType\MidocoContactEntryWithSource[] $midocoContactEntryWithSource
      * @param \Pggns\MidocoApi\Crmsd\StructType\CrmPersonTravellerDTO[] $midocoCrmPersonTraveller
      */
-    public function __construct(?\Pggns\MidocoApi\Crmsd\StructType\CrmCustomerDTO $midocoCrmCustomer = null, array $midocoContactEntryWithSource = [], array $midocoCrmPersonTraveller = [])
+    public function __construct(?\Pggns\MidocoApi\Crmsd\StructType\CrmCustomerDTO $midocoCrmCustomer = null, ?array $midocoContactEntryWithSource = null, ?array $midocoCrmPersonTraveller = null)
     {
         $this
             ->setMidocoCrmCustomer($midocoCrmCustomer)
@@ -78,18 +79,22 @@ class SavePrivateCustomerWithContactAndTravellersRequest extends AbstractStructB
      * Get MidocoContactEntryWithSource value
      * @return \Pggns\MidocoApi\Crmsd\StructType\MidocoContactEntryWithSource[]
      */
-    public function getMidocoContactEntryWithSource(): array
+    public function getMidocoContactEntryWithSource(): ?array
     {
         return $this->MidocoContactEntryWithSource;
     }
     /**
-     * This method is responsible for validating the values passed to the setMidocoContactEntryWithSource method
+     * This method is responsible for validating the value(s) passed to the setMidocoContactEntryWithSource method
      * This method is willingly generated in order to preserve the one-line inline validation within the setMidocoContactEntryWithSource method
+     * This has to validate that each item contained by the array match the itemType constraint
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateMidocoContactEntryWithSourceForArrayConstraintsFromSetMidocoContactEntryWithSource(array $values = []): string
+    public static function validateMidocoContactEntryWithSourceForArrayConstraintFromSetMidocoContactEntryWithSource(?array $values = []): string
     {
+        if (!is_array($values)) {
+            return '';
+        }
         $message = '';
         $invalidValues = [];
         foreach ($values as $savePrivateCustomerWithContactAndTravellersRequestMidocoContactEntryWithSourceItem) {
@@ -111,10 +116,10 @@ class SavePrivateCustomerWithContactAndTravellersRequest extends AbstractStructB
      * @param \Pggns\MidocoApi\Crmsd\StructType\MidocoContactEntryWithSource[] $midocoContactEntryWithSource
      * @return \Pggns\MidocoApi\Crmsd\StructType\SavePrivateCustomerWithContactAndTravellersRequest
      */
-    public function setMidocoContactEntryWithSource(array $midocoContactEntryWithSource = []): self
+    public function setMidocoContactEntryWithSource(?array $midocoContactEntryWithSource = null): self
     {
         // validation for constraint: array
-        if ('' !== ($midocoContactEntryWithSourceArrayErrorMessage = self::validateMidocoContactEntryWithSourceForArrayConstraintsFromSetMidocoContactEntryWithSource($midocoContactEntryWithSource))) {
+        if ('' !== ($midocoContactEntryWithSourceArrayErrorMessage = self::validateMidocoContactEntryWithSourceForArrayConstraintFromSetMidocoContactEntryWithSource($midocoContactEntryWithSource))) {
             throw new InvalidArgumentException($midocoContactEntryWithSourceArrayErrorMessage, __LINE__);
         }
         $this->MidocoContactEntryWithSource = $midocoContactEntryWithSource;
@@ -141,18 +146,22 @@ class SavePrivateCustomerWithContactAndTravellersRequest extends AbstractStructB
      * Get MidocoCrmPersonTraveller value
      * @return \Pggns\MidocoApi\Crmsd\StructType\CrmPersonTravellerDTO[]
      */
-    public function getMidocoCrmPersonTraveller(): array
+    public function getMidocoCrmPersonTraveller(): ?array
     {
         return $this->MidocoCrmPersonTraveller;
     }
     /**
-     * This method is responsible for validating the values passed to the setMidocoCrmPersonTraveller method
+     * This method is responsible for validating the value(s) passed to the setMidocoCrmPersonTraveller method
      * This method is willingly generated in order to preserve the one-line inline validation within the setMidocoCrmPersonTraveller method
+     * This has to validate that each item contained by the array match the itemType constraint
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateMidocoCrmPersonTravellerForArrayConstraintsFromSetMidocoCrmPersonTraveller(array $values = []): string
+    public static function validateMidocoCrmPersonTravellerForArrayConstraintFromSetMidocoCrmPersonTraveller(?array $values = []): string
     {
+        if (!is_array($values)) {
+            return '';
+        }
         $message = '';
         $invalidValues = [];
         foreach ($values as $savePrivateCustomerWithContactAndTravellersRequestMidocoCrmPersonTravellerItem) {
@@ -174,10 +183,10 @@ class SavePrivateCustomerWithContactAndTravellersRequest extends AbstractStructB
      * @param \Pggns\MidocoApi\Crmsd\StructType\CrmPersonTravellerDTO[] $midocoCrmPersonTraveller
      * @return \Pggns\MidocoApi\Crmsd\StructType\SavePrivateCustomerWithContactAndTravellersRequest
      */
-    public function setMidocoCrmPersonTraveller(array $midocoCrmPersonTraveller = []): self
+    public function setMidocoCrmPersonTraveller(?array $midocoCrmPersonTraveller = null): self
     {
         // validation for constraint: array
-        if ('' !== ($midocoCrmPersonTravellerArrayErrorMessage = self::validateMidocoCrmPersonTravellerForArrayConstraintsFromSetMidocoCrmPersonTraveller($midocoCrmPersonTraveller))) {
+        if ('' !== ($midocoCrmPersonTravellerArrayErrorMessage = self::validateMidocoCrmPersonTravellerForArrayConstraintFromSetMidocoCrmPersonTraveller($midocoCrmPersonTraveller))) {
             throw new InvalidArgumentException($midocoCrmPersonTravellerArrayErrorMessage, __LINE__);
         }
         $this->MidocoCrmPersonTraveller = $midocoCrmPersonTraveller;

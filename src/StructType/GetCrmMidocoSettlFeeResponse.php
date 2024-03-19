@@ -13,6 +13,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * - documentation: GetCrmMidocoSettlFee --- returns the Midoco settlement levels defined for the given fee id
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class GetCrmMidocoSettlFeeResponse extends AbstractStructBase
 {
     /**

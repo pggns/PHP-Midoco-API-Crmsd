@@ -11,6 +11,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * This class stands for FilterMidocoSettlementCandidatesRequest StructType
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class FilterMidocoSettlementCandidatesRequest extends AbstractStructBase
 {
     /**

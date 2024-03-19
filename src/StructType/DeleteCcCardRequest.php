@@ -11,6 +11,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * This class stands for DeleteCcCardRequest StructType
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class DeleteCcCardRequest extends AbstractStructBase
 {
     /**

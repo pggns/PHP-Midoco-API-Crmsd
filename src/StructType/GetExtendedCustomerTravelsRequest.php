@@ -11,6 +11,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * This class stands for GetExtendedCustomerTravelsRequest StructType
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class GetExtendedCustomerTravelsRequest extends AbstractStructBase
 {
     /**
@@ -33,7 +34,7 @@ class GetExtendedCustomerTravelsRequest extends AbstractStructBase
      * - minOccurs: 0
      * @var string[]
      */
-    protected array $includedStatus = [];
+    protected ?array $includedStatus = null;
     /**
      * The excludedStatus
      * Meta information extracted from the WSDL
@@ -42,7 +43,7 @@ class GetExtendedCustomerTravelsRequest extends AbstractStructBase
      * - minOccurs: 0
      * @var string[]
      */
-    protected array $excludedStatus = [];
+    protected ?array $excludedStatus = null;
     /**
      * The withoutExtendedInfo
      * Meta information extracted from the WSDL
@@ -102,7 +103,7 @@ class GetExtendedCustomerTravelsRequest extends AbstractStructBase
      * @param int $endIndex
      * @param bool $totalNoOfRecordsOnly
      */
-    public function __construct(?\Pggns\MidocoApi\Crmsd\StructType\CustomerIdDTO $midocoCustomerId = null, ?int $maxOfRecords = null, array $includedStatus = [], array $excludedStatus = [], ?bool $withoutExtendedInfo = null, ?bool $showFeeDetails = true, ?int $beginIndex = null, ?int $endIndex = null, ?bool $totalNoOfRecordsOnly = null)
+    public function __construct(?\Pggns\MidocoApi\Crmsd\StructType\CustomerIdDTO $midocoCustomerId = null, ?int $maxOfRecords = null, ?array $includedStatus = null, ?array $excludedStatus = null, ?bool $withoutExtendedInfo = null, ?bool $showFeeDetails = true, ?int $beginIndex = null, ?int $endIndex = null, ?bool $totalNoOfRecordsOnly = null)
     {
         $this
             ->setMidocoCustomerId($midocoCustomerId)
@@ -161,18 +162,22 @@ class GetExtendedCustomerTravelsRequest extends AbstractStructBase
      * Get includedStatus value
      * @return string[]
      */
-    public function getIncludedStatus(): array
+    public function getIncludedStatus(): ?array
     {
         return $this->includedStatus;
     }
     /**
-     * This method is responsible for validating the values passed to the setIncludedStatus method
+     * This method is responsible for validating the value(s) passed to the setIncludedStatus method
      * This method is willingly generated in order to preserve the one-line inline validation within the setIncludedStatus method
+     * This has to validate that each item contained by the array match the itemType constraint
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateIncludedStatusForArrayConstraintsFromSetIncludedStatus(array $values = []): string
+    public static function validateIncludedStatusForArrayConstraintFromSetIncludedStatus(?array $values = []): string
     {
+        if (!is_array($values)) {
+            return '';
+        }
         $message = '';
         $invalidValues = [];
         foreach ($values as $getExtendedCustomerTravelsRequestIncludedStatusItem) {
@@ -194,10 +199,10 @@ class GetExtendedCustomerTravelsRequest extends AbstractStructBase
      * @param string[] $includedStatus
      * @return \Pggns\MidocoApi\Crmsd\StructType\GetExtendedCustomerTravelsRequest
      */
-    public function setIncludedStatus(array $includedStatus = []): self
+    public function setIncludedStatus(?array $includedStatus = null): self
     {
         // validation for constraint: array
-        if ('' !== ($includedStatusArrayErrorMessage = self::validateIncludedStatusForArrayConstraintsFromSetIncludedStatus($includedStatus))) {
+        if ('' !== ($includedStatusArrayErrorMessage = self::validateIncludedStatusForArrayConstraintFromSetIncludedStatus($includedStatus))) {
             throw new InvalidArgumentException($includedStatusArrayErrorMessage, __LINE__);
         }
         $this->includedStatus = $includedStatus;
@@ -224,18 +229,22 @@ class GetExtendedCustomerTravelsRequest extends AbstractStructBase
      * Get excludedStatus value
      * @return string[]
      */
-    public function getExcludedStatus(): array
+    public function getExcludedStatus(): ?array
     {
         return $this->excludedStatus;
     }
     /**
-     * This method is responsible for validating the values passed to the setExcludedStatus method
+     * This method is responsible for validating the value(s) passed to the setExcludedStatus method
      * This method is willingly generated in order to preserve the one-line inline validation within the setExcludedStatus method
+     * This has to validate that each item contained by the array match the itemType constraint
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateExcludedStatusForArrayConstraintsFromSetExcludedStatus(array $values = []): string
+    public static function validateExcludedStatusForArrayConstraintFromSetExcludedStatus(?array $values = []): string
     {
+        if (!is_array($values)) {
+            return '';
+        }
         $message = '';
         $invalidValues = [];
         foreach ($values as $getExtendedCustomerTravelsRequestExcludedStatusItem) {
@@ -257,10 +266,10 @@ class GetExtendedCustomerTravelsRequest extends AbstractStructBase
      * @param string[] $excludedStatus
      * @return \Pggns\MidocoApi\Crmsd\StructType\GetExtendedCustomerTravelsRequest
      */
-    public function setExcludedStatus(array $excludedStatus = []): self
+    public function setExcludedStatus(?array $excludedStatus = null): self
     {
         // validation for constraint: array
-        if ('' !== ($excludedStatusArrayErrorMessage = self::validateExcludedStatusForArrayConstraintsFromSetExcludedStatus($excludedStatus))) {
+        if ('' !== ($excludedStatusArrayErrorMessage = self::validateExcludedStatusForArrayConstraintFromSetExcludedStatus($excludedStatus))) {
             throw new InvalidArgumentException($excludedStatusArrayErrorMessage, __LINE__);
         }
         $this->excludedStatus = $excludedStatus;

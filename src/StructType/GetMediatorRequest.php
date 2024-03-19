@@ -13,6 +13,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * - documentation: retrieve mediator info by id
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class GetMediatorRequest extends AbstractStructBase
 {
     /**

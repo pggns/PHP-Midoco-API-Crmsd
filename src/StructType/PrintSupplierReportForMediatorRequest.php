@@ -11,6 +11,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * This class stands for PrintSupplierReportForMediatorRequest StructType
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class PrintSupplierReportForMediatorRequest extends AbstractStructBase
 {
     /**
@@ -21,7 +22,7 @@ class PrintSupplierReportForMediatorRequest extends AbstractStructBase
      * - ref: MidocoMediatorRevenue
      * @var \Pggns\MidocoApi\Crmsd\StructType\MidocoMediatorRevenue[]
      */
-    protected array $MidocoMediatorRevenue = [];
+    protected ?array $MidocoMediatorRevenue = null;
     /**
      * The MidocoMailMessage
      * Meta information extracted from the WSDL
@@ -64,7 +65,7 @@ class PrintSupplierReportForMediatorRequest extends AbstractStructBase
      * @param int $month
      * @param int $year
      */
-    public function __construct(array $midocoMediatorRevenue = [], ?\Pggns\MidocoApi\Crmsd\StructType\MidocoMailMessageType $midocoMailMessage = null, ?string $mediatorId = null, ?string $deliveryType = null, ?int $month = null, ?int $year = null)
+    public function __construct(?array $midocoMediatorRevenue = null, ?\Pggns\MidocoApi\Crmsd\StructType\MidocoMailMessageType $midocoMailMessage = null, ?string $mediatorId = null, ?string $deliveryType = null, ?int $month = null, ?int $year = null)
     {
         $this
             ->setMidocoMediatorRevenue($midocoMediatorRevenue)
@@ -78,18 +79,22 @@ class PrintSupplierReportForMediatorRequest extends AbstractStructBase
      * Get MidocoMediatorRevenue value
      * @return \Pggns\MidocoApi\Crmsd\StructType\MidocoMediatorRevenue[]
      */
-    public function getMidocoMediatorRevenue(): array
+    public function getMidocoMediatorRevenue(): ?array
     {
         return $this->MidocoMediatorRevenue;
     }
     /**
-     * This method is responsible for validating the values passed to the setMidocoMediatorRevenue method
+     * This method is responsible for validating the value(s) passed to the setMidocoMediatorRevenue method
      * This method is willingly generated in order to preserve the one-line inline validation within the setMidocoMediatorRevenue method
+     * This has to validate that each item contained by the array match the itemType constraint
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateMidocoMediatorRevenueForArrayConstraintsFromSetMidocoMediatorRevenue(array $values = []): string
+    public static function validateMidocoMediatorRevenueForArrayConstraintFromSetMidocoMediatorRevenue(?array $values = []): string
     {
+        if (!is_array($values)) {
+            return '';
+        }
         $message = '';
         $invalidValues = [];
         foreach ($values as $printSupplierReportForMediatorRequestMidocoMediatorRevenueItem) {
@@ -111,10 +116,10 @@ class PrintSupplierReportForMediatorRequest extends AbstractStructBase
      * @param \Pggns\MidocoApi\Crmsd\StructType\MidocoMediatorRevenue[] $midocoMediatorRevenue
      * @return \Pggns\MidocoApi\Crmsd\StructType\PrintSupplierReportForMediatorRequest
      */
-    public function setMidocoMediatorRevenue(array $midocoMediatorRevenue = []): self
+    public function setMidocoMediatorRevenue(?array $midocoMediatorRevenue = null): self
     {
         // validation for constraint: array
-        if ('' !== ($midocoMediatorRevenueArrayErrorMessage = self::validateMidocoMediatorRevenueForArrayConstraintsFromSetMidocoMediatorRevenue($midocoMediatorRevenue))) {
+        if ('' !== ($midocoMediatorRevenueArrayErrorMessage = self::validateMidocoMediatorRevenueForArrayConstraintFromSetMidocoMediatorRevenue($midocoMediatorRevenue))) {
             throw new InvalidArgumentException($midocoMediatorRevenueArrayErrorMessage, __LINE__);
         }
         $this->MidocoMediatorRevenue = $midocoMediatorRevenue;

@@ -11,6 +11,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * This class stands for GetCustomerCategoriesResponse StructType
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class GetCustomerCategoriesResponse extends AbstractStructBase
 {
     /**
@@ -21,13 +22,13 @@ class GetCustomerCategoriesResponse extends AbstractStructBase
      * - ref: MidocoCustomerCategory
      * @var \Pggns\MidocoApi\Crmsd\StructType\MidocoCustomerCategory[]
      */
-    protected array $MidocoCustomerCategory = [];
+    protected ?array $MidocoCustomerCategory = null;
     /**
      * Constructor method for GetCustomerCategoriesResponse
      * @uses GetCustomerCategoriesResponse::setMidocoCustomerCategory()
      * @param \Pggns\MidocoApi\Crmsd\StructType\MidocoCustomerCategory[] $midocoCustomerCategory
      */
-    public function __construct(array $midocoCustomerCategory = [])
+    public function __construct(?array $midocoCustomerCategory = null)
     {
         $this
             ->setMidocoCustomerCategory($midocoCustomerCategory);
@@ -36,18 +37,22 @@ class GetCustomerCategoriesResponse extends AbstractStructBase
      * Get MidocoCustomerCategory value
      * @return \Pggns\MidocoApi\Crmsd\StructType\MidocoCustomerCategory[]
      */
-    public function getMidocoCustomerCategory(): array
+    public function getMidocoCustomerCategory(): ?array
     {
         return $this->MidocoCustomerCategory;
     }
     /**
-     * This method is responsible for validating the values passed to the setMidocoCustomerCategory method
+     * This method is responsible for validating the value(s) passed to the setMidocoCustomerCategory method
      * This method is willingly generated in order to preserve the one-line inline validation within the setMidocoCustomerCategory method
+     * This has to validate that each item contained by the array match the itemType constraint
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateMidocoCustomerCategoryForArrayConstraintsFromSetMidocoCustomerCategory(array $values = []): string
+    public static function validateMidocoCustomerCategoryForArrayConstraintFromSetMidocoCustomerCategory(?array $values = []): string
     {
+        if (!is_array($values)) {
+            return '';
+        }
         $message = '';
         $invalidValues = [];
         foreach ($values as $getCustomerCategoriesResponseMidocoCustomerCategoryItem) {
@@ -69,10 +74,10 @@ class GetCustomerCategoriesResponse extends AbstractStructBase
      * @param \Pggns\MidocoApi\Crmsd\StructType\MidocoCustomerCategory[] $midocoCustomerCategory
      * @return \Pggns\MidocoApi\Crmsd\StructType\GetCustomerCategoriesResponse
      */
-    public function setMidocoCustomerCategory(array $midocoCustomerCategory = []): self
+    public function setMidocoCustomerCategory(?array $midocoCustomerCategory = null): self
     {
         // validation for constraint: array
-        if ('' !== ($midocoCustomerCategoryArrayErrorMessage = self::validateMidocoCustomerCategoryForArrayConstraintsFromSetMidocoCustomerCategory($midocoCustomerCategory))) {
+        if ('' !== ($midocoCustomerCategoryArrayErrorMessage = self::validateMidocoCustomerCategoryForArrayConstraintFromSetMidocoCustomerCategory($midocoCustomerCategory))) {
             throw new InvalidArgumentException($midocoCustomerCategoryArrayErrorMessage, __LINE__);
         }
         $this->MidocoCustomerCategory = $midocoCustomerCategory;

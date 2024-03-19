@@ -13,6 +13,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * - documentation: searchCustDoubleAddr --- search the customer with potential double addresses
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class SearchCustDoubleAddrResponse extends AbstractStructBase
 {
     /**
@@ -23,7 +24,7 @@ class SearchCustDoubleAddrResponse extends AbstractStructBase
      * - ref: MidocoCustDoubleAddrInfo
      * @var \Pggns\MidocoApi\Crmsd\StructType\CustomerDoubleAddrInfo[]
      */
-    protected array $MidocoCustDoubleAddrInfo = [];
+    protected ?array $MidocoCustDoubleAddrInfo = null;
     /**
      * The numberOfResults
      * @var int|null
@@ -36,7 +37,7 @@ class SearchCustDoubleAddrResponse extends AbstractStructBase
      * @param \Pggns\MidocoApi\Crmsd\StructType\CustomerDoubleAddrInfo[] $midocoCustDoubleAddrInfo
      * @param int $numberOfResults
      */
-    public function __construct(array $midocoCustDoubleAddrInfo = [], ?int $numberOfResults = null)
+    public function __construct(?array $midocoCustDoubleAddrInfo = null, ?int $numberOfResults = null)
     {
         $this
             ->setMidocoCustDoubleAddrInfo($midocoCustDoubleAddrInfo)
@@ -46,18 +47,22 @@ class SearchCustDoubleAddrResponse extends AbstractStructBase
      * Get MidocoCustDoubleAddrInfo value
      * @return \Pggns\MidocoApi\Crmsd\StructType\CustomerDoubleAddrInfo[]
      */
-    public function getMidocoCustDoubleAddrInfo(): array
+    public function getMidocoCustDoubleAddrInfo(): ?array
     {
         return $this->MidocoCustDoubleAddrInfo;
     }
     /**
-     * This method is responsible for validating the values passed to the setMidocoCustDoubleAddrInfo method
+     * This method is responsible for validating the value(s) passed to the setMidocoCustDoubleAddrInfo method
      * This method is willingly generated in order to preserve the one-line inline validation within the setMidocoCustDoubleAddrInfo method
+     * This has to validate that each item contained by the array match the itemType constraint
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateMidocoCustDoubleAddrInfoForArrayConstraintsFromSetMidocoCustDoubleAddrInfo(array $values = []): string
+    public static function validateMidocoCustDoubleAddrInfoForArrayConstraintFromSetMidocoCustDoubleAddrInfo(?array $values = []): string
     {
+        if (!is_array($values)) {
+            return '';
+        }
         $message = '';
         $invalidValues = [];
         foreach ($values as $searchCustDoubleAddrResponseMidocoCustDoubleAddrInfoItem) {
@@ -79,10 +84,10 @@ class SearchCustDoubleAddrResponse extends AbstractStructBase
      * @param \Pggns\MidocoApi\Crmsd\StructType\CustomerDoubleAddrInfo[] $midocoCustDoubleAddrInfo
      * @return \Pggns\MidocoApi\Crmsd\StructType\SearchCustDoubleAddrResponse
      */
-    public function setMidocoCustDoubleAddrInfo(array $midocoCustDoubleAddrInfo = []): self
+    public function setMidocoCustDoubleAddrInfo(?array $midocoCustDoubleAddrInfo = null): self
     {
         // validation for constraint: array
-        if ('' !== ($midocoCustDoubleAddrInfoArrayErrorMessage = self::validateMidocoCustDoubleAddrInfoForArrayConstraintsFromSetMidocoCustDoubleAddrInfo($midocoCustDoubleAddrInfo))) {
+        if ('' !== ($midocoCustDoubleAddrInfoArrayErrorMessage = self::validateMidocoCustDoubleAddrInfoForArrayConstraintFromSetMidocoCustDoubleAddrInfo($midocoCustDoubleAddrInfo))) {
             throw new InvalidArgumentException($midocoCustDoubleAddrInfoArrayErrorMessage, __LINE__);
         }
         $this->MidocoCustDoubleAddrInfo = $midocoCustDoubleAddrInfo;

@@ -13,6 +13,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * - documentation: Returns a MidocoMailMessage with addresses, subject and text.
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class PrepareMilesAndMoreConnectMailResponse extends AbstractStructBase
 {
     /**

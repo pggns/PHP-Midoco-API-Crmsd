@@ -14,6 +14,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * p_origin_customer
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class AssignCustomerResponse extends AbstractStructBase
 {
     /**

@@ -11,6 +11,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * This class stands for GetContactMediaRequest StructType
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class GetContactMediaRequest extends AbstractStructBase
 {
     /**

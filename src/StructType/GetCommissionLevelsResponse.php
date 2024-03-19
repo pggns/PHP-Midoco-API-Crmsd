@@ -13,6 +13,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * - documentation: getCommissionLevels --- returns the list of commission levels
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class GetCommissionLevelsResponse extends AbstractStructBase
 {
     /**
@@ -23,13 +24,13 @@ class GetCommissionLevelsResponse extends AbstractStructBase
      * - ref: MidocoCommissionLevel
      * @var \Pggns\MidocoApi\Crmsd\StructType\CommissionLevelDTO[]
      */
-    protected array $MidocoCommissionLevel = [];
+    protected ?array $MidocoCommissionLevel = null;
     /**
      * Constructor method for GetCommissionLevelsResponse
      * @uses GetCommissionLevelsResponse::setMidocoCommissionLevel()
      * @param \Pggns\MidocoApi\Crmsd\StructType\CommissionLevelDTO[] $midocoCommissionLevel
      */
-    public function __construct(array $midocoCommissionLevel = [])
+    public function __construct(?array $midocoCommissionLevel = null)
     {
         $this
             ->setMidocoCommissionLevel($midocoCommissionLevel);
@@ -38,18 +39,22 @@ class GetCommissionLevelsResponse extends AbstractStructBase
      * Get MidocoCommissionLevel value
      * @return \Pggns\MidocoApi\Crmsd\StructType\CommissionLevelDTO[]
      */
-    public function getMidocoCommissionLevel(): array
+    public function getMidocoCommissionLevel(): ?array
     {
         return $this->MidocoCommissionLevel;
     }
     /**
-     * This method is responsible for validating the values passed to the setMidocoCommissionLevel method
+     * This method is responsible for validating the value(s) passed to the setMidocoCommissionLevel method
      * This method is willingly generated in order to preserve the one-line inline validation within the setMidocoCommissionLevel method
+     * This has to validate that each item contained by the array match the itemType constraint
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateMidocoCommissionLevelForArrayConstraintsFromSetMidocoCommissionLevel(array $values = []): string
+    public static function validateMidocoCommissionLevelForArrayConstraintFromSetMidocoCommissionLevel(?array $values = []): string
     {
+        if (!is_array($values)) {
+            return '';
+        }
         $message = '';
         $invalidValues = [];
         foreach ($values as $getCommissionLevelsResponseMidocoCommissionLevelItem) {
@@ -71,10 +76,10 @@ class GetCommissionLevelsResponse extends AbstractStructBase
      * @param \Pggns\MidocoApi\Crmsd\StructType\CommissionLevelDTO[] $midocoCommissionLevel
      * @return \Pggns\MidocoApi\Crmsd\StructType\GetCommissionLevelsResponse
      */
-    public function setMidocoCommissionLevel(array $midocoCommissionLevel = []): self
+    public function setMidocoCommissionLevel(?array $midocoCommissionLevel = null): self
     {
         // validation for constraint: array
-        if ('' !== ($midocoCommissionLevelArrayErrorMessage = self::validateMidocoCommissionLevelForArrayConstraintsFromSetMidocoCommissionLevel($midocoCommissionLevel))) {
+        if ('' !== ($midocoCommissionLevelArrayErrorMessage = self::validateMidocoCommissionLevelForArrayConstraintFromSetMidocoCommissionLevel($midocoCommissionLevel))) {
             throw new InvalidArgumentException($midocoCommissionLevelArrayErrorMessage, __LINE__);
         }
         $this->MidocoCommissionLevel = $midocoCommissionLevel;

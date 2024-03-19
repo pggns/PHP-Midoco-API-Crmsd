@@ -13,6 +13,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * - documentation: Filter BonusCards by the name in customer data or the owner field
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class GetBonusCardsRequest extends AbstractStructBase
 {
     /**

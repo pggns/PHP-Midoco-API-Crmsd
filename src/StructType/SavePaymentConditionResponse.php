@@ -13,6 +13,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * - documentation: savePaymentCondition --- saves a payment condition
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class SavePaymentConditionResponse extends AbstractStructBase
 {
 }

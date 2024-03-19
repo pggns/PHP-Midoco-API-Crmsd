@@ -11,6 +11,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * This class stands for GetFrequentFlyerNumbersRequest StructType
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class GetFrequentFlyerNumbersRequest extends AbstractStructBase
 {
     /**

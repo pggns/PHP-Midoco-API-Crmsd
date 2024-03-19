@@ -11,6 +11,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * This class stands for MidocoContactEntryWithSource StructType
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class MidocoContactEntryWithSource extends AbstractStructBase
 {
     /**
@@ -28,7 +29,7 @@ class MidocoContactEntryWithSource extends AbstractStructBase
      * - ref: MidocoContactSource
      * @var \Pggns\MidocoApi\Crmsd\StructType\MidocoContactSource[]
      */
-    protected array $MidocoContactSource = [];
+    protected ?array $MidocoContactSource = null;
     /**
      * Constructor method for MidocoContactEntryWithSource
      * @uses MidocoContactEntryWithSource::setMidocoContactEntry()
@@ -36,7 +37,7 @@ class MidocoContactEntryWithSource extends AbstractStructBase
      * @param \Pggns\MidocoApi\Crmsd\StructType\MidocoContactEntryType $midocoContactEntry
      * @param \Pggns\MidocoApi\Crmsd\StructType\MidocoContactSource[] $midocoContactSource
      */
-    public function __construct(?\Pggns\MidocoApi\Crmsd\StructType\MidocoContactEntryType $midocoContactEntry = null, array $midocoContactSource = [])
+    public function __construct(?\Pggns\MidocoApi\Crmsd\StructType\MidocoContactEntryType $midocoContactEntry = null, ?array $midocoContactSource = null)
     {
         $this
             ->setMidocoContactEntry($midocoContactEntry)
@@ -65,18 +66,22 @@ class MidocoContactEntryWithSource extends AbstractStructBase
      * Get MidocoContactSource value
      * @return \Pggns\MidocoApi\Crmsd\StructType\MidocoContactSource[]
      */
-    public function getMidocoContactSource(): array
+    public function getMidocoContactSource(): ?array
     {
         return $this->MidocoContactSource;
     }
     /**
-     * This method is responsible for validating the values passed to the setMidocoContactSource method
+     * This method is responsible for validating the value(s) passed to the setMidocoContactSource method
      * This method is willingly generated in order to preserve the one-line inline validation within the setMidocoContactSource method
+     * This has to validate that each item contained by the array match the itemType constraint
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateMidocoContactSourceForArrayConstraintsFromSetMidocoContactSource(array $values = []): string
+    public static function validateMidocoContactSourceForArrayConstraintFromSetMidocoContactSource(?array $values = []): string
     {
+        if (!is_array($values)) {
+            return '';
+        }
         $message = '';
         $invalidValues = [];
         foreach ($values as $midocoContactEntryWithSourceMidocoContactSourceItem) {
@@ -98,10 +103,10 @@ class MidocoContactEntryWithSource extends AbstractStructBase
      * @param \Pggns\MidocoApi\Crmsd\StructType\MidocoContactSource[] $midocoContactSource
      * @return \Pggns\MidocoApi\Crmsd\StructType\MidocoContactEntryWithSource
      */
-    public function setMidocoContactSource(array $midocoContactSource = []): self
+    public function setMidocoContactSource(?array $midocoContactSource = null): self
     {
         // validation for constraint: array
-        if ('' !== ($midocoContactSourceArrayErrorMessage = self::validateMidocoContactSourceForArrayConstraintsFromSetMidocoContactSource($midocoContactSource))) {
+        if ('' !== ($midocoContactSourceArrayErrorMessage = self::validateMidocoContactSourceForArrayConstraintFromSetMidocoContactSource($midocoContactSource))) {
             throw new InvalidArgumentException($midocoContactSourceArrayErrorMessage, __LINE__);
         }
         $this->MidocoContactSource = $midocoContactSource;

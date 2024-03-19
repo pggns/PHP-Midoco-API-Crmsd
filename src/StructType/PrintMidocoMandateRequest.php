@@ -11,6 +11,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * This class stands for PrintMidocoMandateRequest StructType
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class PrintMidocoMandateRequest extends AbstractStructBase
 {
     /**

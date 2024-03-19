@@ -11,6 +11,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * This class stands for SaveBonusCardRequest StructType
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class SaveBonusCardRequest extends AbstractStructBase
 {
     /**

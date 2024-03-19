@@ -11,6 +11,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * This class stands for GetDebitCardTypesRequest StructType
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class GetDebitCardTypesRequest extends AbstractStructBase
 {
 }

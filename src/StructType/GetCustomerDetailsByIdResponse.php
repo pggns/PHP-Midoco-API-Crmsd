@@ -11,6 +11,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * This class stands for GetCustomerDetailsByIdResponse StructType
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class GetCustomerDetailsByIdResponse extends AbstractStructBase
 {
     /**
@@ -20,13 +21,13 @@ class GetCustomerDetailsByIdResponse extends AbstractStructBase
      * - minOccurs: 0
      * @var \Pggns\MidocoApi\Crmsd\StructType\MidocoCustomerDetailType[]
      */
-    protected array $MidocoCustomerDetail = [];
+    protected ?array $MidocoCustomerDetail = null;
     /**
      * Constructor method for GetCustomerDetailsByIdResponse
      * @uses GetCustomerDetailsByIdResponse::setMidocoCustomerDetail()
      * @param \Pggns\MidocoApi\Crmsd\StructType\MidocoCustomerDetailType[] $midocoCustomerDetail
      */
-    public function __construct(array $midocoCustomerDetail = [])
+    public function __construct(?array $midocoCustomerDetail = null)
     {
         $this
             ->setMidocoCustomerDetail($midocoCustomerDetail);
@@ -35,18 +36,22 @@ class GetCustomerDetailsByIdResponse extends AbstractStructBase
      * Get MidocoCustomerDetail value
      * @return \Pggns\MidocoApi\Crmsd\StructType\MidocoCustomerDetailType[]
      */
-    public function getMidocoCustomerDetail(): array
+    public function getMidocoCustomerDetail(): ?array
     {
         return $this->MidocoCustomerDetail;
     }
     /**
-     * This method is responsible for validating the values passed to the setMidocoCustomerDetail method
+     * This method is responsible for validating the value(s) passed to the setMidocoCustomerDetail method
      * This method is willingly generated in order to preserve the one-line inline validation within the setMidocoCustomerDetail method
+     * This has to validate that each item contained by the array match the itemType constraint
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateMidocoCustomerDetailForArrayConstraintsFromSetMidocoCustomerDetail(array $values = []): string
+    public static function validateMidocoCustomerDetailForArrayConstraintFromSetMidocoCustomerDetail(?array $values = []): string
     {
+        if (!is_array($values)) {
+            return '';
+        }
         $message = '';
         $invalidValues = [];
         foreach ($values as $getCustomerDetailsByIdResponseMidocoCustomerDetailItem) {
@@ -68,10 +73,10 @@ class GetCustomerDetailsByIdResponse extends AbstractStructBase
      * @param \Pggns\MidocoApi\Crmsd\StructType\MidocoCustomerDetailType[] $midocoCustomerDetail
      * @return \Pggns\MidocoApi\Crmsd\StructType\GetCustomerDetailsByIdResponse
      */
-    public function setMidocoCustomerDetail(array $midocoCustomerDetail = []): self
+    public function setMidocoCustomerDetail(?array $midocoCustomerDetail = null): self
     {
         // validation for constraint: array
-        if ('' !== ($midocoCustomerDetailArrayErrorMessage = self::validateMidocoCustomerDetailForArrayConstraintsFromSetMidocoCustomerDetail($midocoCustomerDetail))) {
+        if ('' !== ($midocoCustomerDetailArrayErrorMessage = self::validateMidocoCustomerDetailForArrayConstraintFromSetMidocoCustomerDetail($midocoCustomerDetail))) {
             throw new InvalidArgumentException($midocoCustomerDetailArrayErrorMessage, __LINE__);
         }
         $this->MidocoCustomerDetail = $midocoCustomerDetail;

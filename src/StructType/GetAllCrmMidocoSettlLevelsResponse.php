@@ -13,6 +13,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * - documentation: GetAllCrmMidocoSettlLevels --- returns the Midoco settlement levels defined for the given settl
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class GetAllCrmMidocoSettlLevelsResponse extends AbstractStructBase
 {
     /**
@@ -23,13 +24,13 @@ class GetAllCrmMidocoSettlLevelsResponse extends AbstractStructBase
      * - ref: MidocoCrmMidocoSettlLevel
      * @var \Pggns\MidocoApi\Crmsd\StructType\CrmMidocoSettlLevelDTO[]
      */
-    protected array $MidocoCrmMidocoSettlLevel = [];
+    protected ?array $MidocoCrmMidocoSettlLevel = null;
     /**
      * Constructor method for GetAllCrmMidocoSettlLevelsResponse
      * @uses GetAllCrmMidocoSettlLevelsResponse::setMidocoCrmMidocoSettlLevel()
      * @param \Pggns\MidocoApi\Crmsd\StructType\CrmMidocoSettlLevelDTO[] $midocoCrmMidocoSettlLevel
      */
-    public function __construct(array $midocoCrmMidocoSettlLevel = [])
+    public function __construct(?array $midocoCrmMidocoSettlLevel = null)
     {
         $this
             ->setMidocoCrmMidocoSettlLevel($midocoCrmMidocoSettlLevel);
@@ -38,18 +39,22 @@ class GetAllCrmMidocoSettlLevelsResponse extends AbstractStructBase
      * Get MidocoCrmMidocoSettlLevel value
      * @return \Pggns\MidocoApi\Crmsd\StructType\CrmMidocoSettlLevelDTO[]
      */
-    public function getMidocoCrmMidocoSettlLevel(): array
+    public function getMidocoCrmMidocoSettlLevel(): ?array
     {
         return $this->MidocoCrmMidocoSettlLevel;
     }
     /**
-     * This method is responsible for validating the values passed to the setMidocoCrmMidocoSettlLevel method
+     * This method is responsible for validating the value(s) passed to the setMidocoCrmMidocoSettlLevel method
      * This method is willingly generated in order to preserve the one-line inline validation within the setMidocoCrmMidocoSettlLevel method
+     * This has to validate that each item contained by the array match the itemType constraint
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateMidocoCrmMidocoSettlLevelForArrayConstraintsFromSetMidocoCrmMidocoSettlLevel(array $values = []): string
+    public static function validateMidocoCrmMidocoSettlLevelForArrayConstraintFromSetMidocoCrmMidocoSettlLevel(?array $values = []): string
     {
+        if (!is_array($values)) {
+            return '';
+        }
         $message = '';
         $invalidValues = [];
         foreach ($values as $getAllCrmMidocoSettlLevelsResponseMidocoCrmMidocoSettlLevelItem) {
@@ -71,10 +76,10 @@ class GetAllCrmMidocoSettlLevelsResponse extends AbstractStructBase
      * @param \Pggns\MidocoApi\Crmsd\StructType\CrmMidocoSettlLevelDTO[] $midocoCrmMidocoSettlLevel
      * @return \Pggns\MidocoApi\Crmsd\StructType\GetAllCrmMidocoSettlLevelsResponse
      */
-    public function setMidocoCrmMidocoSettlLevel(array $midocoCrmMidocoSettlLevel = []): self
+    public function setMidocoCrmMidocoSettlLevel(?array $midocoCrmMidocoSettlLevel = null): self
     {
         // validation for constraint: array
-        if ('' !== ($midocoCrmMidocoSettlLevelArrayErrorMessage = self::validateMidocoCrmMidocoSettlLevelForArrayConstraintsFromSetMidocoCrmMidocoSettlLevel($midocoCrmMidocoSettlLevel))) {
+        if ('' !== ($midocoCrmMidocoSettlLevelArrayErrorMessage = self::validateMidocoCrmMidocoSettlLevelForArrayConstraintFromSetMidocoCrmMidocoSettlLevel($midocoCrmMidocoSettlLevel))) {
             throw new InvalidArgumentException($midocoCrmMidocoSettlLevelArrayErrorMessage, __LINE__);
         }
         $this->MidocoCrmMidocoSettlLevel = $midocoCrmMidocoSettlLevel;

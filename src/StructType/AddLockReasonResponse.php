@@ -13,6 +13,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * - documentation: addLockReason --- adds the lock reason transmited as parameter. returns void
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class AddLockReasonResponse extends AbstractStructBase
 {
 }

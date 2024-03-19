@@ -13,6 +13,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * - documentation: Let the backend retrieve the customer data via MConnect with the token.
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class RetrieveMilesAndMoreCustomerDataRequest extends AbstractStructBase
 {
     /**

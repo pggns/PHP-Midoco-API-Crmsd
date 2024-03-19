@@ -11,6 +11,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * This class stands for PaxconnectNotifyAdvisoryPublishedRequest StructType
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class PaxconnectNotifyAdvisoryPublishedRequest extends AbstractStructBase
 {
     /**

@@ -13,6 +13,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * - documentation: getMediatorChargesList --- returns all the charges set for the customer identified by the given id
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class GetMediatorChargesListResponse extends AbstractStructBase
 {
     /**
@@ -23,13 +24,13 @@ class GetMediatorChargesListResponse extends AbstractStructBase
      * - ref: MidocoCrmMediatorChargeInfo
      * @var \Pggns\MidocoApi\Crmsd\StructType\CrmMediatorChargeInfoType[]
      */
-    protected array $MidocoCrmMediatorChargeInfo = [];
+    protected ?array $MidocoCrmMediatorChargeInfo = null;
     /**
      * Constructor method for GetMediatorChargesListResponse
      * @uses GetMediatorChargesListResponse::setMidocoCrmMediatorChargeInfo()
      * @param \Pggns\MidocoApi\Crmsd\StructType\CrmMediatorChargeInfoType[] $midocoCrmMediatorChargeInfo
      */
-    public function __construct(array $midocoCrmMediatorChargeInfo = [])
+    public function __construct(?array $midocoCrmMediatorChargeInfo = null)
     {
         $this
             ->setMidocoCrmMediatorChargeInfo($midocoCrmMediatorChargeInfo);
@@ -38,18 +39,22 @@ class GetMediatorChargesListResponse extends AbstractStructBase
      * Get MidocoCrmMediatorChargeInfo value
      * @return \Pggns\MidocoApi\Crmsd\StructType\CrmMediatorChargeInfoType[]
      */
-    public function getMidocoCrmMediatorChargeInfo(): array
+    public function getMidocoCrmMediatorChargeInfo(): ?array
     {
         return $this->MidocoCrmMediatorChargeInfo;
     }
     /**
-     * This method is responsible for validating the values passed to the setMidocoCrmMediatorChargeInfo method
+     * This method is responsible for validating the value(s) passed to the setMidocoCrmMediatorChargeInfo method
      * This method is willingly generated in order to preserve the one-line inline validation within the setMidocoCrmMediatorChargeInfo method
+     * This has to validate that each item contained by the array match the itemType constraint
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateMidocoCrmMediatorChargeInfoForArrayConstraintsFromSetMidocoCrmMediatorChargeInfo(array $values = []): string
+    public static function validateMidocoCrmMediatorChargeInfoForArrayConstraintFromSetMidocoCrmMediatorChargeInfo(?array $values = []): string
     {
+        if (!is_array($values)) {
+            return '';
+        }
         $message = '';
         $invalidValues = [];
         foreach ($values as $getMediatorChargesListResponseMidocoCrmMediatorChargeInfoItem) {
@@ -71,10 +76,10 @@ class GetMediatorChargesListResponse extends AbstractStructBase
      * @param \Pggns\MidocoApi\Crmsd\StructType\CrmMediatorChargeInfoType[] $midocoCrmMediatorChargeInfo
      * @return \Pggns\MidocoApi\Crmsd\StructType\GetMediatorChargesListResponse
      */
-    public function setMidocoCrmMediatorChargeInfo(array $midocoCrmMediatorChargeInfo = []): self
+    public function setMidocoCrmMediatorChargeInfo(?array $midocoCrmMediatorChargeInfo = null): self
     {
         // validation for constraint: array
-        if ('' !== ($midocoCrmMediatorChargeInfoArrayErrorMessage = self::validateMidocoCrmMediatorChargeInfoForArrayConstraintsFromSetMidocoCrmMediatorChargeInfo($midocoCrmMediatorChargeInfo))) {
+        if ('' !== ($midocoCrmMediatorChargeInfoArrayErrorMessage = self::validateMidocoCrmMediatorChargeInfoForArrayConstraintFromSetMidocoCrmMediatorChargeInfo($midocoCrmMediatorChargeInfo))) {
             throw new InvalidArgumentException($midocoCrmMediatorChargeInfoArrayErrorMessage, __LINE__);
         }
         $this->MidocoCrmMediatorChargeInfo = $midocoCrmMediatorChargeInfo;

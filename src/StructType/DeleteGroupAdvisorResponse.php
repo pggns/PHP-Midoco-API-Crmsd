@@ -11,6 +11,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * This class stands for DeleteGroupAdvisorResponse StructType
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class DeleteGroupAdvisorResponse extends AbstractStructBase
 {
 }

@@ -13,6 +13,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * - documentation: saveCollectiveInvoiceSetting --- saves a CollectiveInvoiceSetting. returns the new/updates CollectiveInvoiceSetting
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class SaveCollectiveInvoiceSettingResponse extends AbstractStructBase
 {
     /**

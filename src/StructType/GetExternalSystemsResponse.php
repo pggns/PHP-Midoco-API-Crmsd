@@ -11,6 +11,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * This class stands for GetExternalSystemsResponse StructType
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class GetExternalSystemsResponse extends AbstractStructBase
 {
     /**
@@ -21,13 +22,13 @@ class GetExternalSystemsResponse extends AbstractStructBase
      * - ref: MidocoExternalSystem
      * @var \Pggns\MidocoApi\Crmsd\StructType\ExternalSystemDTO[]
      */
-    protected array $MidocoExternalSystem = [];
+    protected ?array $MidocoExternalSystem = null;
     /**
      * Constructor method for GetExternalSystemsResponse
      * @uses GetExternalSystemsResponse::setMidocoExternalSystem()
      * @param \Pggns\MidocoApi\Crmsd\StructType\ExternalSystemDTO[] $midocoExternalSystem
      */
-    public function __construct(array $midocoExternalSystem = [])
+    public function __construct(?array $midocoExternalSystem = null)
     {
         $this
             ->setMidocoExternalSystem($midocoExternalSystem);
@@ -36,18 +37,22 @@ class GetExternalSystemsResponse extends AbstractStructBase
      * Get MidocoExternalSystem value
      * @return \Pggns\MidocoApi\Crmsd\StructType\ExternalSystemDTO[]
      */
-    public function getMidocoExternalSystem(): array
+    public function getMidocoExternalSystem(): ?array
     {
         return $this->MidocoExternalSystem;
     }
     /**
-     * This method is responsible for validating the values passed to the setMidocoExternalSystem method
+     * This method is responsible for validating the value(s) passed to the setMidocoExternalSystem method
      * This method is willingly generated in order to preserve the one-line inline validation within the setMidocoExternalSystem method
+     * This has to validate that each item contained by the array match the itemType constraint
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateMidocoExternalSystemForArrayConstraintsFromSetMidocoExternalSystem(array $values = []): string
+    public static function validateMidocoExternalSystemForArrayConstraintFromSetMidocoExternalSystem(?array $values = []): string
     {
+        if (!is_array($values)) {
+            return '';
+        }
         $message = '';
         $invalidValues = [];
         foreach ($values as $getExternalSystemsResponseMidocoExternalSystemItem) {
@@ -69,10 +74,10 @@ class GetExternalSystemsResponse extends AbstractStructBase
      * @param \Pggns\MidocoApi\Crmsd\StructType\ExternalSystemDTO[] $midocoExternalSystem
      * @return \Pggns\MidocoApi\Crmsd\StructType\GetExternalSystemsResponse
      */
-    public function setMidocoExternalSystem(array $midocoExternalSystem = []): self
+    public function setMidocoExternalSystem(?array $midocoExternalSystem = null): self
     {
         // validation for constraint: array
-        if ('' !== ($midocoExternalSystemArrayErrorMessage = self::validateMidocoExternalSystemForArrayConstraintsFromSetMidocoExternalSystem($midocoExternalSystem))) {
+        if ('' !== ($midocoExternalSystemArrayErrorMessage = self::validateMidocoExternalSystemForArrayConstraintFromSetMidocoExternalSystem($midocoExternalSystem))) {
             throw new InvalidArgumentException($midocoExternalSystemArrayErrorMessage, __LINE__);
         }
         $this->MidocoExternalSystem = $midocoExternalSystem;

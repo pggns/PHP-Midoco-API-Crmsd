@@ -13,6 +13,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * - documentation: deleteMidocoSettlMDocOrgUnit --- deletes the MidocoAssignedSettlMdocOUnit identified by the id
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class DeleteMidocoSettlMDocOrgUnitResponse extends AbstractStructBase
 {
 }

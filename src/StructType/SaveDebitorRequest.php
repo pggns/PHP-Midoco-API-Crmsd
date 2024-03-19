@@ -11,6 +11,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * This class stands for SaveDebitorRequest StructType
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class SaveDebitorRequest extends AbstractStructBase
 {
     /**

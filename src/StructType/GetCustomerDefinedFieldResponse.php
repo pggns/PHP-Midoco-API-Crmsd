@@ -11,6 +11,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * This class stands for GetCustomerDefinedFieldResponse StructType
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class GetCustomerDefinedFieldResponse extends AbstractStructBase
 {
     /**
@@ -21,13 +22,13 @@ class GetCustomerDefinedFieldResponse extends AbstractStructBase
      * - ref: MidocoCustomerDefinedField
      * @var \Pggns\MidocoApi\Crmsd\StructType\CustomerDefinedFieldDTO[]
      */
-    protected array $MidocoCustomerDefinedField = [];
+    protected ?array $MidocoCustomerDefinedField = null;
     /**
      * Constructor method for GetCustomerDefinedFieldResponse
      * @uses GetCustomerDefinedFieldResponse::setMidocoCustomerDefinedField()
      * @param \Pggns\MidocoApi\Crmsd\StructType\CustomerDefinedFieldDTO[] $midocoCustomerDefinedField
      */
-    public function __construct(array $midocoCustomerDefinedField = [])
+    public function __construct(?array $midocoCustomerDefinedField = null)
     {
         $this
             ->setMidocoCustomerDefinedField($midocoCustomerDefinedField);
@@ -36,18 +37,22 @@ class GetCustomerDefinedFieldResponse extends AbstractStructBase
      * Get MidocoCustomerDefinedField value
      * @return \Pggns\MidocoApi\Crmsd\StructType\CustomerDefinedFieldDTO[]
      */
-    public function getMidocoCustomerDefinedField(): array
+    public function getMidocoCustomerDefinedField(): ?array
     {
         return $this->MidocoCustomerDefinedField;
     }
     /**
-     * This method is responsible for validating the values passed to the setMidocoCustomerDefinedField method
+     * This method is responsible for validating the value(s) passed to the setMidocoCustomerDefinedField method
      * This method is willingly generated in order to preserve the one-line inline validation within the setMidocoCustomerDefinedField method
+     * This has to validate that each item contained by the array match the itemType constraint
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateMidocoCustomerDefinedFieldForArrayConstraintsFromSetMidocoCustomerDefinedField(array $values = []): string
+    public static function validateMidocoCustomerDefinedFieldForArrayConstraintFromSetMidocoCustomerDefinedField(?array $values = []): string
     {
+        if (!is_array($values)) {
+            return '';
+        }
         $message = '';
         $invalidValues = [];
         foreach ($values as $getCustomerDefinedFieldResponseMidocoCustomerDefinedFieldItem) {
@@ -69,10 +74,10 @@ class GetCustomerDefinedFieldResponse extends AbstractStructBase
      * @param \Pggns\MidocoApi\Crmsd\StructType\CustomerDefinedFieldDTO[] $midocoCustomerDefinedField
      * @return \Pggns\MidocoApi\Crmsd\StructType\GetCustomerDefinedFieldResponse
      */
-    public function setMidocoCustomerDefinedField(array $midocoCustomerDefinedField = []): self
+    public function setMidocoCustomerDefinedField(?array $midocoCustomerDefinedField = null): self
     {
         // validation for constraint: array
-        if ('' !== ($midocoCustomerDefinedFieldArrayErrorMessage = self::validateMidocoCustomerDefinedFieldForArrayConstraintsFromSetMidocoCustomerDefinedField($midocoCustomerDefinedField))) {
+        if ('' !== ($midocoCustomerDefinedFieldArrayErrorMessage = self::validateMidocoCustomerDefinedFieldForArrayConstraintFromSetMidocoCustomerDefinedField($midocoCustomerDefinedField))) {
             throw new InvalidArgumentException($midocoCustomerDefinedFieldArrayErrorMessage, __LINE__);
         }
         $this->MidocoCustomerDefinedField = $midocoCustomerDefinedField;

@@ -11,6 +11,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * This class stands for ConfirmCrmExternalOfferRequest StructType
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class ConfirmCrmExternalOfferRequest extends AbstractStructBase
 {
     /**

@@ -13,6 +13,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * - documentation: deletePaymentCondition --- deletes a payment condition given as parameter. returns void
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class DeletePaymentConditionResponse extends AbstractStructBase
 {
 }

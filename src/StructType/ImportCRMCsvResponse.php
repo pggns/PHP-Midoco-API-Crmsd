@@ -11,6 +11,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * This class stands for ImportCRMCsvResponse StructType
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class ImportCRMCsvResponse extends AbstractStructBase
 {
     /**
@@ -21,13 +22,13 @@ class ImportCRMCsvResponse extends AbstractStructBase
      * - ref: MidocoCrmImportErrors
      * @var \Pggns\MidocoApi\Crmsd\StructType\MidocoCrmImportErrors[]
      */
-    protected array $MidocoCrmImportErrors = [];
+    protected ?array $MidocoCrmImportErrors = null;
     /**
      * Constructor method for ImportCRMCsvResponse
      * @uses ImportCRMCsvResponse::setMidocoCrmImportErrors()
      * @param \Pggns\MidocoApi\Crmsd\StructType\MidocoCrmImportErrors[] $midocoCrmImportErrors
      */
-    public function __construct(array $midocoCrmImportErrors = [])
+    public function __construct(?array $midocoCrmImportErrors = null)
     {
         $this
             ->setMidocoCrmImportErrors($midocoCrmImportErrors);
@@ -36,18 +37,22 @@ class ImportCRMCsvResponse extends AbstractStructBase
      * Get MidocoCrmImportErrors value
      * @return \Pggns\MidocoApi\Crmsd\StructType\MidocoCrmImportErrors[]
      */
-    public function getMidocoCrmImportErrors(): array
+    public function getMidocoCrmImportErrors(): ?array
     {
         return $this->MidocoCrmImportErrors;
     }
     /**
-     * This method is responsible for validating the values passed to the setMidocoCrmImportErrors method
+     * This method is responsible for validating the value(s) passed to the setMidocoCrmImportErrors method
      * This method is willingly generated in order to preserve the one-line inline validation within the setMidocoCrmImportErrors method
+     * This has to validate that each item contained by the array match the itemType constraint
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateMidocoCrmImportErrorsForArrayConstraintsFromSetMidocoCrmImportErrors(array $values = []): string
+    public static function validateMidocoCrmImportErrorsForArrayConstraintFromSetMidocoCrmImportErrors(?array $values = []): string
     {
+        if (!is_array($values)) {
+            return '';
+        }
         $message = '';
         $invalidValues = [];
         foreach ($values as $importCRMCsvResponseMidocoCrmImportErrorsItem) {
@@ -69,10 +74,10 @@ class ImportCRMCsvResponse extends AbstractStructBase
      * @param \Pggns\MidocoApi\Crmsd\StructType\MidocoCrmImportErrors[] $midocoCrmImportErrors
      * @return \Pggns\MidocoApi\Crmsd\StructType\ImportCRMCsvResponse
      */
-    public function setMidocoCrmImportErrors(array $midocoCrmImportErrors = []): self
+    public function setMidocoCrmImportErrors(?array $midocoCrmImportErrors = null): self
     {
         // validation for constraint: array
-        if ('' !== ($midocoCrmImportErrorsArrayErrorMessage = self::validateMidocoCrmImportErrorsForArrayConstraintsFromSetMidocoCrmImportErrors($midocoCrmImportErrors))) {
+        if ('' !== ($midocoCrmImportErrorsArrayErrorMessage = self::validateMidocoCrmImportErrorsForArrayConstraintFromSetMidocoCrmImportErrors($midocoCrmImportErrors))) {
             throw new InvalidArgumentException($midocoCrmImportErrorsArrayErrorMessage, __LINE__);
         }
         $this->MidocoCrmImportErrors = $midocoCrmImportErrors;

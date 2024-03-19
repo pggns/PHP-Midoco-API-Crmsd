@@ -13,6 +13,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * - documentation: saveSalutationType --- saves a salutation type. returns void.
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class SaveSalutationTypeResponse extends AbstractStructBase
 {
 }

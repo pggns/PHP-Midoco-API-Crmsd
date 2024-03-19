@@ -11,6 +11,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * This class stands for GetCooperationsRequest StructType
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class GetCooperationsRequest extends AbstractStructBase
 {
     /**

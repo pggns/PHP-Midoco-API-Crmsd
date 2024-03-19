@@ -11,6 +11,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * This class stands for DeleteCrmTravelRequest StructType
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class DeleteCrmTravelRequest extends AbstractStructBase
 {
     /**
@@ -21,13 +22,13 @@ class DeleteCrmTravelRequest extends AbstractStructBase
      * - ref: MidocoCustomerTravel
      * @var \Pggns\MidocoApi\Crmsd\StructType\MidocoCustomerTravelType[]
      */
-    protected array $MidocoCustomerTravel = [];
+    protected ?array $MidocoCustomerTravel = null;
     /**
      * Constructor method for DeleteCrmTravelRequest
      * @uses DeleteCrmTravelRequest::setMidocoCustomerTravel()
      * @param \Pggns\MidocoApi\Crmsd\StructType\MidocoCustomerTravelType[] $midocoCustomerTravel
      */
-    public function __construct(array $midocoCustomerTravel = [])
+    public function __construct(?array $midocoCustomerTravel = null)
     {
         $this
             ->setMidocoCustomerTravel($midocoCustomerTravel);
@@ -36,18 +37,22 @@ class DeleteCrmTravelRequest extends AbstractStructBase
      * Get MidocoCustomerTravel value
      * @return \Pggns\MidocoApi\Crmsd\StructType\MidocoCustomerTravelType[]
      */
-    public function getMidocoCustomerTravel(): array
+    public function getMidocoCustomerTravel(): ?array
     {
         return $this->MidocoCustomerTravel;
     }
     /**
-     * This method is responsible for validating the values passed to the setMidocoCustomerTravel method
+     * This method is responsible for validating the value(s) passed to the setMidocoCustomerTravel method
      * This method is willingly generated in order to preserve the one-line inline validation within the setMidocoCustomerTravel method
+     * This has to validate that each item contained by the array match the itemType constraint
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateMidocoCustomerTravelForArrayConstraintsFromSetMidocoCustomerTravel(array $values = []): string
+    public static function validateMidocoCustomerTravelForArrayConstraintFromSetMidocoCustomerTravel(?array $values = []): string
     {
+        if (!is_array($values)) {
+            return '';
+        }
         $message = '';
         $invalidValues = [];
         foreach ($values as $deleteCrmTravelRequestMidocoCustomerTravelItem) {
@@ -69,10 +74,10 @@ class DeleteCrmTravelRequest extends AbstractStructBase
      * @param \Pggns\MidocoApi\Crmsd\StructType\MidocoCustomerTravelType[] $midocoCustomerTravel
      * @return \Pggns\MidocoApi\Crmsd\StructType\DeleteCrmTravelRequest
      */
-    public function setMidocoCustomerTravel(array $midocoCustomerTravel = []): self
+    public function setMidocoCustomerTravel(?array $midocoCustomerTravel = null): self
     {
         // validation for constraint: array
-        if ('' !== ($midocoCustomerTravelArrayErrorMessage = self::validateMidocoCustomerTravelForArrayConstraintsFromSetMidocoCustomerTravel($midocoCustomerTravel))) {
+        if ('' !== ($midocoCustomerTravelArrayErrorMessage = self::validateMidocoCustomerTravelForArrayConstraintFromSetMidocoCustomerTravel($midocoCustomerTravel))) {
             throw new InvalidArgumentException($midocoCustomerTravelArrayErrorMessage, __LINE__);
         }
         $this->MidocoCustomerTravel = $midocoCustomerTravel;

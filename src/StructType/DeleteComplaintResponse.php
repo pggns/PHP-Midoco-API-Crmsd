@@ -13,6 +13,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * - documentation: deleteComplaint --- deletes a complaint (cascade delete all the documents and reasons)
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class DeleteComplaintResponse extends AbstractStructBase
 {
 }

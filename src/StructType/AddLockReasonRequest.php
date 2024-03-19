@@ -11,6 +11,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * This class stands for AddLockReasonRequest StructType
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class AddLockReasonRequest extends AbstractStructBase
 {
     /**

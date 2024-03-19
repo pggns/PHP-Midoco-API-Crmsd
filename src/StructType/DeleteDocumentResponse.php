@@ -13,6 +13,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * - documentation: deleteDocument --- deletes the document given as parameter
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class DeleteDocumentResponse extends AbstractStructBase
 {
     /**

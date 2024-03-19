@@ -14,6 +14,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * phonetic fields from CrmPersonDTO (name, forename), from CrmCompanyDTO (organisation_name), CrmAddressDTO (street, city) will be queried using the connected phonetic entry. All other fields will be queried using the 1:1 mapped fields in the DB
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class SearchCustomerResponse extends AbstractStructBase
 {
     /**
@@ -24,7 +25,7 @@ class SearchCustomerResponse extends AbstractStructBase
      * - ref: MidocoCustomerSearch
      * @var \Pggns\MidocoApi\Crmsd\StructType\MidocoCustomerSearch[]
      */
-    protected array $MidocoCustomerSearch = [];
+    protected ?array $MidocoCustomerSearch = null;
     /**
      * The noOfResults
      * Meta information extracted from the WSDL
@@ -39,7 +40,7 @@ class SearchCustomerResponse extends AbstractStructBase
      * @param \Pggns\MidocoApi\Crmsd\StructType\MidocoCustomerSearch[] $midocoCustomerSearch
      * @param int $noOfResults
      */
-    public function __construct(array $midocoCustomerSearch = [], ?int $noOfResults = null)
+    public function __construct(?array $midocoCustomerSearch = null, ?int $noOfResults = null)
     {
         $this
             ->setMidocoCustomerSearch($midocoCustomerSearch)
@@ -49,18 +50,22 @@ class SearchCustomerResponse extends AbstractStructBase
      * Get MidocoCustomerSearch value
      * @return \Pggns\MidocoApi\Crmsd\StructType\MidocoCustomerSearch[]
      */
-    public function getMidocoCustomerSearch(): array
+    public function getMidocoCustomerSearch(): ?array
     {
         return $this->MidocoCustomerSearch;
     }
     /**
-     * This method is responsible for validating the values passed to the setMidocoCustomerSearch method
+     * This method is responsible for validating the value(s) passed to the setMidocoCustomerSearch method
      * This method is willingly generated in order to preserve the one-line inline validation within the setMidocoCustomerSearch method
+     * This has to validate that each item contained by the array match the itemType constraint
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateMidocoCustomerSearchForArrayConstraintsFromSetMidocoCustomerSearch(array $values = []): string
+    public static function validateMidocoCustomerSearchForArrayConstraintFromSetMidocoCustomerSearch(?array $values = []): string
     {
+        if (!is_array($values)) {
+            return '';
+        }
         $message = '';
         $invalidValues = [];
         foreach ($values as $searchCustomerResponseMidocoCustomerSearchItem) {
@@ -82,10 +87,10 @@ class SearchCustomerResponse extends AbstractStructBase
      * @param \Pggns\MidocoApi\Crmsd\StructType\MidocoCustomerSearch[] $midocoCustomerSearch
      * @return \Pggns\MidocoApi\Crmsd\StructType\SearchCustomerResponse
      */
-    public function setMidocoCustomerSearch(array $midocoCustomerSearch = []): self
+    public function setMidocoCustomerSearch(?array $midocoCustomerSearch = null): self
     {
         // validation for constraint: array
-        if ('' !== ($midocoCustomerSearchArrayErrorMessage = self::validateMidocoCustomerSearchForArrayConstraintsFromSetMidocoCustomerSearch($midocoCustomerSearch))) {
+        if ('' !== ($midocoCustomerSearchArrayErrorMessage = self::validateMidocoCustomerSearchForArrayConstraintFromSetMidocoCustomerSearch($midocoCustomerSearch))) {
             throw new InvalidArgumentException($midocoCustomerSearchArrayErrorMessage, __LINE__);
         }
         $this->MidocoCustomerSearch = $midocoCustomerSearch;

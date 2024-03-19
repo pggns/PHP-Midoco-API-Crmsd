@@ -13,6 +13,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * - documentation: ModifyPassword sets a new customer password. The e-mail address is required.
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class ModifyPasswordRequest extends AbstractStructBase
 {
     /**

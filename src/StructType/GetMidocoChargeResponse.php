@@ -13,6 +13,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * - documentation: getMidocoCharge --- returns the Midoco charge for the given customer id and charge id
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class GetMidocoChargeResponse extends AbstractStructBase
 {
     /**

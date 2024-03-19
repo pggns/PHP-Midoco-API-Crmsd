@@ -11,6 +11,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * This class stands for MultiPrintResponse StructType
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class MultiPrintResponse extends AbstractStructBase
 {
     /**
@@ -27,7 +28,7 @@ class MultiPrintResponse extends AbstractStructBase
      * - minOccurs: 0
      * @var int[]
      */
-    protected array $historyId = [];
+    protected ?array $historyId = null;
     /**
      * The rtfData
      * Meta information extracted from the WSDL
@@ -35,7 +36,7 @@ class MultiPrintResponse extends AbstractStructBase
      * - minOccurs: 0
      * @var string[]
      */
-    protected array $rtfData = [];
+    protected ?array $rtfData = null;
     /**
      * The MidocoMailDescription4Inexso
      * Meta information extracted from the WSDL
@@ -43,7 +44,7 @@ class MultiPrintResponse extends AbstractStructBase
      * - ref: system:MidocoMailDescription4Inexso
      * @var \Pggns\MidocoApi\Crmsd\StructType\MidocoMailDescription4Inexso[]
      */
-    protected array $MidocoMailDescription4Inexso = [];
+    protected ?array $MidocoMailDescription4Inexso = null;
     /**
      * Constructor method for MultiPrintResponse
      * @uses MultiPrintResponse::setMidocoMailMessage()
@@ -55,7 +56,7 @@ class MultiPrintResponse extends AbstractStructBase
      * @param string[] $rtfData
      * @param \Pggns\MidocoApi\Crmsd\StructType\MidocoMailDescription4Inexso[] $midocoMailDescription4Inexso
      */
-    public function __construct(?\Pggns\MidocoApi\Crmsd\StructType\MidocoMailMessageType $midocoMailMessage = null, array $historyId = [], array $rtfData = [], array $midocoMailDescription4Inexso = [])
+    public function __construct(?\Pggns\MidocoApi\Crmsd\StructType\MidocoMailMessageType $midocoMailMessage = null, ?array $historyId = null, ?array $rtfData = null, ?array $midocoMailDescription4Inexso = null)
     {
         $this
             ->setMidocoMailMessage($midocoMailMessage)
@@ -86,18 +87,22 @@ class MultiPrintResponse extends AbstractStructBase
      * Get historyId value
      * @return int[]
      */
-    public function getHistoryId(): array
+    public function getHistoryId(): ?array
     {
         return $this->historyId;
     }
     /**
-     * This method is responsible for validating the values passed to the setHistoryId method
+     * This method is responsible for validating the value(s) passed to the setHistoryId method
      * This method is willingly generated in order to preserve the one-line inline validation within the setHistoryId method
+     * This has to validate that each item contained by the array match the itemType constraint
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateHistoryIdForArrayConstraintsFromSetHistoryId(array $values = []): string
+    public static function validateHistoryIdForArrayConstraintFromSetHistoryId(?array $values = []): string
     {
+        if (!is_array($values)) {
+            return '';
+        }
         $message = '';
         $invalidValues = [];
         foreach ($values as $multiPrintResponseHistoryIdItem) {
@@ -119,10 +124,10 @@ class MultiPrintResponse extends AbstractStructBase
      * @param int[] $historyId
      * @return \Pggns\MidocoApi\Crmsd\StructType\MultiPrintResponse
      */
-    public function setHistoryId(array $historyId = []): self
+    public function setHistoryId(?array $historyId = null): self
     {
         // validation for constraint: array
-        if ('' !== ($historyIdArrayErrorMessage = self::validateHistoryIdForArrayConstraintsFromSetHistoryId($historyId))) {
+        if ('' !== ($historyIdArrayErrorMessage = self::validateHistoryIdForArrayConstraintFromSetHistoryId($historyId))) {
             throw new InvalidArgumentException($historyIdArrayErrorMessage, __LINE__);
         }
         $this->historyId = $historyId;
@@ -149,18 +154,22 @@ class MultiPrintResponse extends AbstractStructBase
      * Get rtfData value
      * @return string[]
      */
-    public function getRtfData(): array
+    public function getRtfData(): ?array
     {
         return $this->rtfData;
     }
     /**
-     * This method is responsible for validating the values passed to the setRtfData method
+     * This method is responsible for validating the value(s) passed to the setRtfData method
      * This method is willingly generated in order to preserve the one-line inline validation within the setRtfData method
+     * This has to validate that each item contained by the array match the itemType constraint
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateRtfDataForArrayConstraintsFromSetRtfData(array $values = []): string
+    public static function validateRtfDataForArrayConstraintFromSetRtfData(?array $values = []): string
     {
+        if (!is_array($values)) {
+            return '';
+        }
         $message = '';
         $invalidValues = [];
         foreach ($values as $multiPrintResponseRtfDataItem) {
@@ -182,10 +191,10 @@ class MultiPrintResponse extends AbstractStructBase
      * @param string[] $rtfData
      * @return \Pggns\MidocoApi\Crmsd\StructType\MultiPrintResponse
      */
-    public function setRtfData(array $rtfData = []): self
+    public function setRtfData(?array $rtfData = null): self
     {
         // validation for constraint: array
-        if ('' !== ($rtfDataArrayErrorMessage = self::validateRtfDataForArrayConstraintsFromSetRtfData($rtfData))) {
+        if ('' !== ($rtfDataArrayErrorMessage = self::validateRtfDataForArrayConstraintFromSetRtfData($rtfData))) {
             throw new InvalidArgumentException($rtfDataArrayErrorMessage, __LINE__);
         }
         $this->rtfData = $rtfData;
@@ -212,18 +221,22 @@ class MultiPrintResponse extends AbstractStructBase
      * Get MidocoMailDescription4Inexso value
      * @return \Pggns\MidocoApi\Crmsd\StructType\MidocoMailDescription4Inexso[]
      */
-    public function getMidocoMailDescription4Inexso(): array
+    public function getMidocoMailDescription4Inexso(): ?array
     {
         return $this->MidocoMailDescription4Inexso;
     }
     /**
-     * This method is responsible for validating the values passed to the setMidocoMailDescription4Inexso method
+     * This method is responsible for validating the value(s) passed to the setMidocoMailDescription4Inexso method
      * This method is willingly generated in order to preserve the one-line inline validation within the setMidocoMailDescription4Inexso method
+     * This has to validate that each item contained by the array match the itemType constraint
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateMidocoMailDescription4InexsoForArrayConstraintsFromSetMidocoMailDescription4Inexso(array $values = []): string
+    public static function validateMidocoMailDescription4InexsoForArrayConstraintFromSetMidocoMailDescription4Inexso(?array $values = []): string
     {
+        if (!is_array($values)) {
+            return '';
+        }
         $message = '';
         $invalidValues = [];
         foreach ($values as $multiPrintResponseMidocoMailDescription4InexsoItem) {
@@ -245,10 +258,10 @@ class MultiPrintResponse extends AbstractStructBase
      * @param \Pggns\MidocoApi\Crmsd\StructType\MidocoMailDescription4Inexso[] $midocoMailDescription4Inexso
      * @return \Pggns\MidocoApi\Crmsd\StructType\MultiPrintResponse
      */
-    public function setMidocoMailDescription4Inexso(array $midocoMailDescription4Inexso = []): self
+    public function setMidocoMailDescription4Inexso(?array $midocoMailDescription4Inexso = null): self
     {
         // validation for constraint: array
-        if ('' !== ($midocoMailDescription4InexsoArrayErrorMessage = self::validateMidocoMailDescription4InexsoForArrayConstraintsFromSetMidocoMailDescription4Inexso($midocoMailDescription4Inexso))) {
+        if ('' !== ($midocoMailDescription4InexsoArrayErrorMessage = self::validateMidocoMailDescription4InexsoForArrayConstraintFromSetMidocoMailDescription4Inexso($midocoMailDescription4Inexso))) {
             throw new InvalidArgumentException($midocoMailDescription4InexsoArrayErrorMessage, __LINE__);
         }
         $this->MidocoMailDescription4Inexso = $midocoMailDescription4Inexso;

@@ -11,6 +11,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * This class stands for SaveCommunicationHistoriesResponse StructType
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class SaveCommunicationHistoriesResponse extends AbstractStructBase
 {
     /**

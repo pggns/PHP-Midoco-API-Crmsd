@@ -11,6 +11,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * This class stands for ExecuteCrmRulesRequest StructType
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class ExecuteCrmRulesRequest extends AbstractStructBase
 {
     /**
@@ -24,7 +25,7 @@ class ExecuteCrmRulesRequest extends AbstractStructBase
      * - maxOccurs: unbounded
      * @var string[]
      */
-    protected array $ruleName = [];
+    protected ?array $ruleName = null;
     /**
      * Constructor method for ExecuteCrmRulesRequest
      * @uses ExecuteCrmRulesRequest::setCustomerId()
@@ -32,7 +33,7 @@ class ExecuteCrmRulesRequest extends AbstractStructBase
      * @param int $customerId
      * @param string[] $ruleName
      */
-    public function __construct(?int $customerId = null, array $ruleName = [])
+    public function __construct(?int $customerId = null, ?array $ruleName = null)
     {
         $this
             ->setCustomerId($customerId)
@@ -65,18 +66,22 @@ class ExecuteCrmRulesRequest extends AbstractStructBase
      * Get ruleName value
      * @return string[]
      */
-    public function getRuleName(): array
+    public function getRuleName(): ?array
     {
         return $this->ruleName;
     }
     /**
-     * This method is responsible for validating the values passed to the setRuleName method
+     * This method is responsible for validating the value(s) passed to the setRuleName method
      * This method is willingly generated in order to preserve the one-line inline validation within the setRuleName method
+     * This has to validate that each item contained by the array match the itemType constraint
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateRuleNameForArrayConstraintsFromSetRuleName(array $values = []): string
+    public static function validateRuleNameForArrayConstraintFromSetRuleName(?array $values = []): string
     {
+        if (!is_array($values)) {
+            return '';
+        }
         $message = '';
         $invalidValues = [];
         foreach ($values as $executeCrmRulesRequestRuleNameItem) {
@@ -98,10 +103,10 @@ class ExecuteCrmRulesRequest extends AbstractStructBase
      * @param string[] $ruleName
      * @return \Pggns\MidocoApi\Crmsd\StructType\ExecuteCrmRulesRequest
      */
-    public function setRuleName(array $ruleName = []): self
+    public function setRuleName(?array $ruleName = null): self
     {
         // validation for constraint: array
-        if ('' !== ($ruleNameArrayErrorMessage = self::validateRuleNameForArrayConstraintsFromSetRuleName($ruleName))) {
+        if ('' !== ($ruleNameArrayErrorMessage = self::validateRuleNameForArrayConstraintFromSetRuleName($ruleName))) {
             throw new InvalidArgumentException($ruleNameArrayErrorMessage, __LINE__);
         }
         $this->ruleName = $ruleName;

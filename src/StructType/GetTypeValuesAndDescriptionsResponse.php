@@ -11,6 +11,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * This class stands for GetTypeValuesAndDescriptionsResponse StructType
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class GetTypeValuesAndDescriptionsResponse extends AbstractStructBase
 {
     /**
@@ -21,7 +22,7 @@ class GetTypeValuesAndDescriptionsResponse extends AbstractStructBase
      * - ref: MidocoCriteriaType
      * @var \Pggns\MidocoApi\Crmsd\StructType\MidocoCriteriaType[]
      */
-    protected array $MidocoCriteriaType = [];
+    protected ?array $MidocoCriteriaType = null;
     /**
      * The MidocoCriteriaDescriptionCategory
      * Meta information extracted from the WSDL
@@ -30,7 +31,7 @@ class GetTypeValuesAndDescriptionsResponse extends AbstractStructBase
      * - ref: MidocoCriteriaDescriptionCategory
      * @var \Pggns\MidocoApi\Crmsd\StructType\MidocoCriteriaDescriptionCategory[]
      */
-    protected array $MidocoCriteriaDescriptionCategory = [];
+    protected ?array $MidocoCriteriaDescriptionCategory = null;
     /**
      * The GetTypeValuesAndDescriptionsDTO
      * Meta information extracted from the WSDL
@@ -39,7 +40,7 @@ class GetTypeValuesAndDescriptionsResponse extends AbstractStructBase
      * - ref: GetTypeValuesAndDescriptionsDTO
      * @var \Pggns\MidocoApi\Crmsd\StructType\GetTypeValuesAndDescriptionsDTO[]
      */
-    protected array $GetTypeValuesAndDescriptionsDTO = [];
+    protected ?array $GetTypeValuesAndDescriptionsDTO = null;
     /**
      * Constructor method for GetTypeValuesAndDescriptionsResponse
      * @uses GetTypeValuesAndDescriptionsResponse::setMidocoCriteriaType()
@@ -49,7 +50,7 @@ class GetTypeValuesAndDescriptionsResponse extends AbstractStructBase
      * @param \Pggns\MidocoApi\Crmsd\StructType\MidocoCriteriaDescriptionCategory[] $midocoCriteriaDescriptionCategory
      * @param \Pggns\MidocoApi\Crmsd\StructType\GetTypeValuesAndDescriptionsDTO[] $getTypeValuesAndDescriptionsDTO
      */
-    public function __construct(array $midocoCriteriaType = [], array $midocoCriteriaDescriptionCategory = [], array $getTypeValuesAndDescriptionsDTO = [])
+    public function __construct(?array $midocoCriteriaType = null, ?array $midocoCriteriaDescriptionCategory = null, ?array $getTypeValuesAndDescriptionsDTO = null)
     {
         $this
             ->setMidocoCriteriaType($midocoCriteriaType)
@@ -60,18 +61,22 @@ class GetTypeValuesAndDescriptionsResponse extends AbstractStructBase
      * Get MidocoCriteriaType value
      * @return \Pggns\MidocoApi\Crmsd\StructType\MidocoCriteriaType[]
      */
-    public function getMidocoCriteriaType(): array
+    public function getMidocoCriteriaType(): ?array
     {
         return $this->MidocoCriteriaType;
     }
     /**
-     * This method is responsible for validating the values passed to the setMidocoCriteriaType method
+     * This method is responsible for validating the value(s) passed to the setMidocoCriteriaType method
      * This method is willingly generated in order to preserve the one-line inline validation within the setMidocoCriteriaType method
+     * This has to validate that each item contained by the array match the itemType constraint
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateMidocoCriteriaTypeForArrayConstraintsFromSetMidocoCriteriaType(array $values = []): string
+    public static function validateMidocoCriteriaTypeForArrayConstraintFromSetMidocoCriteriaType(?array $values = []): string
     {
+        if (!is_array($values)) {
+            return '';
+        }
         $message = '';
         $invalidValues = [];
         foreach ($values as $getTypeValuesAndDescriptionsResponseMidocoCriteriaTypeItem) {
@@ -93,10 +98,10 @@ class GetTypeValuesAndDescriptionsResponse extends AbstractStructBase
      * @param \Pggns\MidocoApi\Crmsd\StructType\MidocoCriteriaType[] $midocoCriteriaType
      * @return \Pggns\MidocoApi\Crmsd\StructType\GetTypeValuesAndDescriptionsResponse
      */
-    public function setMidocoCriteriaType(array $midocoCriteriaType = []): self
+    public function setMidocoCriteriaType(?array $midocoCriteriaType = null): self
     {
         // validation for constraint: array
-        if ('' !== ($midocoCriteriaTypeArrayErrorMessage = self::validateMidocoCriteriaTypeForArrayConstraintsFromSetMidocoCriteriaType($midocoCriteriaType))) {
+        if ('' !== ($midocoCriteriaTypeArrayErrorMessage = self::validateMidocoCriteriaTypeForArrayConstraintFromSetMidocoCriteriaType($midocoCriteriaType))) {
             throw new InvalidArgumentException($midocoCriteriaTypeArrayErrorMessage, __LINE__);
         }
         $this->MidocoCriteriaType = $midocoCriteriaType;
@@ -123,18 +128,22 @@ class GetTypeValuesAndDescriptionsResponse extends AbstractStructBase
      * Get MidocoCriteriaDescriptionCategory value
      * @return \Pggns\MidocoApi\Crmsd\StructType\MidocoCriteriaDescriptionCategory[]
      */
-    public function getMidocoCriteriaDescriptionCategory(): array
+    public function getMidocoCriteriaDescriptionCategory(): ?array
     {
         return $this->MidocoCriteriaDescriptionCategory;
     }
     /**
-     * This method is responsible for validating the values passed to the setMidocoCriteriaDescriptionCategory method
+     * This method is responsible for validating the value(s) passed to the setMidocoCriteriaDescriptionCategory method
      * This method is willingly generated in order to preserve the one-line inline validation within the setMidocoCriteriaDescriptionCategory method
+     * This has to validate that each item contained by the array match the itemType constraint
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateMidocoCriteriaDescriptionCategoryForArrayConstraintsFromSetMidocoCriteriaDescriptionCategory(array $values = []): string
+    public static function validateMidocoCriteriaDescriptionCategoryForArrayConstraintFromSetMidocoCriteriaDescriptionCategory(?array $values = []): string
     {
+        if (!is_array($values)) {
+            return '';
+        }
         $message = '';
         $invalidValues = [];
         foreach ($values as $getTypeValuesAndDescriptionsResponseMidocoCriteriaDescriptionCategoryItem) {
@@ -156,10 +165,10 @@ class GetTypeValuesAndDescriptionsResponse extends AbstractStructBase
      * @param \Pggns\MidocoApi\Crmsd\StructType\MidocoCriteriaDescriptionCategory[] $midocoCriteriaDescriptionCategory
      * @return \Pggns\MidocoApi\Crmsd\StructType\GetTypeValuesAndDescriptionsResponse
      */
-    public function setMidocoCriteriaDescriptionCategory(array $midocoCriteriaDescriptionCategory = []): self
+    public function setMidocoCriteriaDescriptionCategory(?array $midocoCriteriaDescriptionCategory = null): self
     {
         // validation for constraint: array
-        if ('' !== ($midocoCriteriaDescriptionCategoryArrayErrorMessage = self::validateMidocoCriteriaDescriptionCategoryForArrayConstraintsFromSetMidocoCriteriaDescriptionCategory($midocoCriteriaDescriptionCategory))) {
+        if ('' !== ($midocoCriteriaDescriptionCategoryArrayErrorMessage = self::validateMidocoCriteriaDescriptionCategoryForArrayConstraintFromSetMidocoCriteriaDescriptionCategory($midocoCriteriaDescriptionCategory))) {
             throw new InvalidArgumentException($midocoCriteriaDescriptionCategoryArrayErrorMessage, __LINE__);
         }
         $this->MidocoCriteriaDescriptionCategory = $midocoCriteriaDescriptionCategory;
@@ -186,18 +195,22 @@ class GetTypeValuesAndDescriptionsResponse extends AbstractStructBase
      * Get GetTypeValuesAndDescriptionsDTO value
      * @return \Pggns\MidocoApi\Crmsd\StructType\GetTypeValuesAndDescriptionsDTO[]
      */
-    public function getGetTypeValuesAndDescriptionsDTO(): array
+    public function getGetTypeValuesAndDescriptionsDTO(): ?array
     {
         return $this->GetTypeValuesAndDescriptionsDTO;
     }
     /**
-     * This method is responsible for validating the values passed to the setGetTypeValuesAndDescriptionsDTO method
+     * This method is responsible for validating the value(s) passed to the setGetTypeValuesAndDescriptionsDTO method
      * This method is willingly generated in order to preserve the one-line inline validation within the setGetTypeValuesAndDescriptionsDTO method
+     * This has to validate that each item contained by the array match the itemType constraint
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateGetTypeValuesAndDescriptionsDTOForArrayConstraintsFromSetGetTypeValuesAndDescriptionsDTO(array $values = []): string
+    public static function validateGetTypeValuesAndDescriptionsDTOForArrayConstraintFromSetGetTypeValuesAndDescriptionsDTO(?array $values = []): string
     {
+        if (!is_array($values)) {
+            return '';
+        }
         $message = '';
         $invalidValues = [];
         foreach ($values as $getTypeValuesAndDescriptionsResponseGetTypeValuesAndDescriptionsDTOItem) {
@@ -219,10 +232,10 @@ class GetTypeValuesAndDescriptionsResponse extends AbstractStructBase
      * @param \Pggns\MidocoApi\Crmsd\StructType\GetTypeValuesAndDescriptionsDTO[] $getTypeValuesAndDescriptionsDTO
      * @return \Pggns\MidocoApi\Crmsd\StructType\GetTypeValuesAndDescriptionsResponse
      */
-    public function setGetTypeValuesAndDescriptionsDTO(array $getTypeValuesAndDescriptionsDTO = []): self
+    public function setGetTypeValuesAndDescriptionsDTO(?array $getTypeValuesAndDescriptionsDTO = null): self
     {
         // validation for constraint: array
-        if ('' !== ($getTypeValuesAndDescriptionsDTOArrayErrorMessage = self::validateGetTypeValuesAndDescriptionsDTOForArrayConstraintsFromSetGetTypeValuesAndDescriptionsDTO($getTypeValuesAndDescriptionsDTO))) {
+        if ('' !== ($getTypeValuesAndDescriptionsDTOArrayErrorMessage = self::validateGetTypeValuesAndDescriptionsDTOForArrayConstraintFromSetGetTypeValuesAndDescriptionsDTO($getTypeValuesAndDescriptionsDTO))) {
             throw new InvalidArgumentException($getTypeValuesAndDescriptionsDTOArrayErrorMessage, __LINE__);
         }
         $this->GetTypeValuesAndDescriptionsDTO = $getTypeValuesAndDescriptionsDTO;

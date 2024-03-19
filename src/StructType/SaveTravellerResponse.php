@@ -13,6 +13,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * - documentation: saveCostCenter --- saves a CompanyCostCentre. returns void
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class SaveTravellerResponse extends AbstractStructBase
 {
 }

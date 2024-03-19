@@ -13,6 +13,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * - documentation: deleteComplaintDocument --- deletes a complaint document
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class DeleteComplaintDocumentResponse extends AbstractStructBase
 {
 }

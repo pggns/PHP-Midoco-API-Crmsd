@@ -11,6 +11,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * This class stands for DeleteCcTokenResponse StructType
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class DeleteCcTokenResponse extends AbstractStructBase
 {
 }

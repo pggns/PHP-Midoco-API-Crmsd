@@ -13,6 +13,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * - documentation: validateDebitCard --- validate the debit card information
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class ValidateDebitCardResponse extends AbstractStructBase
 {
     /**

@@ -13,6 +13,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * - documentation: GetAllAssignedMidocoSettlUnits --- returns the assigned settlement org units defined for the given settl
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class GetAllAssignedMidocoSettlUnitsResponse extends AbstractStructBase
 {
     /**
@@ -23,13 +24,13 @@ class GetAllAssignedMidocoSettlUnitsResponse extends AbstractStructBase
      * - ref: MidocoAssignedMidocoSettlOUnit
      * @var \Pggns\MidocoApi\Crmsd\StructType\AssignedMidocoSettlOUnitDTO[]
      */
-    protected array $MidocoAssignedMidocoSettlOUnit = [];
+    protected ?array $MidocoAssignedMidocoSettlOUnit = null;
     /**
      * Constructor method for GetAllAssignedMidocoSettlUnitsResponse
      * @uses GetAllAssignedMidocoSettlUnitsResponse::setMidocoAssignedMidocoSettlOUnit()
      * @param \Pggns\MidocoApi\Crmsd\StructType\AssignedMidocoSettlOUnitDTO[] $midocoAssignedMidocoSettlOUnit
      */
-    public function __construct(array $midocoAssignedMidocoSettlOUnit = [])
+    public function __construct(?array $midocoAssignedMidocoSettlOUnit = null)
     {
         $this
             ->setMidocoAssignedMidocoSettlOUnit($midocoAssignedMidocoSettlOUnit);
@@ -38,18 +39,22 @@ class GetAllAssignedMidocoSettlUnitsResponse extends AbstractStructBase
      * Get MidocoAssignedMidocoSettlOUnit value
      * @return \Pggns\MidocoApi\Crmsd\StructType\AssignedMidocoSettlOUnitDTO[]
      */
-    public function getMidocoAssignedMidocoSettlOUnit(): array
+    public function getMidocoAssignedMidocoSettlOUnit(): ?array
     {
         return $this->MidocoAssignedMidocoSettlOUnit;
     }
     /**
-     * This method is responsible for validating the values passed to the setMidocoAssignedMidocoSettlOUnit method
+     * This method is responsible for validating the value(s) passed to the setMidocoAssignedMidocoSettlOUnit method
      * This method is willingly generated in order to preserve the one-line inline validation within the setMidocoAssignedMidocoSettlOUnit method
+     * This has to validate that each item contained by the array match the itemType constraint
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateMidocoAssignedMidocoSettlOUnitForArrayConstraintsFromSetMidocoAssignedMidocoSettlOUnit(array $values = []): string
+    public static function validateMidocoAssignedMidocoSettlOUnitForArrayConstraintFromSetMidocoAssignedMidocoSettlOUnit(?array $values = []): string
     {
+        if (!is_array($values)) {
+            return '';
+        }
         $message = '';
         $invalidValues = [];
         foreach ($values as $getAllAssignedMidocoSettlUnitsResponseMidocoAssignedMidocoSettlOUnitItem) {
@@ -71,10 +76,10 @@ class GetAllAssignedMidocoSettlUnitsResponse extends AbstractStructBase
      * @param \Pggns\MidocoApi\Crmsd\StructType\AssignedMidocoSettlOUnitDTO[] $midocoAssignedMidocoSettlOUnit
      * @return \Pggns\MidocoApi\Crmsd\StructType\GetAllAssignedMidocoSettlUnitsResponse
      */
-    public function setMidocoAssignedMidocoSettlOUnit(array $midocoAssignedMidocoSettlOUnit = []): self
+    public function setMidocoAssignedMidocoSettlOUnit(?array $midocoAssignedMidocoSettlOUnit = null): self
     {
         // validation for constraint: array
-        if ('' !== ($midocoAssignedMidocoSettlOUnitArrayErrorMessage = self::validateMidocoAssignedMidocoSettlOUnitForArrayConstraintsFromSetMidocoAssignedMidocoSettlOUnit($midocoAssignedMidocoSettlOUnit))) {
+        if ('' !== ($midocoAssignedMidocoSettlOUnitArrayErrorMessage = self::validateMidocoAssignedMidocoSettlOUnitForArrayConstraintFromSetMidocoAssignedMidocoSettlOUnit($midocoAssignedMidocoSettlOUnit))) {
             throw new InvalidArgumentException($midocoAssignedMidocoSettlOUnitArrayErrorMessage, __LINE__);
         }
         $this->MidocoAssignedMidocoSettlOUnit = $midocoAssignedMidocoSettlOUnit;

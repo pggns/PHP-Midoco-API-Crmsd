@@ -11,6 +11,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * This class stands for GetMilesAndMoreConnectUriRequest StructType
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class GetMilesAndMoreConnectUriRequest extends AbstractStructBase
 {
     /**

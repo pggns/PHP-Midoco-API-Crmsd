@@ -11,6 +11,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * This class stands for SavePrintRecipientResponse StructType
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class SavePrintRecipientResponse extends AbstractStructBase
 {
     /**

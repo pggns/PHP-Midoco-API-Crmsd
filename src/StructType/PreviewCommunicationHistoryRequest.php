@@ -11,6 +11,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * This class stands for PreviewCommunicationHistoryRequest StructType
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class PreviewCommunicationHistoryRequest extends AbstractStructBase
 {
     /**

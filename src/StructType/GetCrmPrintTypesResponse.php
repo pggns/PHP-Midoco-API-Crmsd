@@ -11,6 +11,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * This class stands for GetCrmPrintTypesResponse StructType
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class GetCrmPrintTypesResponse extends AbstractStructBase
 {
     /**
@@ -21,13 +22,13 @@ class GetCrmPrintTypesResponse extends AbstractStructBase
      * - ref: MidocoCrmPrintType
      * @var \Pggns\MidocoApi\Crmsd\StructType\MidocoCrmPrintType[]
      */
-    protected array $MidocoCrmPrintType = [];
+    protected ?array $MidocoCrmPrintType = null;
     /**
      * Constructor method for GetCrmPrintTypesResponse
      * @uses GetCrmPrintTypesResponse::setMidocoCrmPrintType()
      * @param \Pggns\MidocoApi\Crmsd\StructType\MidocoCrmPrintType[] $midocoCrmPrintType
      */
-    public function __construct(array $midocoCrmPrintType = [])
+    public function __construct(?array $midocoCrmPrintType = null)
     {
         $this
             ->setMidocoCrmPrintType($midocoCrmPrintType);
@@ -36,18 +37,22 @@ class GetCrmPrintTypesResponse extends AbstractStructBase
      * Get MidocoCrmPrintType value
      * @return \Pggns\MidocoApi\Crmsd\StructType\MidocoCrmPrintType[]
      */
-    public function getMidocoCrmPrintType(): array
+    public function getMidocoCrmPrintType(): ?array
     {
         return $this->MidocoCrmPrintType;
     }
     /**
-     * This method is responsible for validating the values passed to the setMidocoCrmPrintType method
+     * This method is responsible for validating the value(s) passed to the setMidocoCrmPrintType method
      * This method is willingly generated in order to preserve the one-line inline validation within the setMidocoCrmPrintType method
+     * This has to validate that each item contained by the array match the itemType constraint
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateMidocoCrmPrintTypeForArrayConstraintsFromSetMidocoCrmPrintType(array $values = []): string
+    public static function validateMidocoCrmPrintTypeForArrayConstraintFromSetMidocoCrmPrintType(?array $values = []): string
     {
+        if (!is_array($values)) {
+            return '';
+        }
         $message = '';
         $invalidValues = [];
         foreach ($values as $getCrmPrintTypesResponseMidocoCrmPrintTypeItem) {
@@ -69,10 +74,10 @@ class GetCrmPrintTypesResponse extends AbstractStructBase
      * @param \Pggns\MidocoApi\Crmsd\StructType\MidocoCrmPrintType[] $midocoCrmPrintType
      * @return \Pggns\MidocoApi\Crmsd\StructType\GetCrmPrintTypesResponse
      */
-    public function setMidocoCrmPrintType(array $midocoCrmPrintType = []): self
+    public function setMidocoCrmPrintType(?array $midocoCrmPrintType = null): self
     {
         // validation for constraint: array
-        if ('' !== ($midocoCrmPrintTypeArrayErrorMessage = self::validateMidocoCrmPrintTypeForArrayConstraintsFromSetMidocoCrmPrintType($midocoCrmPrintType))) {
+        if ('' !== ($midocoCrmPrintTypeArrayErrorMessage = self::validateMidocoCrmPrintTypeForArrayConstraintFromSetMidocoCrmPrintType($midocoCrmPrintType))) {
             throw new InvalidArgumentException($midocoCrmPrintTypeArrayErrorMessage, __LINE__);
         }
         $this->MidocoCrmPrintType = $midocoCrmPrintType;

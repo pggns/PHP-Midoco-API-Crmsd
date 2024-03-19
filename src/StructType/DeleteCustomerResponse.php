@@ -13,6 +13,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * - documentation: deleteCustomer --- test if customer is referenced in an order, if not delete all customer information. In case customer is referenced, throw an exception
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class DeleteCustomerResponse extends AbstractStructBase
 {
 }

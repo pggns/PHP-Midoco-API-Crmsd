@@ -13,6 +13,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * - documentation: getCcCards --- returns the list of CC cards that correspond to a given customer id
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class GetCcCardsResponse extends AbstractStructBase
 {
     /**
@@ -23,13 +24,13 @@ class GetCcCardsResponse extends AbstractStructBase
      * - ref: MidocoCrmCcCard
      * @var \Pggns\MidocoApi\Crmsd\StructType\MidocoCrmCcCard[]
      */
-    protected array $MidocoCrmCcCard = [];
+    protected ?array $MidocoCrmCcCard = null;
     /**
      * Constructor method for GetCcCardsResponse
      * @uses GetCcCardsResponse::setMidocoCrmCcCard()
      * @param \Pggns\MidocoApi\Crmsd\StructType\MidocoCrmCcCard[] $midocoCrmCcCard
      */
-    public function __construct(array $midocoCrmCcCard = [])
+    public function __construct(?array $midocoCrmCcCard = null)
     {
         $this
             ->setMidocoCrmCcCard($midocoCrmCcCard);
@@ -38,18 +39,22 @@ class GetCcCardsResponse extends AbstractStructBase
      * Get MidocoCrmCcCard value
      * @return \Pggns\MidocoApi\Crmsd\StructType\MidocoCrmCcCard[]
      */
-    public function getMidocoCrmCcCard(): array
+    public function getMidocoCrmCcCard(): ?array
     {
         return $this->MidocoCrmCcCard;
     }
     /**
-     * This method is responsible for validating the values passed to the setMidocoCrmCcCard method
+     * This method is responsible for validating the value(s) passed to the setMidocoCrmCcCard method
      * This method is willingly generated in order to preserve the one-line inline validation within the setMidocoCrmCcCard method
+     * This has to validate that each item contained by the array match the itemType constraint
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateMidocoCrmCcCardForArrayConstraintsFromSetMidocoCrmCcCard(array $values = []): string
+    public static function validateMidocoCrmCcCardForArrayConstraintFromSetMidocoCrmCcCard(?array $values = []): string
     {
+        if (!is_array($values)) {
+            return '';
+        }
         $message = '';
         $invalidValues = [];
         foreach ($values as $getCcCardsResponseMidocoCrmCcCardItem) {
@@ -71,10 +76,10 @@ class GetCcCardsResponse extends AbstractStructBase
      * @param \Pggns\MidocoApi\Crmsd\StructType\MidocoCrmCcCard[] $midocoCrmCcCard
      * @return \Pggns\MidocoApi\Crmsd\StructType\GetCcCardsResponse
      */
-    public function setMidocoCrmCcCard(array $midocoCrmCcCard = []): self
+    public function setMidocoCrmCcCard(?array $midocoCrmCcCard = null): self
     {
         // validation for constraint: array
-        if ('' !== ($midocoCrmCcCardArrayErrorMessage = self::validateMidocoCrmCcCardForArrayConstraintsFromSetMidocoCrmCcCard($midocoCrmCcCard))) {
+        if ('' !== ($midocoCrmCcCardArrayErrorMessage = self::validateMidocoCrmCcCardForArrayConstraintFromSetMidocoCrmCcCard($midocoCrmCcCard))) {
             throw new InvalidArgumentException($midocoCrmCcCardArrayErrorMessage, __LINE__);
         }
         $this->MidocoCrmCcCard = $midocoCrmCcCard;

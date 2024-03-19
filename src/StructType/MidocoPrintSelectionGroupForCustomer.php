@@ -11,6 +11,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * This class stands for MidocoPrintSelectionGroupForCustomer StructType
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class MidocoPrintSelectionGroupForCustomer extends AbstractStructBase
 {
     /**

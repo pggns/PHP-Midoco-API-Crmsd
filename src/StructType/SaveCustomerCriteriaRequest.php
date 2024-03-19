@@ -11,6 +11,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * This class stands for SaveCustomerCriteriaRequest StructType
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class SaveCustomerCriteriaRequest extends AbstractStructBase
 {
     /**
@@ -28,7 +29,7 @@ class SaveCustomerCriteriaRequest extends AbstractStructBase
      * - ref: MidocoCrmCriteria
      * @var \Pggns\MidocoApi\Crmsd\StructType\MidocoCrmCriteria[]
      */
-    protected array $MidocoCrmCriteria = [];
+    protected ?array $MidocoCrmCriteria = null;
     /**
      * The internalVersion
      * @var int|null
@@ -43,7 +44,7 @@ class SaveCustomerCriteriaRequest extends AbstractStructBase
      * @param \Pggns\MidocoApi\Crmsd\StructType\MidocoCrmCriteria[] $midocoCrmCriteria
      * @param int $internalVersion
      */
-    public function __construct(?\Pggns\MidocoApi\Crmsd\StructType\CustomerIdDTO $midocoCustomerId = null, array $midocoCrmCriteria = [], ?int $internalVersion = null)
+    public function __construct(?\Pggns\MidocoApi\Crmsd\StructType\CustomerIdDTO $midocoCustomerId = null, ?array $midocoCrmCriteria = null, ?int $internalVersion = null)
     {
         $this
             ->setMidocoCustomerId($midocoCustomerId)
@@ -73,18 +74,22 @@ class SaveCustomerCriteriaRequest extends AbstractStructBase
      * Get MidocoCrmCriteria value
      * @return \Pggns\MidocoApi\Crmsd\StructType\MidocoCrmCriteria[]
      */
-    public function getMidocoCrmCriteria(): array
+    public function getMidocoCrmCriteria(): ?array
     {
         return $this->MidocoCrmCriteria;
     }
     /**
-     * This method is responsible for validating the values passed to the setMidocoCrmCriteria method
+     * This method is responsible for validating the value(s) passed to the setMidocoCrmCriteria method
      * This method is willingly generated in order to preserve the one-line inline validation within the setMidocoCrmCriteria method
+     * This has to validate that each item contained by the array match the itemType constraint
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateMidocoCrmCriteriaForArrayConstraintsFromSetMidocoCrmCriteria(array $values = []): string
+    public static function validateMidocoCrmCriteriaForArrayConstraintFromSetMidocoCrmCriteria(?array $values = []): string
     {
+        if (!is_array($values)) {
+            return '';
+        }
         $message = '';
         $invalidValues = [];
         foreach ($values as $saveCustomerCriteriaRequestMidocoCrmCriteriaItem) {
@@ -106,10 +111,10 @@ class SaveCustomerCriteriaRequest extends AbstractStructBase
      * @param \Pggns\MidocoApi\Crmsd\StructType\MidocoCrmCriteria[] $midocoCrmCriteria
      * @return \Pggns\MidocoApi\Crmsd\StructType\SaveCustomerCriteriaRequest
      */
-    public function setMidocoCrmCriteria(array $midocoCrmCriteria = []): self
+    public function setMidocoCrmCriteria(?array $midocoCrmCriteria = null): self
     {
         // validation for constraint: array
-        if ('' !== ($midocoCrmCriteriaArrayErrorMessage = self::validateMidocoCrmCriteriaForArrayConstraintsFromSetMidocoCrmCriteria($midocoCrmCriteria))) {
+        if ('' !== ($midocoCrmCriteriaArrayErrorMessage = self::validateMidocoCrmCriteriaForArrayConstraintFromSetMidocoCrmCriteria($midocoCrmCriteria))) {
             throw new InvalidArgumentException($midocoCrmCriteriaArrayErrorMessage, __LINE__);
         }
         $this->MidocoCrmCriteria = $midocoCrmCriteria;

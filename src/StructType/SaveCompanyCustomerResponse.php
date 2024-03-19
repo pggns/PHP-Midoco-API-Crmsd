@@ -13,6 +13,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * - documentation: saveCompanyCustomer --- creates/updates a customer entry for a company, CrmAddressDTO might be null, CustomerDTO and CrmCompanyDTO is mandantory. Return value is the ID of the new created customer entry or the changed entry
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class SaveCompanyCustomerResponse extends AbstractStructBase
 {
     /**

@@ -11,6 +11,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * This class stands for GetCriteriaTypeDescriptionsResponse StructType
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class GetCriteriaTypeDescriptionsResponse extends AbstractStructBase
 {
     /**
@@ -21,13 +22,13 @@ class GetCriteriaTypeDescriptionsResponse extends AbstractStructBase
      * - ref: MidocoCriteriaTypeDescription
      * @var \Pggns\MidocoApi\Crmsd\StructType\CriteriaDescriptionDTO[]
      */
-    protected array $MidocoCriteriaTypeDescription = [];
+    protected ?array $MidocoCriteriaTypeDescription = null;
     /**
      * Constructor method for GetCriteriaTypeDescriptionsResponse
      * @uses GetCriteriaTypeDescriptionsResponse::setMidocoCriteriaTypeDescription()
      * @param \Pggns\MidocoApi\Crmsd\StructType\CriteriaDescriptionDTO[] $midocoCriteriaTypeDescription
      */
-    public function __construct(array $midocoCriteriaTypeDescription = [])
+    public function __construct(?array $midocoCriteriaTypeDescription = null)
     {
         $this
             ->setMidocoCriteriaTypeDescription($midocoCriteriaTypeDescription);
@@ -36,18 +37,22 @@ class GetCriteriaTypeDescriptionsResponse extends AbstractStructBase
      * Get MidocoCriteriaTypeDescription value
      * @return \Pggns\MidocoApi\Crmsd\StructType\CriteriaDescriptionDTO[]
      */
-    public function getMidocoCriteriaTypeDescription(): array
+    public function getMidocoCriteriaTypeDescription(): ?array
     {
         return $this->MidocoCriteriaTypeDescription;
     }
     /**
-     * This method is responsible for validating the values passed to the setMidocoCriteriaTypeDescription method
+     * This method is responsible for validating the value(s) passed to the setMidocoCriteriaTypeDescription method
      * This method is willingly generated in order to preserve the one-line inline validation within the setMidocoCriteriaTypeDescription method
+     * This has to validate that each item contained by the array match the itemType constraint
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateMidocoCriteriaTypeDescriptionForArrayConstraintsFromSetMidocoCriteriaTypeDescription(array $values = []): string
+    public static function validateMidocoCriteriaTypeDescriptionForArrayConstraintFromSetMidocoCriteriaTypeDescription(?array $values = []): string
     {
+        if (!is_array($values)) {
+            return '';
+        }
         $message = '';
         $invalidValues = [];
         foreach ($values as $getCriteriaTypeDescriptionsResponseMidocoCriteriaTypeDescriptionItem) {
@@ -69,10 +74,10 @@ class GetCriteriaTypeDescriptionsResponse extends AbstractStructBase
      * @param \Pggns\MidocoApi\Crmsd\StructType\CriteriaDescriptionDTO[] $midocoCriteriaTypeDescription
      * @return \Pggns\MidocoApi\Crmsd\StructType\GetCriteriaTypeDescriptionsResponse
      */
-    public function setMidocoCriteriaTypeDescription(array $midocoCriteriaTypeDescription = []): self
+    public function setMidocoCriteriaTypeDescription(?array $midocoCriteriaTypeDescription = null): self
     {
         // validation for constraint: array
-        if ('' !== ($midocoCriteriaTypeDescriptionArrayErrorMessage = self::validateMidocoCriteriaTypeDescriptionForArrayConstraintsFromSetMidocoCriteriaTypeDescription($midocoCriteriaTypeDescription))) {
+        if ('' !== ($midocoCriteriaTypeDescriptionArrayErrorMessage = self::validateMidocoCriteriaTypeDescriptionForArrayConstraintFromSetMidocoCriteriaTypeDescription($midocoCriteriaTypeDescription))) {
             throw new InvalidArgumentException($midocoCriteriaTypeDescriptionArrayErrorMessage, __LINE__);
         }
         $this->MidocoCriteriaTypeDescription = $midocoCriteriaTypeDescription;

@@ -13,6 +13,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * - documentation: ResetCustomerPassword sets a new customer password. Either a customer ID or an e-mail address is required.
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class ResetCustomerPasswordRequest extends AbstractStructBase
 {
     /**

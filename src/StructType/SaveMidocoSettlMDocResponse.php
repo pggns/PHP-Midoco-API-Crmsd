@@ -13,6 +13,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * - documentation: saveMidocoSettlMDoc --- saves a MidocoSettlMDoc
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class SaveMidocoSettlMDocResponse extends AbstractStructBase
 {
     /**

@@ -11,6 +11,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * This class stands for ValidateUstIdResponse StructType
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class ValidateUstIdResponse extends AbstractStructBase
 {
     /**

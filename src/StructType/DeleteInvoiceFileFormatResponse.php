@@ -11,6 +11,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * This class stands for DeleteInvoiceFileFormatResponse StructType
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class DeleteInvoiceFileFormatResponse extends AbstractStructBase
 {
 }

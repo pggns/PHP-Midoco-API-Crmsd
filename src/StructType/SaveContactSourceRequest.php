@@ -11,6 +11,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * This class stands for SaveContactSourceRequest StructType
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class SaveContactSourceRequest extends AbstractStructBase
 {
     /**

@@ -11,6 +11,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * This class stands for MarkCustomersAsDoubleResponse StructType
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class MarkCustomersAsDoubleResponse extends AbstractStructBase
 {
 }

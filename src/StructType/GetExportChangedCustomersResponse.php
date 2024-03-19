@@ -11,6 +11,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * This class stands for GetExportChangedCustomersResponse StructType
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class GetExportChangedCustomersResponse extends AbstractStructBase
 {
     /**
@@ -21,13 +22,13 @@ class GetExportChangedCustomersResponse extends AbstractStructBase
      * - ref: MidocoExportChangedCustomersLog
      * @var \Pggns\MidocoApi\Crmsd\StructType\ExportChangedCustomersLogDTO[]
      */
-    protected array $MidocoExportChangedCustomersLog = [];
+    protected ?array $MidocoExportChangedCustomersLog = null;
     /**
      * Constructor method for GetExportChangedCustomersResponse
      * @uses GetExportChangedCustomersResponse::setMidocoExportChangedCustomersLog()
      * @param \Pggns\MidocoApi\Crmsd\StructType\ExportChangedCustomersLogDTO[] $midocoExportChangedCustomersLog
      */
-    public function __construct(array $midocoExportChangedCustomersLog = [])
+    public function __construct(?array $midocoExportChangedCustomersLog = null)
     {
         $this
             ->setMidocoExportChangedCustomersLog($midocoExportChangedCustomersLog);
@@ -36,18 +37,22 @@ class GetExportChangedCustomersResponse extends AbstractStructBase
      * Get MidocoExportChangedCustomersLog value
      * @return \Pggns\MidocoApi\Crmsd\StructType\ExportChangedCustomersLogDTO[]
      */
-    public function getMidocoExportChangedCustomersLog(): array
+    public function getMidocoExportChangedCustomersLog(): ?array
     {
         return $this->MidocoExportChangedCustomersLog;
     }
     /**
-     * This method is responsible for validating the values passed to the setMidocoExportChangedCustomersLog method
+     * This method is responsible for validating the value(s) passed to the setMidocoExportChangedCustomersLog method
      * This method is willingly generated in order to preserve the one-line inline validation within the setMidocoExportChangedCustomersLog method
+     * This has to validate that each item contained by the array match the itemType constraint
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateMidocoExportChangedCustomersLogForArrayConstraintsFromSetMidocoExportChangedCustomersLog(array $values = []): string
+    public static function validateMidocoExportChangedCustomersLogForArrayConstraintFromSetMidocoExportChangedCustomersLog(?array $values = []): string
     {
+        if (!is_array($values)) {
+            return '';
+        }
         $message = '';
         $invalidValues = [];
         foreach ($values as $getExportChangedCustomersResponseMidocoExportChangedCustomersLogItem) {
@@ -69,10 +74,10 @@ class GetExportChangedCustomersResponse extends AbstractStructBase
      * @param \Pggns\MidocoApi\Crmsd\StructType\ExportChangedCustomersLogDTO[] $midocoExportChangedCustomersLog
      * @return \Pggns\MidocoApi\Crmsd\StructType\GetExportChangedCustomersResponse
      */
-    public function setMidocoExportChangedCustomersLog(array $midocoExportChangedCustomersLog = []): self
+    public function setMidocoExportChangedCustomersLog(?array $midocoExportChangedCustomersLog = null): self
     {
         // validation for constraint: array
-        if ('' !== ($midocoExportChangedCustomersLogArrayErrorMessage = self::validateMidocoExportChangedCustomersLogForArrayConstraintsFromSetMidocoExportChangedCustomersLog($midocoExportChangedCustomersLog))) {
+        if ('' !== ($midocoExportChangedCustomersLogArrayErrorMessage = self::validateMidocoExportChangedCustomersLogForArrayConstraintFromSetMidocoExportChangedCustomersLog($midocoExportChangedCustomersLog))) {
             throw new InvalidArgumentException($midocoExportChangedCustomersLogArrayErrorMessage, __LINE__);
         }
         $this->MidocoExportChangedCustomersLog = $midocoExportChangedCustomersLog;

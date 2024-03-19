@@ -13,6 +13,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * - documentation: saveContactSource --- saves a ContactSource. returns void
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class SaveContactSourceResponse extends AbstractStructBase
 {
     /**

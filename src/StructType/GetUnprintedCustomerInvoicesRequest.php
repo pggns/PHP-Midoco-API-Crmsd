@@ -11,6 +11,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * This class stands for GetUnprintedCustomerInvoicesRequest StructType
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class GetUnprintedCustomerInvoicesRequest extends AbstractStructBase
 {
     /**

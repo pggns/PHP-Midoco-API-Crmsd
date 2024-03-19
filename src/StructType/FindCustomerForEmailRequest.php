@@ -13,6 +13,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * - documentation: Find Customer for an Email address, returns one or more customers for an email address, Exception if not found
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class FindCustomerForEmailRequest extends AbstractStructBase
 {
     /**

@@ -11,6 +11,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * This class stands for GetCrmCustomerPaymentGroupFeeRequest StructType
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class GetCrmCustomerPaymentGroupFeeRequest extends AbstractStructBase
 {
     /**

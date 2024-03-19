@@ -11,6 +11,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * This class stands for GetAutoBillingMatrixRequest StructType
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class GetAutoBillingMatrixRequest extends AbstractStructBase
 {
     /**

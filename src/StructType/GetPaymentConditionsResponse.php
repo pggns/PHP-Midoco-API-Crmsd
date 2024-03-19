@@ -11,6 +11,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * This class stands for GetPaymentConditionsResponse StructType
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class GetPaymentConditionsResponse extends AbstractStructBase
 {
     /**
@@ -21,13 +22,13 @@ class GetPaymentConditionsResponse extends AbstractStructBase
      * - ref: MidocoPaymentCondition
      * @var \Pggns\MidocoApi\Crmsd\StructType\PaymentConditionDTO[]
      */
-    protected array $MidocoPaymentCondition = [];
+    protected ?array $MidocoPaymentCondition = null;
     /**
      * Constructor method for GetPaymentConditionsResponse
      * @uses GetPaymentConditionsResponse::setMidocoPaymentCondition()
      * @param \Pggns\MidocoApi\Crmsd\StructType\PaymentConditionDTO[] $midocoPaymentCondition
      */
-    public function __construct(array $midocoPaymentCondition = [])
+    public function __construct(?array $midocoPaymentCondition = null)
     {
         $this
             ->setMidocoPaymentCondition($midocoPaymentCondition);
@@ -36,18 +37,22 @@ class GetPaymentConditionsResponse extends AbstractStructBase
      * Get MidocoPaymentCondition value
      * @return \Pggns\MidocoApi\Crmsd\StructType\PaymentConditionDTO[]
      */
-    public function getMidocoPaymentCondition(): array
+    public function getMidocoPaymentCondition(): ?array
     {
         return $this->MidocoPaymentCondition;
     }
     /**
-     * This method is responsible for validating the values passed to the setMidocoPaymentCondition method
+     * This method is responsible for validating the value(s) passed to the setMidocoPaymentCondition method
      * This method is willingly generated in order to preserve the one-line inline validation within the setMidocoPaymentCondition method
+     * This has to validate that each item contained by the array match the itemType constraint
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateMidocoPaymentConditionForArrayConstraintsFromSetMidocoPaymentCondition(array $values = []): string
+    public static function validateMidocoPaymentConditionForArrayConstraintFromSetMidocoPaymentCondition(?array $values = []): string
     {
+        if (!is_array($values)) {
+            return '';
+        }
         $message = '';
         $invalidValues = [];
         foreach ($values as $getPaymentConditionsResponseMidocoPaymentConditionItem) {
@@ -69,10 +74,10 @@ class GetPaymentConditionsResponse extends AbstractStructBase
      * @param \Pggns\MidocoApi\Crmsd\StructType\PaymentConditionDTO[] $midocoPaymentCondition
      * @return \Pggns\MidocoApi\Crmsd\StructType\GetPaymentConditionsResponse
      */
-    public function setMidocoPaymentCondition(array $midocoPaymentCondition = []): self
+    public function setMidocoPaymentCondition(?array $midocoPaymentCondition = null): self
     {
         // validation for constraint: array
-        if ('' !== ($midocoPaymentConditionArrayErrorMessage = self::validateMidocoPaymentConditionForArrayConstraintsFromSetMidocoPaymentCondition($midocoPaymentCondition))) {
+        if ('' !== ($midocoPaymentConditionArrayErrorMessage = self::validateMidocoPaymentConditionForArrayConstraintFromSetMidocoPaymentCondition($midocoPaymentCondition))) {
             throw new InvalidArgumentException($midocoPaymentConditionArrayErrorMessage, __LINE__);
         }
         $this->MidocoPaymentCondition = $midocoPaymentCondition;

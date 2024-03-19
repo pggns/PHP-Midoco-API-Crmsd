@@ -13,6 +13,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * - documentation: saveTemplateLanguage --- saves a given template language record
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class SaveTemplateLanguageResponse extends AbstractStructBase
 {
 }

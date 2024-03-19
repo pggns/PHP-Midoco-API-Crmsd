@@ -11,6 +11,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * This class stands for DeleteAssignedMidocoSettlUnitRequest StructType
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class DeleteAssignedMidocoSettlUnitRequest extends AbstractStructBase
 {
     /**

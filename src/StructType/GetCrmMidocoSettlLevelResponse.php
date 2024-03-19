@@ -13,6 +13,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * - documentation: GetCrmMidocoSettlLevel --- returns the Midoco settlement levels defined for the given level id
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class GetCrmMidocoSettlLevelResponse extends AbstractStructBase
 {
     /**

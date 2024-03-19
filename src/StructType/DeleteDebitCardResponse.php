@@ -13,6 +13,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * - documentation: deleteDebitCard --- deletes a debit card given as parameter
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class DeleteDebitCardResponse extends AbstractStructBase
 {
     /**

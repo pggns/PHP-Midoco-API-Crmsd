@@ -15,6 +15,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * travellers, Return value is the ID of the new created customer entry or the changed entry
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class SavePrivateCustomerWithContactAndTravellersResponse extends AbstractStructBase
 {
     /**

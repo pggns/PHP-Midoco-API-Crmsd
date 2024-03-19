@@ -11,6 +11,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * This class stands for SearchBlackListRequest StructType
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class SearchBlackListRequest extends AbstractStructBase
 {
     /**
@@ -19,7 +20,7 @@ class SearchBlackListRequest extends AbstractStructBase
      * - maxOccurs: unbounded
      * @var string[]
      */
-    protected array $unitName = [];
+    protected ?array $unitName = null;
     /**
      * The surName
      * @var string|null
@@ -88,7 +89,7 @@ class SearchBlackListRequest extends AbstractStructBase
      * @param string $countryCode
      * @param string $email
      */
-    public function __construct(array $unitName = [], ?string $surName = null, ?string $foreName = null, ?string $street = null, ?string $streetNo = null, ?string $postalCode = null, ?string $postOfficeBox = null, ?string $city = null, ?string $countryCode = null, ?string $email = null)
+    public function __construct(?array $unitName = null, ?string $surName = null, ?string $foreName = null, ?string $street = null, ?string $streetNo = null, ?string $postalCode = null, ?string $postOfficeBox = null, ?string $city = null, ?string $countryCode = null, ?string $email = null)
     {
         $this
             ->setUnitName($unitName)
@@ -106,18 +107,22 @@ class SearchBlackListRequest extends AbstractStructBase
      * Get unitName value
      * @return string[]
      */
-    public function getUnitName(): array
+    public function getUnitName(): ?array
     {
         return $this->unitName;
     }
     /**
-     * This method is responsible for validating the values passed to the setUnitName method
+     * This method is responsible for validating the value(s) passed to the setUnitName method
      * This method is willingly generated in order to preserve the one-line inline validation within the setUnitName method
+     * This has to validate that each item contained by the array match the itemType constraint
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateUnitNameForArrayConstraintsFromSetUnitName(array $values = []): string
+    public static function validateUnitNameForArrayConstraintFromSetUnitName(?array $values = []): string
     {
+        if (!is_array($values)) {
+            return '';
+        }
         $message = '';
         $invalidValues = [];
         foreach ($values as $searchBlackListRequestUnitNameItem) {
@@ -139,10 +144,10 @@ class SearchBlackListRequest extends AbstractStructBase
      * @param string[] $unitName
      * @return \Pggns\MidocoApi\Crmsd\StructType\SearchBlackListRequest
      */
-    public function setUnitName(array $unitName = []): self
+    public function setUnitName(?array $unitName = null): self
     {
         // validation for constraint: array
-        if ('' !== ($unitNameArrayErrorMessage = self::validateUnitNameForArrayConstraintsFromSetUnitName($unitName))) {
+        if ('' !== ($unitNameArrayErrorMessage = self::validateUnitNameForArrayConstraintFromSetUnitName($unitName))) {
             throw new InvalidArgumentException($unitNameArrayErrorMessage, __LINE__);
         }
         $this->unitName = $unitName;

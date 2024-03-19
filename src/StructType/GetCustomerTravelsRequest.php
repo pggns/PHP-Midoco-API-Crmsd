@@ -11,6 +11,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * This class stands for GetCustomerTravelsRequest StructType
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class GetCustomerTravelsRequest extends AbstractStructBase
 {
     /**
@@ -28,7 +29,7 @@ class GetCustomerTravelsRequest extends AbstractStructBase
      * - minOccurs: 0
      * @var string[]
      */
-    protected array $includedStatus = [];
+    protected ?array $includedStatus = null;
     /**
      * The excludedStatus
      * Meta information extracted from the WSDL
@@ -37,7 +38,7 @@ class GetCustomerTravelsRequest extends AbstractStructBase
      * - minOccurs: 0
      * @var string[]
      */
-    protected array $excludedStatus = [];
+    protected ?array $excludedStatus = null;
     /**
      * The beginIndex
      * Meta information extracted from the WSDL
@@ -76,7 +77,7 @@ class GetCustomerTravelsRequest extends AbstractStructBase
      * @param int $endIndex
      * @param bool $totalNoOfRecordsOnly
      */
-    public function __construct(?\Pggns\MidocoApi\Crmsd\StructType\CustomerIdDTO $midocoCustomerId = null, array $includedStatus = [], array $excludedStatus = [], ?int $beginIndex = null, ?int $endIndex = null, ?bool $totalNoOfRecordsOnly = null)
+    public function __construct(?\Pggns\MidocoApi\Crmsd\StructType\CustomerIdDTO $midocoCustomerId = null, ?array $includedStatus = null, ?array $excludedStatus = null, ?int $beginIndex = null, ?int $endIndex = null, ?bool $totalNoOfRecordsOnly = null)
     {
         $this
             ->setMidocoCustomerId($midocoCustomerId)
@@ -109,18 +110,22 @@ class GetCustomerTravelsRequest extends AbstractStructBase
      * Get includedStatus value
      * @return string[]
      */
-    public function getIncludedStatus(): array
+    public function getIncludedStatus(): ?array
     {
         return $this->includedStatus;
     }
     /**
-     * This method is responsible for validating the values passed to the setIncludedStatus method
+     * This method is responsible for validating the value(s) passed to the setIncludedStatus method
      * This method is willingly generated in order to preserve the one-line inline validation within the setIncludedStatus method
+     * This has to validate that each item contained by the array match the itemType constraint
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateIncludedStatusForArrayConstraintsFromSetIncludedStatus(array $values = []): string
+    public static function validateIncludedStatusForArrayConstraintFromSetIncludedStatus(?array $values = []): string
     {
+        if (!is_array($values)) {
+            return '';
+        }
         $message = '';
         $invalidValues = [];
         foreach ($values as $getCustomerTravelsRequestIncludedStatusItem) {
@@ -142,10 +147,10 @@ class GetCustomerTravelsRequest extends AbstractStructBase
      * @param string[] $includedStatus
      * @return \Pggns\MidocoApi\Crmsd\StructType\GetCustomerTravelsRequest
      */
-    public function setIncludedStatus(array $includedStatus = []): self
+    public function setIncludedStatus(?array $includedStatus = null): self
     {
         // validation for constraint: array
-        if ('' !== ($includedStatusArrayErrorMessage = self::validateIncludedStatusForArrayConstraintsFromSetIncludedStatus($includedStatus))) {
+        if ('' !== ($includedStatusArrayErrorMessage = self::validateIncludedStatusForArrayConstraintFromSetIncludedStatus($includedStatus))) {
             throw new InvalidArgumentException($includedStatusArrayErrorMessage, __LINE__);
         }
         $this->includedStatus = $includedStatus;
@@ -172,18 +177,22 @@ class GetCustomerTravelsRequest extends AbstractStructBase
      * Get excludedStatus value
      * @return string[]
      */
-    public function getExcludedStatus(): array
+    public function getExcludedStatus(): ?array
     {
         return $this->excludedStatus;
     }
     /**
-     * This method is responsible for validating the values passed to the setExcludedStatus method
+     * This method is responsible for validating the value(s) passed to the setExcludedStatus method
      * This method is willingly generated in order to preserve the one-line inline validation within the setExcludedStatus method
+     * This has to validate that each item contained by the array match the itemType constraint
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateExcludedStatusForArrayConstraintsFromSetExcludedStatus(array $values = []): string
+    public static function validateExcludedStatusForArrayConstraintFromSetExcludedStatus(?array $values = []): string
     {
+        if (!is_array($values)) {
+            return '';
+        }
         $message = '';
         $invalidValues = [];
         foreach ($values as $getCustomerTravelsRequestExcludedStatusItem) {
@@ -205,10 +214,10 @@ class GetCustomerTravelsRequest extends AbstractStructBase
      * @param string[] $excludedStatus
      * @return \Pggns\MidocoApi\Crmsd\StructType\GetCustomerTravelsRequest
      */
-    public function setExcludedStatus(array $excludedStatus = []): self
+    public function setExcludedStatus(?array $excludedStatus = null): self
     {
         // validation for constraint: array
-        if ('' !== ($excludedStatusArrayErrorMessage = self::validateExcludedStatusForArrayConstraintsFromSetExcludedStatus($excludedStatus))) {
+        if ('' !== ($excludedStatusArrayErrorMessage = self::validateExcludedStatusForArrayConstraintFromSetExcludedStatus($excludedStatus))) {
             throw new InvalidArgumentException($excludedStatusArrayErrorMessage, __LINE__);
         }
         $this->excludedStatus = $excludedStatus;

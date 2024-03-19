@@ -11,6 +11,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * This class stands for AssignCustomerRequest StructType
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class AssignCustomerRequest extends AbstractStructBase
 {
     /**

@@ -11,6 +11,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * This class stands for LookupBankRequest StructType
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class LookupBankRequest extends AbstractStructBase
 {
     /**

@@ -11,6 +11,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * This class stands for MultiPrintRequest StructType
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class MultiPrintRequest extends AbstractStructBase
 {
     /**
@@ -30,7 +31,7 @@ class MultiPrintRequest extends AbstractStructBase
      * - ref: system:MidocoPrintSelect
      * @var \Pggns\MidocoApi\Crmsd\StructType\MidocoPrintSelect[]
      */
-    protected array $MidocoPrintSelect = [];
+    protected ?array $MidocoPrintSelect = null;
     /**
      * Constructor method for MultiPrintRequest
      * @uses MultiPrintRequest::setCustomerId()
@@ -40,7 +41,7 @@ class MultiPrintRequest extends AbstractStructBase
      * @param string $media
      * @param \Pggns\MidocoApi\Crmsd\StructType\MidocoPrintSelect[] $midocoPrintSelect
      */
-    public function __construct(?int $customerId = null, ?string $media = null, array $midocoPrintSelect = [])
+    public function __construct(?int $customerId = null, ?string $media = null, ?array $midocoPrintSelect = null)
     {
         $this
             ->setCustomerId($customerId)
@@ -97,18 +98,22 @@ class MultiPrintRequest extends AbstractStructBase
      * Get MidocoPrintSelect value
      * @return \Pggns\MidocoApi\Crmsd\StructType\MidocoPrintSelect[]
      */
-    public function getMidocoPrintSelect(): array
+    public function getMidocoPrintSelect(): ?array
     {
         return $this->MidocoPrintSelect;
     }
     /**
-     * This method is responsible for validating the values passed to the setMidocoPrintSelect method
+     * This method is responsible for validating the value(s) passed to the setMidocoPrintSelect method
      * This method is willingly generated in order to preserve the one-line inline validation within the setMidocoPrintSelect method
+     * This has to validate that each item contained by the array match the itemType constraint
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateMidocoPrintSelectForArrayConstraintsFromSetMidocoPrintSelect(array $values = []): string
+    public static function validateMidocoPrintSelectForArrayConstraintFromSetMidocoPrintSelect(?array $values = []): string
     {
+        if (!is_array($values)) {
+            return '';
+        }
         $message = '';
         $invalidValues = [];
         foreach ($values as $multiPrintRequestMidocoPrintSelectItem) {
@@ -130,10 +135,10 @@ class MultiPrintRequest extends AbstractStructBase
      * @param \Pggns\MidocoApi\Crmsd\StructType\MidocoPrintSelect[] $midocoPrintSelect
      * @return \Pggns\MidocoApi\Crmsd\StructType\MultiPrintRequest
      */
-    public function setMidocoPrintSelect(array $midocoPrintSelect = []): self
+    public function setMidocoPrintSelect(?array $midocoPrintSelect = null): self
     {
         // validation for constraint: array
-        if ('' !== ($midocoPrintSelectArrayErrorMessage = self::validateMidocoPrintSelectForArrayConstraintsFromSetMidocoPrintSelect($midocoPrintSelect))) {
+        if ('' !== ($midocoPrintSelectArrayErrorMessage = self::validateMidocoPrintSelectForArrayConstraintFromSetMidocoPrintSelect($midocoPrintSelect))) {
             throw new InvalidArgumentException($midocoPrintSelectArrayErrorMessage, __LINE__);
         }
         $this->MidocoPrintSelect = $midocoPrintSelect;

@@ -13,6 +13,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * - documentation: deleteCollectiveInvoiceSetting --- deletes a CollectiveInvoiceSetting. returns void
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class DeleteCollectiveInvoiceSettingResponse extends AbstractStructBase
 {
 }

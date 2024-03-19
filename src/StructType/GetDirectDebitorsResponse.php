@@ -11,6 +11,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * This class stands for GetDirectDebitorsResponse StructType
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class GetDirectDebitorsResponse extends AbstractStructBase
 {
     /**
@@ -21,13 +22,13 @@ class GetDirectDebitorsResponse extends AbstractStructBase
      * - ref: MidocoDirectDebitor
      * @var \Pggns\MidocoApi\Crmsd\StructType\MidocoDirectDebitor[]
      */
-    protected array $MidocoDirectDebitor = [];
+    protected ?array $MidocoDirectDebitor = null;
     /**
      * Constructor method for GetDirectDebitorsResponse
      * @uses GetDirectDebitorsResponse::setMidocoDirectDebitor()
      * @param \Pggns\MidocoApi\Crmsd\StructType\MidocoDirectDebitor[] $midocoDirectDebitor
      */
-    public function __construct(array $midocoDirectDebitor = [])
+    public function __construct(?array $midocoDirectDebitor = null)
     {
         $this
             ->setMidocoDirectDebitor($midocoDirectDebitor);
@@ -36,18 +37,22 @@ class GetDirectDebitorsResponse extends AbstractStructBase
      * Get MidocoDirectDebitor value
      * @return \Pggns\MidocoApi\Crmsd\StructType\MidocoDirectDebitor[]
      */
-    public function getMidocoDirectDebitor(): array
+    public function getMidocoDirectDebitor(): ?array
     {
         return $this->MidocoDirectDebitor;
     }
     /**
-     * This method is responsible for validating the values passed to the setMidocoDirectDebitor method
+     * This method is responsible for validating the value(s) passed to the setMidocoDirectDebitor method
      * This method is willingly generated in order to preserve the one-line inline validation within the setMidocoDirectDebitor method
+     * This has to validate that each item contained by the array match the itemType constraint
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateMidocoDirectDebitorForArrayConstraintsFromSetMidocoDirectDebitor(array $values = []): string
+    public static function validateMidocoDirectDebitorForArrayConstraintFromSetMidocoDirectDebitor(?array $values = []): string
     {
+        if (!is_array($values)) {
+            return '';
+        }
         $message = '';
         $invalidValues = [];
         foreach ($values as $getDirectDebitorsResponseMidocoDirectDebitorItem) {
@@ -69,10 +74,10 @@ class GetDirectDebitorsResponse extends AbstractStructBase
      * @param \Pggns\MidocoApi\Crmsd\StructType\MidocoDirectDebitor[] $midocoDirectDebitor
      * @return \Pggns\MidocoApi\Crmsd\StructType\GetDirectDebitorsResponse
      */
-    public function setMidocoDirectDebitor(array $midocoDirectDebitor = []): self
+    public function setMidocoDirectDebitor(?array $midocoDirectDebitor = null): self
     {
         // validation for constraint: array
-        if ('' !== ($midocoDirectDebitorArrayErrorMessage = self::validateMidocoDirectDebitorForArrayConstraintsFromSetMidocoDirectDebitor($midocoDirectDebitor))) {
+        if ('' !== ($midocoDirectDebitorArrayErrorMessage = self::validateMidocoDirectDebitorForArrayConstraintFromSetMidocoDirectDebitor($midocoDirectDebitor))) {
             throw new InvalidArgumentException($midocoDirectDebitorArrayErrorMessage, __LINE__);
         }
         $this->MidocoDirectDebitor = $midocoDirectDebitor;

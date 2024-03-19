@@ -11,6 +11,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * This class stands for GetAssignedOrgunitFromDebitorResponse StructType
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class GetAssignedOrgunitFromDebitorResponse extends AbstractStructBase
 {
     /**
@@ -21,13 +22,13 @@ class GetAssignedOrgunitFromDebitorResponse extends AbstractStructBase
      * - ref: system:MidocoOrgunit
      * @var \Pggns\MidocoApi\Crmsd\StructType\OrgunitDTO[]
      */
-    protected array $MidocoOrgunit = [];
+    protected ?array $MidocoOrgunit = null;
     /**
      * Constructor method for GetAssignedOrgunitFromDebitorResponse
      * @uses GetAssignedOrgunitFromDebitorResponse::setMidocoOrgunit()
      * @param \Pggns\MidocoApi\Crmsd\StructType\OrgunitDTO[] $midocoOrgunit
      */
-    public function __construct(array $midocoOrgunit = [])
+    public function __construct(?array $midocoOrgunit = null)
     {
         $this
             ->setMidocoOrgunit($midocoOrgunit);
@@ -36,18 +37,22 @@ class GetAssignedOrgunitFromDebitorResponse extends AbstractStructBase
      * Get MidocoOrgunit value
      * @return \Pggns\MidocoApi\Crmsd\StructType\OrgunitDTO[]
      */
-    public function getMidocoOrgunit(): array
+    public function getMidocoOrgunit(): ?array
     {
         return $this->MidocoOrgunit;
     }
     /**
-     * This method is responsible for validating the values passed to the setMidocoOrgunit method
+     * This method is responsible for validating the value(s) passed to the setMidocoOrgunit method
      * This method is willingly generated in order to preserve the one-line inline validation within the setMidocoOrgunit method
+     * This has to validate that each item contained by the array match the itemType constraint
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateMidocoOrgunitForArrayConstraintsFromSetMidocoOrgunit(array $values = []): string
+    public static function validateMidocoOrgunitForArrayConstraintFromSetMidocoOrgunit(?array $values = []): string
     {
+        if (!is_array($values)) {
+            return '';
+        }
         $message = '';
         $invalidValues = [];
         foreach ($values as $getAssignedOrgunitFromDebitorResponseMidocoOrgunitItem) {
@@ -69,10 +74,10 @@ class GetAssignedOrgunitFromDebitorResponse extends AbstractStructBase
      * @param \Pggns\MidocoApi\Crmsd\StructType\OrgunitDTO[] $midocoOrgunit
      * @return \Pggns\MidocoApi\Crmsd\StructType\GetAssignedOrgunitFromDebitorResponse
      */
-    public function setMidocoOrgunit(array $midocoOrgunit = []): self
+    public function setMidocoOrgunit(?array $midocoOrgunit = null): self
     {
         // validation for constraint: array
-        if ('' !== ($midocoOrgunitArrayErrorMessage = self::validateMidocoOrgunitForArrayConstraintsFromSetMidocoOrgunit($midocoOrgunit))) {
+        if ('' !== ($midocoOrgunitArrayErrorMessage = self::validateMidocoOrgunitForArrayConstraintFromSetMidocoOrgunit($midocoOrgunit))) {
             throw new InvalidArgumentException($midocoOrgunitArrayErrorMessage, __LINE__);
         }
         $this->MidocoOrgunit = $midocoOrgunit;

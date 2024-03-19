@@ -11,6 +11,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * This class stands for DeleteTravellerRequest StructType
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class DeleteTravellerRequest extends AbstractStructBase
 {
     /**

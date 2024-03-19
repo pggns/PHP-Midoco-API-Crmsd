@@ -11,6 +11,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * This class stands for SaveDictionaryNameRequest StructType
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class SaveDictionaryNameRequest extends AbstractStructBase
 {
     /**

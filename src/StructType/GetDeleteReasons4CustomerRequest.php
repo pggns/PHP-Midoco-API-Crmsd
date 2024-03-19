@@ -11,6 +11,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * This class stands for GetDeleteReasons4CustomerRequest StructType
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class GetDeleteReasons4CustomerRequest extends AbstractStructBase
 {
     /**

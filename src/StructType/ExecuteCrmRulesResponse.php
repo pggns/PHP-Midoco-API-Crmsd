@@ -11,6 +11,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * This class stands for ExecuteCrmRulesResponse StructType
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class ExecuteCrmRulesResponse extends AbstractStructBase
 {
 }

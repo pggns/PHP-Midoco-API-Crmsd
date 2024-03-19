@@ -11,6 +11,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * This class stands for GetComplaintReasonsRequest StructType
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class GetComplaintReasonsRequest extends AbstractStructBase
 {
     /**

@@ -13,6 +13,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * - documentation: getActiveCrmMidocoSettlMDoc --- returns the active Midoco settlement MDoc defined for the given customer
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class GetActiveCrmMidocoSettlMDocResponse extends AbstractStructBase
 {
     /**

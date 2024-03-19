@@ -13,6 +13,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * - documentation: getTemplateLanguage --- get a template language having a given id and language
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class GetTemplateLanguageResponse extends AbstractStructBase
 {
     /**

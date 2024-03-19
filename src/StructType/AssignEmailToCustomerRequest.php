@@ -14,6 +14,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * customer is found, an exception is thrown
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class AssignEmailToCustomerRequest extends AbstractStructBase
 {
     /**

@@ -13,6 +13,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * - documentation: request the available bonus card descriptions
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class GetAvailableBonusDescriptionsRequest extends AbstractStructBase
 {
 }

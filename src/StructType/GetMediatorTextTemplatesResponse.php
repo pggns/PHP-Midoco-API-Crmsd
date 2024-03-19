@@ -11,6 +11,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * This class stands for GetMediatorTextTemplatesResponse StructType
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class GetMediatorTextTemplatesResponse extends AbstractStructBase
 {
     /**
@@ -21,13 +22,13 @@ class GetMediatorTextTemplatesResponse extends AbstractStructBase
      * - ref: MidocoCustomerTextTemplate
      * @var \Pggns\MidocoApi\Crmsd\StructType\TextTemplateDTO[]
      */
-    protected array $MidocoCustomerTextTemplate = [];
+    protected ?array $MidocoCustomerTextTemplate = null;
     /**
      * Constructor method for GetMediatorTextTemplatesResponse
      * @uses GetMediatorTextTemplatesResponse::setMidocoCustomerTextTemplate()
      * @param \Pggns\MidocoApi\Crmsd\StructType\TextTemplateDTO[] $midocoCustomerTextTemplate
      */
-    public function __construct(array $midocoCustomerTextTemplate = [])
+    public function __construct(?array $midocoCustomerTextTemplate = null)
     {
         $this
             ->setMidocoCustomerTextTemplate($midocoCustomerTextTemplate);
@@ -36,18 +37,22 @@ class GetMediatorTextTemplatesResponse extends AbstractStructBase
      * Get MidocoCustomerTextTemplate value
      * @return \Pggns\MidocoApi\Crmsd\StructType\TextTemplateDTO[]
      */
-    public function getMidocoCustomerTextTemplate(): array
+    public function getMidocoCustomerTextTemplate(): ?array
     {
         return $this->MidocoCustomerTextTemplate;
     }
     /**
-     * This method is responsible for validating the values passed to the setMidocoCustomerTextTemplate method
+     * This method is responsible for validating the value(s) passed to the setMidocoCustomerTextTemplate method
      * This method is willingly generated in order to preserve the one-line inline validation within the setMidocoCustomerTextTemplate method
+     * This has to validate that each item contained by the array match the itemType constraint
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateMidocoCustomerTextTemplateForArrayConstraintsFromSetMidocoCustomerTextTemplate(array $values = []): string
+    public static function validateMidocoCustomerTextTemplateForArrayConstraintFromSetMidocoCustomerTextTemplate(?array $values = []): string
     {
+        if (!is_array($values)) {
+            return '';
+        }
         $message = '';
         $invalidValues = [];
         foreach ($values as $getMediatorTextTemplatesResponseMidocoCustomerTextTemplateItem) {
@@ -69,10 +74,10 @@ class GetMediatorTextTemplatesResponse extends AbstractStructBase
      * @param \Pggns\MidocoApi\Crmsd\StructType\TextTemplateDTO[] $midocoCustomerTextTemplate
      * @return \Pggns\MidocoApi\Crmsd\StructType\GetMediatorTextTemplatesResponse
      */
-    public function setMidocoCustomerTextTemplate(array $midocoCustomerTextTemplate = []): self
+    public function setMidocoCustomerTextTemplate(?array $midocoCustomerTextTemplate = null): self
     {
         // validation for constraint: array
-        if ('' !== ($midocoCustomerTextTemplateArrayErrorMessage = self::validateMidocoCustomerTextTemplateForArrayConstraintsFromSetMidocoCustomerTextTemplate($midocoCustomerTextTemplate))) {
+        if ('' !== ($midocoCustomerTextTemplateArrayErrorMessage = self::validateMidocoCustomerTextTemplateForArrayConstraintFromSetMidocoCustomerTextTemplate($midocoCustomerTextTemplate))) {
             throw new InvalidArgumentException($midocoCustomerTextTemplateArrayErrorMessage, __LINE__);
         }
         $this->MidocoCustomerTextTemplate = $midocoCustomerTextTemplate;

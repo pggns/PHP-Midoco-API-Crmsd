@@ -11,6 +11,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * This class stands for DeleteHistoryEntryResponse StructType
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class DeleteHistoryEntryResponse extends AbstractStructBase
 {
 }

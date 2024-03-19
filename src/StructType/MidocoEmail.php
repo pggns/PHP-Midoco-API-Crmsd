@@ -11,6 +11,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * This class stands for MidocoEmail StructType
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class MidocoEmail extends AbstractStructBase
 {
     /**

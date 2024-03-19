@@ -13,6 +13,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * - documentation: VerifyPassword checks if the customer password is valid. The e-mail address is required.
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class VerifyPasswordRequest extends AbstractStructBase
 {
     /**

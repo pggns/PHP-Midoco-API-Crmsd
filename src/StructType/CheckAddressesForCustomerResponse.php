@@ -11,6 +11,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * This class stands for CheckAddressesForCustomerResponse StructType
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class CheckAddressesForCustomerResponse extends AbstractStructBase
 {
     /**
@@ -30,14 +31,14 @@ class CheckAddressesForCustomerResponse extends AbstractStructBase
      * - ref: MidocoCrmAddress
      * @var \Pggns\MidocoApi\Crmsd\StructType\MidocoCrmAddress[]
      */
-    protected array $MidocoCrmAddress = [];
+    protected ?array $MidocoCrmAddress = null;
     /**
      * The errors
      * Meta information extracted from the WSDL
      * - maxOccurs: unbounded
      * @var string[]
      */
-    protected array $errors = [];
+    protected ?array $errors = null;
     /**
      * Constructor method for CheckAddressesForCustomerResponse
      * @uses CheckAddressesForCustomerResponse::setCode()
@@ -49,7 +50,7 @@ class CheckAddressesForCustomerResponse extends AbstractStructBase
      * @param \Pggns\MidocoApi\Crmsd\StructType\MidocoCrmAddress[] $midocoCrmAddress
      * @param string[] $errors
      */
-    public function __construct(?string $code = null, ?string $message = null, array $midocoCrmAddress = [], array $errors = [])
+    public function __construct(?string $code = null, ?string $message = null, ?array $midocoCrmAddress = null, ?array $errors = null)
     {
         $this
             ->setCode($code)
@@ -107,18 +108,22 @@ class CheckAddressesForCustomerResponse extends AbstractStructBase
      * Get MidocoCrmAddress value
      * @return \Pggns\MidocoApi\Crmsd\StructType\MidocoCrmAddress[]
      */
-    public function getMidocoCrmAddress(): array
+    public function getMidocoCrmAddress(): ?array
     {
         return $this->MidocoCrmAddress;
     }
     /**
-     * This method is responsible for validating the values passed to the setMidocoCrmAddress method
+     * This method is responsible for validating the value(s) passed to the setMidocoCrmAddress method
      * This method is willingly generated in order to preserve the one-line inline validation within the setMidocoCrmAddress method
+     * This has to validate that each item contained by the array match the itemType constraint
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateMidocoCrmAddressForArrayConstraintsFromSetMidocoCrmAddress(array $values = []): string
+    public static function validateMidocoCrmAddressForArrayConstraintFromSetMidocoCrmAddress(?array $values = []): string
     {
+        if (!is_array($values)) {
+            return '';
+        }
         $message = '';
         $invalidValues = [];
         foreach ($values as $checkAddressesForCustomerResponseMidocoCrmAddressItem) {
@@ -140,10 +145,10 @@ class CheckAddressesForCustomerResponse extends AbstractStructBase
      * @param \Pggns\MidocoApi\Crmsd\StructType\MidocoCrmAddress[] $midocoCrmAddress
      * @return \Pggns\MidocoApi\Crmsd\StructType\CheckAddressesForCustomerResponse
      */
-    public function setMidocoCrmAddress(array $midocoCrmAddress = []): self
+    public function setMidocoCrmAddress(?array $midocoCrmAddress = null): self
     {
         // validation for constraint: array
-        if ('' !== ($midocoCrmAddressArrayErrorMessage = self::validateMidocoCrmAddressForArrayConstraintsFromSetMidocoCrmAddress($midocoCrmAddress))) {
+        if ('' !== ($midocoCrmAddressArrayErrorMessage = self::validateMidocoCrmAddressForArrayConstraintFromSetMidocoCrmAddress($midocoCrmAddress))) {
             throw new InvalidArgumentException($midocoCrmAddressArrayErrorMessage, __LINE__);
         }
         $this->MidocoCrmAddress = $midocoCrmAddress;
@@ -170,18 +175,22 @@ class CheckAddressesForCustomerResponse extends AbstractStructBase
      * Get errors value
      * @return string[]
      */
-    public function getErrors(): array
+    public function getErrors(): ?array
     {
         return $this->errors;
     }
     /**
-     * This method is responsible for validating the values passed to the setErrors method
+     * This method is responsible for validating the value(s) passed to the setErrors method
      * This method is willingly generated in order to preserve the one-line inline validation within the setErrors method
+     * This has to validate that each item contained by the array match the itemType constraint
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateErrorsForArrayConstraintsFromSetErrors(array $values = []): string
+    public static function validateErrorsForArrayConstraintFromSetErrors(?array $values = []): string
     {
+        if (!is_array($values)) {
+            return '';
+        }
         $message = '';
         $invalidValues = [];
         foreach ($values as $checkAddressesForCustomerResponseErrorsItem) {
@@ -203,10 +212,10 @@ class CheckAddressesForCustomerResponse extends AbstractStructBase
      * @param string[] $errors
      * @return \Pggns\MidocoApi\Crmsd\StructType\CheckAddressesForCustomerResponse
      */
-    public function setErrors(array $errors = []): self
+    public function setErrors(?array $errors = null): self
     {
         // validation for constraint: array
-        if ('' !== ($errorsArrayErrorMessage = self::validateErrorsForArrayConstraintsFromSetErrors($errors))) {
+        if ('' !== ($errorsArrayErrorMessage = self::validateErrorsForArrayConstraintFromSetErrors($errors))) {
             throw new InvalidArgumentException($errorsArrayErrorMessage, __LINE__);
         }
         $this->errors = $errors;

@@ -13,6 +13,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * - documentation: lookupBank --- looks up for a bank according to the BankLookup parameter. Returns a bank number
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class LookupBankResponse extends AbstractStructBase
 {
     /**

@@ -13,6 +13,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * - documentation: deleteBonusCard --- deletes a bonus card
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class DeleteBonusCardResponse extends AbstractStructBase
 {
     /**

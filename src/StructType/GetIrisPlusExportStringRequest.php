@@ -11,6 +11,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * This class stands for GetIrisPlusExportStringRequest StructType
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class GetIrisPlusExportStringRequest extends AbstractStructBase
 {
     /**
@@ -28,7 +29,7 @@ class GetIrisPlusExportStringRequest extends AbstractStructBase
      * - ref: MidocoSelectedCrmPersonTraveller
      * @var \Pggns\MidocoApi\Crmsd\StructType\MidocoSelectedCrmPersonTraveller[]
      */
-    protected array $MidocoSelectedCrmPersonTraveller = [];
+    protected ?array $MidocoSelectedCrmPersonTraveller = null;
     /**
      * The isNewConnected
      * Meta information extracted from the WSDL
@@ -68,7 +69,7 @@ class GetIrisPlusExportStringRequest extends AbstractStructBase
      * @param bool $exportBirthday
      * @param bool $exportAge
      */
-    public function __construct(?\Pggns\MidocoApi\Crmsd\StructType\CrmCustomerDTO $midocoCrmCustomer = null, array $midocoSelectedCrmPersonTraveller = [], ?bool $isNewConnected = false, ?bool $isExportCustomer = false, ?bool $exportBirthday = null, ?bool $exportAge = null)
+    public function __construct(?\Pggns\MidocoApi\Crmsd\StructType\CrmCustomerDTO $midocoCrmCustomer = null, ?array $midocoSelectedCrmPersonTraveller = null, ?bool $isNewConnected = false, ?bool $isExportCustomer = false, ?bool $exportBirthday = null, ?bool $exportAge = null)
     {
         $this
             ->setMidocoCrmCustomer($midocoCrmCustomer)
@@ -101,18 +102,22 @@ class GetIrisPlusExportStringRequest extends AbstractStructBase
      * Get MidocoSelectedCrmPersonTraveller value
      * @return \Pggns\MidocoApi\Crmsd\StructType\MidocoSelectedCrmPersonTraveller[]
      */
-    public function getMidocoSelectedCrmPersonTraveller(): array
+    public function getMidocoSelectedCrmPersonTraveller(): ?array
     {
         return $this->MidocoSelectedCrmPersonTraveller;
     }
     /**
-     * This method is responsible for validating the values passed to the setMidocoSelectedCrmPersonTraveller method
+     * This method is responsible for validating the value(s) passed to the setMidocoSelectedCrmPersonTraveller method
      * This method is willingly generated in order to preserve the one-line inline validation within the setMidocoSelectedCrmPersonTraveller method
+     * This has to validate that each item contained by the array match the itemType constraint
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateMidocoSelectedCrmPersonTravellerForArrayConstraintsFromSetMidocoSelectedCrmPersonTraveller(array $values = []): string
+    public static function validateMidocoSelectedCrmPersonTravellerForArrayConstraintFromSetMidocoSelectedCrmPersonTraveller(?array $values = []): string
     {
+        if (!is_array($values)) {
+            return '';
+        }
         $message = '';
         $invalidValues = [];
         foreach ($values as $getIrisPlusExportStringRequestMidocoSelectedCrmPersonTravellerItem) {
@@ -134,10 +139,10 @@ class GetIrisPlusExportStringRequest extends AbstractStructBase
      * @param \Pggns\MidocoApi\Crmsd\StructType\MidocoSelectedCrmPersonTraveller[] $midocoSelectedCrmPersonTraveller
      * @return \Pggns\MidocoApi\Crmsd\StructType\GetIrisPlusExportStringRequest
      */
-    public function setMidocoSelectedCrmPersonTraveller(array $midocoSelectedCrmPersonTraveller = []): self
+    public function setMidocoSelectedCrmPersonTraveller(?array $midocoSelectedCrmPersonTraveller = null): self
     {
         // validation for constraint: array
-        if ('' !== ($midocoSelectedCrmPersonTravellerArrayErrorMessage = self::validateMidocoSelectedCrmPersonTravellerForArrayConstraintsFromSetMidocoSelectedCrmPersonTraveller($midocoSelectedCrmPersonTraveller))) {
+        if ('' !== ($midocoSelectedCrmPersonTravellerArrayErrorMessage = self::validateMidocoSelectedCrmPersonTravellerForArrayConstraintFromSetMidocoSelectedCrmPersonTraveller($midocoSelectedCrmPersonTraveller))) {
             throw new InvalidArgumentException($midocoSelectedCrmPersonTravellerArrayErrorMessage, __LINE__);
         }
         $this->MidocoSelectedCrmPersonTraveller = $midocoSelectedCrmPersonTraveller;

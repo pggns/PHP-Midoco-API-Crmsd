@@ -11,6 +11,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * This class stands for CalculateSubjectResponse StructType
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class CalculateSubjectResponse extends AbstractStructBase
 {
     /**

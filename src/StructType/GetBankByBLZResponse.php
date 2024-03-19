@@ -11,6 +11,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * This class stands for GetBankByBLZResponse StructType
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class GetBankByBLZResponse extends AbstractStructBase
 {
     /**
@@ -21,13 +22,13 @@ class GetBankByBLZResponse extends AbstractStructBase
      * - ref: MidocoBankNumber
      * @var \Pggns\MidocoApi\Crmsd\StructType\BankNumberDTO[]
      */
-    protected array $MidocoBankNumber = [];
+    protected ?array $MidocoBankNumber = null;
     /**
      * Constructor method for GetBankByBLZResponse
      * @uses GetBankByBLZResponse::setMidocoBankNumber()
      * @param \Pggns\MidocoApi\Crmsd\StructType\BankNumberDTO[] $midocoBankNumber
      */
-    public function __construct(array $midocoBankNumber = [])
+    public function __construct(?array $midocoBankNumber = null)
     {
         $this
             ->setMidocoBankNumber($midocoBankNumber);
@@ -36,18 +37,22 @@ class GetBankByBLZResponse extends AbstractStructBase
      * Get MidocoBankNumber value
      * @return \Pggns\MidocoApi\Crmsd\StructType\BankNumberDTO[]
      */
-    public function getMidocoBankNumber(): array
+    public function getMidocoBankNumber(): ?array
     {
         return $this->MidocoBankNumber;
     }
     /**
-     * This method is responsible for validating the values passed to the setMidocoBankNumber method
+     * This method is responsible for validating the value(s) passed to the setMidocoBankNumber method
      * This method is willingly generated in order to preserve the one-line inline validation within the setMidocoBankNumber method
+     * This has to validate that each item contained by the array match the itemType constraint
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateMidocoBankNumberForArrayConstraintsFromSetMidocoBankNumber(array $values = []): string
+    public static function validateMidocoBankNumberForArrayConstraintFromSetMidocoBankNumber(?array $values = []): string
     {
+        if (!is_array($values)) {
+            return '';
+        }
         $message = '';
         $invalidValues = [];
         foreach ($values as $getBankByBLZResponseMidocoBankNumberItem) {
@@ -69,10 +74,10 @@ class GetBankByBLZResponse extends AbstractStructBase
      * @param \Pggns\MidocoApi\Crmsd\StructType\BankNumberDTO[] $midocoBankNumber
      * @return \Pggns\MidocoApi\Crmsd\StructType\GetBankByBLZResponse
      */
-    public function setMidocoBankNumber(array $midocoBankNumber = []): self
+    public function setMidocoBankNumber(?array $midocoBankNumber = null): self
     {
         // validation for constraint: array
-        if ('' !== ($midocoBankNumberArrayErrorMessage = self::validateMidocoBankNumberForArrayConstraintsFromSetMidocoBankNumber($midocoBankNumber))) {
+        if ('' !== ($midocoBankNumberArrayErrorMessage = self::validateMidocoBankNumberForArrayConstraintFromSetMidocoBankNumber($midocoBankNumber))) {
             throw new InvalidArgumentException($midocoBankNumberArrayErrorMessage, __LINE__);
         }
         $this->MidocoBankNumber = $midocoBankNumber;

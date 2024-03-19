@@ -11,6 +11,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * This class stands for ImportCRMCsvRequest StructType
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class ImportCRMCsvRequest extends AbstractStructBase
 {
     /**

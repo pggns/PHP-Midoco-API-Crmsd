@@ -11,6 +11,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * This class stands for MarkUsedMandateResponse StructType
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class MarkUsedMandateResponse extends AbstractStructBase
 {
     /**

@@ -11,6 +11,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * This class stands for SearchCrmExternalOfferResponse StructType
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class SearchCrmExternalOfferResponse extends AbstractStructBase
 {
     /**
@@ -21,13 +22,13 @@ class SearchCrmExternalOfferResponse extends AbstractStructBase
      * - ref: MidocoCrmExternalOffer
      * @var \Pggns\MidocoApi\Crmsd\StructType\MidocoCrmExternalOffer[]
      */
-    protected array $MidocoCrmExternalOffer = [];
+    protected ?array $MidocoCrmExternalOffer = null;
     /**
      * Constructor method for SearchCrmExternalOfferResponse
      * @uses SearchCrmExternalOfferResponse::setMidocoCrmExternalOffer()
      * @param \Pggns\MidocoApi\Crmsd\StructType\MidocoCrmExternalOffer[] $midocoCrmExternalOffer
      */
-    public function __construct(array $midocoCrmExternalOffer = [])
+    public function __construct(?array $midocoCrmExternalOffer = null)
     {
         $this
             ->setMidocoCrmExternalOffer($midocoCrmExternalOffer);
@@ -36,18 +37,22 @@ class SearchCrmExternalOfferResponse extends AbstractStructBase
      * Get MidocoCrmExternalOffer value
      * @return \Pggns\MidocoApi\Crmsd\StructType\MidocoCrmExternalOffer[]
      */
-    public function getMidocoCrmExternalOffer(): array
+    public function getMidocoCrmExternalOffer(): ?array
     {
         return $this->MidocoCrmExternalOffer;
     }
     /**
-     * This method is responsible for validating the values passed to the setMidocoCrmExternalOffer method
+     * This method is responsible for validating the value(s) passed to the setMidocoCrmExternalOffer method
      * This method is willingly generated in order to preserve the one-line inline validation within the setMidocoCrmExternalOffer method
+     * This has to validate that each item contained by the array match the itemType constraint
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateMidocoCrmExternalOfferForArrayConstraintsFromSetMidocoCrmExternalOffer(array $values = []): string
+    public static function validateMidocoCrmExternalOfferForArrayConstraintFromSetMidocoCrmExternalOffer(?array $values = []): string
     {
+        if (!is_array($values)) {
+            return '';
+        }
         $message = '';
         $invalidValues = [];
         foreach ($values as $searchCrmExternalOfferResponseMidocoCrmExternalOfferItem) {
@@ -69,10 +74,10 @@ class SearchCrmExternalOfferResponse extends AbstractStructBase
      * @param \Pggns\MidocoApi\Crmsd\StructType\MidocoCrmExternalOffer[] $midocoCrmExternalOffer
      * @return \Pggns\MidocoApi\Crmsd\StructType\SearchCrmExternalOfferResponse
      */
-    public function setMidocoCrmExternalOffer(array $midocoCrmExternalOffer = []): self
+    public function setMidocoCrmExternalOffer(?array $midocoCrmExternalOffer = null): self
     {
         // validation for constraint: array
-        if ('' !== ($midocoCrmExternalOfferArrayErrorMessage = self::validateMidocoCrmExternalOfferForArrayConstraintsFromSetMidocoCrmExternalOffer($midocoCrmExternalOffer))) {
+        if ('' !== ($midocoCrmExternalOfferArrayErrorMessage = self::validateMidocoCrmExternalOfferForArrayConstraintFromSetMidocoCrmExternalOffer($midocoCrmExternalOffer))) {
             throw new InvalidArgumentException($midocoCrmExternalOfferArrayErrorMessage, __LINE__);
         }
         $this->MidocoCrmExternalOffer = $midocoCrmExternalOffer;

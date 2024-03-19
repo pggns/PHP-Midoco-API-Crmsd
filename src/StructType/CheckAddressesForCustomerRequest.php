@@ -11,6 +11,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * This class stands for CheckAddressesForCustomerRequest StructType
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class CheckAddressesForCustomerRequest extends AbstractStructBase
 {
     /**

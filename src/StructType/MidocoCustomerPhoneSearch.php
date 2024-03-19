@@ -11,6 +11,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * This class stands for MidocoCustomerPhoneSearch StructType
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class MidocoCustomerPhoneSearch extends AbstractStructBase
 {
     /**

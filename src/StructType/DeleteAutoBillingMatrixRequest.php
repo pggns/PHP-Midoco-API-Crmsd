@@ -13,6 +13,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * - documentation: returns a list of AutoBillingMatrixDTO
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class DeleteAutoBillingMatrixRequest extends AbstractStructBase
 {
     /**

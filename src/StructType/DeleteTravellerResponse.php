@@ -13,6 +13,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * - documentation: deleteCostCenter --- deletes a cost center given as parameter. returns void
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class DeleteTravellerResponse extends AbstractStructBase
 {
 }

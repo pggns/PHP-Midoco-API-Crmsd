@@ -11,6 +11,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * This class stands for GetPaxconnectUrlStringRequest StructType
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class GetPaxconnectUrlStringRequest extends AbstractStructBase
 {
     /**

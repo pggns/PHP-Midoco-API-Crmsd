@@ -11,6 +11,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * This class stands for ParseAmadeusImportStringRequest StructType
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class ParseAmadeusImportStringRequest extends AbstractStructBase
 {
     /**

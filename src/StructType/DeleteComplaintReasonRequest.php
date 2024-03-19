@@ -11,6 +11,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * This class stands for DeleteComplaintReasonRequest StructType
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class DeleteComplaintReasonRequest extends AbstractStructBase
 {
     /**

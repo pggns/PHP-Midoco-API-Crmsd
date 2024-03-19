@@ -13,6 +13,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * - documentation: deleteCommission --- deletes a commission transmitted as parameter
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class DeleteCommissionResponse extends AbstractStructBase
 {
 }

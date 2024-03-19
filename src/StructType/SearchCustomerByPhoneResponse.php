@@ -11,6 +11,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * This class stands for SearchCustomerByPhoneResponse StructType
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class SearchCustomerByPhoneResponse extends AbstractStructBase
 {
     /**
@@ -21,7 +22,7 @@ class SearchCustomerByPhoneResponse extends AbstractStructBase
      * - ref: MidocoCustomerPhoneSearch
      * @var \Pggns\MidocoApi\Crmsd\StructType\MidocoCustomerPhoneSearch[]
      */
-    protected array $MidocoCustomerPhoneSearch = [];
+    protected ?array $MidocoCustomerPhoneSearch = null;
     /**
      * The noOfResults
      * @var int|null
@@ -34,7 +35,7 @@ class SearchCustomerByPhoneResponse extends AbstractStructBase
      * @param \Pggns\MidocoApi\Crmsd\StructType\MidocoCustomerPhoneSearch[] $midocoCustomerPhoneSearch
      * @param int $noOfResults
      */
-    public function __construct(array $midocoCustomerPhoneSearch = [], ?int $noOfResults = null)
+    public function __construct(?array $midocoCustomerPhoneSearch = null, ?int $noOfResults = null)
     {
         $this
             ->setMidocoCustomerPhoneSearch($midocoCustomerPhoneSearch)
@@ -44,18 +45,22 @@ class SearchCustomerByPhoneResponse extends AbstractStructBase
      * Get MidocoCustomerPhoneSearch value
      * @return \Pggns\MidocoApi\Crmsd\StructType\MidocoCustomerPhoneSearch[]
      */
-    public function getMidocoCustomerPhoneSearch(): array
+    public function getMidocoCustomerPhoneSearch(): ?array
     {
         return $this->MidocoCustomerPhoneSearch;
     }
     /**
-     * This method is responsible for validating the values passed to the setMidocoCustomerPhoneSearch method
+     * This method is responsible for validating the value(s) passed to the setMidocoCustomerPhoneSearch method
      * This method is willingly generated in order to preserve the one-line inline validation within the setMidocoCustomerPhoneSearch method
+     * This has to validate that each item contained by the array match the itemType constraint
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateMidocoCustomerPhoneSearchForArrayConstraintsFromSetMidocoCustomerPhoneSearch(array $values = []): string
+    public static function validateMidocoCustomerPhoneSearchForArrayConstraintFromSetMidocoCustomerPhoneSearch(?array $values = []): string
     {
+        if (!is_array($values)) {
+            return '';
+        }
         $message = '';
         $invalidValues = [];
         foreach ($values as $searchCustomerByPhoneResponseMidocoCustomerPhoneSearchItem) {
@@ -77,10 +82,10 @@ class SearchCustomerByPhoneResponse extends AbstractStructBase
      * @param \Pggns\MidocoApi\Crmsd\StructType\MidocoCustomerPhoneSearch[] $midocoCustomerPhoneSearch
      * @return \Pggns\MidocoApi\Crmsd\StructType\SearchCustomerByPhoneResponse
      */
-    public function setMidocoCustomerPhoneSearch(array $midocoCustomerPhoneSearch = []): self
+    public function setMidocoCustomerPhoneSearch(?array $midocoCustomerPhoneSearch = null): self
     {
         // validation for constraint: array
-        if ('' !== ($midocoCustomerPhoneSearchArrayErrorMessage = self::validateMidocoCustomerPhoneSearchForArrayConstraintsFromSetMidocoCustomerPhoneSearch($midocoCustomerPhoneSearch))) {
+        if ('' !== ($midocoCustomerPhoneSearchArrayErrorMessage = self::validateMidocoCustomerPhoneSearchForArrayConstraintFromSetMidocoCustomerPhoneSearch($midocoCustomerPhoneSearch))) {
             throw new InvalidArgumentException($midocoCustomerPhoneSearchArrayErrorMessage, __LINE__);
         }
         $this->MidocoCustomerPhoneSearch = $midocoCustomerPhoneSearch;

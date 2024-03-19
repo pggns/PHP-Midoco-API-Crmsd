@@ -11,6 +11,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * This class stands for FindCustomerOrDebitorRequest StructType
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class FindCustomerOrDebitorRequest extends AbstractStructBase
 {
     /**

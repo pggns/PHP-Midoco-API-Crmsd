@@ -11,6 +11,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * This class stands for AgencyProperties StructType
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class AgencyProperties extends AbstractStructBase
 {
     /**

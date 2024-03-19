@@ -11,6 +11,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * This class stands for SaveMidocoAgencyRequest StructType
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class SaveMidocoAgencyRequest extends AbstractStructBase
 {
     /**
@@ -36,7 +37,7 @@ class SaveMidocoAgencyRequest extends AbstractStructBase
      * - ref: MidocoCrmDebitCard
      * @var \Pggns\MidocoApi\Crmsd\StructType\MidocoCrmDebitCard[]
      */
-    protected array $MidocoCrmDebitCard = [];
+    protected ?array $MidocoCrmDebitCard = null;
     /**
      * The AgencyProperties
      * Meta information extracted from the WSDL
@@ -53,7 +54,7 @@ class SaveMidocoAgencyRequest extends AbstractStructBase
      * - ref: MidocoAgencyCommission
      * @var \Pggns\MidocoApi\Crmsd\StructType\AgencyCommissionDTO[]
      */
-    protected array $MidocoAgencyCommission = [];
+    protected ?array $MidocoAgencyCommission = null;
     /**
      * Constructor method for SaveMidocoAgencyRequest
      * @uses SaveMidocoAgencyRequest::setMidocoCrmCustomer()
@@ -67,7 +68,7 @@ class SaveMidocoAgencyRequest extends AbstractStructBase
      * @param \Pggns\MidocoApi\Crmsd\StructType\AgencyProperties $agencyProperties
      * @param \Pggns\MidocoApi\Crmsd\StructType\AgencyCommissionDTO[] $midocoAgencyCommission
      */
-    public function __construct(?\Pggns\MidocoApi\Crmsd\StructType\CrmCustomerDTO $midocoCrmCustomer = null, ?\Pggns\MidocoApi\Crmsd\StructType\MidocoCrmCustomerPayment $midocoCrmCustomerPayment = null, array $midocoCrmDebitCard = [], ?\Pggns\MidocoApi\Crmsd\StructType\AgencyProperties $agencyProperties = null, array $midocoAgencyCommission = [])
+    public function __construct(?\Pggns\MidocoApi\Crmsd\StructType\CrmCustomerDTO $midocoCrmCustomer = null, ?\Pggns\MidocoApi\Crmsd\StructType\MidocoCrmCustomerPayment $midocoCrmCustomerPayment = null, ?array $midocoCrmDebitCard = null, ?\Pggns\MidocoApi\Crmsd\StructType\AgencyProperties $agencyProperties = null, ?array $midocoAgencyCommission = null)
     {
         $this
             ->setMidocoCrmCustomer($midocoCrmCustomer)
@@ -118,18 +119,22 @@ class SaveMidocoAgencyRequest extends AbstractStructBase
      * Get MidocoCrmDebitCard value
      * @return \Pggns\MidocoApi\Crmsd\StructType\MidocoCrmDebitCard[]
      */
-    public function getMidocoCrmDebitCard(): array
+    public function getMidocoCrmDebitCard(): ?array
     {
         return $this->MidocoCrmDebitCard;
     }
     /**
-     * This method is responsible for validating the values passed to the setMidocoCrmDebitCard method
+     * This method is responsible for validating the value(s) passed to the setMidocoCrmDebitCard method
      * This method is willingly generated in order to preserve the one-line inline validation within the setMidocoCrmDebitCard method
+     * This has to validate that each item contained by the array match the itemType constraint
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateMidocoCrmDebitCardForArrayConstraintsFromSetMidocoCrmDebitCard(array $values = []): string
+    public static function validateMidocoCrmDebitCardForArrayConstraintFromSetMidocoCrmDebitCard(?array $values = []): string
     {
+        if (!is_array($values)) {
+            return '';
+        }
         $message = '';
         $invalidValues = [];
         foreach ($values as $saveMidocoAgencyRequestMidocoCrmDebitCardItem) {
@@ -151,10 +156,10 @@ class SaveMidocoAgencyRequest extends AbstractStructBase
      * @param \Pggns\MidocoApi\Crmsd\StructType\MidocoCrmDebitCard[] $midocoCrmDebitCard
      * @return \Pggns\MidocoApi\Crmsd\StructType\SaveMidocoAgencyRequest
      */
-    public function setMidocoCrmDebitCard(array $midocoCrmDebitCard = []): self
+    public function setMidocoCrmDebitCard(?array $midocoCrmDebitCard = null): self
     {
         // validation for constraint: array
-        if ('' !== ($midocoCrmDebitCardArrayErrorMessage = self::validateMidocoCrmDebitCardForArrayConstraintsFromSetMidocoCrmDebitCard($midocoCrmDebitCard))) {
+        if ('' !== ($midocoCrmDebitCardArrayErrorMessage = self::validateMidocoCrmDebitCardForArrayConstraintFromSetMidocoCrmDebitCard($midocoCrmDebitCard))) {
             throw new InvalidArgumentException($midocoCrmDebitCardArrayErrorMessage, __LINE__);
         }
         $this->MidocoCrmDebitCard = $midocoCrmDebitCard;
@@ -200,18 +205,22 @@ class SaveMidocoAgencyRequest extends AbstractStructBase
      * Get MidocoAgencyCommission value
      * @return \Pggns\MidocoApi\Crmsd\StructType\AgencyCommissionDTO[]
      */
-    public function getMidocoAgencyCommission(): array
+    public function getMidocoAgencyCommission(): ?array
     {
         return $this->MidocoAgencyCommission;
     }
     /**
-     * This method is responsible for validating the values passed to the setMidocoAgencyCommission method
+     * This method is responsible for validating the value(s) passed to the setMidocoAgencyCommission method
      * This method is willingly generated in order to preserve the one-line inline validation within the setMidocoAgencyCommission method
+     * This has to validate that each item contained by the array match the itemType constraint
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateMidocoAgencyCommissionForArrayConstraintsFromSetMidocoAgencyCommission(array $values = []): string
+    public static function validateMidocoAgencyCommissionForArrayConstraintFromSetMidocoAgencyCommission(?array $values = []): string
     {
+        if (!is_array($values)) {
+            return '';
+        }
         $message = '';
         $invalidValues = [];
         foreach ($values as $saveMidocoAgencyRequestMidocoAgencyCommissionItem) {
@@ -233,10 +242,10 @@ class SaveMidocoAgencyRequest extends AbstractStructBase
      * @param \Pggns\MidocoApi\Crmsd\StructType\AgencyCommissionDTO[] $midocoAgencyCommission
      * @return \Pggns\MidocoApi\Crmsd\StructType\SaveMidocoAgencyRequest
      */
-    public function setMidocoAgencyCommission(array $midocoAgencyCommission = []): self
+    public function setMidocoAgencyCommission(?array $midocoAgencyCommission = null): self
     {
         // validation for constraint: array
-        if ('' !== ($midocoAgencyCommissionArrayErrorMessage = self::validateMidocoAgencyCommissionForArrayConstraintsFromSetMidocoAgencyCommission($midocoAgencyCommission))) {
+        if ('' !== ($midocoAgencyCommissionArrayErrorMessage = self::validateMidocoAgencyCommissionForArrayConstraintFromSetMidocoAgencyCommission($midocoAgencyCommission))) {
             throw new InvalidArgumentException($midocoAgencyCommissionArrayErrorMessage, __LINE__);
         }
         $this->MidocoAgencyCommission = $midocoAgencyCommission;

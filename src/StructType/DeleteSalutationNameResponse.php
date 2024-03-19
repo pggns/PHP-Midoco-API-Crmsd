@@ -13,6 +13,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * - documentation: deleteSalutationName --- deletes a salutation name. returns void
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class DeleteSalutationNameResponse extends AbstractStructBase
 {
 }

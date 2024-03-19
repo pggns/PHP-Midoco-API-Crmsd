@@ -11,6 +11,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * This class stands for DeleteCustomerDefinedFieldResponse StructType
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class DeleteCustomerDefinedFieldResponse extends AbstractStructBase
 {
 }

@@ -13,6 +13,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * - documentation: getDebitor --- returns a debitor assigned to a customer if it is present; the debitor assigned to the org unit otherwise
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class GetDebitorResponse extends AbstractStructBase
 {
     /**

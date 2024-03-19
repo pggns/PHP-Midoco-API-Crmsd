@@ -11,6 +11,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * This class stands for ListCriteriaTypeCategoriesRequest StructType
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class ListCriteriaTypeCategoriesRequest extends AbstractStructBase
 {
     /**

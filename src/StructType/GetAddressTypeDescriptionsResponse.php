@@ -11,6 +11,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * This class stands for GetAddressTypeDescriptionsResponse StructType
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class GetAddressTypeDescriptionsResponse extends AbstractStructBase
 {
     /**
@@ -21,13 +22,13 @@ class GetAddressTypeDescriptionsResponse extends AbstractStructBase
      * - ref: MidocoAddressTypeDescription
      * @var \Pggns\MidocoApi\Crmsd\StructType\AddressTypeDescriptionDTO[]
      */
-    protected array $MidocoAddressTypeDescription = [];
+    protected ?array $MidocoAddressTypeDescription = null;
     /**
      * Constructor method for GetAddressTypeDescriptionsResponse
      * @uses GetAddressTypeDescriptionsResponse::setMidocoAddressTypeDescription()
      * @param \Pggns\MidocoApi\Crmsd\StructType\AddressTypeDescriptionDTO[] $midocoAddressTypeDescription
      */
-    public function __construct(array $midocoAddressTypeDescription = [])
+    public function __construct(?array $midocoAddressTypeDescription = null)
     {
         $this
             ->setMidocoAddressTypeDescription($midocoAddressTypeDescription);
@@ -36,18 +37,22 @@ class GetAddressTypeDescriptionsResponse extends AbstractStructBase
      * Get MidocoAddressTypeDescription value
      * @return \Pggns\MidocoApi\Crmsd\StructType\AddressTypeDescriptionDTO[]
      */
-    public function getMidocoAddressTypeDescription(): array
+    public function getMidocoAddressTypeDescription(): ?array
     {
         return $this->MidocoAddressTypeDescription;
     }
     /**
-     * This method is responsible for validating the values passed to the setMidocoAddressTypeDescription method
+     * This method is responsible for validating the value(s) passed to the setMidocoAddressTypeDescription method
      * This method is willingly generated in order to preserve the one-line inline validation within the setMidocoAddressTypeDescription method
+     * This has to validate that each item contained by the array match the itemType constraint
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateMidocoAddressTypeDescriptionForArrayConstraintsFromSetMidocoAddressTypeDescription(array $values = []): string
+    public static function validateMidocoAddressTypeDescriptionForArrayConstraintFromSetMidocoAddressTypeDescription(?array $values = []): string
     {
+        if (!is_array($values)) {
+            return '';
+        }
         $message = '';
         $invalidValues = [];
         foreach ($values as $getAddressTypeDescriptionsResponseMidocoAddressTypeDescriptionItem) {
@@ -69,10 +74,10 @@ class GetAddressTypeDescriptionsResponse extends AbstractStructBase
      * @param \Pggns\MidocoApi\Crmsd\StructType\AddressTypeDescriptionDTO[] $midocoAddressTypeDescription
      * @return \Pggns\MidocoApi\Crmsd\StructType\GetAddressTypeDescriptionsResponse
      */
-    public function setMidocoAddressTypeDescription(array $midocoAddressTypeDescription = []): self
+    public function setMidocoAddressTypeDescription(?array $midocoAddressTypeDescription = null): self
     {
         // validation for constraint: array
-        if ('' !== ($midocoAddressTypeDescriptionArrayErrorMessage = self::validateMidocoAddressTypeDescriptionForArrayConstraintsFromSetMidocoAddressTypeDescription($midocoAddressTypeDescription))) {
+        if ('' !== ($midocoAddressTypeDescriptionArrayErrorMessage = self::validateMidocoAddressTypeDescriptionForArrayConstraintFromSetMidocoAddressTypeDescription($midocoAddressTypeDescription))) {
             throw new InvalidArgumentException($midocoAddressTypeDescriptionArrayErrorMessage, __LINE__);
         }
         $this->MidocoAddressTypeDescription = $midocoAddressTypeDescription;

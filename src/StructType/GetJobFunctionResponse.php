@@ -11,6 +11,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * This class stands for GetJobFunctionResponse StructType
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class GetJobFunctionResponse extends AbstractStructBase
 {
     /**
@@ -21,13 +22,13 @@ class GetJobFunctionResponse extends AbstractStructBase
      * - ref: MidocoJobFunction
      * @var \Pggns\MidocoApi\Crmsd\StructType\JobFunctionDTO[]
      */
-    protected array $MidocoJobFunction = [];
+    protected ?array $MidocoJobFunction = null;
     /**
      * Constructor method for GetJobFunctionResponse
      * @uses GetJobFunctionResponse::setMidocoJobFunction()
      * @param \Pggns\MidocoApi\Crmsd\StructType\JobFunctionDTO[] $midocoJobFunction
      */
-    public function __construct(array $midocoJobFunction = [])
+    public function __construct(?array $midocoJobFunction = null)
     {
         $this
             ->setMidocoJobFunction($midocoJobFunction);
@@ -36,18 +37,22 @@ class GetJobFunctionResponse extends AbstractStructBase
      * Get MidocoJobFunction value
      * @return \Pggns\MidocoApi\Crmsd\StructType\JobFunctionDTO[]
      */
-    public function getMidocoJobFunction(): array
+    public function getMidocoJobFunction(): ?array
     {
         return $this->MidocoJobFunction;
     }
     /**
-     * This method is responsible for validating the values passed to the setMidocoJobFunction method
+     * This method is responsible for validating the value(s) passed to the setMidocoJobFunction method
      * This method is willingly generated in order to preserve the one-line inline validation within the setMidocoJobFunction method
+     * This has to validate that each item contained by the array match the itemType constraint
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateMidocoJobFunctionForArrayConstraintsFromSetMidocoJobFunction(array $values = []): string
+    public static function validateMidocoJobFunctionForArrayConstraintFromSetMidocoJobFunction(?array $values = []): string
     {
+        if (!is_array($values)) {
+            return '';
+        }
         $message = '';
         $invalidValues = [];
         foreach ($values as $getJobFunctionResponseMidocoJobFunctionItem) {
@@ -69,10 +74,10 @@ class GetJobFunctionResponse extends AbstractStructBase
      * @param \Pggns\MidocoApi\Crmsd\StructType\JobFunctionDTO[] $midocoJobFunction
      * @return \Pggns\MidocoApi\Crmsd\StructType\GetJobFunctionResponse
      */
-    public function setMidocoJobFunction(array $midocoJobFunction = []): self
+    public function setMidocoJobFunction(?array $midocoJobFunction = null): self
     {
         // validation for constraint: array
-        if ('' !== ($midocoJobFunctionArrayErrorMessage = self::validateMidocoJobFunctionForArrayConstraintsFromSetMidocoJobFunction($midocoJobFunction))) {
+        if ('' !== ($midocoJobFunctionArrayErrorMessage = self::validateMidocoJobFunctionForArrayConstraintFromSetMidocoJobFunction($midocoJobFunction))) {
             throw new InvalidArgumentException($midocoJobFunctionArrayErrorMessage, __LINE__);
         }
         $this->MidocoJobFunction = $midocoJobFunction;

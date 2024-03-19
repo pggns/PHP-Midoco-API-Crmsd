@@ -11,6 +11,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * This class stands for GetCriteriaTypeCategoryDescriptionsResponse StructType
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class GetCriteriaTypeCategoryDescriptionsResponse extends AbstractStructBase
 {
     /**
@@ -21,13 +22,13 @@ class GetCriteriaTypeCategoryDescriptionsResponse extends AbstractStructBase
      * - ref: MidocoCriteriaTypeCategoryDescription
      * @var \Pggns\MidocoApi\Crmsd\StructType\CritTypeCatDescrDTO[]
      */
-    protected array $MidocoCriteriaTypeCategoryDescription = [];
+    protected ?array $MidocoCriteriaTypeCategoryDescription = null;
     /**
      * Constructor method for GetCriteriaTypeCategoryDescriptionsResponse
      * @uses GetCriteriaTypeCategoryDescriptionsResponse::setMidocoCriteriaTypeCategoryDescription()
      * @param \Pggns\MidocoApi\Crmsd\StructType\CritTypeCatDescrDTO[] $midocoCriteriaTypeCategoryDescription
      */
-    public function __construct(array $midocoCriteriaTypeCategoryDescription = [])
+    public function __construct(?array $midocoCriteriaTypeCategoryDescription = null)
     {
         $this
             ->setMidocoCriteriaTypeCategoryDescription($midocoCriteriaTypeCategoryDescription);
@@ -36,18 +37,22 @@ class GetCriteriaTypeCategoryDescriptionsResponse extends AbstractStructBase
      * Get MidocoCriteriaTypeCategoryDescription value
      * @return \Pggns\MidocoApi\Crmsd\StructType\CritTypeCatDescrDTO[]
      */
-    public function getMidocoCriteriaTypeCategoryDescription(): array
+    public function getMidocoCriteriaTypeCategoryDescription(): ?array
     {
         return $this->MidocoCriteriaTypeCategoryDescription;
     }
     /**
-     * This method is responsible for validating the values passed to the setMidocoCriteriaTypeCategoryDescription method
+     * This method is responsible for validating the value(s) passed to the setMidocoCriteriaTypeCategoryDescription method
      * This method is willingly generated in order to preserve the one-line inline validation within the setMidocoCriteriaTypeCategoryDescription method
+     * This has to validate that each item contained by the array match the itemType constraint
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateMidocoCriteriaTypeCategoryDescriptionForArrayConstraintsFromSetMidocoCriteriaTypeCategoryDescription(array $values = []): string
+    public static function validateMidocoCriteriaTypeCategoryDescriptionForArrayConstraintFromSetMidocoCriteriaTypeCategoryDescription(?array $values = []): string
     {
+        if (!is_array($values)) {
+            return '';
+        }
         $message = '';
         $invalidValues = [];
         foreach ($values as $getCriteriaTypeCategoryDescriptionsResponseMidocoCriteriaTypeCategoryDescriptionItem) {
@@ -69,10 +74,10 @@ class GetCriteriaTypeCategoryDescriptionsResponse extends AbstractStructBase
      * @param \Pggns\MidocoApi\Crmsd\StructType\CritTypeCatDescrDTO[] $midocoCriteriaTypeCategoryDescription
      * @return \Pggns\MidocoApi\Crmsd\StructType\GetCriteriaTypeCategoryDescriptionsResponse
      */
-    public function setMidocoCriteriaTypeCategoryDescription(array $midocoCriteriaTypeCategoryDescription = []): self
+    public function setMidocoCriteriaTypeCategoryDescription(?array $midocoCriteriaTypeCategoryDescription = null): self
     {
         // validation for constraint: array
-        if ('' !== ($midocoCriteriaTypeCategoryDescriptionArrayErrorMessage = self::validateMidocoCriteriaTypeCategoryDescriptionForArrayConstraintsFromSetMidocoCriteriaTypeCategoryDescription($midocoCriteriaTypeCategoryDescription))) {
+        if ('' !== ($midocoCriteriaTypeCategoryDescriptionArrayErrorMessage = self::validateMidocoCriteriaTypeCategoryDescriptionForArrayConstraintFromSetMidocoCriteriaTypeCategoryDescription($midocoCriteriaTypeCategoryDescription))) {
             throw new InvalidArgumentException($midocoCriteriaTypeCategoryDescriptionArrayErrorMessage, __LINE__);
         }
         $this->MidocoCriteriaTypeCategoryDescription = $midocoCriteriaTypeCategoryDescription;

@@ -13,6 +13,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * - documentation: deleteContactSource --- deletes a ContactSource. returns void
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class DeleteContactSourceResponse extends AbstractStructBase
 {
     /**

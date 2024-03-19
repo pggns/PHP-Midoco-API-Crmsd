@@ -11,6 +11,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * This class stands for DeleteAgencyCooperationHistoryRequest StructType
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class DeleteAgencyCooperationHistoryRequest extends AbstractStructBase
 {
     /**

@@ -11,6 +11,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * This class stands for LinkedSupplierIdForCompanyResponse StructType
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class LinkedSupplierIdForCompanyResponse extends AbstractStructBase
 {
     /**

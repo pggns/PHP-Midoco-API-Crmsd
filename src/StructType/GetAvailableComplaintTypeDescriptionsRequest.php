@@ -13,6 +13,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * - documentation: request the available complaint type descriptions
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class GetAvailableComplaintTypeDescriptionsRequest extends AbstractStructBase
 {
 }

@@ -11,6 +11,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * This class stands for InitMidocoMandateResponse StructType
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class InitMidocoMandateResponse extends AbstractStructBase
 {
     /**

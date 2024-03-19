@@ -13,6 +13,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * - documentation: getDocuments --- returns the list of documents corresponding to a customer having the id CustomerId
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class GetDocumentsResponse extends AbstractStructBase
 {
     /**
@@ -23,7 +24,7 @@ class GetDocumentsResponse extends AbstractStructBase
      * - ref: MidocoCrmDocument
      * @var \Pggns\MidocoApi\Crmsd\StructType\CrmDocumentDTO[]
      */
-    protected array $MidocoCrmDocument = [];
+    protected ?array $MidocoCrmDocument = null;
     /**
      * The totalNoOfRecords
      * @var int|null
@@ -36,7 +37,7 @@ class GetDocumentsResponse extends AbstractStructBase
      * @param \Pggns\MidocoApi\Crmsd\StructType\CrmDocumentDTO[] $midocoCrmDocument
      * @param int $totalNoOfRecords
      */
-    public function __construct(array $midocoCrmDocument = [], ?int $totalNoOfRecords = null)
+    public function __construct(?array $midocoCrmDocument = null, ?int $totalNoOfRecords = null)
     {
         $this
             ->setMidocoCrmDocument($midocoCrmDocument)
@@ -46,18 +47,22 @@ class GetDocumentsResponse extends AbstractStructBase
      * Get MidocoCrmDocument value
      * @return \Pggns\MidocoApi\Crmsd\StructType\CrmDocumentDTO[]
      */
-    public function getMidocoCrmDocument(): array
+    public function getMidocoCrmDocument(): ?array
     {
         return $this->MidocoCrmDocument;
     }
     /**
-     * This method is responsible for validating the values passed to the setMidocoCrmDocument method
+     * This method is responsible for validating the value(s) passed to the setMidocoCrmDocument method
      * This method is willingly generated in order to preserve the one-line inline validation within the setMidocoCrmDocument method
+     * This has to validate that each item contained by the array match the itemType constraint
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateMidocoCrmDocumentForArrayConstraintsFromSetMidocoCrmDocument(array $values = []): string
+    public static function validateMidocoCrmDocumentForArrayConstraintFromSetMidocoCrmDocument(?array $values = []): string
     {
+        if (!is_array($values)) {
+            return '';
+        }
         $message = '';
         $invalidValues = [];
         foreach ($values as $getDocumentsResponseMidocoCrmDocumentItem) {
@@ -79,10 +84,10 @@ class GetDocumentsResponse extends AbstractStructBase
      * @param \Pggns\MidocoApi\Crmsd\StructType\CrmDocumentDTO[] $midocoCrmDocument
      * @return \Pggns\MidocoApi\Crmsd\StructType\GetDocumentsResponse
      */
-    public function setMidocoCrmDocument(array $midocoCrmDocument = []): self
+    public function setMidocoCrmDocument(?array $midocoCrmDocument = null): self
     {
         // validation for constraint: array
-        if ('' !== ($midocoCrmDocumentArrayErrorMessage = self::validateMidocoCrmDocumentForArrayConstraintsFromSetMidocoCrmDocument($midocoCrmDocument))) {
+        if ('' !== ($midocoCrmDocumentArrayErrorMessage = self::validateMidocoCrmDocumentForArrayConstraintFromSetMidocoCrmDocument($midocoCrmDocument))) {
             throw new InvalidArgumentException($midocoCrmDocumentArrayErrorMessage, __LINE__);
         }
         $this->MidocoCrmDocument = $midocoCrmDocument;

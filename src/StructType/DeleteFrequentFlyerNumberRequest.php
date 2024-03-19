@@ -11,6 +11,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * This class stands for DeleteFrequentFlyerNumberRequest StructType
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class DeleteFrequentFlyerNumberRequest extends AbstractStructBase
 {
     /**

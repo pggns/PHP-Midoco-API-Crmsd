@@ -15,6 +15,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * set, the CrmAddressDTO structure is put in the return DTO and the error code is set to 0 to simulate a validation. When a validation is successful, the resulting embedded CrmAddressDTO will have the validated flag set
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class ValidateAddressResponse extends AbstractStructBase
 {
     /**
@@ -33,7 +34,7 @@ class ValidateAddressResponse extends AbstractStructBase
      * - ref: MidocoAddressValidate
      * @var \Pggns\MidocoApi\Crmsd\StructType\AddressValidateDTO[]
      */
-    protected array $MidocoAddressValidate = [];
+    protected ?array $MidocoAddressValidate = null;
     /**
      * The errorCode
      * @var string|null
@@ -62,7 +63,7 @@ class ValidateAddressResponse extends AbstractStructBase
      * @param string $errorText
      * @param string $validationId
      */
-    public function __construct(?\Pggns\MidocoApi\Crmsd\StructType\MidocoCrmAddress $midocoCrmAddress = null, array $midocoAddressValidate = [], ?string $errorCode = null, ?string $errorText = null, ?string $validationId = null)
+    public function __construct(?\Pggns\MidocoApi\Crmsd\StructType\MidocoCrmAddress $midocoCrmAddress = null, ?array $midocoAddressValidate = null, ?string $errorCode = null, ?string $errorText = null, ?string $validationId = null)
     {
         $this
             ->setMidocoCrmAddress($midocoCrmAddress)
@@ -94,18 +95,22 @@ class ValidateAddressResponse extends AbstractStructBase
      * Get MidocoAddressValidate value
      * @return \Pggns\MidocoApi\Crmsd\StructType\AddressValidateDTO[]
      */
-    public function getMidocoAddressValidate(): array
+    public function getMidocoAddressValidate(): ?array
     {
         return $this->MidocoAddressValidate;
     }
     /**
-     * This method is responsible for validating the values passed to the setMidocoAddressValidate method
+     * This method is responsible for validating the value(s) passed to the setMidocoAddressValidate method
      * This method is willingly generated in order to preserve the one-line inline validation within the setMidocoAddressValidate method
+     * This has to validate that each item contained by the array match the itemType constraint
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateMidocoAddressValidateForArrayConstraintsFromSetMidocoAddressValidate(array $values = []): string
+    public static function validateMidocoAddressValidateForArrayConstraintFromSetMidocoAddressValidate(?array $values = []): string
     {
+        if (!is_array($values)) {
+            return '';
+        }
         $message = '';
         $invalidValues = [];
         foreach ($values as $validateAddressResponseMidocoAddressValidateItem) {
@@ -127,10 +132,10 @@ class ValidateAddressResponse extends AbstractStructBase
      * @param \Pggns\MidocoApi\Crmsd\StructType\AddressValidateDTO[] $midocoAddressValidate
      * @return \Pggns\MidocoApi\Crmsd\StructType\ValidateAddressResponse
      */
-    public function setMidocoAddressValidate(array $midocoAddressValidate = []): self
+    public function setMidocoAddressValidate(?array $midocoAddressValidate = null): self
     {
         // validation for constraint: array
-        if ('' !== ($midocoAddressValidateArrayErrorMessage = self::validateMidocoAddressValidateForArrayConstraintsFromSetMidocoAddressValidate($midocoAddressValidate))) {
+        if ('' !== ($midocoAddressValidateArrayErrorMessage = self::validateMidocoAddressValidateForArrayConstraintFromSetMidocoAddressValidate($midocoAddressValidate))) {
             throw new InvalidArgumentException($midocoAddressValidateArrayErrorMessage, __LINE__);
         }
         $this->MidocoAddressValidate = $midocoAddressValidate;

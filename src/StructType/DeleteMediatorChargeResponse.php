@@ -13,6 +13,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * - documentation: deleteMediatorCharge --- deletes the mediator charge identified by the customer id and the charge id
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class DeleteMediatorChargeResponse extends AbstractStructBase
 {
 }

@@ -11,6 +11,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * This class stands for RemoveCriteriaTypesFromCategoryRequest StructType
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class RemoveCriteriaTypesFromCategoryRequest extends AbstractStructBase
 {
     /**
@@ -28,7 +29,7 @@ class RemoveCriteriaTypesFromCategoryRequest extends AbstractStructBase
      * - ref: MidocoCriteriaTypeId
      * @var string[]
      */
-    protected array $MidocoCriteriaTypeId = [];
+    protected ?array $MidocoCriteriaTypeId = null;
     /**
      * Constructor method for RemoveCriteriaTypesFromCategoryRequest
      * @uses RemoveCriteriaTypesFromCategoryRequest::setCategoryId()
@@ -36,7 +37,7 @@ class RemoveCriteriaTypesFromCategoryRequest extends AbstractStructBase
      * @param int $categoryId
      * @param string[] $midocoCriteriaTypeId
      */
-    public function __construct(int $categoryId, array $midocoCriteriaTypeId = [])
+    public function __construct(int $categoryId, ?array $midocoCriteriaTypeId = null)
     {
         $this
             ->setCategoryId($categoryId)
@@ -69,18 +70,22 @@ class RemoveCriteriaTypesFromCategoryRequest extends AbstractStructBase
      * Get MidocoCriteriaTypeId value
      * @return string[]
      */
-    public function getMidocoCriteriaTypeId(): array
+    public function getMidocoCriteriaTypeId(): ?array
     {
         return $this->MidocoCriteriaTypeId;
     }
     /**
-     * This method is responsible for validating the values passed to the setMidocoCriteriaTypeId method
+     * This method is responsible for validating the value(s) passed to the setMidocoCriteriaTypeId method
      * This method is willingly generated in order to preserve the one-line inline validation within the setMidocoCriteriaTypeId method
+     * This has to validate that each item contained by the array match the itemType constraint
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateMidocoCriteriaTypeIdForArrayConstraintsFromSetMidocoCriteriaTypeId(array $values = []): string
+    public static function validateMidocoCriteriaTypeIdForArrayConstraintFromSetMidocoCriteriaTypeId(?array $values = []): string
     {
+        if (!is_array($values)) {
+            return '';
+        }
         $message = '';
         $invalidValues = [];
         foreach ($values as $removeCriteriaTypesFromCategoryRequestMidocoCriteriaTypeIdItem) {
@@ -102,10 +107,10 @@ class RemoveCriteriaTypesFromCategoryRequest extends AbstractStructBase
      * @param string[] $midocoCriteriaTypeId
      * @return \Pggns\MidocoApi\Crmsd\StructType\RemoveCriteriaTypesFromCategoryRequest
      */
-    public function setMidocoCriteriaTypeId(array $midocoCriteriaTypeId = []): self
+    public function setMidocoCriteriaTypeId(?array $midocoCriteriaTypeId = null): self
     {
         // validation for constraint: array
-        if ('' !== ($midocoCriteriaTypeIdArrayErrorMessage = self::validateMidocoCriteriaTypeIdForArrayConstraintsFromSetMidocoCriteriaTypeId($midocoCriteriaTypeId))) {
+        if ('' !== ($midocoCriteriaTypeIdArrayErrorMessage = self::validateMidocoCriteriaTypeIdForArrayConstraintFromSetMidocoCriteriaTypeId($midocoCriteriaTypeId))) {
             throw new InvalidArgumentException($midocoCriteriaTypeIdArrayErrorMessage, __LINE__);
         }
         $this->MidocoCriteriaTypeId = $midocoCriteriaTypeId;

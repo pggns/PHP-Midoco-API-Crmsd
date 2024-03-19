@@ -11,6 +11,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * This class stands for GetDictionaryNameResponse StructType
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class GetDictionaryNameResponse extends AbstractStructBase
 {
     /**
@@ -21,13 +22,13 @@ class GetDictionaryNameResponse extends AbstractStructBase
      * - ref: MidocoDictionaryName
      * @var \Pggns\MidocoApi\Crmsd\StructType\DictionaryNameDTO[]
      */
-    protected array $MidocoDictionaryName = [];
+    protected ?array $MidocoDictionaryName = null;
     /**
      * Constructor method for GetDictionaryNameResponse
      * @uses GetDictionaryNameResponse::setMidocoDictionaryName()
      * @param \Pggns\MidocoApi\Crmsd\StructType\DictionaryNameDTO[] $midocoDictionaryName
      */
-    public function __construct(array $midocoDictionaryName = [])
+    public function __construct(?array $midocoDictionaryName = null)
     {
         $this
             ->setMidocoDictionaryName($midocoDictionaryName);
@@ -36,18 +37,22 @@ class GetDictionaryNameResponse extends AbstractStructBase
      * Get MidocoDictionaryName value
      * @return \Pggns\MidocoApi\Crmsd\StructType\DictionaryNameDTO[]
      */
-    public function getMidocoDictionaryName(): array
+    public function getMidocoDictionaryName(): ?array
     {
         return $this->MidocoDictionaryName;
     }
     /**
-     * This method is responsible for validating the values passed to the setMidocoDictionaryName method
+     * This method is responsible for validating the value(s) passed to the setMidocoDictionaryName method
      * This method is willingly generated in order to preserve the one-line inline validation within the setMidocoDictionaryName method
+     * This has to validate that each item contained by the array match the itemType constraint
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateMidocoDictionaryNameForArrayConstraintsFromSetMidocoDictionaryName(array $values = []): string
+    public static function validateMidocoDictionaryNameForArrayConstraintFromSetMidocoDictionaryName(?array $values = []): string
     {
+        if (!is_array($values)) {
+            return '';
+        }
         $message = '';
         $invalidValues = [];
         foreach ($values as $getDictionaryNameResponseMidocoDictionaryNameItem) {
@@ -69,10 +74,10 @@ class GetDictionaryNameResponse extends AbstractStructBase
      * @param \Pggns\MidocoApi\Crmsd\StructType\DictionaryNameDTO[] $midocoDictionaryName
      * @return \Pggns\MidocoApi\Crmsd\StructType\GetDictionaryNameResponse
      */
-    public function setMidocoDictionaryName(array $midocoDictionaryName = []): self
+    public function setMidocoDictionaryName(?array $midocoDictionaryName = null): self
     {
         // validation for constraint: array
-        if ('' !== ($midocoDictionaryNameArrayErrorMessage = self::validateMidocoDictionaryNameForArrayConstraintsFromSetMidocoDictionaryName($midocoDictionaryName))) {
+        if ('' !== ($midocoDictionaryNameArrayErrorMessage = self::validateMidocoDictionaryNameForArrayConstraintFromSetMidocoDictionaryName($midocoDictionaryName))) {
             throw new InvalidArgumentException($midocoDictionaryNameArrayErrorMessage, __LINE__);
         }
         $this->MidocoDictionaryName = $midocoDictionaryName;

@@ -11,6 +11,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * This class stands for RecordCardInfoAccessResponse StructType
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class RecordCardInfoAccessResponse extends AbstractStructBase
 {
     /**

@@ -11,6 +11,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * This class stands for GetExportChangedCustomersRequest StructType
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class GetExportChangedCustomersRequest extends AbstractStructBase
 {
     /**

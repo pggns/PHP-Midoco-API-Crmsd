@@ -13,6 +13,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * - documentation: getSalutationForCulture --- returns the salutation for a salutation id and culture
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class GetSalutationForCultureResponse extends AbstractStructBase
 {
     /**

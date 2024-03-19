@@ -11,6 +11,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * This class stands for GetCustomerAssignableDebitorsResponse StructType
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class GetCustomerAssignableDebitorsResponse extends AbstractStructBase
 {
     /**
@@ -18,45 +19,49 @@ class GetCustomerAssignableDebitorsResponse extends AbstractStructBase
      * Meta information extracted from the WSDL
      * - maxOccurs: unbounded
      * - minOccurs: 0
-     * @var mixed[]
+     * @var string[]
      */
-    protected array $MidocoDebitor = [];
+    protected ?array $MidocoDebitor = null;
     /**
      * Constructor method for GetCustomerAssignableDebitorsResponse
      * @uses GetCustomerAssignableDebitorsResponse::setMidocoDebitor()
-     * @param mixed[] $midocoDebitor
+     * @param string[] $midocoDebitor
      */
-    public function __construct(array $midocoDebitor = [])
+    public function __construct(?array $midocoDebitor = null)
     {
         $this
             ->setMidocoDebitor($midocoDebitor);
     }
     /**
      * Get MidocoDebitor value
-     * @return mixed[]
+     * @return string[]
      */
-    public function getMidocoDebitor(): array
+    public function getMidocoDebitor(): ?array
     {
         return $this->MidocoDebitor;
     }
     /**
-     * This method is responsible for validating the values passed to the setMidocoDebitor method
+     * This method is responsible for validating the value(s) passed to the setMidocoDebitor method
      * This method is willingly generated in order to preserve the one-line inline validation within the setMidocoDebitor method
+     * This has to validate that each item contained by the array match the itemType constraint
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateMidocoDebitorForArrayConstraintsFromSetMidocoDebitor(array $values = []): string
+    public static function validateMidocoDebitorForArrayConstraintFromSetMidocoDebitor(?array $values = []): string
     {
+        if (!is_array($values)) {
+            return '';
+        }
         $message = '';
         $invalidValues = [];
         foreach ($values as $getCustomerAssignableDebitorsResponseMidocoDebitorItem) {
             // validation for constraint: itemType
-            if (false) {
+            if (!is_string($getCustomerAssignableDebitorsResponseMidocoDebitorItem)) {
                 $invalidValues[] = is_object($getCustomerAssignableDebitorsResponseMidocoDebitorItem) ? get_class($getCustomerAssignableDebitorsResponseMidocoDebitorItem) : sprintf('%s(%s)', gettype($getCustomerAssignableDebitorsResponseMidocoDebitorItem), var_export($getCustomerAssignableDebitorsResponseMidocoDebitorItem, true));
             }
         }
         if (!empty($invalidValues)) {
-            $message = sprintf('The MidocoDebitor property can only contain items of type mixed, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
+            $message = sprintf('The MidocoDebitor property can only contain items of type string, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
         }
         unset($invalidValues);
         
@@ -65,13 +70,13 @@ class GetCustomerAssignableDebitorsResponse extends AbstractStructBase
     /**
      * Set MidocoDebitor value
      * @throws InvalidArgumentException
-     * @param mixed[] $midocoDebitor
+     * @param string[] $midocoDebitor
      * @return \Pggns\MidocoApi\Crmsd\StructType\GetCustomerAssignableDebitorsResponse
      */
-    public function setMidocoDebitor(array $midocoDebitor = []): self
+    public function setMidocoDebitor(?array $midocoDebitor = null): self
     {
         // validation for constraint: array
-        if ('' !== ($midocoDebitorArrayErrorMessage = self::validateMidocoDebitorForArrayConstraintsFromSetMidocoDebitor($midocoDebitor))) {
+        if ('' !== ($midocoDebitorArrayErrorMessage = self::validateMidocoDebitorForArrayConstraintFromSetMidocoDebitor($midocoDebitor))) {
             throw new InvalidArgumentException($midocoDebitorArrayErrorMessage, __LINE__);
         }
         $this->MidocoDebitor = $midocoDebitor;
@@ -81,14 +86,14 @@ class GetCustomerAssignableDebitorsResponse extends AbstractStructBase
     /**
      * Add item to MidocoDebitor value
      * @throws InvalidArgumentException
-     * @param mixed $item
+     * @param string $item
      * @return \Pggns\MidocoApi\Crmsd\StructType\GetCustomerAssignableDebitorsResponse
      */
-    public function addToMidocoDebitor(mixed $item): self
+    public function addToMidocoDebitor(string $item): self
     {
         // validation for constraint: itemType
-        if (false) {
-            throw new InvalidArgumentException(sprintf('The MidocoDebitor property can only contain items of type mixed, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
+        if (!is_string($item)) {
+            throw new InvalidArgumentException(sprintf('The MidocoDebitor property can only contain items of type string, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
         }
         $this->MidocoDebitor[] = $item;
         

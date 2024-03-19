@@ -13,6 +13,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * - documentation: retrieves the person titles from master data
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class GetTitlesRequest extends AbstractStructBase
 {
 }

@@ -13,6 +13,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * - documentation: setLastExecutedMediatorCharge --- set the last exec date and last exec user for a mediator charge, after the settlement
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class SetLastExecutedMediatorChargeResponse extends AbstractStructBase
 {
 }

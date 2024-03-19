@@ -11,6 +11,7 @@ use WsdlToPhp\PackageBase\AbstractStructBase;
  * This class stands for GetLinkedCrmCompaniesToSupplierResponse StructType
  * @subpackage Structs
  */
+#[\AllowDynamicProperties]
 class GetLinkedCrmCompaniesToSupplierResponse extends AbstractStructBase
 {
     /**
@@ -20,13 +21,13 @@ class GetLinkedCrmCompaniesToSupplierResponse extends AbstractStructBase
      * - minOccurs: 0
      * @var string[]
      */
-    protected array $orgUnit = [];
+    protected ?array $orgUnit = null;
     /**
      * Constructor method for GetLinkedCrmCompaniesToSupplierResponse
      * @uses GetLinkedCrmCompaniesToSupplierResponse::setOrgUnit()
      * @param string[] $orgUnit
      */
-    public function __construct(array $orgUnit = [])
+    public function __construct(?array $orgUnit = null)
     {
         $this
             ->setOrgUnit($orgUnit);
@@ -35,18 +36,22 @@ class GetLinkedCrmCompaniesToSupplierResponse extends AbstractStructBase
      * Get orgUnit value
      * @return string[]
      */
-    public function getOrgUnit(): array
+    public function getOrgUnit(): ?array
     {
         return $this->orgUnit;
     }
     /**
-     * This method is responsible for validating the values passed to the setOrgUnit method
+     * This method is responsible for validating the value(s) passed to the setOrgUnit method
      * This method is willingly generated in order to preserve the one-line inline validation within the setOrgUnit method
+     * This has to validate that each item contained by the array match the itemType constraint
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateOrgUnitForArrayConstraintsFromSetOrgUnit(array $values = []): string
+    public static function validateOrgUnitForArrayConstraintFromSetOrgUnit(?array $values = []): string
     {
+        if (!is_array($values)) {
+            return '';
+        }
         $message = '';
         $invalidValues = [];
         foreach ($values as $getLinkedCrmCompaniesToSupplierResponseOrgUnitItem) {
@@ -68,10 +73,10 @@ class GetLinkedCrmCompaniesToSupplierResponse extends AbstractStructBase
      * @param string[] $orgUnit
      * @return \Pggns\MidocoApi\Crmsd\StructType\GetLinkedCrmCompaniesToSupplierResponse
      */
-    public function setOrgUnit(array $orgUnit = []): self
+    public function setOrgUnit(?array $orgUnit = null): self
     {
         // validation for constraint: array
-        if ('' !== ($orgUnitArrayErrorMessage = self::validateOrgUnitForArrayConstraintsFromSetOrgUnit($orgUnit))) {
+        if ('' !== ($orgUnitArrayErrorMessage = self::validateOrgUnitForArrayConstraintFromSetOrgUnit($orgUnit))) {
             throw new InvalidArgumentException($orgUnitArrayErrorMessage, __LINE__);
         }
         $this->orgUnit = $orgUnit;
