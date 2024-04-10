@@ -10,7 +10,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Pggns\\MidocoApi\\Crmsd\\": "src"
+            "Pggns\\MidocoApi\\Crmsd\\": "./src/"
         }
     },
     "type": "library",
